@@ -7,15 +7,6 @@ NULL
 
 
 
-#' @rdname calculateMetrics
-#' @name calculateMetrics
-#' @importFrom AcidGenerics calculateMetrics
-#' @usage calculateMetrics(object, ...)
-#' @export
-NULL
-
-
-
 #' @rdname cell2sample
 #' @name cell2sample
 #' @importFrom AcidGenerics cell2sample
@@ -65,6 +56,15 @@ NULL
 #' @name metricsPerSample
 #' @importFrom AcidGenerics metricsPerSample
 #' @usage metricsPerSample(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname subsetPerSample
+#' @name subsetPerSample
+#' @importFrom AcidGenerics subsetPerSample
+#' @usage subsetPerSample(object, ...)
 #' @export
 NULL
 
