@@ -17,7 +17,7 @@ aggregateCols(x, ...)
 \item{...}{Additional arguments.}
 }
 \value{
-Modified object of same class, with columns aggregated.
+\code{SingleCellExperiment}.
 }
 \description{
 Aggregate columns
@@ -30,7 +30,7 @@ data(SingleCellExperiment_lanesplit, package = "AcidTest")
 
 ## SingleCellExperiment ====
 x <- SingleCellExperiment_lanesplit
-levels(colData(x)[["aggregate"]])
+levels(SummarizedExperiment::colData(x)[["aggregate"]])
 x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
 print(x)
 }

@@ -20,7 +20,8 @@
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
 #' @importFrom SummarizedExperiment colData colData<- rowRanges
-#' @importFrom goalie areDisjointSets assert hasColnames isString isSubset
+#' @importFrom goalie areDisjointSets assert hasColnames hasRownames hasRows
+#'   isString isSubset
 #' @importFrom methods validObject
 #' @importFrom utils packageName packageVersion
 NULL
