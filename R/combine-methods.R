@@ -1,28 +1,11 @@
-## FIXME SIMPLIFY DOCUMENTATION, REMOVING RSE EXAMPLE...
-## FIXME DOES THIS RETURN RSE OR SCE?
-
-
-
 #' @name combine
-#' @inherit AcidGenerics::combine return title
-#' @note Updated 2021-02-21.
+#' @inherit AcidExperiment::combine
+#' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
-#' @note We're attempting to make this as strict as possible, requiring:
-#'
-#' - Rows (genes) across objects must be identical.
-#' - [rowRanges][SummarizedExperiment::rowRanges] and/or
-#'   [rowData][SummarizedExperiment::rowData]
-#'   [metadata][S4Vectors::metadata] must be identical.
-#' - [colData][SummarizedExperiment::colData] must contain the same columns.
-#' - Specific metadata must be identical (see `metadata` argument).
-#'
-#' @seealso
-#' - `help("merge.Matrix", "Matrix.utils")`.
-#'
-#' @return `SummarizedExperiment`.
+#' @return `SingleCellExperiment`.
 #'
 #' @examples
 #' data(SingleCellExperiment, package = "AcidTest")

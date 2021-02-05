@@ -23,6 +23,7 @@
 #' @importFrom goalie areDisjointSets assert hasColnames hasRownames hasRows
 #'   isString isSubset
 #' @importFrom methods validObject
+#' @importFrom stringr str_match
 #' @importFrom utils packageName packageVersion
 NULL
 
