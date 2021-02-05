@@ -7,7 +7,7 @@
 \usage{
 aggregateCols(x, ...)
 
-\S4method{aggregateCols}{SingleCellExperiment}(x, fun)
+\S4method{aggregateCols}{SingleCellExperiment}(x, col = "aggregate", fun = "sum")
 }
 \arguments{
 \item{x}{Object.}
@@ -26,10 +26,11 @@ Aggregate columns
 Updated 2021-02-05.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
-sce <- SingleCellExperiment
+data(SingleCellExperiment_lanesplit, package = "AcidTest")
 
 ## SingleCellExperiment ====
-x <- cell2sample(sce)
-table(x)
+x <- SingleCellExperiment_lanesplit
+levels(colData(x)[["aggregate"]])
+x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
+print(x)
 }

@@ -12,6 +12,7 @@
 #' x <- SingleCellExperiment_lanesplit
 #' levels(colData(x)[["aggregate"]])
 #' x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
+#' print(x)
 NULL
 
 
@@ -27,6 +28,7 @@ NULL
     ) {
         validObject(x)
         assert(
+            hasColnames(x),
             isString(col),
             isString(fun)
         )
@@ -41,7 +43,6 @@ NULL
         )
         map <- colData(x)[, c(aggregateCol, sampleCol)]
         map[["cellId"]] <- rownames(map)
-        rownames(map) <- NULL
         alert(sprintf(
             "Remapping cells to aggregate samples: %s",
             toString(sort(levels(map[[aggregateCol]])), width = 100L)

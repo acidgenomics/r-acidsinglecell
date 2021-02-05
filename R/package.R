@@ -12,11 +12,15 @@
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
 #' @importFrom AcidBase formalsList methodFormals methodFunction
-#' @importFrom AcidExperiment matchSampleColumn
+#' @importFrom AcidCLI alert
+#' @importFrom AcidExperiment counts counts<- interestingGroups
+#'   matchSampleColumn
+#' @importFrom AcidGenerics metadata metadata<-
+#' @importFrom S4Vectors SimpleList
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom SummarizedExperiment colData colData<-
-#' @importFrom goalie areDisjointSets assert isString isSubset
+#' @importFrom SummarizedExperiment colData colData<- rowRanges
+#' @importFrom goalie areDisjointSets assert hasColnames isString isSubset
 #' @importFrom methods validObject
 #' @importFrom utils packageName packageVersion
 NULL
