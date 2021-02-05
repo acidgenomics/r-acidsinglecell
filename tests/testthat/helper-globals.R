@@ -11,3 +11,7 @@ sce <- SingleCellExperiment
 sce_seurat <- SingleCellExperiment_Seurat
 sce_lanesplit <- SingleCellExperiment_lanesplit
 ## nolint end
+
+## nolint start
+SingleCellExperiment <- SingleCellExperiment::SingleCellExperiment
+## nolint end
