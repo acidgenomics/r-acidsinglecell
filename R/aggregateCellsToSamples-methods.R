@@ -1,15 +1,14 @@
 #' @name aggregateCellsToSamples
 #' @inherit AcidGenerics::aggregateCellsToSamples
-#' @note Updated 2020-01-30.
+#' @note Updated 2021-02-05.
 #'
-#' @inheritParams aggregate
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
 #' @details
-#' Internally [aggregateCellsToSamples()] automatically obtains the
+#' Internally `aggregateCellsToSamples()` automatically obtains the
 #' cell-to-sample groupings and then performs a sum aggregation with the
-#' [aggregateCols()] function.
+#' `aggregateCols()` function.
 #'
 #' @examples
 #' data(SingleCellExperiment, package = "AcidTest")
