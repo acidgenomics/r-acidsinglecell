@@ -10,8 +10,8 @@ test_that("Return", {
     expect_identical(
         sd[samples, ],
         DataFrame(
-            sampleName = as.factor(samples),
-            interestingGroups = as.factor(samples),
+            "sampleName" = as.factor(samples),
+            "interestingGroups" = as.factor(samples),
             row.names = samples
         )
     )
@@ -27,26 +27,28 @@ test_that("No sample info", {
     expect_identical(
         sampleData(sce),
         DataFrame(
-            sampleName = factor("unknown"),
-            interestingGroups = factor("unknown"),
+            "sampleName" = factor("unknown"),
+            "interestingGroups" = factor("unknown"),
             row.names = "unknown"
         )
     )
 })
 
 test_that("Assignment", {
-    sd <- sampleData(sce) %>% .[sort(rownames(.)), , drop = FALSE]
+    sd <- sampleData(sce)
+    sd <- sd[sort(rownames(sd)), , drop = FALSE]
     batch <- as.factor(seq_len(nrow(sd)))
     sd[["batch"]] <- batch
     sampleData(sce) <- sd
-    sd <- sampleData(sce) %>% .[sort(rownames(.)), , drop = FALSE]
+    sd <- sampleData(sce)
+    sd <- sd[sort(rownames(sd)), , drop = FALSE]
     samples <- paste0("sample", seq(2L))
     expect_identical(
         object = sd,
         expected = DataFrame(
-            sampleName = as.factor(samples),
-            batch = batch,
-            interestingGroups = as.factor(samples),
+            "sampleName" = as.factor(samples),
+            "batch" = batch,
+            "interestingGroups" = as.factor(samples),
             row.names = samples
         )
     )
