@@ -11,6 +11,9 @@
 #' @importClassesFrom Matrix Matrix
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
+#' @importMethodsFrom SingleCellExperiment coerce
+#' @importMethodsFrom SummarizedExperiment coerce
+#'
 #' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
 #'   methodFunction printString realpath standardizeCall
 #' @importFrom AcidCLI alert alertInfo alertSuccess alertWarning dl txt ul
@@ -36,12 +39,4 @@
 #' @importFrom stringr str_match
 #' @importFrom syntactic camelCase
 #' @importFrom utils packageName packageVersion
-NULL
-
-
-
-#' @importFrom methods coerce
-#' @importMethodsFrom SingleCellExperiment coerce
-#' @importMethodsFrom SummarizedExperiment coerce
-#' @exportMethod coerce
 NULL
