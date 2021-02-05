@@ -15,8 +15,8 @@
 #' @importFrom AcidExperiment matchSampleColumn
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom SummarizedExperiment colData
-#' @importFrom goalie areDisjointSets assert isString
+#' @importFrom SummarizedExperiment colData colData<-
+#' @importFrom goalie areDisjointSets assert isString isSubset
 #' @importFrom methods validObject
 #' @importFrom utils packageName packageVersion
 NULL

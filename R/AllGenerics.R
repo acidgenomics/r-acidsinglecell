@@ -10,6 +10,7 @@ NULL
 #' @rdname aggregateCols
 #' @name aggregateCols
 #' @importFrom AcidGenerics aggregateCols
+#' @importMethodsFrom AcidExperiment aggregateCols
 #' @usage aggregateCols(x, ...)
 #' @export
 NULL
@@ -28,6 +29,7 @@ NULL
 #' @rdname combine
 #' @name combine
 #' @importFrom AcidGenerics combine
+#' @importMethodsFrom AcidExperiment combine
 #' @usage combine(x, y, ...)
 #' @export
 NULL
@@ -46,6 +48,8 @@ NULL
 #' @rdname export
 #' @name export
 #' @importFrom AcidGenerics export
+#' @importMethodsFrom AcidExperiment export
+#' @importMethodsFrom pipette export
 #' @usage export(object, ...)
 #' @export
 NULL
@@ -64,6 +68,7 @@ NULL
 #' @rdname geometricMean
 #' @name geometricMean
 #' @importFrom AcidGenerics geometricMean
+#' @importMethodsFrom AcidBase geometricMean
 #' @usage geometricMean(object, ...)
 #' @export
 NULL
@@ -73,6 +78,8 @@ NULL
 #' @rdname melt
 #' @name melt
 #' @importFrom AcidGenerics melt
+#' @importMethodsFrom AcidExperiment melt
+#' @importMethodsFrom AcidPlyr melt
 #' @usage melt(object, ...)
 #' @export
 NULL
@@ -82,6 +89,7 @@ NULL
 #' @rdname metrics
 #' @name metrics
 #' @importFrom AcidGenerics metrics
+#' @importMethodsFrom AcidExperiment metrics
 #' @usage metrics(object, ...)
 #' @export
 NULL
@@ -100,6 +108,7 @@ NULL
 #' @rdname sampleData
 #' @name sampleData
 #' @importFrom AcidGenerics sampleData
+#' @importMethodsFrom AcidExperiment sampleData
 #' @usage sampleData(object, ...)
 #' @export
 NULL
@@ -107,6 +116,7 @@ NULL
 #' @rdname sampleData
 #' @name sampleData<-
 #' @importFrom AcidGenerics sampleData<-
+#' @importMethodsFrom AcidExperiment sampleData<-
 #' @usage sampleData(object, ...) <- value
 #' @export
 NULL
@@ -116,6 +126,7 @@ NULL
 #' @rdname selectSamples
 #' @name selectSamples
 #' @importFrom AcidGenerics selectSamples
+#' @importMethodsFrom AcidExperiment selectSamples
 #' @usage selectSamples(object, ...)
 #' @export
 NULL
