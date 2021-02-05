@@ -11,19 +11,29 @@
 #' @importClassesFrom Matrix Matrix
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
-#' @importFrom AcidBase formalsList methodFormals methodFunction
-#' @importFrom AcidCLI alert
-#' @importFrom AcidExperiment counts counts<- interestingGroups
-#'   matchSampleColumn
-#' @importFrom AcidGenerics metadata metadata<-
-#' @importFrom S4Vectors SimpleList
+#' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
+#'   methodFunction realpath standardizeCall
+#' @importFrom AcidCLI alert alertInfo alertSuccess alertWarning dl ul
+#' @importFrom AcidExperiment calculateMetrics counts counts<- decode encode
+#'   interestingGroups matchInterestingGroups makeSummarizedExperiment
+#'   matchSampleColumn sampleNames uniteInterestingGroups
+#' @importFrom AcidGenerics head metadata metadata<- na.omit
+#' @importFrom AcidPlyr leftJoin mutateAll
+#' @importFrom IRanges DataFrameList
+#' @importFrom S4Vectors DataFrame SimpleList
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom SummarizedExperiment colData colData<- rowRanges
-#' @importFrom goalie areDisjointSets assert hasColnames hasRownames hasRows
-#'   isString isSubset
-#' @importFrom methods validObject
+#' @importFrom SummarizedExperiment assays colData colData<- rowRanges
+#' @importFrom goalie allAreMatchingRegex areDisjointSets assert bapply
+#'   hasColnames hasLength hasMetrics hasNames hasNoDuplicates
+#'   hasNonzeroRowsAndCols hasRownames hasRows hasValidNames isAny isCharacter
+#'   isFlag isInLeftOpenRange isInRange isInt isIntegerish isNonNegative
+#'   isPositive isScalar isString isSubset
+#' @importFrom methods as is validObject
+#' @importFrom pipette as_tibble assignAndSaveData tibble
+#' @importFrom scales percent
 #' @importFrom stringr str_match
+#' @importFrom syntactic camelCase
 #' @importFrom utils packageName packageVersion
 NULL
 
