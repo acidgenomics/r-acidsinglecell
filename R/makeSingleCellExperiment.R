@@ -1,14 +1,9 @@
-## FIXME Ensure rowRanges return unclassed as `GRanges` or `GRangesList` here,
-## not a special class from AcidGenomes.
-
-
-
 #' Make a SingleCellExperiment object
 #'
-#' @inherit makeSummarizedExperiment
+#' @inherit AcidExperiment::makeSummarizedExperiment
 #'
 #' @export
-#' @note Updated 2020-10-07.
+#' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
@@ -38,11 +33,11 @@
 #' )
 #' print(x)
 makeSingleCellExperiment <- function(
-    assays = SimpleList(),
-    rowRanges = GRangesList(),
-    colData = DataFrame(),
+    assays = S4Vectors::SimpleList(),
+    rowRanges = GenomicRanges::GRanges(),
+    colData = S4Vectors::DataFrame(),
     metadata = list(),
-    reducedDims = SimpleList(),
+    reducedDims = S4Vectors::SSimpleList(),
     transgeneNames = NULL
 ) {
     assert(
