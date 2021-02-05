@@ -24,7 +24,7 @@
 #' @importFrom S4Vectors DataFrame SimpleList
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom SummarizedExperiment assays colData colData<- rowRanges
+#' @importFrom SummarizedExperiment assay assays colData colData<- rowRanges
 #' @importFrom goalie allAreMatchingRegex areDisjointSets assert bapply
 #'   hasColnames hasLength hasMetrics hasNames hasNoDuplicates
 #'   hasNonzeroRowsAndCols hasRownames hasRows hasValidNames isAny isCharacter

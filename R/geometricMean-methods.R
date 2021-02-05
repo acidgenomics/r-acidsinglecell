@@ -7,10 +7,11 @@
 #' @param ... Additional arguments.
 #'
 #' @examples
+#' data(sparseMatrix, package = "AcidTest")
+#'
 #' ## Matrix ====
-#' sparse <- as(matrix, "sparseMatrix")
-#' print(sparse)
-#' geometricMean(sparse)
+#' x <- sparseMatrix
+#' geometricMean(x)
 NULL
 
 

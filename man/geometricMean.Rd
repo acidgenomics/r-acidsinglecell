@@ -33,8 +33,9 @@ Useful for describing non-normal (i.e. geometric) distributions.
 Updated 2021-02-02.
 }
 \examples{
+data(sparseMatrix, package = "AcidTest")
+
 ## Matrix ====
-sparse <- as(matrix, "sparseMatrix")
-print(sparse)
-geometricMean(sparse)
+x <- sparseMatrix
+geometricMean(x)
 }
