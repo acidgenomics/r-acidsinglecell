@@ -17,23 +17,13 @@ combine(x, y, ...)
 \item{...}{Additional arguments.}
 }
 \value{
-\code{SummarizedExperiment}.
+\code{SingleCellExperiment}.
 }
 \description{
 Combine multiple objects
 }
 \note{
-Updated 2021-02-21.
-
-We're attempting to make this as strict as possible, requiring:
-\itemize{
-\item Rows (genes) across objects must be identical.
-\item \link[SummarizedExperiment:RangedSummarizedExperiment-class]{rowRanges} and/or
-\link[SummarizedExperiment:SummarizedExperiment-class]{rowData}
-\link[S4Vectors:Annotated-class]{metadata} must be identical.
-\item \link[SummarizedExperiment:SummarizedExperiment-class]{colData} must contain the same columns.
-\item Specific metadata must be identical (see \code{metadata} argument).
-}
+Updated 2021-02-05.
 }
 \examples{
 data(SingleCellExperiment, package = "AcidTest")

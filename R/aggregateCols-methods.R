@@ -1,5 +1,5 @@
 #' @name aggregateCols
-#' @inherit AcidGenerics::aggregateCols
+#' @inherit AcidExperiment::aggregateCols
 #' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
@@ -18,8 +18,6 @@
 NULL
 
 
-
-## FIXME ALLOW THE USER TO DEFINE THE COLUMN NAME.
 
 ## Updated 2021-02-05.
 `aggregateCols,SCE` <-  # nolint
