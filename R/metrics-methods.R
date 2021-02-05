@@ -1,7 +1,7 @@
 #' @name metrics
 #' @inherit AcidGenerics::metrics
 #' @author Michael Steinbaugh, Rory Kirchner
-#' @note Updated 2021-02-02.
+#' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -70,7 +70,7 @@ setMethod(
     ) {
         fun <- match.arg(fun)
         return <- match.arg(return)
-        cli_alert(sprintf("Calculating %s per sample.", fun))
+        alert(sprintf("Calculating %s per sample.", fun))
         ## Consider using `getFromNamespace` here instead.
         ## Note that we're using uppercase here, because `fun` is matched arg.
         FUN <- get(fun, inherits = TRUE)  # nolint
