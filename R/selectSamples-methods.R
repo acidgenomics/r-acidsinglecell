@@ -9,7 +9,7 @@
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment
-#' sample <- sampleNames(object) %>% head(1L)
+#' sample <- sampleNames(object)[[1L]]
 #' print(sample)
 #' subset <- selectSamples(object, sampleName = sample)
 #' print(subset)
