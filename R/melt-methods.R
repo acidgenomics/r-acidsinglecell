@@ -43,9 +43,12 @@ NULL
         data
     }
 
-## FIXME REWORK THIS...
 formals(`melt,SCE`) <-
-    formals(`melt,SummarizedExperiment`)
+    methodFormals(
+        f = "melt",
+        signature = "SummarizedExperiment",
+        package = "AcidExperiment"
+    )
 
 
 

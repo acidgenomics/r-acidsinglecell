@@ -10,7 +10,7 @@
 
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
-#' @importFrom AcidBase formalsList methodFunction
+#' @importFrom AcidBase formalsList methodFormals methodFunction
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
 NULL
@@ -18,7 +18,6 @@ NULL
 
 
 #' @importFrom methods coerce
-#' @importMethodsFrom AcidExperiment coerce
 #' @importMethodsFrom SingleCellExperiment coerce
 #' @exportMethod coerce
 NULL

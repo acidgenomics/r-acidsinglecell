@@ -7,6 +7,15 @@ NULL
 
 
 
+#' @rdname aggregateCols
+#' @name aggregateCols
+#' @importFrom AcidGenerics aggregateCols
+#' @usage aggregateCols(x, ...)
+#' @export
+NULL
+
+
+
 #' @rdname cell2sample
 #' @name cell2sample
 #' @importFrom AcidGenerics cell2sample
@@ -20,6 +29,24 @@ NULL
 #' @name combine
 #' @importFrom AcidGenerics combine
 #' @usage combine(x, y, ...)
+#' @export
+NULL
+
+
+
+#' @rdname convertSampleIDsToNames
+#' @name convertSampleIDsToNames
+#' @importFrom AcidGenerics convertSampleIDsToNames
+#' @usage convertSampleIDsToNames(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname export
+#' @name export
+#' @importFrom AcidGenerics export
+#' @usage export(object, ...)
 #' @export
 NULL
 
@@ -43,6 +70,15 @@ NULL
 
 
 
+#' @rdname melt
+#' @name melt
+#' @importFrom AcidGenerics melt
+#' @usage melt(object, ...)
+#' @export
+NULL
+
+
+
 #' @rdname metrics
 #' @name metrics
 #' @importFrom AcidGenerics metrics
@@ -56,6 +92,47 @@ NULL
 #' @name metricsPerSample
 #' @importFrom AcidGenerics metricsPerSample
 #' @usage metricsPerSample(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname sampleData
+#' @name sampleData
+#' @importFrom AcidGenerics sampleData
+#' @usage sampleData(object, ...)
+#' @export
+NULL
+
+#' @rdname sampleData
+#' @name sampleData<-
+#' @importFrom AcidGenerics sampleData<-
+#' @usage sampleData(object, ...) <- value
+#' @export
+NULL
+
+
+
+#' @rdname sampleNames
+#' @name sampleNames
+#' @importFrom AcidGenerics sampleNames
+#' @usage sampleNames(object)
+#' @export
+NULL
+
+#' @rdname sampleNames
+#' @name sampleNames<-
+#' @importFrom AcidGenerics sampleNames<-
+#' @usage sampleNames(object) <- value
+#' @export
+NULL
+
+
+
+#' @rdname selectSamples
+#' @name selectSamples
+#' @importFrom AcidGenerics selectSamples
+#' @usage selectSamples(object, ...)
 #' @export
 NULL
 
