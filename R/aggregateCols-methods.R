@@ -6,40 +6,46 @@
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
-#' sce <- SingleCellExperiment
+#' data(SingleCellExperiment_lanesplit, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' x <- cell2sample(sce)
-#' table(x)
+#' x <- SingleCellExperiment_lanesplit
+#' levels(colData(x)[["aggregate"]])
+#' x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
 NULL
 
 
 
-## Updated 2021-01-16.
+## FIXME ALLOW THE USER TO DEFINE THE COLUMN NAME.
+
+## Updated 2021-02-05.
 `aggregateCols,SCE` <-  # nolint
     function(
         x,
-        fun  # nolint
+        col = "aggregate",
+        fun = "sum"
     ) {
         validObject(x)
-        assert(isString(fun))
+        assert(
+            isString(col),
+            isString(fun)
+        )
         ## Remap cellular barcodes.
         colData <- colData(x)
-        sampleCol <- matchSampleColumn(colData)
         cellCol <- "cellId"
-        aggregateCol <- "aggregate"
+        sampleCol <- matchSampleColumn(colData)
+        aggregateCol <- col
         assert(
-            isString(sampleCol),
-            isString(aggregateCol),
             isSubset(c(sampleCol, aggregateCol), colnames(colData)),
             is.factor(colData[[aggregateCol]])
         )
-        cli_alert(sprintf(
+        map <- colData(x)[, c(aggregateCol, sampleCol)]
+        map[["cellId"]] <- rownames(map)
+        rownames(map) <- NULL
+        alert(sprintf(
             "Remapping cells to aggregate samples: %s",
-            toString(sort(levels(colData[[aggregateCol]])), width = 100L)
+            toString(sort(levels(map[[aggregateCol]])), width = 100L)
         ))
-        map <- as_tibble(colData(x), rownames = cellCol)
         ## Check to see if we can aggregate.
         if (!all(mapply(
             FUN = grepl,
