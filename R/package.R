@@ -14,6 +14,7 @@
 #' @importFrom AcidBase formalsList methodFormals methodFunction
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
+#' @importFrom goalie assert
 #' @importFrom utils packageName packageVersion
 NULL
 

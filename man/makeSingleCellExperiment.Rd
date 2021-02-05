@@ -4,37 +4,14 @@
 \alias{makeSingleCellExperiment}
 \title{Make a SingleCellExperiment object}
 \usage{
-makeSingleCellExperiment(
-  assays = S4Vectors::SimpleList(),
-  rowRanges = GenomicRanges::GRanges(),
-  colData = S4Vectors::DataFrame(),
-  metadata = list(),
-  reducedDims = S4Vectors::SSimpleList(),
-  transgeneNames = NULL
-)
+makeSingleCellExperiment(..., reducedDims = S4Vectors::SimpleList())
 }
 \arguments{
-\item{assays}{\code{SimpleList}.
-Count matrices, which must have matching dimensions. Counts can be passed
-in as either a dense matrix (\code{matrix}) or sparse matrix (\code{sparseMatrix}).}
-
-\item{rowRanges}{\code{GRanges} or \code{GRangesList}.
-Genomic ranges (e.g. genome annotations). Metadata describing the assay
-rows.}
-
-\item{colData}{\code{DataFrame}.
-Metadata describing the assay columns. For bulk RNA-seq, this data
-describes the samples. For single-cell RNA-seq, this data describes the
-cells.}
-
-\item{metadata}{\code{list}.
-Metadata.}
+\item{...}{Passthrough arguments to
+\code{\link[AcidExperiment:makeSummarizedExperiment]{makeSummarizedExperiment()}}.}
 
 \item{reducedDims}{\code{SimpleList}.
 List containing matrices of cell coordinates in reduced space.}
-
-\item{transgeneNames}{\code{character}.
-Vector indicating which assay rows denote transgenes (e.g. EGFP, TDTOMATO).}
 }
 \value{
 \code{SingleCellExperiment}.
@@ -50,11 +27,11 @@ data(SingleCellExperiment, package = "AcidTest")
 
 ## SimpleList ====
 object <- SingleCellExperiment
-assays <- assays(object)
-rowRanges <- rowRanges(object)
-colData <- colData(object)
-metadata <- metadata(object)
-reducedDims <- reducedDims(object)
+assays <- SummarizedExperiment::assays(object)
+rowRanges <- SummarizedExperiment::rowRanges(object)
+colData <- SummarizedExperiment::colData(object)
+metadata <- S4Vectors::metadata(object)
+reducedDims <- SingleCellExperiment::reducedDims(object)
 
 x <- makeSingleCellExperiment(
     assays = assays,
