@@ -1,6 +1,6 @@
 #' @name metrics
+#' @inherit AcidGenerics::metrics
 #' @author Michael Steinbaugh, Rory Kirchner
-#' @inherit basejump::metrics
 #' @note Updated 2021-02-02.
 #'
 #' @inheritParams AcidRoxygen::params

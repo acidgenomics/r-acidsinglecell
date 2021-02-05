@@ -3,8 +3,9 @@ if (!isTRUE(goalie::hasInternet())) {
     return(invisible(NULL))
 }
 dir.create("cache", showWarnings = FALSE)
+## FIXME MOVE THIS TO ACIDTEST.
 files <- c(
-    "sce_lanesplit.csv"
+    "sce_lanesplit.rds"
 )
 mapply(
     FUN = function(remoteDir, file, envir) {

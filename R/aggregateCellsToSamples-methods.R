@@ -11,10 +11,10 @@
 #' `aggregateCols()` function.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_lanesplit, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' x <- SingleCellExperiment
+#' x <- SingleCellExperiment_lanesplit
 #' x <- aggregateCellsToSamples(x)
 #' print(x)
 NULL

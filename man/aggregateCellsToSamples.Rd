@@ -32,10 +32,10 @@ cell-to-sample groupings and then performs a sum aggregation with the
 Updated 2021-02-05.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_lanesplit, package = "AcidTest")
 
 ## SingleCellExperiment ====
-x <- SingleCellExperiment
+x <- SingleCellExperiment_lanesplit
 x <- aggregateCellsToSamples(x)
 print(x)
 }
