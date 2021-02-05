@@ -8,16 +8,19 @@
 
 
 
+#' @importClassesFrom Matrix Matrix
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
 #' @importFrom AcidBase formalsList methodFormals methodFunction
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
+#' @importFrom utils packageName packageVersion
 NULL
 
 
 
 #' @importFrom methods coerce
 #' @importMethodsFrom SingleCellExperiment coerce
+#' @importMethodsFrom SummarizedExperiment coerce
 #' @exportMethod coerce
 NULL

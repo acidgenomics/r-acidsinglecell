@@ -24,12 +24,12 @@ Utilty function that factilites cell-to-sample aggregation. By default, this
 function will sum the counts across cells to sample level.
 }
 \details{
-Internally \code{\link[=aggregateCellsToSamples]{aggregateCellsToSamples()}} automatically obtains the
+Internally \code{aggregateCellsToSamples()} automatically obtains the
 cell-to-sample groupings and then performs a sum aggregation with the
-\code{\link[=aggregateCols]{aggregateCols()}} function.
+\code{aggregateCols()} function.
 }
 \note{
-Updated 2020-01-30.
+Updated 2021-02-05.
 }
 \examples{
 data(SingleCellExperiment, package = "AcidTest")

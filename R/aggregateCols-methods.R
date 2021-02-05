@@ -1,3 +1,21 @@
+#' @name aggregateCols
+#' @inherit AcidGenerics::aggregateCols
+#' @note Updated 2021-02-05.
+#'
+#' @inheritParams AcidRoxygen::params
+#' @param ... Additional arguments.
+#'
+#' @examples
+#' data(SingleCellExperiment, package = "AcidTest")
+#' sce <- SingleCellExperiment
+#'
+#' ## SingleCellExperiment ====
+#' x <- cell2sample(sce)
+#' table(x)
+NULL
+
+
+
 ## Updated 2021-01-16.
 `aggregateCols,SCE` <-  # nolint
     function(
