@@ -12,12 +12,13 @@
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
 #' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
-#'   methodFunction realpath standardizeCall
+#'   methodFunction printString realpath standardizeCall
 #' @importFrom AcidCLI alert alertInfo alertSuccess alertWarning dl txt ul
+#'   verbatim
 #' @importFrom AcidExperiment calculateMetrics counts counts<- decode encode
 #'   interestingGroups matchInterestingGroups makeSummarizedExperiment
 #'   matchSampleColumn sampleNames uniteInterestingGroups
-#' @importFrom AcidGenerics head metadata metadata<- na.omit
+#' @importFrom AcidGenerics do.call head metadata metadata<- na.omit split
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom IRanges DataFrameList
 #' @importFrom S4Vectors DataFrame SimpleList

@@ -61,7 +61,7 @@ NULL
 
 
 
-## Updated 2021-02-22.
+## Updated 2021-02-05.
 `filterCells,SCE` <-  # nolint
     function(
         object,
@@ -352,11 +352,11 @@ NULL
             )
         ))
         txt("Per argument:")
-        dl(totalPass)
+        verbatim(printString(totalPass))
         if (length(perSamplePass) > 1L) {
             txt("Per sample, per argument:")
             for (i in seq_along(perSamplePass)) {
-                dl(perSamplePass[[i]])
+                verbatim(printString(perSamplePass[[i]]))
             }
         }
         ## Update object -------------------------------------------------------
