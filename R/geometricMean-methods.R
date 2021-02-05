@@ -1,10 +1,5 @@
-## FIXME MOVE THIS TO ACIDSINGLECELL.
-
-
-
 #' @name geometricMean
 #' @inherit AcidGenerics::geometricMean
-#'
 #' @note Updated 2021-02-02.
 #'
 #' @inheritParams AcidRoxygen::params

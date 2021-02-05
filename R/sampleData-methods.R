@@ -1,7 +1,3 @@
-## FIXME INHERIT FROM ACIDEXPERIMENT.
-
-
-
 #' @name sampleData
 #' @inherit AcidGenerics::sampleData
 #' @note Updated 2021-02-02.
