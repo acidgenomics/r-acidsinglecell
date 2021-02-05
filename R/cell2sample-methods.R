@@ -1,9 +1,10 @@
 #' @name cell2sample
 #' @inherit AcidGenerics::cell2sample
-#'
-#' @note `sampleId` column must be defined in
-#' [`colData()`][SummarizedExperiment::colData].
 #' @note Updated 2021-02-02.
+#'
+#' @details
+#' Sample identifiers must be defined in `sampleId` column in
+#' [`colData()`][SummarizedExperiment::colData].
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.

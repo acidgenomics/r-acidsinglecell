@@ -1,15 +1,28 @@
-## FIXME MIGRATE SCE EXPORT METHOD FROM PIPETTE HERE.
-
-
-
-#' Export `SingleCellExperiment` method
-#'
-#' @note Updated 2020-08-11.
-#' @noRd
+#' @name export
+#' @inherit AcidGenerics::export
+#' @note Updated 2021-02-05.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
 #' `reducedDims` slot (i.e. containing UMAP, tSNE, and PCA).
+#'
+#' @inheritParams AcidRoxygen::params
+#' @param ... Additional arguments.
+#'
+#' @examples
+#' data(SingleCellExperiment, package = "AcidTest")
+#'
+#' ## SingleCellExperiment ====
+#' object <- SingleCellExperiment
+#' dir <- "example"
+#' x <- export(object = object, dir = dir)
+#' print(x)
+#' unlink(dir, recursive = TRUE)
+NULL
+
+
+
+## Updated 2021-02-05.
 `export,SCE` <-  # nolint
     function(
         object,

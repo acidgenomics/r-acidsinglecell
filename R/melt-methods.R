@@ -1,6 +1,5 @@
 #' @name melt
 #' @inherit AcidPlyr::melt
-#'
 #' @note Updated 2021-02-02.
 #'
 #' @inheritParams AcidRoxygen::params

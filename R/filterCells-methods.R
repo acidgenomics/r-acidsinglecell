@@ -1,7 +1,3 @@
-## FIXME MOVE THIS TO ACIDSINGLECELL PACKAGE?
-
-
-
 #' @name filterCells
 #' @inherit AcidGenerics::filterCells
 #' @note Updated 2021-02-02.

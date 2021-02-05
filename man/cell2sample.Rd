@@ -30,10 +30,11 @@ as the row names.
 \description{
 Cell-to-sample mappings
 }
-\note{
-\code{sampleId} column must be defined in
+\details{
+Sample identifiers must be defined in \code{sampleId} column in
 \code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData()}}.
-
+}
+\note{
 Updated 2021-02-02.
 }
 \examples{
