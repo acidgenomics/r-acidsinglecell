@@ -12,9 +12,12 @@
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
 #' @importFrom AcidBase formalsList methodFormals methodFunction
+#' @importFrom AcidExperiment matchSampleColumn
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom goalie assert isString
+#' @importFrom SummarizedExperiment colData
+#' @importFrom goalie areDisjointSets assert isString
+#' @importFrom methods validObject
 #' @importFrom utils packageName packageVersion
 NULL
 
