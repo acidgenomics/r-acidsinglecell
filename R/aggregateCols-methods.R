@@ -5,12 +5,14 @@
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
+#' @return `SingleCellExperiment`.
+#'
 #' @examples
 #' data(SingleCellExperiment_lanesplit, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
 #' x <- SingleCellExperiment_lanesplit
-#' levels(colData(x)[["aggregate"]])
+#' levels(SummarizedExperiment::colData(x)[["aggregate"]])
 #' x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
 #' print(x)
 NULL
