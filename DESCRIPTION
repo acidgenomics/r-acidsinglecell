@@ -34,6 +34,7 @@ Imports:
     AcidGenerics (>= 0.5.6),
     AcidExperiment (>= 0.1.0),
     AcidPlyr (>= 0.1.7),
+    IRanges,
     Matrix (>= 1.3),
     S4Vectors,
     SingleCellExperiment,
@@ -41,7 +42,9 @@ Imports:
     goalie (>= 0.4.14),
     methods,
     pipette (>= 0.5.3),
+    scales,
     stringr (>= 1.4),
+    syntactic (>= 0.4.4),
     utils
 Suggests:
     AcidTest (>= 0.4.1),
