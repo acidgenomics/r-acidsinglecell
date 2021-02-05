@@ -40,29 +40,11 @@ Vector indicating which assay rows denote transgenes (e.g. EGFP, TDTOMATO).}
 \code{SingleCellExperiment}.
 }
 \description{
-This function is a utility wrapper for \code{SummarizedExperiment} that provides
-automatic subsetting for row and column data, as well as automatic handling
-of transgenes and spike-ins.
+Make a SingleCellExperiment object
 }
 \note{
 Updated 2021-02-05.
 }
-\section{Session information}{
-
-
-
-This function improves upon the standard constructor by slotting useful
-session information into the \code{metadata} slot by default:
-\itemize{
-\item \code{date}: Today's date, returned from \code{Sys.Date}.
-\item \code{wd}: Working directory, returned from \code{getwd}.
-\item \code{sessionInfo}: \code{\link[sessioninfo:session_info]{sessioninfo::session_info()}} return.
-}
-
-This behavior can be disabled by setting \code{sessionInfo = FALSE}.
-
-}
-
 \examples{
 data(SingleCellExperiment, package = "AcidTest")
 
@@ -85,6 +67,7 @@ print(x)
 }
 \seealso{
 \itemize{
+\item \code{AcidExperiment::makeSummarizedExperiment()}.
 \item \code{SingleCellExperiment::altExps()}, which has replaced the now defunct
 \code{isSpike} method for setting spike-in transcripts.
 }

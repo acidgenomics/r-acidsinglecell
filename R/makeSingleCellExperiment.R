@@ -1,13 +1,13 @@
 #' Make a SingleCellExperiment object
 #'
-#' @inherit AcidExperiment::makeSummarizedExperiment
-#'
 #' @export
 #' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
+#' @inheritParams AcidExperiment::makeSummarizedExperiment
 #'
 #' @seealso
+#' - `AcidExperiment::makeSummarizedExperiment()`.
 #' - `SingleCellExperiment::altExps()`, which has replaced the now defunct
 #'   `isSpike` method for setting spike-in transcripts.
 #'
