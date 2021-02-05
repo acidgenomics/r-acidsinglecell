@@ -307,7 +307,7 @@ NULL
         totalPass <- Matrix::colSums(lgl, na.rm = TRUE)
         storage.mode(totalPass) <- "integer"
         ## Inform the user regarding filtering parameters.
-        text("Pre-filter:")
+        txt("Pre-filter:")
         ul(c(
             sprintf(
                 fmt = "%d %s",
@@ -328,7 +328,7 @@ NULL
                 )
             )
         ))
-        text("Post-filter:")
+        txt("Post-filter:")
         ul(c(
             sprintf(
                 fmt = "%d %s (%s)",
@@ -351,10 +351,10 @@ NULL
                 percent(nFeatures / originalDim[[1L]])
             )
         ))
-        text("Per argument:")
+        txt("Per argument:")
         dl(totalPass)
         if (length(perSamplePass) > 1L) {
-            text("Per sample, per argument:")
+            txt("Per sample, per argument:")
             for (i in seq_along(perSamplePass)) {
                 dl(perSamplePass[[i]])
             }
