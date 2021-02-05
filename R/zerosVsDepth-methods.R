@@ -96,7 +96,7 @@ setMethod(
 
 
 ## Updated 2019-08-11.
-`zerosVsDepth,SingleCellExperiment` <-  # nolint
+`zerosVsDepth,SCE` <-  # nolint
     function(object, assay = 1L) {
         assert(isScalar(assay))
         counts <- assay(object, i = assay)
@@ -123,5 +123,5 @@ setMethod(
 setMethod(
     f = "zerosVsDepth",
     signature = signature("SingleCellExperiment"),
-    definition = `zerosVsDepth,SingleCellExperiment`
+    definition = `zerosVsDepth,SCE`
 )

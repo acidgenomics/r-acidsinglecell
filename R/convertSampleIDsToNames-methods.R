@@ -16,7 +16,7 @@ NULL
 
 
 ## Updated 2021-02-02.
-`convertSampleIDsToNames,SingleCellExperiment` <-  # nolint
+`convertSampleIDsToNames,SCE` <-  # nolint
     function(object) {
         alertWarning(sprintf(
             paste(
@@ -35,5 +35,5 @@ NULL
 setMethod(
     f = "convertSampleIDsToNames",
     signature = signature("SingleCellExperiment"),
-    definition = `convertSampleIDsToNames,SingleCellExperiment`
+    definition = `convertSampleIDsToNames,SCE`
 )

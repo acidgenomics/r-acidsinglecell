@@ -57,7 +57,7 @@ NULL
 
 
 ## Updated 2019-08-27.
-`combine,SingleCellExperiment` <-  # nolint
+`combine,SCE` <-  # nolint
     function(x, y) {
         validObject(x)
         validObject(y)
@@ -80,5 +80,5 @@ setMethod(
         x = "SingleCellExperiment",
         y = "SingleCellExperiment"
     ),
-    definition = `combine,SingleCellExperiment`
+    definition = `combine,SCE`
 )

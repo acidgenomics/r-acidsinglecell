@@ -21,7 +21,7 @@ NULL
 
 
 ## Updated 2021-01-14.
-`metrics,SingleCellExperiment` <-  # nolint
+`metrics,SCE` <-  # nolint
     function(object, return = c("tbl_df", "DataFrame")) {
         validObject(object)
         return <- match.arg(return)
@@ -56,13 +56,13 @@ NULL
 setMethod(
     f = "metrics",
     signature = signature("SingleCellExperiment"),
-    definition = `metrics,SingleCellExperiment`
+    definition = `metrics,SCE`
 )
 
 
 
 ## Updated 2020-01-20.
-`metricsPerSample,SingleCellExperiment` <-  # nolint
+`metricsPerSample,SCE` <-  # nolint
     function(
         object,
         fun = c("mean", "median", "sum"),
@@ -120,5 +120,5 @@ setMethod(
 setMethod(
     f = "metricsPerSample",
     signature = signature("SingleCellExperiment"),
-    definition = `metricsPerSample,SingleCellExperiment`
+    definition = `metricsPerSample,SCE`
 )

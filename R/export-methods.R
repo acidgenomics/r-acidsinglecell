@@ -10,7 +10,7 @@
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
 #' `reducedDims` slot (i.e. containing UMAP, tSNE, and PCA).
-`export,SingleCellExperiment` <-  # nolint
+`export,SCE` <-  # nolint
     function(
         object,
         name = NULL,
@@ -85,7 +85,7 @@
         invisible(files)
     }
 
-formals(`export,SingleCellExperiment`)[
+formals(`export,SCE`)[
     c("compress", "dir", "overwrite", "quiet")] <-
     formalsList[c("export.compress", "export.dir", "overwrite", "quiet")]
 
@@ -96,5 +96,5 @@ formals(`export,SingleCellExperiment`)[
 setMethod(
     f = "export",
     signature = signature("SingleCellExperiment"),
-    definition = `export,SingleCellExperiment`
+    definition = `export,SCE`
 )

@@ -23,7 +23,7 @@ NULL
 
 
 ## Updated 2021-01-16.
-`aggregateCellsToSamples,SingleCellExperiment` <-  # nolint
+`aggregateCellsToSamples,SCE` <-  # nolint
     function(x) {
         validObject(x)
         rse <- as(x, "RangedSummarizedExperiment")
@@ -45,5 +45,5 @@ NULL
 setMethod(
     f = "aggregateCellsToSamples",
     signature = signature("SingleCellExperiment"),
-    definition = `aggregateCellsToSamples,SingleCellExperiment`
+    definition = `aggregateCellsToSamples,SCE`
 )

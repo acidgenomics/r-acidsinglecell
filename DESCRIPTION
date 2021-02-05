@@ -1,8 +1,9 @@
 Package: AcidSingleCell
 Title: Acid Genomics Single Cell Toolkit
-Description: Toolkit for single-cell RNA-seq analysis.
-Version: 0.0.1
-Date: 2021-02-02
+Description: Toolkit for single-cell RNA-seq analysis that extends the
+    functionality of SingleCellExperiment.
+Version: 0.1.0
+Date: 2021-02-05
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -22,9 +23,9 @@ License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
+    AcidExperiment (>= 0.1.0),
     Matrix (>= 1.3),
-    SingleCellExperiment
-
+    SingleCellExperiment,
     AcidBase (>= 0.3.5),
     AcidCLI (>= 0.0.6),
     AcidGenerics (>= 0.5.3),
@@ -48,16 +49,14 @@ Imports:
     utils
 Suggests:
     AcidTest (>= 0.4.1),
-    BiocStyle,
-    datasets,
-    knitr,
-    rmarkdown,
     testthat
 biocViews:
-    DataImport,
+    Annotation,
+    Genetics,
     GenomeAnnotation,
-    Preprocessing
+    Infrastructure,
+    Sequencing,
+    SingleCell
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-VignetteBuilder: knitr
 Additional_repositories: https://r.acidgenomics.com

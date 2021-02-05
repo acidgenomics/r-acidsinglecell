@@ -2,7 +2,7 @@ context("metricsPerSample")
 
 test_that("SingleCellExperiment", {
     mapply(
-        fun = eval(formals(`metricsPerSample,SingleCellExperiment`)[["fun"]]),
+        fun = eval(formals(`metricsPerSample,SCE`)[["fun"]]),
         expected = list(
             mean = c(60587L, 54304L),
             median = c(56661L, 52534L),
