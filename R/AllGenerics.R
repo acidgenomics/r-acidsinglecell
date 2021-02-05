@@ -113,22 +113,6 @@ NULL
 
 
 
-#' @rdname sampleNames
-#' @name sampleNames
-#' @importFrom AcidGenerics sampleNames
-#' @usage sampleNames(object)
-#' @export
-NULL
-
-#' @rdname sampleNames
-#' @name sampleNames<-
-#' @importFrom AcidGenerics sampleNames<-
-#' @usage sampleNames(object) <- value
-#' @export
-NULL
-
-
-
 #' @rdname selectSamples
 #' @name selectSamples
 #' @importFrom AcidGenerics selectSamples
