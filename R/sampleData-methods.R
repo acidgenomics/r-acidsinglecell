@@ -50,7 +50,7 @@ NULL
 
 ## Don't run validity checks here.
 ## Updated 2019-08-16.
-`sampleData,SingleCellExperiment` <-  # nolint
+`sampleData,SCE` <-  # nolint
     function(
         object,
         clean = TRUE,
@@ -224,13 +224,13 @@ NULL
 setMethod(
     f = "sampleData",
     signature = signature("SingleCellExperiment"),
-    definition = `sampleData,SingleCellExperiment`
+    definition = `sampleData,SCE`
 )
 
 
 
 ## Updated 2021-01-14.
-`sampleData<-,SingleCellExperiment,DataFrame` <-  # nolint
+`sampleData<-,SCE,DataFrame` <-  # nolint
     function(object, value) {
         assert(hasRownames(value))
         blacklist <- c("interestingGroups", "rowname", "sampleId")
@@ -261,5 +261,5 @@ setReplaceMethod(
         object = "SingleCellExperiment",
         value = "DataFrame"
     ),
-    definition = `sampleData<-,SingleCellExperiment,DataFrame`
+    definition = `sampleData<-,SCE,DataFrame`
 )

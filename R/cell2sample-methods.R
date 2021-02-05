@@ -27,7 +27,7 @@ NULL
 
 
 ## Updated 2021-02-02.
-`cell2sample,SingleCellExperiment` <-  # nolint
+`cell2sample,SCE` <-  # nolint
     function(
         object,
         return = c("factor", "DataFrame", "tbl_df")
@@ -72,5 +72,5 @@ NULL
 setMethod(
     f = "cell2sample",
     signature = signature("SingleCellExperiment"),
-    definition = `cell2sample,SingleCellExperiment`
+    definition = `cell2sample,SCE`
 )

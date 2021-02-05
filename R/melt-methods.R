@@ -20,7 +20,7 @@ NULL
 
 
 ## Updated 2019-08-26.
-`melt,SingleCellExperiment` <-  # nolint
+`melt,SCE` <-  # nolint
     function(object) {
         validObject(object)
         assert(isScalar(assay))
@@ -43,7 +43,8 @@ NULL
         data
     }
 
-formals(`melt,SingleCellExperiment`) <-
+## FIXME REWORK THIS...
+formals(`melt,SCE`) <-
     formals(`melt,SummarizedExperiment`)
 
 
@@ -53,5 +54,5 @@ formals(`melt,SingleCellExperiment`) <-
 setMethod(
     f = "melt",
     signature = signature("SingleCellExperiment"),
-    definition = `melt,SingleCellExperiment`
+    definition = `melt,SCE`
 )

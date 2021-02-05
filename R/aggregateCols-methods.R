@@ -1,5 +1,5 @@
 ## Updated 2021-01-16.
-`aggregateCols,SingleCellExperiment` <-  # nolint
+`aggregateCols,SCE` <-  # nolint
     function(
         x,
         fun  # nolint
@@ -88,5 +88,5 @@
 setMethod(
     f = "aggregateCols",
     signature = signature("SingleCellExperiment"),
-    definition = `aggregateCols,SingleCellExperiment`
+    definition = `aggregateCols,SCE`
 )

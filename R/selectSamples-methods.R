@@ -18,7 +18,7 @@ NULL
 
 
 ## Updated 2019-08-19.
-`selectSamples,SingleCellExperiment` <-  # nolint
+`selectSamples,SCE` <-  # nolint
     function(object, ...) {
         validObject(object)
         assert(isSubset("sampleId", colnames(colData(object))))
@@ -111,5 +111,5 @@ NULL
 setMethod(
     f = "selectSamples",
     signature = signature("SingleCellExperiment"),
-    definition = `selectSamples,SingleCellExperiment`
+    definition = `selectSamples,SCE`
 )

@@ -66,7 +66,7 @@ NULL
 
 
 ## Updated 2021-02-22.
-`filterCells,SingleCellExperiment` <-  # nolint
+`filterCells,SCE` <-  # nolint
     function(
         object,
         ## Cell-level metrics.
@@ -402,5 +402,5 @@ NULL
 setMethod(
     f = "filterCells",
     signature = signature("SingleCellExperiment"),
-    definition = `filterCells,SingleCellExperiment`
+    definition = `filterCells,SCE`
 )

@@ -19,7 +19,7 @@ NULL
 
 
 ## Updated 2021-02-02.
-`topCellsPerSample,SingleCellExperiment` <-  # nolint
+`topCellsPerSample,SCE` <-  # nolint
     function(object, n = 100L) {
         validObject(object)
         assert(isInt(n))
@@ -55,5 +55,5 @@ NULL
 setMethod(
     f = "topCellsPerSample",
     signature = signature("SingleCellExperiment"),
-    definition = `topCellsPerSample,SingleCellExperiment`
+    definition = `topCellsPerSample,SCE`
 )
