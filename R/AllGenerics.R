@@ -69,7 +69,7 @@ NULL
 #' @name geometricMean
 #' @importFrom AcidGenerics geometricMean
 #' @importMethodsFrom AcidBase geometricMean
-#' @usage geometricMean(object, ...)
+#' @usage geometricMean(x, ...)
 #' @export
 NULL
 
