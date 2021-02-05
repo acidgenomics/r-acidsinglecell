@@ -13,7 +13,7 @@
 #'
 #' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
 #'   methodFunction realpath standardizeCall
-#' @importFrom AcidCLI alert alertInfo alertSuccess alertWarning dl text ul
+#' @importFrom AcidCLI alert alertInfo alertSuccess alertWarning dl txt ul
 #' @importFrom AcidExperiment calculateMetrics counts counts<- decode encode
 #'   interestingGroups matchInterestingGroups makeSummarizedExperiment
 #'   matchSampleColumn sampleNames uniteInterestingGroups
