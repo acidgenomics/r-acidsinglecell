@@ -23,8 +23,8 @@ NULL
     function(object) {
         present <- object > 0L
         DataFrame(
-            dropout = (nrow(present) - colSums(present)) / nrow(present),
-            depth = as.integer(colSums(object)),
+            "dropout" = (nrow(present) - colSums(present)) / nrow(present),
+            "depth" = as.integer(colSums(object)),
             row.names = colnames(object)
         )
     }
