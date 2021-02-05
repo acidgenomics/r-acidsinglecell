@@ -21,20 +21,21 @@ NULL
 
 
 
-## Updated 2021-01-16.
+## Updated 2021-02-05.
 `aggregateCellsToSamples,SCE` <-  # nolint
     function(x) {
         validObject(x)
         rse <- as(x, "RangedSummarizedExperiment")
         colData <- colData(rse)
-        assert(areDisjointSets("aggregate", colnames(colData)))
-        colData[["aggregate"]] <- cell2sample(x)
+        aggregateCol <- ".cell2sample"
+        assert(areDisjointSets(aggregateCol, colnames(colData)))
+        colData[[aggregateCol]] <- cell2sample(x)
         sampleCol <- matchSampleColumn(colData)
         if (isSubset(sampleCol, colnames(colData))) {
             colData[[sampleCol]] <- NULL
         }
         colData(rse) <- colData
-        aggregateCols(x = rse, col = "aggregate", fun = "sum")
+        aggregateCols(x = rse, col = aggregateCol, fun = "sum")
     }
 
 
