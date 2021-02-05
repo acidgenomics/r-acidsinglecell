@@ -33,7 +33,7 @@ Internally, pattern matching against sample and file names is applied using
 logical grep matching.
 }
 \note{
-Updated 2020-01-20.
+Updated 2021-02-05.
 }
 \section{Intended usage}{
 
