@@ -19,6 +19,9 @@ export(object, ...)
 \arguments{
 \item{object}{Object.}
 
+\item{name}{\code{character(1)}.
+Name to use on disk. If \code{NULL}, will use the name of the object instead.}
+
 \item{dir}{\code{character(1)}.
 Directory path.}
 

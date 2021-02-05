@@ -7,6 +7,7 @@
 #' `reducedDims` slot (i.e. containing UMAP, tSNE, and PCA).
 #'
 #' @inheritParams AcidRoxygen::params
+#' @inheritParams pipette::export
 #' @param ... Additional arguments.
 #'
 #' @examples

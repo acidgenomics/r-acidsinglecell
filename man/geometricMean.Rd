@@ -5,7 +5,7 @@
 \alias{geometricMean,Matrix-method}
 \title{Geometric mean}
 \usage{
-geometricMean(object, ...)
+geometricMean(x, ...)
 
 \S4method{geometricMean}{Matrix}(x, MARGIN = 2L)
 }
