@@ -4,7 +4,8 @@
 #' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @inheritParams AcidExperiment::makeSummarizedExperiment
+#' @param ... Passthrough arguments to
+#'   [`makeSummarizedExperiment()`][AcidExperiment::makeSummarizedExperiment].
 #'
 #' @seealso
 #' - `AcidExperiment::makeSummarizedExperiment()`.
@@ -18,11 +19,11 @@
 #'
 #' ## SimpleList ====
 #' object <- SingleCellExperiment
-#' assays <- assays(object)
-#' rowRanges <- rowRanges(object)
-#' colData <- colData(object)
-#' metadata <- metadata(object)
-#' reducedDims <- reducedDims(object)
+#' assays <- SummarizedExperiment::assays(object)
+#' rowRanges <- SummarizedExperiment::rowRanges(object)
+#' colData <- SummarizedExperiment::colData(object)
+#' metadata <- S4Vectors::metadata(object)
+#' reducedDims <- SingleCellExperiment::reducedDims(object)
 #'
 #' x <- makeSingleCellExperiment(
 #'     assays = assays,
@@ -33,16 +34,10 @@
 #' )
 #' print(x)
 makeSingleCellExperiment <- function(
-    assays = S4Vectors::SimpleList(),
-    rowRanges = GenomicRanges::GRanges(),
-    colData = S4Vectors::DataFrame(),
-    metadata = list(),
-    reducedDims = S4Vectors::SSimpleList(),
-    transgeneNames = NULL
+    ...,
+    reducedDims = S4Vectors::SimpleList()
 ) {
-    assert(
-        isAny(reducedDims, c("SimpleList", "list", "NULL"))
-    )
+    assert(isAny(reducedDims, c("SimpleList", "list", "NULL")))
     if (!is(reducedDims, "SimpleList")) {
         reducedDims <- SimpleList(reducedDims)
     }
@@ -51,13 +46,7 @@ makeSingleCellExperiment <- function(
     if (hasLength(reducedDims)) {
         assert(hasValidNames(reducedDims))
     }
-    se <- makeSummarizedExperiment(
-        assays = assays,
-        rowRanges = rowRanges,
-        colData = colData,
-        metadata = metadata,
-        transgeneNames = transgeneNames
-    )
+    se <- makeSummarizedExperiment(...)
     assert(is(se, "SummarizedExperiment"))
     validObject(se)
     rowRanges <- rowRanges(se)
