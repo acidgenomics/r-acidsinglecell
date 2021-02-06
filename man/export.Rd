@@ -48,7 +48,7 @@ This method extends \code{SummarizedExperiment} but also handles export of the
 \code{reducedDims} slot (i.e. containing UMAP, tSNE, and PCA).
 }
 \note{
-Updated 2021-02-05.
+Updated 2021-02-06.
 }
 \examples{
 data(SingleCellExperiment, package = "AcidTest")

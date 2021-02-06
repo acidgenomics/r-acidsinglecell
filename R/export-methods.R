@@ -1,12 +1,13 @@
 #' @name export
 #' @inherit AcidGenerics::export
-#' @note Updated 2021-02-05.
+#' @note Updated 2021-02-06.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
 #' `reducedDims` slot (i.e. containing UMAP, tSNE, and PCA).
 #'
 #' @inheritParams AcidRoxygen::params
+#' @inheritParams AcidExperiment::export
 #' @inheritParams pipette::export
 #' @param ... Additional arguments.
 #'
