@@ -1,5 +1,3 @@
-## FIXME NEW SCE EXAMPLE OBJECT HAS CHANGED VALUES, DUE TO SPLATTER.
-
 context("filterCells")
 
 object <- sce
