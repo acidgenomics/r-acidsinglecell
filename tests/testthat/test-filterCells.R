@@ -59,6 +59,7 @@ test_that("Top cells only", {
 
 ## Refer to the quality control R Markdown for actual recommended cutoffs.
 ## These are skewed, and designed to work with our minimal dataset.
+## NOTE These values can change when we update AcidTest.
 test_that("Cell filtering", {
     mapply(
         args = list(
@@ -69,11 +70,11 @@ test_that("Cell filtering", {
             list(minNovelty = 0.5)
         ),
         dim = list(
-            c(482L, 71L),
-            c(464L, 29L),
-            c(482L, 74L),
-            c(458L, 29L),
-            c(481L, 91L)
+            c(487L, 69L),
+            c(472L, 31L),
+            c(488L, 90L),
+            c(429L, 10L),
+            c(487L, 99L)
         ),
         FUN = function(args, dim) {
             args[["object"]] <- object
@@ -87,7 +88,7 @@ test_that("Cell filtering", {
 
 test_that("Feature filtering", {
     x <- filterCells(object, minCellsPerFeature = 50L)
-    expect_identical(dim(x), c(282L, 100L))
+    expect_identical(dim(x), c(296L, 100L))
 })
 
 
@@ -109,9 +110,9 @@ test_that("minCounts", {
             m[["sample1"]][["minCounts"]],
             m[["sample2"]][["minCounts"]]
         ),
-        expected = c(42L, 47L)
+        expected = c(29L, 54L)
     )
-    expect_identical(dim(x), c(483L, 89L))
+    expect_identical(dim(x), c(487L, 83L))
 })
 
 test_that("maxCounts", {
@@ -128,9 +129,9 @@ test_that("maxCounts", {
             m[["sample1"]][["maxCounts"]],
             m[["sample2"]][["maxCounts"]]
         ),
-        expected = c(11L, 0L)
+        expected = c(17L, 0L)
     )
-    expect_identical(dim(x), c(432L, 11L))
+    expect_identical(dim(x), c(458L, 17L))
 })
 
 test_that("minFeatures", {
@@ -147,9 +148,9 @@ test_that("minFeatures", {
             m[["sample1"]][["minFeatures"]],
             m[["sample2"]][["minFeatures"]]
         ),
-        expected = c(1L, 35L)
+        expected = c(1L, 51L)
     )
-    expect_identical(dim(x), c(473L, 36L))
+    expect_identical(dim(x), c(480L, 52L))
 })
 
 test_that("maxFeatures", {
@@ -166,9 +167,9 @@ test_that("maxFeatures", {
             m[["sample1"]][["maxFeatures"]],
             m[["sample2"]][["maxFeatures"]]
         ),
-        expected = c(52L, 13L)
+        expected = c(45L, 3L)
     )
-    expect_identical(dim(x), c(472L, 65L))
+    expect_identical(dim(x), c(484L, 48L))
 })
 
 test_that("minNovelty", {
@@ -187,7 +188,7 @@ test_that("minNovelty", {
         ),
         expected = c(46L, 0L)
     )
-    expect_identical(dim(x), c(466L, 46L))
+    expect_identical(dim(x), c(483L, 46L))
 })
 
 test_that("nCells", {

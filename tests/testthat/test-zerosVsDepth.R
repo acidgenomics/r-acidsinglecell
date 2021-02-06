@@ -1,27 +1,29 @@
 context("zerosVsDepth")
 
 test_that("SummarizedExperiment", {
-    x <- zerosVsDepth(rse)
+    object <- rse
+    x <- zerosVsDepth(object)
     expect_s4_class(x, "DataFrame")
     expect_identical(
         object = round(mean(x[["dropout"]]), digits = 3L),
-        expected = 0.106
+        expected = 0.096
     )
     expect_identical(
         object = round(mean(x[["depth"]]), digits = 2L),
-        expected = 25305.67
+        expected = 21893.25
     )
 })
 
 test_that("SingleCellExperiment", {
-    x <- zerosVsDepth(sce)
+    object <- sce
+    x <- zerosVsDepth(object)
     expect_s4_class(x, "DataFrame")
     expect_identical(
         object = round(mean(x[["dropout"]]), digits = 2L),
-        expected = 0.48
+        expected = 0.45
     )
     expect_identical(
         object = round(mean(x[["depth"]]), digits = 2L),
-        expected = 57634.36
+        expected = 56429.18
     )
 })

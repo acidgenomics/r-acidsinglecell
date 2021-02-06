@@ -1,4 +1,5 @@
 data(
+    RangedSummarizedExperiment,
     SingleCellExperiment,
     SingleCellExperiment_Seurat,
     SingleCellExperiment_lanesplit,
@@ -7,6 +8,7 @@ data(
 )
 
 ## nolint start
+rse <- RangedSummarizedExperiment
 sce <- SingleCellExperiment
 sce_seurat <- SingleCellExperiment_Seurat
 sce_lanesplit <- SingleCellExperiment_lanesplit
