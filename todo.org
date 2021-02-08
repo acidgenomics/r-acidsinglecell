@@ -1,0 +1,5 @@
+#+TITLE: AcidSingleCell
+#+STARTUP: content
+* Development
+** TODO Look into `colPairs` for assigning column pairings, such as
+        cell-to-sample mappings.
