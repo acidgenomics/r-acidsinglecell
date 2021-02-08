@@ -12,6 +12,10 @@ AcidExperiment::`sampleNames<-`
 
 
 
+#' @importFrom SingleCellExperiment SingleCellExperiment
+#' @export
+SingleCellExperiment::SingleCellExperiment
+
 #' @importFrom SingleCellExperiment reducedDim
 #' @export
 SingleCellExperiment::reducedDim
