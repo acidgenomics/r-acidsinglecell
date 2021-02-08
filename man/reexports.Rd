@@ -6,6 +6,7 @@
 \alias{calculateMetrics}
 \alias{sampleNames}
 \alias{sampleNames<-}
+\alias{SingleCellExperiment}
 \alias{reducedDim}
 \alias{reducedDim<-}
 \alias{reducedDimNames}
@@ -21,6 +22,6 @@ below to see their documentation.
 \describe{
   \item{AcidExperiment}{\code{\link[AcidExperiment]{calculateMetrics}}, \code{\link[AcidExperiment]{sampleNames}}, \code{\link[AcidExperiment:sampleNames]{sampleNames<-}}}
 
-  \item{SingleCellExperiment}{\code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
+  \item{SingleCellExperiment}{\code{\link[SingleCellExperiment]{SingleCellExperiment}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
 }}
 
