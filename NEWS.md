@@ -1,4 +1,4 @@
-## AcidSingleCell 0.1.1 (2021-02-06)
+## AcidSingleCell 0.1.1 (2021-02-08)
 
 ### Minor changes
 

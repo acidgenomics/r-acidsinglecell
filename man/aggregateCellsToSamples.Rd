@@ -29,7 +29,7 @@ cell-to-sample groupings and then performs a sum aggregation with the
 \code{aggregateCols()} function.
 }
 \note{
-Updated 2021-02-05.
+Updated 2021-02-08.
 }
 \examples{
 data(SingleCellExperiment_lanesplit, package = "AcidTest")

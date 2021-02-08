@@ -1,6 +1,6 @@
 #' @name aggregateCellsToSamples
 #' @inherit AcidGenerics::aggregateCellsToSamples
-#' @note Updated 2021-02-05.
+#' @note Updated 2021-02-08.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
