@@ -39,3 +39,11 @@ SingleCellExperiment::reducedDims
 #' @importFrom SingleCellExperiment reducedDims<-
 #' @export
 SingleCellExperiment::`reducedDims<-`
+
+
+
+#' @rdname reexports
+#' @name SingleCellExperiment-class
+#' @importClassesFrom SingleCellExperiment SingleCellExperiment
+#' @exportClass SingleCellExperiment
+NULL

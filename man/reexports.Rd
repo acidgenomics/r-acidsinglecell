@@ -13,6 +13,7 @@
 \alias{reducedDimNames<-}
 \alias{reducedDims}
 \alias{reducedDims<-}
+\alias{SingleCellExperiment-class}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
