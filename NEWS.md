@@ -1,4 +1,12 @@
+## AcidSingleCell 0.1.4 (2021-02-11)
+
+### Minor changes
+
+- Reworked NAMESPACE to reduce the number of imported packages.
+
 ## AcidSingleCell 0.1.3 (2021-02-09)
+
+### Minor changes
 
 - Added `SingleCellExperiment-class` to reexports.
 
