@@ -44,6 +44,7 @@ Imports:
     utils
 Suggests:
     AcidTest (>= 0.4.2),
+    Matrix,
     testthat
 biocViews:
     Annotation,

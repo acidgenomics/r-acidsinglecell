@@ -258,6 +258,7 @@ NULL
             nonzero <- counts(object) > 0L
             ## Ensure we're performing sparse calculations.
             if (is(nonzero, "Matrix")) {
+                requireNamespaces("Matrix")
                 rowSums <- Matrix::rowSums
             }
             features <- rowSums(nonzero) >= minCellsPerFeature
@@ -304,6 +305,7 @@ NULL
                 x
             }
         )
+        requireNamespaces("Matrix")
         totalPass <- Matrix::colSums(lgl, na.rm = TRUE)
         storage.mode(totalPass) <- "integer"
         ## Inform the user regarding filtering parameters.
