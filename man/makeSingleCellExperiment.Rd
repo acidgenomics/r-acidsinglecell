@@ -4,7 +4,7 @@
 \alias{makeSingleCellExperiment}
 \title{Make a SingleCellExperiment object}
 \usage{
-makeSingleCellExperiment(..., reducedDims = S4Vectors::SimpleList())
+makeSingleCellExperiment(..., reducedDims = SimpleList())
 }
 \arguments{
 \item{...}{Passthrough arguments to
@@ -27,11 +27,11 @@ data(SingleCellExperiment, package = "AcidTest")
 
 ## SimpleList ====
 object <- SingleCellExperiment
-assays <- SummarizedExperiment::assays(object)
-rowRanges <- SummarizedExperiment::rowRanges(object)
-colData <- SummarizedExperiment::colData(object)
-metadata <- S4Vectors::metadata(object)
-reducedDims <- SingleCellExperiment::reducedDims(object)
+assays <- assays(object)
+rowRanges <- rowRanges(object)
+colData <- colData(object)
+metadata <- metadata(object)
+reducedDims <- reducedDims(object)
 
 x <- makeSingleCellExperiment(
     assays = assays,

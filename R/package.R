@@ -5,11 +5,10 @@
 #'
 #' @keywords internal
 #'
-#' @importClassesFrom Matrix Matrix
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #'
 #' @importMethodsFrom SingleCellExperiment coerce
-#' @importMethodsFrom SummarizedExperiment coerce
+#' @importMethodsFrom pipette coerce
 #'
 #' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
 #'   methodFunction packageName packageVersion printString realpath
@@ -20,7 +19,7 @@
 #'   counts counts<- decode encode interestingGroups matchInterestingGroups
 #'   makeSummarizedExperiment matchSampleColumn rowRanges sampleNames
 #'   uniteInterestingGroups
-#' @importFrom AcidGenerics DataFrame SimpleList do.call head metadata
+#' @importFrom AcidGenerics DataFrame SimpleList coerce do.call head metadata
 #'   metadata<- na.omit split
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
@@ -31,7 +30,7 @@
 #'   isFlag isInLeftOpenRange isInRange isInt isIntegerish isNonNegative
 #'   isPositive isScalar isString isSubset
 #' @importFrom methods as is validObject
-#' @importFrom pipette DataFrameList as_tibble assignAndSaveData tibble
+#' @importFrom pipette DataFrameList Matrix as_tibble assignAndSaveData tibble
 #' @importFrom scales percent
 #' @importFrom stringr str_match
 #' @importFrom syntactic camelCase

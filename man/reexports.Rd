@@ -3,16 +3,21 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
-\alias{calculateMetrics}
-\alias{sampleNames}
-\alias{sampleNames<-}
+\alias{SimpleList}
 \alias{SingleCellExperiment}
+\alias{assays}
+\alias{calculateMetrics}
+\alias{colData}
+\alias{metadata}
 \alias{reducedDim}
 \alias{reducedDim<-}
 \alias{reducedDimNames}
 \alias{reducedDimNames<-}
 \alias{reducedDims}
 \alias{reducedDims<-}
+\alias{rowRanges}
+\alias{sampleNames}
+\alias{sampleNames<-}
 \alias{SingleCellExperiment-class}
 \title{Objects exported from other packages}
 \keyword{internal}
@@ -21,7 +26,9 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{AcidExperiment}{\code{\link[AcidExperiment]{calculateMetrics}}, \code{\link[AcidExperiment]{sampleNames}}, \code{\link[AcidExperiment:sampleNames]{sampleNames<-}}}
+  \item{AcidExperiment}{\code{\link[AcidExperiment:reexports]{assays}}, \code{\link[AcidExperiment]{calculateMetrics}}, \code{\link[AcidExperiment:reexports]{colData}}, \code{\link[AcidExperiment:reexports]{rowRanges}}, \code{\link[AcidExperiment]{sampleNames}}, \code{\link[AcidExperiment:sampleNames]{sampleNames<-}}}
+
+  \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{SimpleList}}, \code{\link[AcidGenerics:reexports]{metadata}}}
 
   \item{SingleCellExperiment}{\code{\link[SingleCellExperiment]{SingleCellExperiment}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
 }}

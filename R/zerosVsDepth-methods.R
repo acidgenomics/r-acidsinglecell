@@ -43,9 +43,10 @@ setMethod(
 
 ## Using a logical matrix is faster and more memory efficient.
 ## Ensure dgTMatrix gets coereced to dgCMatrix prior to logical.
-## Updated 2020-01-30.
+## Updated 2021-02-12.
 `zerosVsDepth,Matrix` <-  # nolint
     function(object) {
+        requireNamespaces("Matrix")
         assert(!is(object, "lgCMatrix"))
         present <- as(object, "dgCMatrix")
         present <- as(present, "lgCMatrix")
