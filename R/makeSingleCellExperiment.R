@@ -19,11 +19,11 @@
 #'
 #' ## SimpleList ====
 #' object <- SingleCellExperiment
-#' assays <- SummarizedExperiment::assays(object)
-#' rowRanges <- SummarizedExperiment::rowRanges(object)
-#' colData <- SummarizedExperiment::colData(object)
-#' metadata <- S4Vectors::metadata(object)
-#' reducedDims <- SingleCellExperiment::reducedDims(object)
+#' assays <- assays(object)
+#' rowRanges <- rowRanges(object)
+#' colData <- colData(object)
+#' metadata <- metadata(object)
+#' reducedDims <- reducedDims(object)
 #'
 #' x <- makeSingleCellExperiment(
 #'     assays = assays,
@@ -35,7 +35,7 @@
 #' print(x)
 makeSingleCellExperiment <- function(
     ...,
-    reducedDims = S4Vectors::SimpleList()
+    reducedDims = SimpleList()
 ) {
     assert(isAny(reducedDims, c("SimpleList", "list", "NULL")))
     if (!is(reducedDims, "SimpleList")) {
