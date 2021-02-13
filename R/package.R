@@ -6,6 +6,7 @@
 #' @keywords internal
 #'
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
+#' @importClassesFrom pipette Matrix
 #'
 #' @importMethodsFrom SingleCellExperiment coerce
 #' @importMethodsFrom pipette coerce
@@ -19,8 +20,8 @@
 #'   counts counts<- decode encode interestingGroups matchInterestingGroups
 #'   makeSummarizedExperiment matchSampleColumn rowRanges sampleNames
 #'   uniteInterestingGroups
-#' @importFrom AcidGenerics DataFrame SimpleList coerce colSums do.call head
-#'   metadata metadata<- na.omit rowSums split
+#' @importFrom AcidGenerics DataFrame DataFrameList SimpleList coerce colSums
+#'   do.call head metadata metadata<- na.omit rowSums split
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
@@ -30,7 +31,7 @@
 #'   isFlag isInLeftOpenRange isInRange isInt isIntegerish isNonNegative
 #'   isPositive isScalar isString isSubset
 #' @importFrom methods as is validObject
-#' @importFrom pipette DataFrameList Matrix as_tibble assignAndSaveData tibble
+#' @importFrom pipette Matrix as_tibble assignAndSaveData tibble
 #' @importFrom scales percent
 #' @importFrom stringr str_match
 #' @importFrom syntactic camelCase
