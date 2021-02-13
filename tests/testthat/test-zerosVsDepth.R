@@ -10,7 +10,7 @@ test_that("SummarizedExperiment", {
     )
     expect_identical(
         object = round(mean(x[["depth"]]), digits = 2L),
-        expected = 21893.25
+        expected = 22140.67
     )
 })
 
