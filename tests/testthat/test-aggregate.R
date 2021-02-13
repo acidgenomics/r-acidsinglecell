@@ -9,8 +9,9 @@ test_that("SingleCellExperiment", {
     object <- aggregateCols(object, fun = "sum")
     expect_s4_class(object, "SingleCellExperiment")
     expect_identical(dim(object), c(100L, 8L))
-    sums <- counts(object) %>%
-        Matrix::colSums(.) %>%
+    sums <-
+        counts(object) %>%
+        colSums() %>%
         as("integer") %>%
         sort(decreasing = TRUE) %>%
         head()
@@ -34,8 +35,9 @@ test_that("sce_lanesplit2", {
     object <- aggregateCols(object, fun = "sum")
     expect_s4_class(object, "SingleCellExperiment")
     expect_identical(dim(object), c(100L, 6432L))
-    sums <- counts(object) %>%
-        Matrix::colSums(.) %>%
+    sums <-
+        counts(object) %>%
+        colSums() %>%
         as("integer") %>%
         sort(decreasing = TRUE) %>%
         head()
@@ -60,8 +62,9 @@ context("aggregateCellsToSamples")
 test_that("SingleCellExperiment", {
     object <- sce
     object <- aggregateCellsToSamples(object)
-    sums <- counts(object) %>%
-        Matrix::colSums(.) %>%
+    sums <-
+        counts(object) %>%
+        colSums() %>%
         as("integer")
     ## NOTE These values can change we we update AcidTest.
     expect_identical(
@@ -77,8 +80,9 @@ test_that("SingleCellExperiment", {
 test_that("sce_lanesplit2", {
     object <- sce_lanesplit2
     object <- aggregateCellsToSamples(object)
-    sums <- assay(object) %>%
-        Matrix::colSums() %>%
+    sums <-
+        assay(object) %>%
+        colSums() %>%
         as("integer") %>%
         sort(decreasing = TRUE) %>%
         head()
