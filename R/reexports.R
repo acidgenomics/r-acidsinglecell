@@ -1,67 +1,67 @@
-#' @importFrom AcidGenerics SimpleList
 #' @export
+#' @importFrom AcidGenerics SimpleList
 AcidGenerics::SimpleList
 
-#' @importFrom SingleCellExperiment SingleCellExperiment
 #' @export
+#' @importFrom SingleCellExperiment SingleCellExperiment
 SingleCellExperiment::SingleCellExperiment
 
-#' @importFrom AcidExperiment assays
 #' @export
+#' @importFrom AcidExperiment assays
 AcidExperiment::assays
 
-#' @importFrom AcidExperiment calculateMetrics
 #' @export
+#' @importFrom AcidExperiment calculateMetrics
 AcidExperiment::calculateMetrics
 
-#' @importFrom AcidExperiment colData
 #' @export
+#' @importFrom AcidExperiment colData
 AcidExperiment::colData
 
-#' @importFrom AcidGenerics metadata
 #' @export
+#' @importFrom AcidGenerics metadata
 AcidGenerics::metadata
 
-#' @importFrom SingleCellExperiment reducedDim
 #' @export
+#' @importFrom SingleCellExperiment reducedDim
 SingleCellExperiment::reducedDim
 
-#' @importFrom SingleCellExperiment reducedDim<-
 #' @export
+#' @importFrom SingleCellExperiment reducedDim<-
 SingleCellExperiment::`reducedDim<-`
 
-#' @importFrom SingleCellExperiment reducedDimNames
 #' @export
+#' @importFrom SingleCellExperiment reducedDimNames
 SingleCellExperiment::reducedDimNames
 
-#' @importFrom SingleCellExperiment reducedDimNames<-
 #' @export
+#' @importFrom SingleCellExperiment reducedDimNames<-
 SingleCellExperiment::`reducedDimNames<-`
 
-#' @importFrom SingleCellExperiment reducedDims
 #' @export
+#' @importFrom SingleCellExperiment reducedDims
 SingleCellExperiment::reducedDims
 
-#' @importFrom SingleCellExperiment reducedDims<-
 #' @export
+#' @importFrom SingleCellExperiment reducedDims<-
 SingleCellExperiment::`reducedDims<-`
 
-#' @importFrom AcidExperiment rowRanges
 #' @export
+#' @importFrom AcidExperiment rowRanges
 AcidExperiment::rowRanges
 
-#' @importFrom AcidExperiment sampleNames
 #' @export
+#' @importFrom AcidExperiment sampleNames
 AcidExperiment::sampleNames
 
-#' @importFrom AcidExperiment sampleNames<-
 #' @export
+#' @importFrom AcidExperiment sampleNames<-
 AcidExperiment::`sampleNames<-`
 
 
 
-#' @rdname reexports
-#' @name SingleCellExperiment-class
-#' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #' @exportClass SingleCellExperiment
+#' @importClassesFrom SingleCellExperiment SingleCellExperiment
+#' @name SingleCellExperiment-class
+#' @rdname reexports
 NULL
