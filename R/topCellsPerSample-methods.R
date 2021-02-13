@@ -1,6 +1,6 @@
 #' @name topCellsPerSample
 #' @inherit AcidGenerics::topCellsPerSample
-#' @note Updated 2021-02-02.
+#' @note Updated 2021-02-13.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param n `integer(1)`.
@@ -18,16 +18,13 @@ NULL
 
 
 
-## Updated 2021-02-02.
+## Updated 2021-02-13.
 `topCellsPerSample,SCE` <-  # nolint
     function(object, n = 100L) {
         validObject(object)
         assert(isInt(n))
         cell2sample <- cell2sample(object)
         counts <- counts(object)
-        if (is(counts, "Matrix")) {
-            colSums <- Matrix::colSums
-        }
         colSums <- colSums(counts)
         assert(identical(names(cell2sample), names(colSums)))
         data <- DataFrame(
