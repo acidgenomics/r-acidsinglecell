@@ -30,7 +30,7 @@ Uses \code{\link[base:match.arg]{match.arg()}} internally.}
 Aggregate columns
 }
 \note{
-Updated 2021-02-05.
+Updated 2021-02-13.
 }
 \section{Methods (by class)}{
 
@@ -59,7 +59,7 @@ data(SingleCellExperiment_lanesplit, package = "AcidTest")
 
 ## SingleCellExperiment ====
 x <- SingleCellExperiment_lanesplit
-levels(SummarizedExperiment::colData(x)[["aggregate"]])
+levels(colData(x)[["aggregate"]])
 x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
 print(x)
 }

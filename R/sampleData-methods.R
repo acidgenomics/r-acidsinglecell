@@ -14,7 +14,7 @@
 #' @inheritParams AcidRoxygen::params
 #' @param clean `logical(1)`.
 #'   Only return `factor` columns. Useful when working with objects that contain
-#'   quality control metrics in [`colData()`][SummarizedExperiment::colData].
+#'   quality control metrics in `colData()`.
 #'   For example, `bcbioRNASeq` and `DESeqDataSet` objects often contain
 #'   additional columns that aren't informative sample metadata.
 #' @param ignoreCols `character` or `NULL`.
