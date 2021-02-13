@@ -37,7 +37,7 @@ Imports:
     SingleCellExperiment (>= 1.12),
     goalie (>= 0.4.14),
     methods,
-    pipette (>= 0.5.6),
+    pipette (>= 0.5.9),
     scales (>= 1.1),
     stringr (>= 1.4),
     syntactic (>= 0.4.4)
