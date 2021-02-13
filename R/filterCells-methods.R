@@ -256,11 +256,6 @@ NULL
         ## Important: remove the low quality cells prior to this calculation.
         if (minCellsPerFeature > 0L) {
             nonzero <- counts(object) > 0L
-            ## Ensure we're performing sparse calculations.
-            if (is(nonzero, "Matrix")) {
-                requireNamespaces("Matrix")
-                rowSums <- Matrix::rowSums
-            }
             features <- rowSums(nonzero) >= minCellsPerFeature
         } else {
             features <- rep(TRUE, times = nrow(object))
@@ -305,8 +300,7 @@ NULL
                 x
             }
         )
-        requireNamespaces("Matrix")
-        totalPass <- Matrix::colSums(lgl, na.rm = TRUE)
+        totalPass <- colSums(lgl, na.rm = TRUE)
         storage.mode(totalPass) <- "integer"
         ## Inform the user regarding filtering parameters.
         txt("Pre-filter:")

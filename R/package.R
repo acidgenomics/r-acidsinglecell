@@ -19,8 +19,8 @@
 #'   counts counts<- decode encode interestingGroups matchInterestingGroups
 #'   makeSummarizedExperiment matchSampleColumn rowRanges sampleNames
 #'   uniteInterestingGroups
-#' @importFrom AcidGenerics DataFrame SimpleList coerce do.call head metadata
-#'   metadata<- na.omit split
+#' @importFrom AcidGenerics DataFrame SimpleList coerce colSums do.call head
+#'   metadata metadata<- na.omit rowSums split
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
