@@ -26,7 +26,7 @@ sampleData(object, ...) <- value
 
 \item{clean}{\code{logical(1)}.
 Only return \code{factor} columns. Useful when working with objects that contain
-quality control metrics in \code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData()}}.
+quality control metrics in \code{colData()}.
 For example, \code{bcbioRNASeq} and \code{DESeqDataSet} objects often contain
 additional columns that aren't informative sample metadata.}
 

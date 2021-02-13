@@ -31,8 +31,7 @@ as the row names.
 Cell-to-sample mappings
 }
 \details{
-Sample identifiers must be defined in \code{sampleId} column in
-\code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData()}}.
+Sample identifiers must be defined in \code{sampleId} column in \code{colData()}.
 }
 \note{
 Updated 2021-02-02.

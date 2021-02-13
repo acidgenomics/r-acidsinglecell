@@ -3,8 +3,7 @@
 #' @note Updated 2021-02-02.
 #'
 #' @details
-#' Sample identifiers must be defined in `sampleId` column in
-#' [`colData()`][SummarizedExperiment::colData].
+#' Sample identifiers must be defined in `sampleId` column in `colData()`.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
