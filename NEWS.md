@@ -1,8 +1,9 @@
-## AcidSingleCell 0.1.4 (2021-02-11)
+## AcidSingleCell 0.1.4 (2021-02-12)
 
 ### Minor changes
 
 - Reworked NAMESPACE to reduce the number of imported packages.
+- Renamed package title in DESCRIPTION to better match AcidExperiment.
 
 ## AcidSingleCell 0.1.3 (2021-02-09)
 
