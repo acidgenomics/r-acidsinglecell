@@ -25,7 +25,7 @@ URL:
     https://r.acidgenomics.com/packages/acidsinglecell/,
     https://github.com/acidgenomics/r-acidsinglecell/
 BugReports: https://github.com/acidgenomics/r-acidsinglecell/issues/
-License: GPL-3
+License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
