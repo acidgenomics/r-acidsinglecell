@@ -29,15 +29,15 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
-    AcidBase (>= 0.3.7),
+    AcidBase (>= 0.3.9),
     AcidCLI (>= 0.0.6),
-    AcidGenerics (>= 0.5.14),
-    AcidExperiment (>= 0.1.7),
-    AcidPlyr (>= 0.1.10),
+    AcidGenerics (>= 0.5.16),
+    AcidExperiment (>= 0.1.8),
+    AcidPlyr (>= 0.1.13),
     SingleCellExperiment (>= 1.12),
     goalie (>= 0.4.14),
     methods,
-    pipette (>= 0.5.9),
+    pipette (>= 0.5.12),
     scales (>= 1.1),
     stringr (>= 1.4),
     syntactic (>= 0.4.4)
