@@ -1,3 +1,9 @@
+## AcidSingleCell 0.1.5 (2021-02-22)
+
+### Minor changes
+
+- Enforcing lower camel case in `sampleData`.
+
 ## AcidSingleCell 0.1.4 (2021-02-12)
 
 ### Minor changes
