@@ -1,6 +1,6 @@
 #' @name sampleData
 #' @inherit AcidGenerics::sampleData
-#' @note Updated 2021-02-02.
+#' @note Updated 2021-02-22.
 #'
 #' @section SingleCellExperiment:
 #'
@@ -45,7 +45,7 @@ NULL
 
 
 ## Don't run validity checks here.
-## Updated 2019-08-16.
+## Updated 2021-02-22.
 `sampleData,SCE` <-  # nolint
     function(
         object,
@@ -68,6 +68,9 @@ NULL
     ) {
         data <- colData(object)
         if (!hasRows(data)) return(data)
+        if (hasColnames(data)) {
+            colnames(data) <- camelCase(colnames(data), strict = TRUE)
+        }
         assert(
             hasRownames(data),
             isFlag(clean),
@@ -76,7 +79,6 @@ NULL
             areDisjointSets("interestingGroups", colnames(data))
         )
         interestingGroups <- matchInterestingGroups(object)
-
         ## Prepare columns -----------------------------------------------------
         ## Generate `sampleId` and `sampleName` columns, if necessary. We're not
         ## requiring `sampleId` because many SingleCellExperiment objects are
@@ -101,7 +103,6 @@ NULL
             )
             data <- data[, keep, drop = FALSE]
         }
-
         ## Clean mode ----------------------------------------------------------
         if (isTRUE(clean)) {
             ## Return only a subset of factor columns.
@@ -116,11 +117,9 @@ NULL
                 data <- data[, keep, drop = FALSE]
             }
         }
-
         ## Drop rows with too many uniques (cell level) ------------------------
         nSamples <- length(unique(data[["sampleId"]]))
         assert(all(isPositive(nSamples)))
-
         ## Keep columns that have have less than or equal the same number of
         ## uniques as the the number of samples. Note that this step is really
         ## essential, especially when QC metrics are slotted into `colData()`.
@@ -131,7 +130,6 @@ NULL
             }
         )
         data <- data[, keep, drop = FALSE]
-
         ## Check rows with same number of uniques ------------------------------
         ## For columns that have the exact same number of uniques as the number
         ## of samples, they need to match our `sampleId` column factor levels
@@ -173,7 +171,6 @@ NULL
             data <- data[, keep, drop = FALSE]
         }
         assert(isSubset(c("sampleId", interestingGroups), colnames(data)))
-
         ## Collapse to sample level --------------------------------------------
         ## Collapse and set the row names to `sampleId`.
         rownames(data) <- NULL
