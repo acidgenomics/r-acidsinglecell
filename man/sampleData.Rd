@@ -15,7 +15,7 @@ sampleData(object, ...) <- value
   object,
   clean = TRUE,
   ignoreCols = c("^description$", "^genomeBuild$", "^qualityFormat$", "^samRef$"),
-  blacklistCols = c("^ident$", "^g2mScore$", "^sScore$", "^phase$", "^oldIdent$",
+  denylistCols = c("^ident$", "^g2mScore$", "^sScore$", "^phase$", "^oldIdent$",
     "^origIdent$", "^res[0-9]+")
 )
 
@@ -36,7 +36,7 @@ Only applies when \code{clean = TRUE}. Additional factor columns defined in
 \code{SingleCellExperiment} objects, where cell-to-sample mappings are defined
 using the \code{sampleId} column.}
 
-\item{blacklistCols}{\code{character} or \code{NULL}.
+\item{denylistCols}{\code{character} or \code{NULL}.
 Column names that should not be treated as sample-level metadata.
 Currently applicable only to \code{SingleCellExperiment} objects, which have
 cell-level columns that can be difficult to distinguish, especially when
@@ -60,7 +60,7 @@ columns map to a single sample (e.g. cells for a single-cell RNA-seq
 experiment).
 }
 \note{
-Updated 2021-02-22.
+Updated 2021-02-26.
 }
 \section{SingleCellExperiment}{
 

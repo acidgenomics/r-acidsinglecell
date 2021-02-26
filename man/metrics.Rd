@@ -44,7 +44,7 @@ Quality control metrics
 }}
 
 \note{
-Updated 2021-02-05.
+Updated 2021-02-26.
 }
 \examples{
 data(SingleCellExperiment, package = "AcidTest")

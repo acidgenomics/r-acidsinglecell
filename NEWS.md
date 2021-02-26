@@ -1,3 +1,9 @@
+## AcidSingleCell 0.1.6 (2021-02-26)
+
+### Minor changes
+
+- Renamed all instances of "blacklist" to "denylist".
+
 ## AcidSingleCell 0.1.5 (2021-02-22)
 
 ### Minor changes
