@@ -1,6 +1,6 @@
 #' @name sampleData
 #' @inherit AcidGenerics::sampleData
-#' @note Updated 2021-02-22.
+#' @note Updated 2021-02-26.
 #'
 #' @section SingleCellExperiment:
 #'
@@ -22,7 +22,7 @@
 #'   `colData` to be ignored as sample-level metadata. Particularly useful for
 #'   `SingleCellExperiment` objects, where cell-to-sample mappings are defined
 #'   using the `sampleId` column.
-#' @param blacklistCols `character` or `NULL`.
+#' @param denylistCols `character` or `NULL`.
 #'   Column names that should not be treated as sample-level metadata.
 #'   Currently applicable only to `SingleCellExperiment` objects, which have
 #'   cell-level columns that can be difficult to distinguish, especially when
@@ -56,7 +56,7 @@ NULL
             "^qualityFormat$",
             "^samRef$"
         ),
-        blacklistCols = c(
+        denylistCols = c(
             "^ident$",
             "^g2mScore$",
             "^sScore$",
@@ -75,7 +75,7 @@ NULL
             hasRownames(data),
             isFlag(clean),
             isCharacter(ignoreCols, nullOK = TRUE),
-            isCharacter(blacklistCols, nullOK = TRUE),
+            isCharacter(denylistCols, nullOK = TRUE),
             areDisjointSets("interestingGroups", colnames(data))
         )
         interestingGroups <- matchInterestingGroups(object)
@@ -95,10 +95,10 @@ NULL
             data[["sampleName"]] <- data[["sampleId"]]
         }
         assert(is.factor(data[["sampleName"]]))
-        ## Drop any blacklisted cell-level columns.
-        if (is.character(blacklistCols)) {
+        ## Drop any denylisted cell-level columns.
+        if (is.character(denylistCols)) {
             keep <- !grepl(
-                pattern = paste(blacklistCols, collapse = "|"),
+                pattern = paste(denylistCols, collapse = "|"),
                 x = camelCase(colnames(data), strict = TRUE)
             )
             data <- data[, keep, drop = FALSE]
@@ -226,8 +226,8 @@ setMethod(
 `sampleData<-,SCE,DataFrame` <-  # nolint
     function(object, value) {
         assert(hasRownames(value))
-        blacklist <- c("interestingGroups", "rowname", "sampleId")
-        keep <- setdiff(colnames(value), blacklist)
+        denylist <- c("interestingGroups", "rowname", "sampleId")
+        keep <- setdiff(colnames(value), denylist)
         assert(hasLength(keep))
         value <- value[, keep, drop = FALSE]
         value[["sampleId"]] <- as.factor(rownames(value))

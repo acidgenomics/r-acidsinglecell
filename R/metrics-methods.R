@@ -1,7 +1,7 @@
 #' @name metrics
 #' @inherit AcidGenerics::metrics
 #' @author Michael Steinbaugh, Rory Kirchner
-#' @note Updated 2021-02-05.
+#' @note Updated 2021-02-26.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -20,14 +20,14 @@ NULL
 
 
 
-## Updated 2021-01-14.
+## Updated 2021-02-26.
 `metrics,SCE` <-  # nolint
     function(object, return = c("tbl_df", "DataFrame")) {
         validObject(object)
         return <- match.arg(return)
-        blacklist <- c("cell", "sample")
+        denylist <- c("cell", "sample")
         data <- colData(object)
-        data <- data[, setdiff(colnames(data), blacklist), drop = FALSE]
+        data <- data[, setdiff(colnames(data), denylist), drop = FALSE]
         ## Decode columns that contain Rle, if necessary.
         data <- decode(data)
         ## Automatically assign `sampleId` column, if necessary.
