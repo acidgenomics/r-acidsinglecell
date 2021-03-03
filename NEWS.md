@@ -1,3 +1,9 @@
+## AcidSingleCell 0.1.7 (2021-03-02)
+
+### Minor changes
+
+- Added `logcounts` and `normcounts` as reexports.
+
 ## AcidSingleCell 0.1.6 (2021-02-26)
 
 ### Minor changes
