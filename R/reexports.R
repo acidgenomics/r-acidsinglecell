@@ -19,8 +19,24 @@ AcidExperiment::calculateMetrics
 AcidExperiment::colData
 
 #' @export
+#' @importFrom SingleCellExperiment logcounts
+SingleCellExperiment::logcounts
+
+#' @export
+#' @importFrom SingleCellExperiment logcounts<-
+SingleCellExperiment::`logcounts<-`
+
+#' @export
 #' @importFrom AcidGenerics metadata
 AcidGenerics::metadata
+
+#' @export
+#' @importFrom SingleCellExperiment normcounts
+SingleCellExperiment::normcounts
+
+#' @export
+#' @importFrom SingleCellExperiment normcounts<-
+SingleCellExperiment::`normcounts<-`
 
 #' @export
 #' @importFrom SingleCellExperiment reducedDim

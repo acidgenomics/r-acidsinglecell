@@ -8,7 +8,11 @@
 \alias{assays}
 \alias{calculateMetrics}
 \alias{colData}
+\alias{logcounts}
+\alias{logcounts<-}
 \alias{metadata}
+\alias{normcounts}
+\alias{normcounts<-}
 \alias{reducedDim}
 \alias{reducedDim<-}
 \alias{reducedDimNames}
@@ -30,6 +34,6 @@ below to see their documentation.
 
   \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{SimpleList}}, \code{\link[AcidGenerics:reexports]{metadata}}}
 
-  \item{SingleCellExperiment}{\code{\link[SingleCellExperiment]{SingleCellExperiment}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
+  \item{SingleCellExperiment}{\code{\link[SingleCellExperiment]{SingleCellExperiment}}, \code{\link[SingleCellExperiment:assays]{logcounts}}, \code{\link[SingleCellExperiment:assays]{logcounts<-}}, \code{\link[SingleCellExperiment:assays]{normcounts}}, \code{\link[SingleCellExperiment:assays]{normcounts<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
 }}
 

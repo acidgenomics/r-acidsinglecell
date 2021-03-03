@@ -2,8 +2,8 @@ Package: AcidSingleCell
 Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
-Version: 0.1.6
-Date: 2021-02-26
+Version: 0.1.7
+Date: 2021-03-02
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -29,11 +29,11 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
-    AcidBase (>= 0.3.11),
-    AcidCLI (>= 0.0.6),
-    AcidGenerics (>= 0.5.16),
+    AcidBase (>= 0.3.13),
+    AcidCLI (>= 0.1.0),
+    AcidGenerics (>= 0.5.17),
     AcidExperiment (>= 0.1.9),
-    AcidPlyr (>= 0.1.14),
+    AcidPlyr (>= 0.1.15),
     SingleCellExperiment (>= 1.12),
     goalie (>= 0.5.0),
     methods,
