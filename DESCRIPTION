@@ -31,8 +31,8 @@ Depends: R (>= 4.0)
 Imports:
     AcidBase (>= 0.3.13),
     AcidCLI (>= 0.1.0),
-    AcidGenerics (>= 0.5.17),
     AcidExperiment (>= 0.1.9),
+    AcidGenerics (>= 0.5.17),
     AcidPlyr (>= 0.1.15),
     SingleCellExperiment (>= 1.12),
     goalie (>= 0.5.0),
