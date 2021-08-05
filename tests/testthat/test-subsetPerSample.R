@@ -1,8 +1,3 @@
-SCE <-  # nolint
-    structure("SingleCellExperiment", package = "SingleCellExperiment")
-
-
-
 context("subsetPerSample")
 
 test_that("List mode", {
@@ -13,10 +8,10 @@ test_that("List mode", {
         expected = paste0("sample", seq_len(2L))
     )
     expect_identical(
-        lapply(x, class),
+        lapply(x, simpleClass),
         list(
-            sample1 = SCE,
-            sample2 = SCE
+            sample1 = "SingleCellExperiment",
+            sample2 = "SingleCellExperiment"
         )
     )
 })
