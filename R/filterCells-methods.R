@@ -246,7 +246,7 @@ NULL
         }
         ## Remove the low quality cells.
         if (!any(cells)) {
-            stop("No cells passed filtering.")
+            abort("No cells passed filtering.")
         } else if (sum(cells, na.rm = TRUE) < ncol(object)) {
             assert(identical(names(cells), colnames(object)))
             object <- object[, cells, drop = FALSE]
@@ -262,7 +262,7 @@ NULL
         }
         ## Remove the low quality features.
         if (!any(features)) {
-            stop("No features passed filtering.")
+            abort("No features passed filtering.")
         } else if (sum(features, na.rm = TRUE) < nrow(object)) {
             assert(identical(names(features), rownames(object)))
             object <- object[features, , drop = FALSE]

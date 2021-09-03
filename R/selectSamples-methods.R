@@ -27,13 +27,14 @@ NULL
         ## arguments should be a string that can be used for logical grep
         ## matching here internally.
         args <- list(...)
-        if (!all(vapply(
-            X = args,
-            FUN = is.atomic,
-            FUN.VALUE = logical(1L)
-        ))) {
-            stop("Arguments must be atomic.")
-        }
+        assert(
+            all(vapply(
+                X = args,
+                FUN = is.atomic,
+                FUN.VALUE = logical(1L)
+            )),
+            msg = "Arguments must be atomic."
+        )
         ## Match the arguments against the sample metadata.
         sampleData <- sampleData(object)
         ## Allowing the user to select by "sampleId".
