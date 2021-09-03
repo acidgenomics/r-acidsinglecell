@@ -1,3 +1,11 @@
+## AcidSingleCell 0.1.8 (2021-09-03)
+
+### Minor changes
+
+- Updated minimum dependencies and improved documentation.
+- Improved code coverage, getting back to 100%.
+- Improved CLI messages, using updated functions from AcidCLI.
+
 ## AcidSingleCell 0.1.7 (2021-03-02)
 
 ### Minor changes
