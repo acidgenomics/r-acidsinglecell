@@ -7,8 +7,7 @@
 makeSingleCellExperiment(..., reducedDims = SimpleList())
 }
 \arguments{
-\item{...}{Passthrough arguments to
-\code{\link[AcidExperiment:makeSummarizedExperiment]{makeSummarizedExperiment()}}.}
+\item{...}{Passthrough arguments to \code{makeSummarizedExperiment()}.}
 
 \item{reducedDims}{\code{SimpleList}.
 List containing matrices of cell coordinates in reduced space.}
