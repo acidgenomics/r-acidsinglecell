@@ -1,6 +1,6 @@
 context("metricsPerSample")
 
-test_that("SingleCellExperiment", {
+test_that("SCE", {
     mapply(
         fun = eval(formals(`metricsPerSample,SCE`)[["fun"]]),
         expected = list(
@@ -16,5 +16,9 @@ test_that("SingleCellExperiment", {
             expect_identical(object = x, expected = expected)
         },
         SIMPLIFY = FALSE
+    )
+    expect_s4_class(
+        object = metricsPerSample(sce, return = "DataFrame"),
+        class = "DataFrame"
     )
 })
