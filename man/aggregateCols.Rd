@@ -13,13 +13,12 @@ aggregateCols(x, ...)
 \item{x}{Object.}
 
 \item{col}{\code{character(1)}.
-Name of column in either \code{\link[SummarizedExperiment:SummarizedExperiment-class]{rowData()}} or
-\code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData()}} that defines the desired
-aggregation groupings.}
+Name of column in either \code{rowData()} or \code{colData()} that defines the
+desired aggregation groupings.}
 
 \item{fun}{\code{character(1)}.
 Name of the aggregation function to apply.
-Uses \code{\link[base:match.arg]{match.arg()}} internally.}
+Uses \code{match.arg()} internally.}
 
 \item{...}{Additional arguments.}
 }
@@ -39,17 +38,12 @@ Updated 2021-02-13.
 \item \code{matrix}, \code{Matrix}:
 Aggregate using a grouping \code{factor}.
 \item \code{SummarizedExperiment}:
-Aggregate data slotted in
-\code{\link[SummarizedExperiment:SummarizedExperiment-class]{assays()}} using an automatically
-generated grouping \code{factor}, which is obtained from a user-defined column
-(\code{col} argument) in either the
-\code{\link[SummarizedExperiment:SummarizedExperiment-class]{rowData()}} or
-\code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData()}} of the object. Slot an
-\code{aggregate} column into \code{\link[SummarizedExperiment:SummarizedExperiment-class]{rowData()}}
-for \code{\link[AcidExperiment:aggregateRows]{aggregateRows()}}, or into
-\code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData()}} for \code{\link[AcidExperiment:aggregateCols]{aggregateCols()}}. This
-method will define the \code{groupings} automatically, and perform the
-aggregation.
+Aggregate data slotted in \code{assays()} using an automatically generated
+grouping \code{factor}, which is obtained from a user-defined column
+(\code{col} argument) in either the \code{rowData()} or \code{colData()} of the object.
+Slot an \code{aggregate} column into \code{rowData()} for \code{aggregateRows()}, or into
+\code{colData()} for \code{aggregateCols()}. This method will define the \code{groupings}
+automatically, and perform the aggregation.
 }
 
 }
