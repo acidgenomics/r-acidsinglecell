@@ -170,7 +170,7 @@ NULL
             ## nocov start
             keep <- setdiff(colnames(data), names(trash[trash]))
             data <- data[, keep, drop = FALSE]
-            ## nocov start
+            ## nocov end
         }
         assert(isSubset(c("sampleId", interestingGroups), colnames(data)))
         ## Collapse to sample level --------------------------------------------
