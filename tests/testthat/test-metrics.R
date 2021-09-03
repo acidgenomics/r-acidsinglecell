@@ -12,6 +12,10 @@ test_that("SCE : tbl_df", {
             "interestingGroups"
         )
     )
+    expect_identical(
+        object = object[["cellId"]][[1L]],
+        expected = "cell001"
+    )
 })
 
 test_that("SCE : DataFrame", {
@@ -24,5 +28,9 @@ test_that("SCE : DataFrame", {
             "sampleName",
             "interestingGroups"
         )
+    )
+    expect_identical(
+        object = rownames(object)[[1L]],
+        expected = "cell001"
     )
 })
