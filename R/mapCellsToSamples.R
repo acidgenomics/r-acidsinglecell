@@ -37,12 +37,12 @@ mapCellsToSamples <- function(cells, samples) {
     list <- lapply(X = samples, FUN = function(sample) {
         pattern <- paste0("^(", sample, barcodePattern)
         match <- str_match(string = cells, pattern = pattern)
-        if (all(is.na(match[, 1L]))) {
-            stop(sprintf(
-                "'%s' sample failed to match any cells.",
-                deparse(sample)
-            ))
-        }
+        assert(
+            !all(is.na(match[, 1L])),
+            msg = sprintf(
+                "'%s' sample failed to match any cells.", sample
+            )
+        )
         ## Trailing number is for matching Cell Ranger output.
         ## This gets used in the Chromium package.
         colnames(match) <- c(

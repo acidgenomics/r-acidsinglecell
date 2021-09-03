@@ -179,13 +179,14 @@ NULL
             nrow(data) > nSamples ||
             any(duplicated(data[["sampleId"]]))
         ) {
-            stop(sprintf(
+            abort(sprintf(
                 fmt = paste(
-                    "Failed to collapse 'colData()' to sample level.\n",
+                    "Failed to collapse {.fun %s} to sample level.\n",
                     "Check: %s.",
                     sep = "\n"
                 ),
-                toString(colnames(data), width = 200L)
+                "colData",
+                toInlineString(colnames(data), n = 10L)
             ))
         }
         rownames(data) <- data[["sampleId"]]

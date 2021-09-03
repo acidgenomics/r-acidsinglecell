@@ -46,8 +46,9 @@ NULL
                 ## Check that column is present.
                 if (!col %in% colnames(sampleData)) {
                     ## nocov start
-                    stop(sprintf(
-                        "'%s' isn't present in 'sampleData()'.", col
+                    abort(sprintf(
+                        "{.var %s} isn't present in {.fun %s}.",
+                        col, "sampleData"
                     ))
                     ## nocov end
                 }
@@ -55,9 +56,9 @@ NULL
                 if (!all(arg %in% sampleData[[col]])) {
                     ## nocov start
                     missing <- arg[which(!arg %in% sampleData[[col]])]
-                    stop(sprintf(
-                        "'%s' metadata column doesn't contain: %s.",
-                        col, toString(missing, width = 100L)
+                    abort(sprintf(
+                        "{.var %s} metadata column doesn't contain: %s.",
+                        col, toInlineString(missing, n = 5L)
                     ))
                     ## nocov end
                 }
@@ -83,7 +84,7 @@ NULL
                 msg1 = "sample",
                 msg2 = "samples"
             ),
-            toString(sampleNames, width = 100L)
+            toInlineString(sampleNames, n = 5L)
         ))
 
         colData <- colData(object)

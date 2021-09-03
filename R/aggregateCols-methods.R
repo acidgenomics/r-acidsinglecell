@@ -45,17 +45,17 @@ NULL
         map[["cellId"]] <- rownames(map)
         alert(sprintf(
             "Remapping cells to aggregate samples: %s",
-            toString(sort(levels(map[[aggregateCol]])), width = 100L)
+            toInlineString(sort(levels(map[[aggregateCol]])), n = 5L)
         ))
-        ## Check to see if we can aggregate.
-        if (!all(mapply(
-            FUN = grepl,
-            x = map[[cellCol]],
-            pattern = paste0("^", map[[sampleCol]]),
-            SIMPLIFY = TRUE
-        ))) {
-            stop("Cell identifiers are not prefixed with sample identifiers.")
-        }
+        assert(
+            all(mapply(
+                FUN = grepl,
+                x = map[[cellCol]],
+                pattern = paste0("^", map[[sampleCol]]),
+                SIMPLIFY = TRUE
+            )),
+            msg = "Cell identifiers are not prefixed with sample identifiers."
+        )
         by <- mapply(
             FUN = gsub,
             x = map[[cellCol]],

@@ -70,7 +70,7 @@ NULL
                 ## Skip if subset doesn't have enough cells.
                 if (ncol(subset) < minCells) {
                     alertWarning(sprintf(
-                        "'%s' didn't pass minimum cell cutoff.",
+                        "{.val %s} didn't pass minimum cell cutoff.",
                         sampleId
                     ))
                     return(NULL)
