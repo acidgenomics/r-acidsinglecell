@@ -38,12 +38,12 @@ makeSingleCellExperiment <- function(
 ) {
     assert(isAny(reducedDims, c("SimpleList", "list", "NULL")))
     if (!is(reducedDims, "SimpleList")) {
-        reducedDims <- SimpleList(reducedDims)
+        reducedDims <- SimpleList(reducedDims)  # nocov
     }
     ## Don't enforce camel case here, since it's currently common to slot PCA,
     ## TSNE, UMAP assays (note upper case).
     if (hasLength(reducedDims)) {
-        assert(hasValidNames(reducedDims))
+        assert(hasValidNames(reducedDims))  # nocov
     }
     se <- makeSummarizedExperiment(...)
     assert(is(se, "SummarizedExperiment"))

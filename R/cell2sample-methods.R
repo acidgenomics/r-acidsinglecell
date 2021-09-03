@@ -40,7 +40,7 @@ NULL
         cells <- colnames(object)
         samples <- colData[[sampleCol]]
         if (!is.factor(samples)) {
-            samples <- as.factor(samples)
+            samples <- as.factor(samples)  # nocov
         }
         switch(
             EXPR = return,
