@@ -63,8 +63,9 @@ NULL
         if (hasLength(reducedDimNames)) {
             if (!isTRUE(quiet)) {
                 alert(sprintf(
-                    "Exporting {.var reducedDims}: {.var %s}",
-                    toString(reducedDimNames)
+                    "Exporting {.var %s}: %s.",
+                    "reducedDims",
+                    toInlineString(reducedDimNames, n = 5L)
                 ))
             }
             files[["reducedDims"]] <- lapply(
