@@ -167,8 +167,10 @@ NULL
             }
         )
         if (any(trash)) {
+            ## nocov start
             keep <- setdiff(colnames(data), names(trash[trash]))
             data <- data[, keep, drop = FALSE]
+            ## nocov start
         }
         assert(isSubset(c("sampleId", interestingGroups), colnames(data)))
         ## Collapse to sample level --------------------------------------------
@@ -179,15 +181,17 @@ NULL
             nrow(data) > nSamples ||
             any(duplicated(data[["sampleId"]]))
         ) {
+            ## nocov start
             abort(sprintf(
                 fmt = paste(
-                    "Failed to collapse {.fun %s} to sample level.\n",
+                    "Failed to collapse {.fun %s} to sample level.",
                     "Check: %s.",
                     sep = "\n"
                 ),
                 "colData",
                 toInlineString(colnames(data), n = 10L)
             ))
+            ## nocov end
         }
         rownames(data) <- data[["sampleId"]]
         ## Returning arranged by `sampleId`. Use `setdiff()` approach instead of
