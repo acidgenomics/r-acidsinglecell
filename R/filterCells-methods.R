@@ -109,7 +109,7 @@ NULL
         alert(sprintf("Filtering cells with {.fun %s}.", "filterCells"))
         ## Calculate metrics, if necessary.
         if (!hasMetrics(object, colData = c("nCount", "nFeature"))) {
-            object <- calculateMetrics(object)
+            object <- calculateMetrics(object)  # nocov
         }
         ## Using DataFrame with Rle instead of tibble for improved speed.
         metrics <- colData(object)
@@ -160,7 +160,7 @@ NULL
                 } else if (grepl("^max", x)) {
                     `<=`
                 } else {
-                    NULL
+                    NULL  # nocov
                 }
             }
         )
