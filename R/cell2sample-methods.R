@@ -9,8 +9,8 @@
 #' @param ... Additional arguments.
 #'
 #' @return
-#' - `"factor"`: Named `factor` containing as the [levels][base::levels] and
-#'   cell IDs as the [names][base::names].
+#' - `"factor"`: Named `factor` containing the samples as the levels and cell
+#'   identifiers as the names.
 #' - `DataFrame`: Data frame containing `sampleId` column and cell identifiers
 #'   as the row names.
 #' - `"tbl_df"`: Tibble containing `cellId` and `sampleId` columns.

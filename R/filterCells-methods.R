@@ -7,11 +7,11 @@
 #' mitochondrial abundance cutoffs to cellular barcodes. By default we recommend
 #' applying the same filtering cutoff to all samples. The filtering parameters
 #' now support per-sample cutoffs, defined using a named `numeric` vector. When
-#' matching per sample, be sure to use the [sampleNames()] return values (i.e.
-#' the `sampleName` column in [sampleData()]).
+#' matching per sample, be sure to use the `sampleNames()` return values (i.e.
+#' the `sampleName` column in `sampleData()`.
 #'
-#' Filtering information gets slotted into [`metadata()`][S4Vectors::metadata]
-#' as `filterCells` metadata.
+#' Filtering information gets slotted into `metadata()` as `filterCells`
+#' metadata.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param nCells `integer(1)`.
@@ -20,17 +20,16 @@
 #' @param minCounts,maxCounts `integer(1)`.
 #'   Minimum/maximum number of counts per cell.
 #'   Applies to UMI disambiguated counts for droplet scRNA-seq.
-#'   Matches `nUMI` then `nCount` column in
-#'   [`colData()`][SummarizedExperiment] internally.
+#'   Matches `nUMI` then `nCount` column in `colData()` internally.
 #'   Previously named `minUMIs`/`maxUMIs` in bcbioSingleCell.
 #' @param minFeatures,maxFeatures `integer(1)`.
 #'   Minimum/maximum number of features (i.e. genes) detected.
-#'   Matches `nFeature`in [`colData()`][SummarizedExperiment] internally.
+#'   Matches `nFeature`in `colData()` internally.
 #'   Previously named `minGenes`/`maxGenes` in bcbioSingleCell.
 #' @param minNovelty `integer(1)` (`0`-`1`).
 #'   Minimum novelty score (log10 features per UMI).
 #'   Matches `log10FeaturesPerCount` then `log10FeaturesPerUMI` (legacy)
-#'   [`colData()`][SummarizedExperiment] internally.
+#'   `colData()` internally.
 #' @param maxMitoRatio `integer(1)` (`0`-`1`).
 #'   Maximum relative mitochondrial abundance.
 #' @param minCellsPerFeature `integer(1)`.

@@ -29,19 +29,18 @@ filterCells(object, ...)
 \item{minCounts, maxCounts}{\code{integer(1)}.
 Minimum/maximum number of counts per cell.
 Applies to UMI disambiguated counts for droplet scRNA-seq.
-Matches \code{nUMI} then \code{nCount} column in
-\code{\link[=SummarizedExperiment]{colData()}} internally.
+Matches \code{nUMI} then \code{nCount} column in \code{colData()} internally.
 Previously named \code{minUMIs}/\code{maxUMIs} in bcbioSingleCell.}
 
 \item{minFeatures, maxFeatures}{\code{integer(1)}.
 Minimum/maximum number of features (i.e. genes) detected.
-Matches \code{nFeature}in \code{\link[=SummarizedExperiment]{colData()}} internally.
+Matches \code{nFeature}in \code{colData()} internally.
 Previously named \code{minGenes}/\code{maxGenes} in bcbioSingleCell.}
 
 \item{minNovelty}{\code{integer(1)} (\code{0}-\code{1}).
 Minimum novelty score (log10 features per UMI).
 Matches \code{log10FeaturesPerCount} then \code{log10FeaturesPerUMI} (legacy)
-\code{\link[=SummarizedExperiment]{colData()}} internally.}
+\code{colData()} internally.}
 
 \item{maxMitoRatio}{\code{integer(1)} (\code{0}-\code{1}).
 Maximum relative mitochondrial abundance.}
@@ -70,11 +69,11 @@ Apply feature (i.e. gene/transcript) detection, novelty score, and
 mitochondrial abundance cutoffs to cellular barcodes. By default we recommend
 applying the same filtering cutoff to all samples. The filtering parameters
 now support per-sample cutoffs, defined using a named \code{numeric} vector. When
-matching per sample, be sure to use the \code{\link[=sampleNames]{sampleNames()}} return values (i.e.
-the \code{sampleName} column in \code{\link[=sampleData]{sampleData()}}).
+matching per sample, be sure to use the \code{sampleNames()} return values (i.e.
+the \code{sampleName} column in \code{sampleData()}.
 
-Filtering information gets slotted into \code{\link[S4Vectors:Annotated-class]{metadata()}}
-as \code{filterCells} metadata.
+Filtering information gets slotted into \code{metadata()} as \code{filterCells}
+metadata.
 }
 \note{
 Updated 2021-02-05.

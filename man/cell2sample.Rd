@@ -20,8 +20,8 @@ to the first argument in the \code{character} vector.}
 }
 \value{
 \itemize{
-\item \code{"factor"}: Named \code{factor} containing as the \link[base:levels]{levels} and
-cell IDs as the \link[base:names]{names}.
+\item \code{"factor"}: Named \code{factor} containing the samples as the levels and cell
+identifiers as the names.
 \item \code{DataFrame}: Data frame containing \code{sampleId} column and cell identifiers
 as the row names.
 \item \code{"tbl_df"}: Tibble containing \code{cellId} and \code{sampleId} columns.

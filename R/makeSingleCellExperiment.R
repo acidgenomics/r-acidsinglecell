@@ -4,8 +4,7 @@
 #' @note Updated 2021-02-05.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param ... Passthrough arguments to
-#'   [`makeSummarizedExperiment()`][AcidExperiment::makeSummarizedExperiment].
+#' @param ... Passthrough arguments to `makeSummarizedExperiment()`.
 #'
 #' @seealso
 #' - `AcidExperiment::makeSummarizedExperiment()`.

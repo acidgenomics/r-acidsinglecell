@@ -14,7 +14,7 @@
 #' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
 #'   methodFunction packageName packageVersion printString realpath
 #'   standardizeCall
-#' @importFrom AcidCLI alert alertInfo alertSuccess alertWarning dl txt ul
+#' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl txt ul
 #'   verbatim
 #' @importFrom AcidExperiment assay assays calculateMetrics colData colData<-
 #'   counts counts<- decode encode interestingGroups matchInterestingGroups
