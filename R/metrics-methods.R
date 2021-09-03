@@ -81,12 +81,17 @@ setMethod(
         # Subset the relevant metrics columns.
         if (identical(fun, "sum")) {
             pattern <- "^n[A-Z0-9]"
-            if (!any(grepl(pattern, colnames(data)))) {
-                stop(
-                    "'sum()' method only applies to 'colData()' columns ",
-                    "prefixed with 'n' (e.g. 'nCount')."
+            assert(
+                any(grepl(pattern, colnames(data))),
+                msg = sprintf(
+                    fmt = paste(
+                        "'%s' method only applies to '%s' columns ",
+                        "prefixed with '%s' (e.g. '%s')."
+                    ),
+                    "sum()", "colData()",
+                    "n", "nCount"
                 )
-            }
+            )
             ## Sum only the `n*` columns containing counts.
             ## Supress: Adding missing grouping variables: `sampleId`.
             keep <- grepl(pattern = pattern, x = colnames(data))
