@@ -32,7 +32,7 @@ NULL
         data <- decode(data)
         ## Automatically assign `sampleId` column, if necessary.
         if (!isSubset("sampleId", colnames(data))) {
-            data[["sampleId"]] <- factor("unknown")
+            data[["sampleId"]] <- factor("unknown")  # nocov
         }
         ## Automatically assign `sampleName` column, if necessary.
         if (!isSubset("sampleName", colnames(data))) {
