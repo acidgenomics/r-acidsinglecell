@@ -1,3 +1,8 @@
+## FIXME Need to revisit this, after AcidExperiment update.
+## FIXME Need to add SCE method support for main `aggregate` method.
+
+
+
 #' @name aggregateCols
 #' @inherit AcidExperiment::aggregateCols
 #' @note Updated 2021-02-13.
