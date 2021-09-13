@@ -5,6 +5,8 @@
 - Added `aggregate` method designed for `SingleCellExperiment`. Legacy method
   support for `aggregateCols` is still provided, but now works as a passthrough
   to `aggregate`, which is defined in AcidExperiment instead of here.
+- Added `assay` support for `filterCells` and `zerosVsDepth`
+  SingleCellExperiment methods.
 
 ## AcidSingleCell 0.1.8 (2021-09-03)
 
