@@ -217,16 +217,6 @@ NULL
 
 
 
-#' @rdname sampleData
-#' @export
-setMethod(
-    f = "sampleData",
-    signature = signature("SingleCellExperiment"),
-    definition = `sampleData,SCE`
-)
-
-
-
 ## Updated 2021-01-14.
 `sampleData<-,SCE,DataFrame` <-  # nolint
     function(object, value) {
@@ -248,6 +238,16 @@ setMethod(
         colData(object) <- value
         object
     }
+
+
+
+#' @rdname sampleData
+#' @export
+setMethod(
+    f = "sampleData",
+    signature = signature("SingleCellExperiment"),
+    definition = `sampleData,SCE`
+)
 
 
 

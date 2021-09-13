@@ -1,6 +1,6 @@
 #' @name filterCells
 #' @inherit AcidGenerics::filterCells
-#' @note Updated 2021-02-05.
+#' @note Updated 2021-09-13.
 #'
 #' @details
 #' Apply feature (i.e. gene/transcript) detection, novelty score, and
@@ -60,10 +60,11 @@ NULL
 
 
 
-## Updated 2021-02-05.
+## Updated 2021-09-13.
 `filterCells,SCE` <-  # nolint
     function(
         object,
+        assay = 1L,
         ## Cell-level metrics.
         minCounts = 1L,
         maxCounts = Inf,
@@ -83,33 +84,36 @@ NULL
     ) {
         validObject(object)
         assert(
-            ## nCells
+            isScalar(assay),
+            ## nCells.
             all(isIntegerish(nCells)),
             all(isPositive(nCells)),
-            ## minCounts
+            ## minCounts.
             all(isIntegerish(minCounts)),
             all(isPositive(minCounts)),
-            ## maxCounts
+            ## maxCounts.
             all(isIntegerish(maxCounts)),
             all(isPositive(maxCounts)),
-            ## minFeatures
+            ## minFeatures.
             all(isIntegerish(minFeatures)),
             all(isPositive(minFeatures)),
-            ## maxFeatures
+            ## maxFeatures.
             all(isIntegerish(maxFeatures)),
             all(isNonNegative(maxFeatures)),
-            ## minNovelty
+            ## minNovelty.
             all(isInRange(minNovelty, lower = 0L, upper = 1L)),
-            ## maxMitoRatio
+            ## maxMitoRatio.
             all(isInLeftOpenRange(maxMitoRatio, lower = 0L, upper = 1L)),
-            ## minCellsPerFeature
+            ## minCellsPerFeature.
             all(isIntegerish(minCellsPerFeature)),
             all(isNonNegative(minCellsPerFeature))
         )
         alert(sprintf("Filtering cells with {.fun %s}.", "filterCells"))
         ## Calculate metrics, if necessary.
         if (!hasMetrics(object, colData = c("nCount", "nFeature"))) {
-            object <- calculateMetrics(object)  # nocov
+            ## nocov start
+            object <- calculateMetrics(object = object, assay = assay)
+            ## nocov end
         }
         ## Using DataFrame with Rle instead of tibble for improved speed.
         metrics <- colData(object)

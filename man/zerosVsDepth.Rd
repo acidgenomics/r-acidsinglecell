@@ -2,21 +2,21 @@
 % Please edit documentation in R/AllGenerics.R, R/zerosVsDepth-methods.R
 \name{zerosVsDepth}
 \alias{zerosVsDepth}
-\alias{zerosVsDepth,matrix-method}
 \alias{zerosVsDepth,Matrix-method}
-\alias{zerosVsDepth,SummarizedExperiment-method}
 \alias{zerosVsDepth,SingleCellExperiment-method}
+\alias{zerosVsDepth,SummarizedExperiment-method}
+\alias{zerosVsDepth,matrix-method}
 \title{Percentage of zeros vs. library depth}
 \usage{
 zerosVsDepth(object, ...)
 
-\S4method{zerosVsDepth}{matrix}(object)
-
 \S4method{zerosVsDepth}{Matrix}(object)
+
+\S4method{zerosVsDepth}{SingleCellExperiment}(object, assay = 1L)
 
 \S4method{zerosVsDepth}{SummarizedExperiment}(object, assay = 1L)
 
-\S4method{zerosVsDepth}{SingleCellExperiment}(object, assay = 1L)
+\S4method{zerosVsDepth}{matrix}(object)
 }
 \arguments{
 \item{object}{Object.}
