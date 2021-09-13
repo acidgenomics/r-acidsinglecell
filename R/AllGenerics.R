@@ -38,6 +38,33 @@ NULL
 
 
 
+#' @rdname cellCountsPerCluster
+#' @name cellCountsPerCluster
+#' @importFrom AcidGenerics cellCountsPerCluster
+#' @usage cellCountsPerCluster(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname cellTypesPerCluster
+#' @name cellTypesPerCluster
+#' @importFrom AcidGenerics cellTypesPerCluster
+#' @usage cellTypesPerCluster(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname clusters
+#' @name clusters
+#' @importFrom AcidGenerics clusters
+#' @usage clusters(object, ...)
+#' @export
+NULL
+
+
+
 #' @rdname combine
 #' @name combine
 #' @importFrom AcidGenerics combine
@@ -52,6 +79,42 @@ NULL
 #' @name convertSampleIDsToNames
 #' @importFrom AcidGenerics convertSampleIDsToNames
 #' @usage convertSampleIDsToNames(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname cpm
+#' @name cpm
+#' @importFrom AcidGenerics cpm
+#' @usage cpm(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname diffExp
+#' @name diffExp
+#' @importFrom AcidGenerics diffExp
+#' @usage diffExp(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname diffExpPerCluster
+#' @name diffExpPerCluster
+#' @importFrom AcidGenerics diffExpPerCluster
+#' @usage diffExpPerCluster(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname findMarkers
+#' @name findMarkers
+#' @importFrom AcidGenerics findMarkers
+#' @usage findMarkers(object, ...)
 #' @export
 NULL
 
@@ -117,6 +180,15 @@ NULL
 
 
 
+#' @rdname normalize
+#' @name normalize
+#' @importFrom AcidGenerics normalize
+#' @usage normalize(object, ...)
+#' @export
+NULL
+
+
+
 #' @rdname sampleData
 #' @name sampleData
 #' @importFrom AcidGenerics sampleData
@@ -149,6 +221,15 @@ NULL
 #' @name subsetPerSample
 #' @importFrom AcidGenerics subsetPerSample
 #' @usage subsetPerSample(object, ...)
+#' @export
+NULL
+
+
+
+#' @rdname summary
+#' @name summary
+#' @importFrom AcidGenerics summary
+#' @usage summary(object, ...)
 #' @export
 NULL
 
