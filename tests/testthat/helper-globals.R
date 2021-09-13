@@ -16,5 +16,5 @@ sce_lanesplit <- SingleCellExperiment_lanesplit
 
 ## nolint start
 SingleCellExperiment <- SingleCellExperiment::SingleCellExperiment
-simpleClass <- basejump::simpleClass
+simpleClass <- AcidBase::simpleClass
 ## nolint end
