@@ -9,6 +9,7 @@ filterCells(object, ...)
 
 \S4method{filterCells}{SingleCellExperiment}(
   object,
+  assay = 1L,
   minCounts = 1L,
   maxCounts = Inf,
   minFeatures = 1L,
@@ -25,6 +26,9 @@ filterCells(object, ...)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{assay}{\code{vector(1)}.
+Assay name or index position.}
 
 \item{minCounts, maxCounts}{\code{integer(1)}.
 Minimum/maximum number of counts per cell.
@@ -76,7 +80,7 @@ Filtering information gets slotted into \code{metadata()} as \code{filterCells}
 metadata.
 }
 \note{
-Updated 2021-02-05.
+Updated 2021-09-13.
 }
 \examples{
 data(SingleCellExperiment, package = "AcidTest")

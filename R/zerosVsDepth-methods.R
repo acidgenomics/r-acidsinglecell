@@ -31,16 +31,6 @@ NULL
 
 
 
-#' @rdname zerosVsDepth
-#' @export
-setMethod(
-    f = "zerosVsDepth",
-    signature = signature("matrix"),
-    definition = `zerosVsDepth,matrix`
-)
-
-
-
 ## Using a logical matrix is faster and more memory efficient.
 ## Ensure dgTMatrix gets coereced to dgCMatrix prior to logical.
 ## Updated 2021-02-13.
@@ -58,18 +48,8 @@ setMethod(
 
 
 
-#' @rdname zerosVsDepth
-#' @export
-setMethod(
-    f = "zerosVsDepth",
-    signature = signature("Matrix"),
-    definition = `zerosVsDepth,Matrix`
-)
-
-
-
 ## Updated 2019-08-06.
-`zerosVsDepth,SummarizedExperiment` <-  # nolint
+`zerosVsDepth,SE` <-  # nolint
     function(object, assay = 1L) {
         assert(isScalar(assay))
         counts <- assay(object, i = assay)
@@ -81,16 +61,6 @@ setMethod(
         )
         cbind(data, sampleData)
     }
-
-
-
-#' @rdname zerosVsDepth
-#' @export
-setMethod(
-    f = "zerosVsDepth",
-    signature = signature("SummarizedExperiment"),
-    definition = `zerosVsDepth,SummarizedExperiment`
-)
 
 
 
@@ -121,6 +91,30 @@ setMethod(
 #' @export
 setMethod(
     f = "zerosVsDepth",
+    signature = signature("Matrix"),
+    definition = `zerosVsDepth,Matrix`
+)
+
+#' @rdname zerosVsDepth
+#' @export
+setMethod(
+    f = "zerosVsDepth",
     signature = signature("SingleCellExperiment"),
     definition = `zerosVsDepth,SCE`
+)
+
+#' @rdname zerosVsDepth
+#' @export
+setMethod(
+    f = "zerosVsDepth",
+    signature = signature("SummarizedExperiment"),
+    definition = `zerosVsDepth,SE`
+)
+
+#' @rdname zerosVsDepth
+#' @export
+setMethod(
+    f = "zerosVsDepth",
+    signature = signature("matrix"),
+    definition = `zerosVsDepth,matrix`
 )
