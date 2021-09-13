@@ -22,8 +22,20 @@ test_that("SingleCellExperiment", {
             "sample_2_CCCCCC_CCCCCC_CCCCCC" = 39246
             ## nolint end
         )
-
     )
+})
+
+test_that("Aggregation methods defined in AcidExperiment", {
+    object <- sce_lanesplit
+    rowData(object)[["aggregate"]] <- as.factor("AAA")
+    for (object in list(
+        aggregate(object, MARGIN = 1L),
+        aggregate(object, MARGIN = 2L),
+        aggregateRows(object),
+        aggregateCols(object)
+    )) {
+        expect_s4_class(object, "SingleCellExperiment")
+    }
 })
 
 test_that("sce_lanesplit2", {
