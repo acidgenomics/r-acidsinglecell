@@ -61,22 +61,27 @@ test_that("Top cells only", {
 test_that("Cell filtering", {
     mapply(
         args = list(
-            list(minCounts = 50000L),
-            list(maxCounts = 50000L),
-            list(minFeatures = 250L),
-            list(maxFeatures = 250L),
-            list(minNovelty = 0.5)
+            list("minCounts" = 50000L),
+            list("maxCounts" = 50000L),
+            list("minFeatures" = 250L),
+            list("maxFeatures" = 250L),
+            list("minNovelty" = 0.5)
         ),
         dim = list(
-            c(487L, 69L),
-            c(472L, 31L),
-            c(488L, 90L),
-            c(429L, 10L),
-            c(487L, 99L)
+            c(488L, 63L),
+            c(472L, 37L),
+            c(488L, 68L),
+            c(472L, 35L),
+            c(489L, 97L)
         ),
         FUN = function(args, dim) {
-            args[["object"]] <- object
-            x <- do.call(what = filterCells, args = args)
+            x <- do.call(
+                what = filterCells,
+                args = append(
+                    x = args,
+                    values = list("object" = object)
+                )
+            )
             expect_s4_class(x, "SingleCellExperiment")
             expect_identical(dim(x), dim)
         },
@@ -86,7 +91,7 @@ test_that("Cell filtering", {
 
 test_that("Feature filtering", {
     x <- filterCells(object, minCellsPerFeature = 50L)
-    expect_identical(dim(x), c(296L, 100L))
+    expect_identical(dim(x), c(280L, 100L))
 })
 
 
@@ -94,12 +99,11 @@ test_that("Feature filtering", {
 context("filterCells : Per sample filtering")
 
 test_that("minCounts", {
-    ## minCounts
     x <- filterCells(
         object = object,
         minCounts = c(
-            sample1 = 50000L,
-            sample2 = 25000L
+            "sample1" = 50000L,
+            "sample2" = 25000L
         )
     )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
@@ -108,17 +112,17 @@ test_that("minCounts", {
             m[["sample1"]][["minCounts"]],
             m[["sample2"]][["minCounts"]]
         ),
-        expected = c(29L, 54L)
+        expected = c(29L, 53L)
     )
-    expect_identical(dim(x), c(487L, 83L))
+    expect_identical(dim(x), c(489L, 82L))
 })
 
 test_that("maxCounts", {
     x <- filterCells(
         object = object,
         maxCounts = c(
-            sample1 = 50000L,
-            sample2 = 25000L
+            "sample1" = 50000L,
+            "sample2" = 25000L
         )
     )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
@@ -127,17 +131,17 @@ test_that("maxCounts", {
             m[["sample1"]][["maxCounts"]],
             m[["sample2"]][["maxCounts"]]
         ),
-        expected = c(17L, 0L)
+        expected = c(18L, 0L)
     )
-    expect_identical(dim(x), c(458L, 17L))
+    expect_identical(dim(x), c(460L, 18L))
 })
 
 test_that("minFeatures", {
     x <- filterCells(
         object = object,
         minFeatures = c(
-            sample1 = 300L,
-            sample2 = 250L
+            "sample1" = 300L,
+            "sample2" = 250L
         )
     )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
@@ -146,17 +150,17 @@ test_that("minFeatures", {
             m[["sample1"]][["minFeatures"]],
             m[["sample2"]][["minFeatures"]]
         ),
-        expected = c(1L, 51L)
+        expected = c(5L, 30L)
     )
-    expect_identical(dim(x), c(480L, 52L))
+    expect_identical(dim(x), c(482L, 35L))
 })
 
 test_that("maxFeatures", {
     x <- filterCells(
         object = object,
         maxFeatures = c(
-            sample1 = 300L,
-            sample2 = 250L
+            "sample1" = 300L,
+            "sample2" = 250L
         )
     )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
@@ -165,17 +169,17 @@ test_that("maxFeatures", {
             m[["sample1"]][["maxFeatures"]],
             m[["sample2"]][["maxFeatures"]]
         ),
-        expected = c(45L, 3L)
+        expected = c(42L, 26L)
     )
-    expect_identical(dim(x), c(484L, 48L))
+    expect_identical(dim(x), c(481L, 68L))
 })
 
 test_that("minNovelty", {
     x <- filterCells(
         object = object,
         minNovelty = c(
-            sample1 = 0.5,
-            sample2 = 0.6
+            "sample1" = 0.5,
+            "sample2" = 0.6
         )
     )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
@@ -184,17 +188,17 @@ test_that("minNovelty", {
             m[["sample1"]][["minNovelty"]],
             m[["sample2"]][["minNovelty"]]
         ),
-        expected = c(46L, 0L)
+        expected = c(47L, 0L)
     )
-    expect_identical(dim(x), c(483L, 46L))
+    expect_identical(dim(x), c(481L, 47L))
 })
 
 test_that("nCells", {
     x <- filterCells(
         object = object,
         nCells = c(
-            sample1 = 2L,
-            sample2 = 4L
+            "sample1" = 2L,
+            "sample2" = 4L
         )
     )
     expect_identical(ncol(x), 6L)
@@ -202,8 +206,8 @@ test_that("nCells", {
     expect_identical(
         lapply(m, length),
         list(
-            sample1 = 2L,
-            sample2 = 4L
+            "sample1" = 2L,
+            "sample2" = 4L
         )
     )
 })
