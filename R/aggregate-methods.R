@@ -28,7 +28,7 @@ NULL
 #'
 #' @note Updated 2021-09-13.
 #' @noRd
-`aggregateCols,SCE` <-  # nolint
+.aggregateCols <-  # nolint
     function(x, col, fun) {
         validObject(x)
         assert(
@@ -96,22 +96,8 @@ NULL
         }
         colData(rse) <- colData
         ## Update the metadata.
-        metadata <- metadata(x)
-        metadata[["aggregate"]] <- TRUE
-        metadata[["aggregateCols"]] <- by
-        ## Now ready to generate aggregated SCE.
-        sce <- SingleCellExperiment(
-            assays = assays(rse),
-            rowRanges = rowRanges(x),
-            colData = colData(rse),
-            metadata = list(
-                "aggregate" = TRUE,
-                "aggregateCols" = by,
-                "interestingGroups" = interestingGroups(x)
-            )
-        )
-        validObject(sce)
-        sce
+        metadata(rse)[["aggregateCols"]] <- by
+        rse
     }
 
 
@@ -136,18 +122,17 @@ NULL
         switch(
             EXPR = as.character(MARGIN),
             "1" = {
+                args[["x"]] <- as(x, "RangedSummarizedExperiment")
                 args[["MARGIN"]] <- MARGIN
-                what <- methodFunction(
-                    f = "aggregate",
-                    signature = "SummarizedExperiment",
-                    package = "AcidExperiment"
-                )
+                what <- aggregate
             },
             "2" = {
-                what <- `aggregateCols,SCE`
+                what <- .aggregateCols
             },
         )
-        do.call(what = what, args = args)
+        se <- do.call(what = what, args = args)
+        assert(is(se, "SummarizedExperiment"))
+        as(se, "SingleCellExperiment")
     }
 
 

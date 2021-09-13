@@ -15,6 +15,10 @@ sce_lanesplit <- SingleCellExperiment_lanesplit
 ## nolint end
 
 ## nolint start
+`rowData<-` <- AcidExperiment::`rowData<-`
 SingleCellExperiment <- SingleCellExperiment::SingleCellExperiment
+aggregateCols <- AcidExperiment::aggregateCols
+aggregateRows <- AcidExperiment::aggregateRows
+rowData <- AcidExperiment::rowData
 simpleClass <- AcidBase::simpleClass
 ## nolint end
