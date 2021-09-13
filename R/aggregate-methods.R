@@ -1,9 +1,3 @@
-## FIXME Need to add SCE method support for main `aggregate` method.
-## FIXME Need to revisit this, after AcidExperiment update.
-## FIXME Pass through on `MARGIN = 1` default.
-
-
-
 #' @name aggregate
 #' @inherit AcidExperiment::aggregate
 #' @note Updated 2021-09-13.
@@ -19,21 +13,23 @@
 #' ## SingleCellExperiment ====
 #' x <- SingleCellExperiment_lanesplit
 #' levels(colData(x)[["aggregate"]])
-#' x <- aggregate(x = x, col = "aggregate", fun = "sum")
+#' x <- aggregate(
+#'     x = x,
+#'     col = "aggregate",
+#'     fun = "sum",
+#'     MARGIN = 2L
+#' )
 #' print(x)
 NULL
 
 
 
-## FIXME Only apply this when MARGIN = 2L...
-
-## Updated 2021-02-05.
-`aggregate,SCE` <-  # nolint
-    function(
-        x,
-        col = "aggregate",
-        fun = "sum"
-    ) {
+#' Aggregate cellular barcodes across columns
+#'
+#' @note Updated 2021-09-13.
+#' @noRd
+`aggregateCols,SCE` <-  # nolint
+    function(x, col, fun) {
         validObject(x)
         assert(
             hasColnames(x),
@@ -53,7 +49,11 @@ NULL
         map[["cellId"]] <- rownames(map)
         alert(sprintf(
             "Remapping cells to aggregate samples: %s",
-            toInlineString(sort(levels(map[[aggregateCol]])), n = 5L)
+            toInlineString(
+                x = sort(levels(map[[aggregateCol]])),
+                n = 5L,
+                class = "val"
+            )
         ))
         assert(
             all(mapply(
@@ -82,7 +82,7 @@ NULL
         ## Using `SummarizedExperiment` method here.
         rse <- as(x, "RangedSummarizedExperiment")
         colData(rse)[[sampleCol]] <- NULL
-        rse <- aggregateCols(x = rse, fun = fun)
+        rse <- aggregate(x = rse, fun = fun, MARGIN = 2L)
         assert(
             is(rse, "RangedSummarizedExperiment"),
             identical(nrow(rse), nrow(x))
@@ -101,7 +101,7 @@ NULL
         metadata[["aggregateCols"]] <- by
         ## Now ready to generate aggregated SCE.
         sce <- SingleCellExperiment(
-            assays = SimpleList(counts = counts(rse)),
+            assays = assays(rse),
             rowRanges = rowRanges(x),
             colData = colData(rse),
             metadata = list(
@@ -112,6 +112,42 @@ NULL
         )
         validObject(sce)
         sce
+    }
+
+
+
+## Updated 2021-09-13.
+`aggregate,SCE` <-  # nolint
+    function(
+        x,
+        col = "aggregate",
+        fun = "sum",
+        MARGIN = 1L  # nolint
+    ) {
+        assert(
+            isInt(MARGIN),
+            isInRange(MARGIN, lower = 1L, upper = 2L)
+        )
+        args <- list(
+            "x" = x,
+            "col" = col,
+            "fun" = fun
+        )
+        switch(
+            EXPR = as.character(MARGIN),
+            "1" = {
+                args[["MARGIN"]] <- MARGIN
+                what <- methodFunction(
+                    f = "aggregate",
+                    signature = "SummarizedExperiment",
+                    package = "AcidExperiment"
+                )
+            },
+            "2" = {
+                what <- `aggregateCols,SCE`
+            },
+        )
+        do.call(what = what, args = args)
     }
 
 

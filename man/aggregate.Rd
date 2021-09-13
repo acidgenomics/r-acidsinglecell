@@ -7,7 +7,7 @@
 \usage{
 aggregate(x, ...)
 
-\S4method{aggregate}{SingleCellExperiment}(x, col = "aggregate", fun = "sum")
+\S4method{aggregate}{SingleCellExperiment}(x, col = "aggregate", fun = "sum", MARGIN = 1L)
 }
 \arguments{
 \item{x}{Object.}
@@ -19,6 +19,13 @@ desired aggregation groupings.}
 \item{fun}{\code{character(1)}.
 Name of the aggregation function to apply.
 Uses \code{match.arg()} internally.}
+
+\item{MARGIN}{\code{integer(1-2)}.
+Dimension where the function will be applied.
+For a two-dimensional matrix:
+\code{1} indicates rows;
+\code{2} indicates columns;
+\code{c(1, 2)} indicates rows and columns.}
 
 \item{...}{Additional arguments.}
 }
@@ -62,7 +69,12 @@ data(SingleCellExperiment_lanesplit, package = "AcidTest")
 ## SingleCellExperiment ====
 x <- SingleCellExperiment_lanesplit
 levels(colData(x)[["aggregate"]])
-x <- aggregate(x = x, col = "aggregate", fun = "sum")
+x <- aggregate(
+    x = x,
+    col = "aggregate",
+    fun = "sum",
+    MARGIN = 2L
+)
 print(x)
 }
 \seealso{
