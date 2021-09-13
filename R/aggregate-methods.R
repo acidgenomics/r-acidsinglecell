@@ -1,11 +1,12 @@
-## FIXME Need to revisit this, after AcidExperiment update.
 ## FIXME Need to add SCE method support for main `aggregate` method.
+## FIXME Need to revisit this, after AcidExperiment update.
+## FIXME Pass through on `MARGIN = 1` default.
 
 
 
-#' @name aggregateCols
-#' @inherit AcidExperiment::aggregateCols
-#' @note Updated 2021-02-13.
+#' @name aggregate
+#' @inherit AcidExperiment::aggregate
+#' @note Updated 2021-09-13.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -18,14 +19,16 @@
 #' ## SingleCellExperiment ====
 #' x <- SingleCellExperiment_lanesplit
 #' levels(colData(x)[["aggregate"]])
-#' x <- aggregateCols(x = x, col = "aggregate", fun = "sum")
+#' x <- aggregate(x = x, col = "aggregate", fun = "sum")
 #' print(x)
 NULL
 
 
 
+## FIXME Only apply this when MARGIN = 2L...
+
 ## Updated 2021-02-05.
-`aggregateCols,SCE` <-  # nolint
+`aggregate,SCE` <-  # nolint
     function(
         x,
         col = "aggregate",
@@ -102,9 +105,9 @@ NULL
             rowRanges = rowRanges(x),
             colData = colData(rse),
             metadata = list(
-                aggregate = TRUE,
-                aggregateCols = by,
-                interestingGroups = interestingGroups(x)
+                "aggregate" = TRUE,
+                "aggregateCols" = by,
+                "interestingGroups" = interestingGroups(x)
             )
         )
         validObject(sce)
@@ -113,10 +116,10 @@ NULL
 
 
 
-#' @rdname aggregateCols
+#' @rdname aggregate
 #' @export
 setMethod(
-    f = "aggregateCols",
+    f = "aggregate",
     signature = signature("SingleCellExperiment"),
-    definition = `aggregateCols,SCE`
+    definition = `aggregate,SCE`
 )
