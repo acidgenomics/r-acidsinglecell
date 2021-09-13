@@ -1,4 +1,15 @@
 #' @rdname aggregateCellsToSamples
+#' @rdname KnownMarkers
+#' @export
+setGeneric(
+    name = "KnownMarkers",
+    def = function(markers, known, ...) {
+        standardGeneric("KnownMarkers")
+    }
+)
+
+
+
 #' @name aggregateCellsToSamples
 #' @importFrom AcidGenerics aggregateCellsToSamples
 #' @usage aggregateCellsToSamples(x, ...)
