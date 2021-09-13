@@ -1,5 +1,6 @@
 context("metricsPerSample")
 
+## NOTE These values can change when we update AcidTest.
 test_that("SCE", {
     mapply(
         fun = eval(formals(`metricsPerSample,SCE`)[["fun"]]),
