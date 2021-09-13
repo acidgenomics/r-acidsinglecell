@@ -2,25 +2,25 @@ sce_lanesplit2 <- readRDS(file.path("cache", "sce_lanesplit.rds"))  # nolint
 
 
 
-context("aggregateCols")
+context("aggregate")
 
 test_that("SingleCellExperiment", {
     object <- sce_lanesplit
-    object <- aggregateCols(object, fun = "sum")
+    object <- aggregate(object, fun = "sum", MARGIN = 2L)
     expect_s4_class(object, "SingleCellExperiment")
     expect_identical(dim(object), c(100L, 8L))
-    sums <- colSums(counts(object))
-    sums <- head(sort(as(sums, "integer"), decreasing = TRUE))
     ## NOTE These values can change when we update AcidTest.
     expect_identical(
-        object = sums,
+        object = head(colSums(counts(object))),
         expected = c(
-            "sample_1_TTTTTT_TTTTTT_TTTTTT" = 45635L,
-            "sample_2_TTTTTT_TTTTTT_TTTTTT" = 43923L,
-            "sample_1_CCCCCC_CCCCCC_CCCCCC" = 41455L,
-            "sample_2_GGGGGG_GGGGGG_GGGGGG" = 40484L,
-            "sample_1_GGGGGG_GGGGGG_GGGGGG" = 38776L,
-            "sample_2_AAAAAA_AAAAAA_AAAAAA" = 37864L
+            ## nolint start
+            "sample_1_AAAAAA_AAAAAA_AAAAAA" = 35236,
+            "sample_1_CCCCCC_CCCCCC_CCCCCC" = 32089,
+            "sample_1_GGGGGG_GGGGGG_GGGGGG" = 37218,
+            "sample_1_TTTTTT_TTTTTT_TTTTTT" = 33148,
+            "sample_2_AAAAAA_AAAAAA_AAAAAA" = 37655,
+            "sample_2_CCCCCC_CCCCCC_CCCCCC" = 39246
+            ## nolint end
         )
 
     )
@@ -28,22 +28,21 @@ test_that("SingleCellExperiment", {
 
 test_that("sce_lanesplit2", {
     object <- sce_lanesplit2
-    object <- aggregateCols(object, fun = "sum")
+    object <- aggregate(object, fun = "sum", MARGIN = 2L)
     expect_s4_class(object, "SingleCellExperiment")
     expect_identical(dim(object), c(100L, 6432L))
-    sums <- colSums(counts(object))
-    sums <- head(sort(as(sums, "integer"), decreasing = TRUE))
     expect_identical(
-        object = sums,
+        object = head(colSums(counts(object))),
         expected = c(
-            "CD3H_CCGTAA_CGGTCC_TTCTTG" = 439L,
-            "CD3I_CGCATA_GGTGCT_TCTAGC" = 423L,
-            "CD3I_CGCATA_GGATTG_CATAGA" = 403L,
-            "CD3H_CTAGGT_CTCAAT_TGCGGT" = 381L,
-            "CD3H_TTCTTG_CAACCG_CTATTA" = 376L,
-            "CD3H_GCCGTT_TGGCAG_ATATAC" = 340L
+            ## nolint start
+            "CD3H_AAAGAA_AAAGAA_TGCTAA" = 0,
+            "CD3H_AAAGAA_ACTGCA_CCTCTA" = 97,
+            "CD3H_AAAGAA_ACTGCA_GCCAGA" = 0,
+            "CD3H_AAAGAA_AGCACG_CGGTCC" = 23,
+            "CD3H_AAAGAA_AGTCTG_GCGCGG" = 1,
+            "CD3H_AAAGAA_ATTAGT_AGATGT" = 1
+            ## nolint end
         )
-
     )
 })
 
@@ -54,33 +53,32 @@ context("aggregateCellsToSamples")
 test_that("SingleCellExperiment", {
     object <- sce
     object <- aggregateCellsToSamples(object)
-    sums <- colSums(counts(object))
-    sums <- as(sums, "integer")
     ## NOTE These values can change we we update AcidTest.
     expect_identical(
-        object = sums,
+        object = colSums(counts(object)),
         expected = c(
-            "sample1" = 2507353L,
-            "sample2" = 3135565L
+            ## nolint start
+            "sample1" = 2624611,
+            "sample2" = 2955035
+            ## nolint end
         )
     )
 })
 
-
 test_that("sce_lanesplit2", {
     object <- sce_lanesplit2
     object <- aggregateCellsToSamples(object)
-    sums <- colSums(counts(object))
-    sums <- head(sort(as(sums, "integer"), decreasing = TRUE))
     expect_identical(
-        object = sums,
+        object = head(colSums(counts(object))),
         expected = c(
-            "CD3H_3_L001" = 4764L,
-            "CD3H_3_L002" = 4600L,
-            "CD3H_3_L003" = 4325L,
-            "CD3H_3_L004" = 4279L,
-            "CD3H_1_L001" = 3991L,
-            "CD3H_1_L002" = 3961L
+            ## nolint start
+            CD3H_1_L001 = 3991,
+            CD3H_1_L002 = 3961,
+            CD3H_1_L003 = 3644,
+            CD3H_1_L004 = 3629,
+            CD3H_2_L001 = 2226,
+            CD3H_2_L002 = 2228
+            ## nolint end
         )
     )
 })
