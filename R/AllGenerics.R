@@ -1,6 +1,7 @@
-#' @rdname aggregateCellsToSamples
-#' @rdname KnownMarkers
+#' Known cell markers
+#'
 #' @export
+#' @note Updated 2021-09-13.
 setGeneric(
     name = "KnownMarkers",
     def = function(markers, known, ...) {
