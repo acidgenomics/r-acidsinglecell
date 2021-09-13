@@ -11,7 +11,7 @@
 #' @examples
 #' markersDir <- system.file(
 #'     file.path("extdata", "markers"),
-#'     package = "pointillism"
+#'     package = "AcidSingleCell"
 #' )
 #'
 #' cellCycleDir <- file.path(markersDir, "cell-cycle")

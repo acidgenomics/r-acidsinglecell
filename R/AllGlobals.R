@@ -1,8 +1,5 @@
-#' Package version
-#'
-#' @note Updated 2021-02-05.
-#' @noRd
-.version <- packageVersion(packageName())
+.pkgName <- packageName()
+.pkgVersion <- packageVersion(.pkgName)
 
 
 
@@ -10,12 +7,12 @@
 #'
 #' @export
 #' @keywords internal
-#' @note Updated 2021-02-05.
+#' @note Updated 2021-09-13.
 #'
 #' @examples
 #' AcidSingleCellTestsURL
 AcidSingleCellTestsURL <-  # nolint
     paste0(
         "https://r.acidgenomics.com/testdata/acidsinglecell/",
-        "v", .version$major, ".", .version$minor  # nolint
+        "v", .pkgVersion$major, ".", .pkgVersion$minor  # nolint
     )
