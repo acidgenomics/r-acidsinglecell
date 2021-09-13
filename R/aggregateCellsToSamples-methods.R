@@ -1,7 +1,3 @@
-## FIXME Need to call aggregate with MARGIN = 2L internally here.
-
-
-
 #' @name aggregateCellsToSamples
 #' @inherit AcidGenerics::aggregateCellsToSamples
 #' @note Updated 2021-09-13.
@@ -24,7 +20,7 @@ NULL
 
 
 
-## Updated 2021-02-05.
+## Updated 2021-09-13.
 `aggregateCellsToSamples,SCE` <-  # nolint
     function(x) {
         validObject(x)
@@ -38,8 +34,12 @@ NULL
             colData[[sampleCol]] <- NULL
         }
         colData(rse) <- colData
-        ## FIXME Call this via aggregate with MARGIN = 2L instead.
-        aggregateCols(x = rse, col = aggregateCol, fun = "sum")
+        aggregate(
+            x = rse,
+            col = aggregateCol,
+            fun = "sum",
+            MARGIN = 2L
+        )
     }
 
 
