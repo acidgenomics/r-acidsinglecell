@@ -1,14 +1,17 @@
+## FIXME Need to call aggregate with MARGIN = 2L internally here.
+
+
+
 #' @name aggregateCellsToSamples
 #' @inherit AcidGenerics::aggregateCellsToSamples
-#' @note Updated 2021-02-08.
+#' @note Updated 2021-09-13.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
 #' @details
-#' Internally `aggregateCellsToSamples()` automatically obtains the
-#' cell-to-sample groupings and then performs a sum aggregation with the
-#' `aggregateCols()` function.
+#' Internally this function automatically obtains the cell-to-sample groupings
+#' and then performs a sum aggregation with the `aggregate()` function.
 #'
 #' @examples
 #' data(SingleCellExperiment_lanesplit, package = "AcidTest")
@@ -35,6 +38,7 @@ NULL
             colData[[sampleCol]] <- NULL
         }
         colData(rse) <- colData
+        ## FIXME Call this via aggregate with MARGIN = 2L instead.
         aggregateCols(x = rse, col = aggregateCol, fun = "sum")
     }
 

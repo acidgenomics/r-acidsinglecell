@@ -24,12 +24,11 @@ Utilty function that factilites cell-to-sample aggregation. By default, this
 function will sum the counts across cells to sample level.
 }
 \details{
-Internally \code{aggregateCellsToSamples()} automatically obtains the
-cell-to-sample groupings and then performs a sum aggregation with the
-\code{aggregateCols()} function.
+Internally this function automatically obtains the cell-to-sample groupings
+and then performs a sum aggregation with the \code{aggregate()} function.
 }
 \note{
-Updated 2021-02-08.
+Updated 2021-09-13.
 }
 \examples{
 data(SingleCellExperiment_lanesplit, package = "AcidTest")

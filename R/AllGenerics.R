@@ -7,11 +7,11 @@ NULL
 
 
 
-#' @rdname aggregateCols
-#' @name aggregateCols
-#' @importFrom AcidGenerics aggregateCols
-#' @importMethodsFrom AcidExperiment aggregateCols
-#' @usage aggregateCols(x, ...)
+#' @rdname aggregate
+#' @name aggregate
+#' @importFrom AcidGenerics aggregate
+#' @importMethodsFrom AcidExperiment aggregate
+#' @usage aggregate(x, ...)
 #' @export
 NULL
 
