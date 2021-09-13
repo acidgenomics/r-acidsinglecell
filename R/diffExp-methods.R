@@ -182,7 +182,7 @@ NULL
 
 
 
-## Updated 2021-03-02.
+## Updated 2021-03-13.
 `diffExp,SCE` <-  # nolint
     function(
         object,
@@ -192,7 +192,7 @@ NULL
         minCells = 2L,  # 10L
         minCellsPerGene = 1L,  # 25L
         minCountsPerCell = 1L,  # 5L
-        BPPARAM  # nolint
+        BPPARAM = BiocParallel::bpparam()
     ) {
         ## Coerce to standard SCE to ensure fast subsetting.
         object <- as(object, "SingleCellExperiment")
@@ -332,17 +332,12 @@ NULL
         ## Perform differential expression.
         fun <- get(
             x  = paste0(".diffExp.", caller),
-            envir = asNamespace("pointillism"),
+            envir = asNamespace(.pkgName),
             inherits = FALSE
         )
         assert(is.function(fun))
         fun(object)
     }
-
-args <- "BPPARAM"
-formals(`diffExp,SCE`)[args] <-
-    .formalsList[args]
-rm(args)
 
 
 

@@ -1,7 +1,7 @@
 #' Cell-type markers
 #'
 #' @name CellTypeMarkers
-#' @note Updated 2020-10-12.
+#' @note Updated 2021-09-13.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @inheritParams AcidGenomes::makeGene2SymbolFromEnsembl
@@ -11,7 +11,7 @@
 #' @examples
 #' markers_dir <- system.file(
 #'     file.path("extdata", "markers"),
-#'     package = "pointillism"
+#'     package = "AcidSingleCell"
 #' )
 #'
 #' cell_type_dir <- file.path(markers_dir, "cell-type")

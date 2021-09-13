@@ -14,7 +14,7 @@ AcidSingleCellTestsURL
 AcidSingleCell test data URL
 }
 \note{
-Updated 2021-02-05.
+Updated 2021-09-13.
 }
 \examples{
 AcidSingleCellTestsURL

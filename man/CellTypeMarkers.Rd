@@ -42,12 +42,12 @@ will be stored in \code{txId}, \code{txIdNoVersion}, \code{geneId}, and \code{ge
 Cell-type markers
 }
 \note{
-Updated 2020-10-12.
+Updated 2021-09-13.
 }
 \examples{
 markers_dir <- system.file(
     file.path("extdata", "markers"),
-    package = "pointillism"
+    package = "AcidSingleCell"
 )
 
 cell_type_dir <- file.path(markers_dir, "cell-type")
