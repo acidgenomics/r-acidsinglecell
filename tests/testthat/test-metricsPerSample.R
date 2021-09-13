@@ -4,9 +4,9 @@ test_that("SCE", {
     mapply(
         fun = eval(formals(`metricsPerSample,SCE`)[["fun"]]),
         expected = list(
-            "mean" = c(54508L, 58066L),
-            "median" = c(54318L, 58486L),
-            "sum" = c(2507353L, 3135565L)
+            "mean" = c(55843L, 55755L),
+            "median" = c(56991L, 53230L),
+            "sum" = c(2624611L, 2955035L)
         ),
         FUN = function(fun, expected) {
             x <- sce
