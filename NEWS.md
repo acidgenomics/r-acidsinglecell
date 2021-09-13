@@ -1,3 +1,11 @@
+## AcidSingleCell 0.1.9 (2021-09-13)
+
+### Minor changes
+
+- Added `aggregate` method designed for `SingleCellExperiment`. Legacy method
+  support for `aggregateCols` is still provided, but now works as a passthrough
+  to `aggregate`, which is defined in AcidExperiment instead of here.
+
 ## AcidSingleCell 0.1.8 (2021-09-03)
 
 ### Minor changes
