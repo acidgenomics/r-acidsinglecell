@@ -1,11 +1,10 @@
-## Consider adding pseudobulk support here in a future update.
-## FIXME Consider moving this to AcidSingleCell.
+## NOTE Consider adding pseudobulk support here in a future update.
 
 
 
 #' @name diffExpPerCluster
 #' @inherit AcidGenerics::diffExpPerCluster
-#' @note Updated 2020-01-30.
+#' @note Updated 2021-09-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @inheritParams diffExp
@@ -22,23 +21,25 @@
 #' - `caller = "DESeq2"`: `DESeqResults`.
 #'
 #' @examples
-#' data(Seurat, package = "AcidTest")
+#' data(SingleCellExperiment_Seurat, package = "AcidTest")
 #'
-#' ## Seurat ====
-#' object <- Seurat
-#' group <- factor(c("group1", "group2"))
-#' colData(object)$group <- group
-#' suppressMessages({
-#'     x <- diffExpPerCluster(
-#'         object = object,
-#'         group = "group",
-#'         numerator = "group2",
-#'         denominator = "group1",
-#'         caller = "edgeR"
-#'     )
-#' })
-#' class(x)
-#' lapply(x, class)
+#' ## SingleCellExperiment ====
+#' if (isInstalled("edgeR")) {
+#'     object <- SingleCellExperiment_Seurat
+#'     group <- factor(c("group1", "group2"))
+#'     colData(object)$group <- group
+#'     suppressMessages({
+#'         x <- diffExpPerCluster(
+#'             object = object,
+#'             group = "group",
+#'             numerator = "group2",
+#'             denominator = "group1",
+#'             caller = "edgeR"
+#'         )
+#'     })
+#'     class(x)
+#'     lapply(x, class)
+#' }
 NULL
 
 

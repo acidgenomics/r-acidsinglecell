@@ -36,11 +36,13 @@ Find cluster-specific marker genes
 Updated 2021-09-13.
 }
 \examples{
-data(Seurat, package = "AcidTest")
+data(SingleCellExperiment_Seurat, package = "AcidTest")
 
-## Seurat ====
-object <- Seurat
-x <- findMarkers(object, caller = "edgeR")
-class(x)
-lapply(x, class)
+## SingleCellExperiment ====
+if (isInstalled("edgeR")) {
+    object <- SingleCellExperiment_Seurat
+    x <- findMarkers(object, caller = "edgeR")
+    class(x)
+    lapply(x, class)
+}
 }

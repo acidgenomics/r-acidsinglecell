@@ -21,12 +21,12 @@ cellCountsPerCluster(object, ...)
 Cell counts per cluster
 }
 \note{
-Updated 2021-03-03.
+Updated 2021-09-14.
 }
 \examples{
 data(SingleCellExperiment_Seurat, package = "AcidTest")
 
-## Seurat ====
+## SingleCellExperiment ====
 object <- SingleCellExperiment_Seurat
 x <- cellCountsPerCluster(object)
 print(x)
