@@ -29,8 +29,8 @@
 #'   hasColnames hasLength hasMetrics hasNames hasNoDuplicates
 #'   hasNonzeroRowsAndCols hasRownames hasRows hasValidNames isAny isCharacter
 #'   isFlag isInLeftOpenRange isInRange isInt isIntegerish isNonNegative
-#'   isPositive isScalar isString isSubset
-#' @importFrom methods as is validObject
+#'   isPositive isScalar isString isSubset validate
+#' @importFrom methods as is setClass setValidity validObject
 #' @importFrom pipette Matrix as_tibble assignAndSaveData tibble
 #' @importFrom scales percent
 #' @importFrom stringr str_match
