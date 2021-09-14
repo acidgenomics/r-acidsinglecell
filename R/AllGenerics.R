@@ -29,6 +29,15 @@ NULL
 
 
 
+#' @rdname barcodeRanksPerSample
+#' @name barcodeRanksPerSample
+#' @importFrom AcidGenerics barcodeRanksPerSample
+#' @usage barcodeRanksPerSample(object, ...)
+#' @export
+NULL
+
+
+
 #' @rdname cell2sample
 #' @name cell2sample
 #' @importFrom AcidGenerics cell2sample
