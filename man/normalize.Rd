@@ -28,7 +28,7 @@ be computed internally automatically using \code{estimateSizeFactors()} with the
 recommended default settings.
 }
 \note{
-Updated 2020-02-21.
+Updated 2021-09-14.
 }
 \section{Normalized counts}{
 
