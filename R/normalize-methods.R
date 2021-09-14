@@ -1,7 +1,3 @@
-## FIXME Consider moving this to AcidSingleCell.
-
-
-
 #' Normalize expression using pre-computed size factors
 #'
 #' This function calculates size factor normalized and log normalized counts
@@ -36,7 +32,7 @@
 #' pseudo-count (i.e., on the same scale as the counts).
 #'
 #' @name normalize
-#' @note Updated 2020-02-21.
+#' @note Updated 2021-09-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -87,8 +83,9 @@ NULL
             "normcounts", "logcounts",
             "scater", "normalizeCounts"
         ))
+        requireNamespaces("scater")
         ## Get normcounts matrix.
-        normcounts <- normalizeCounts(
+        normcounts <- scater::normalizeCounts(
             x = object,
             log = FALSE,
             ## Already centered (see `estimateSizeFactors()` step above).
@@ -97,7 +94,7 @@ NULL
         assert(is(normcounts, "Matrix"))
         normcounts(object) <- normcounts
         ## Get logcounts matrix.
-        logcounts <- normalizeCounts(
+        logcounts <- scater::normalizeCounts(
             x = object,
             log = TRUE,
             center_size_factors = FALSE

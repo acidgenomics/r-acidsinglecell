@@ -19,24 +19,14 @@ cpm(object, ...)
 Counts per million
 }
 \note{
-Updated 2020-01-30.
+Updated 2021-09-14.
 }
 \examples{
-data(
-    Seurat,
-    SingleCellExperiment,
-    package = "AcidTest"
-)
+data(SingleCellExperiment, package = "AcidTest")
 
 ## SingleCellExperiment ====
 object <- SingleCellExperiment
 object <- estimateSizeFactors(object)
-cpm <- cpm(object)
-class(cpm)
-mean(cpm)
-
-## Seurat ====
-object <- Seurat
 cpm <- cpm(object)
 class(cpm)
 mean(cpm)

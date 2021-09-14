@@ -43,6 +43,7 @@ Imports:
     syntactic (>= 0.5.0)
 Suggests:
     AcidTest (>= 0.4.4),
+    BiocParallel (>= 1.26.0),
     DESeq2 (>= 1.32.0),
     DropletUtils (>= 1.12.0),
     edgeR (>= 3.34.0),
