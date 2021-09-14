@@ -12,7 +12,7 @@
 #' @examples
 #' data(SingleCellExperiment_Seurat, package = "AcidTest")
 #'
-#' ## Seurat ====
+#' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment_Seurat
 #' x <- clusters(object)
 #' head(x)

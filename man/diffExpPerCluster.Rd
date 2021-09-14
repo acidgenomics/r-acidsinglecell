@@ -35,27 +35,29 @@ Cells to use in the denominator of the contrast (e.g. control).}
 Differential expression per cluster
 }
 \note{
-Updated 2020-01-30.
+Updated 2021-09-14.
 
 Cluster identity (\code{ident}) must be defined in \code{colData()} for this
 function to work.
 }
 \examples{
-data(Seurat, package = "AcidTest")
+data(SingleCellExperiment_Seurat, package = "AcidTest")
 
-## Seurat ====
-object <- Seurat
-group <- factor(c("group1", "group2"))
-colData(object)$group <- group
-suppressMessages({
-    x <- diffExpPerCluster(
-        object = object,
-        group = "group",
-        numerator = "group2",
-        denominator = "group1",
-        caller = "edgeR"
-    )
-})
-class(x)
-lapply(x, class)
+## SingleCellExperiment ====
+if (isInstalled("edgeR")) {
+    object <- SingleCellExperiment_Seurat
+    group <- factor(c("group1", "group2"))
+    colData(object)$group <- group
+    suppressMessages({
+        x <- diffExpPerCluster(
+            object = object,
+            group = "group",
+            numerator = "group2",
+            denominator = "group1",
+            caller = "edgeR"
+        )
+    })
+    class(x)
+    lapply(x, class)
+}
 }

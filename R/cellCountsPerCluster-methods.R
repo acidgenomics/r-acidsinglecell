@@ -1,6 +1,6 @@
 #' @name cellCountsPerCluster
 #' @inherit AcidGenerics::cellCountsPerCluster
-#' @note Updated 2021-03-03.
+#' @note Updated 2021-09-14.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -10,7 +10,7 @@
 #' @examples
 #' data(SingleCellExperiment_Seurat, package = "AcidTest")
 #'
-#' ## Seurat ====
+#' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment_Seurat
 #' x <- cellCountsPerCluster(object)
 #' print(x)

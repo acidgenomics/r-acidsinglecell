@@ -1,7 +1,3 @@
-## FIXME Consider moving this to AcidSingleCell.
-
-
-
 #' @name findMarkers
 #' @inherit AcidGenerics::findMarkers
 #' @note Updated 2021-09-13.
@@ -21,13 +17,15 @@
 #' - `caller = "DESeq2"`: `DESeqResults`.
 #'
 #' @examples
-#' data(Seurat, package = "AcidTest")
+#' data(SingleCellExperiment_Seurat, package = "AcidTest")
 #'
-#' ## Seurat ====
-#' object <- Seurat
-#' x <- findMarkers(object, caller = "edgeR")
-#' class(x)
-#' lapply(x, class)
+#' ## SingleCellExperiment ====
+#' if (isInstalled("edgeR")) {
+#'     object <- SingleCellExperiment_Seurat
+#'     x <- findMarkers(object, caller = "edgeR")
+#'     class(x)
+#'     lapply(x, class)
+#' }
 NULL
 
 
