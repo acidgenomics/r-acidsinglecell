@@ -217,19 +217,19 @@ NULL
 
 
 
-#' @rdname subsetPerSample
-#' @name subsetPerSample
-#' @importFrom AcidGenerics subsetPerSample
-#' @usage subsetPerSample(object, ...)
+#' @rdname show
+#' @name show
+#' @importFrom AcidGenerics show
+#' @usage show(object)
 #' @export
 NULL
 
 
 
-#' @rdname summary
-#' @name summary
-#' @importFrom AcidGenerics summary
-#' @usage summary(object, ...)
+#' @rdname subsetPerSample
+#' @name subsetPerSample
+#' @importFrom AcidGenerics subsetPerSample
+#' @usage subsetPerSample(object, ...)
 #' @export
 NULL
 
