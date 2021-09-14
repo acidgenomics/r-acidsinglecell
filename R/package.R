@@ -25,8 +25,8 @@
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom goalie allAreMatchingRegex areDisjointSets assert bapply
-#'   hasColnames hasLength hasMetrics hasNames hasNoDuplicates
+#' @importFrom goalie allAreMatchingRegex areDisjointSets areSetEqual assert
+#'   bapply hasColnames hasLength hasMetrics hasNames hasNoDuplicates
 #'   hasNonzeroRowsAndCols hasRownames hasRows hasValidNames isAny isCharacter
 #'   isFlag isInLeftOpenRange isInRange isInt isIntegerish isNonNegative
 #'   isPositive isScalar isString isSubset validate
