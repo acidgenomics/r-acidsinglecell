@@ -60,7 +60,7 @@
 #'   filtering. The number of cells is defined by `minCellsPerGene`.
 #' @param BPPARAM `bpparamClass`.
 #'   Back-end method to be used for computations.
-#'   See [`bpparam`][BiocParallel::bpparam] for details.
+#'   See `BiocParallel::bpparam()` for details.
 #'   Currently only used by DESeq2 but not edgeR for calculations here.
 #' @param ... Additional arguments.
 #'

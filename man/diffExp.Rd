@@ -45,7 +45,7 @@ filtering. The number of cells is defined by \code{minCellsPerGene}.}
 
 \item{BPPARAM}{\code{bpparamClass}.
 Back-end method to be used for computations.
-See \code{\link[BiocParallel:register]{bpparam}} for details.
+See \code{BiocParallel::bpparam()} for details.
 Currently only used by DESeq2 but not edgeR for calculations here.}
 
 \item{...}{Additional arguments.}
