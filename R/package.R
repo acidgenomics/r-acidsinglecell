@@ -11,9 +11,8 @@
 #' @importMethodsFrom SingleCellExperiment coerce
 #' @importMethodsFrom pipette coerce
 #'
-#' @importFrom AcidBase barcodePattern formalsList initDir methodFormals
-#'   methodFunction packageName packageVersion printString realpath
-#'   standardizeCall
+#' @importFrom AcidBase barcodePattern initDir methodFormals methodFunction
+#'   packageName packageVersion printString realpath standardizeCall
 #' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl
 #'   toInlineString txt ul verbatim
 #' @importFrom AcidExperiment assay assays calculateMetrics colData colData<-

@@ -2,22 +2,21 @@
 % Please edit documentation in R/AllGenerics.R, R/export-methods.R
 \name{export}
 \alias{export}
-\alias{export,SingleCellExperiment-method}
-\title{Export}
+\alias{export,SingleCellExperiment,ANY,ANY-method}
+\title{Objects exported from other packages}
 \usage{
 export(object, ...)
 
-\S4method{export}{SingleCellExperiment}(
-  object,
-  name = NULL,
-  dir = getOption("acid.export.dir", default = "."),
-  compress = getOption("acid.export.compress", default = FALSE),
-  overwrite = getOption("acid.overwrite", default = TRUE),
-  quiet = getOption("acid.quiet", default = FALSE)
-)
+\S4method{export}{SingleCellExperiment,ANY,ANY}(object, con, format, name = NULL, dir, compress, overwrite, quiet)
 }
 \arguments{
-\item{object}{Object.}
+\item{object}{Object.
+An object supporting \code{dim()}, or a supported class capable of being coerced
+to \code{data.frame}, to be written to disk.}
+
+\item{con}{FIXME}
+
+\item{format}{FIXME}
 
 \item{name}{\code{character(1)}.
 Name to use on disk. If \code{NULL}, will use the name of the object instead.}
@@ -38,18 +37,48 @@ Perform command quietly, suppressing messages.}
 \item{...}{Additional arguments.}
 }
 \value{
-Invisibily return file paths, either as \code{list} or \code{character}.
+Invisible \code{character}.
+File path(s).
 }
 \description{
-Export data out of R and write to disk.
+These objects are imported from other packages. Follow the links
+below to see their documentation.
+
+\describe{
+  \item{IRanges}{\code{\link[IRanges:AtomicList-class]{CharacterList}}, \code{\link[IRanges:DataFrameList-class]{DataFrameList}}, \code{\link[IRanges:AtomicList-class]{FactorList}}, \code{\link[IRanges:IRanges-constructor]{IRanges}}, \code{\link[IRanges:AtomicList-class]{IntegerList}}, \code{\link[IRanges:AtomicList-class]{LogicalList}}, \code{\link[IRanges:AtomicList-class]{NumericList}}, \code{\link[IRanges:AtomicList-class]{RleList}}, \code{\link[IRanges:DataFrameList-class]{SplitDataFrameList}}}
+
+  \item{S4Vectors}{\code{\link[S4Vectors:DataFrame-class]{DataFrame}}, \code{\link[S4Vectors:Factor-class]{Factor}}, \code{\link[S4Vectors:LLint-class]{LLint}}, \code{\link[S4Vectors:List-class]{List}}, \code{\link[S4Vectors:Rle-class]{Rle}}, \code{\link[S4Vectors:SimpleList-class]{SimpleList}}}
+}
 }
 \details{
 This method extends \code{SummarizedExperiment} but also handles export of the
 \code{reducedDims} slot (i.e. containing UMAP, tSNE, and PCA).
 }
 \note{
-Updated 2021-02-06.
+Updated 2021-09-24.
 }
+\section{Row names}{
+
+
+
+Some export utilities in R have a tendency to drop row names when writing to
+disk in CSV format. For example, the \href{https://readr.tidyverse.org/}{readr} family of functions never
+write row names by design. This is a \emph{really poor} default setting for
+handling genomic data, which often contain gene identifiers in the row names.
+Here we're performing any internal tibble coercion step to ensure row names
+are always moved to a \code{"rowname"} column in the CSV export.
+
+}
+
+\section{Debugging}{
+
+
+
+Note that this function currently wraps \code{data.table::fwrite()} by default
+for exporting \code{data.frame} and \code{matrix} class objects.
+
+}
+
 \examples{
 data(SingleCellExperiment, package = "AcidTest")
 
@@ -59,4 +88,23 @@ dir <- "example"
 x <- export(object = object, dir = dir)
 print(x)
 unlink(dir, recursive = TRUE)
+}
+\seealso{
+Packages:
+\itemize{
+\item \href{http://r-datatable.com/}{data.table}.
+\item \href{http://readr.tidyverse.org}{readr}.
+\item \href{https://cran.r-project.org/package=rio}{rio}.
+\item \href{http://bioconductor.org/packages/rtracklayer/}{rtracklayer}.
+\item \href{https://vroom.r-lib.org}{vroom}.
+}
+
+Export functions:
+\itemize{
+\item \code{data.table::fwrite()}.
+\item \code{readr::write_csv()}.
+\item \code{rio::export()}.
+\item \code{rtracklayer::export()}.
+\item \code{vroom::vroom_write()}.
+}
 }
