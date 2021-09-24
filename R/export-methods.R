@@ -1,6 +1,10 @@
+## FIXME Need to rework using BiocIO approach.
+
+
+
 #' @name export
-#' @inherit AcidGenerics::export
-#' @note Updated 2021-02-06.
+#' @inherit pipette::export
+#' @note Updated 2021-09-24.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
@@ -24,10 +28,12 @@ NULL
 
 
 
-## Updated 2021-02-05.
+## Updated 2021-09-24.
 `export,SCE` <-  # nolint
     function(
         object,
+        con,  # FIXME
+        format,  # FIXME
         name = NULL,
         dir,
         compress,
@@ -101,9 +107,10 @@ NULL
         invisible(files)
     }
 
-formals(`export,SCE`)[
-    c("compress", "dir", "overwrite", "quiet")] <-
-    formalsList[c("export.compress", "export.dir", "overwrite", "quiet")]
+## FIXME Rework this approach, using `methodFormals` instead.
+## > formals(`export,SCE`)[
+## >     c("compress", "dir", "overwrite", "quiet")] <-
+## >     formalsList[c("export.compress", "export.dir", "overwrite", "quiet")]
 
 
 
@@ -111,6 +118,10 @@ formals(`export,SCE`)[
 #' @export
 setMethod(
     f = "export",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(
+        object = "SingleCellExperiment",
+        con = "ANY",  # FIXME
+        format = "ANY"  # FIXME
+    ),
     definition = `export,SCE`
 )
