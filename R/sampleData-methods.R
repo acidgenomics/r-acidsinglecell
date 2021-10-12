@@ -67,7 +67,9 @@ NULL
         )
     ) {
         data <- colData(object)
-        if (!hasRows(data)) return(data)
+        if (!hasRows(data)) {
+            return(data)
+        }
         if (hasColnames(data)) {
             colnames(data) <- camelCase(colnames(data), strict = TRUE)
         }
