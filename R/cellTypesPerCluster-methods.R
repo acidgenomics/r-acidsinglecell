@@ -106,6 +106,6 @@ NULL
 #' @export
 setMethod(
     f = "cellTypesPerCluster",
-    signature = signature("KnownMarkers"),
+    signature = signature(object = "KnownMarkers"),
     definition = `cellTypesPerCluster,KnownMarkers`
 )

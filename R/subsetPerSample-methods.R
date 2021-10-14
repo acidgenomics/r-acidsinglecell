@@ -110,6 +110,6 @@ NULL
 #' @export
 setMethod(
     f = "subsetPerSample",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `subsetPerSample,SCE`
 )

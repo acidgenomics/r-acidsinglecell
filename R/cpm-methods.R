@@ -48,6 +48,6 @@ NULL
 #' @export
 setMethod(
     f = "cpm",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `cpm,SCE`
 )

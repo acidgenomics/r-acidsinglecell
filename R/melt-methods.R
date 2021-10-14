@@ -55,6 +55,6 @@ formals(`melt,SCE`) <-
 #' @export
 setMethod(
     f = "melt",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `melt,SCE`
 )

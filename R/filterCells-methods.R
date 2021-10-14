@@ -384,6 +384,6 @@ NULL
 #' @export
 setMethod(
     f = "filterCells",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `filterCells,SCE`
 )

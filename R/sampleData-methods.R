@@ -247,7 +247,7 @@ NULL
 #' @export
 setMethod(
     f = "sampleData",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `sampleData,SCE`
 )
 

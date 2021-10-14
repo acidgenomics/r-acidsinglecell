@@ -92,6 +92,6 @@ NULL
 #' @export
 setMethod(
     f = "findMarkers",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `findMarkers,SCE`
 )

@@ -34,6 +34,6 @@ NULL
 #' @export
 setMethod(
     f = "convertSampleIDsToNames",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `convertSampleIDsToNames,SCE`
 )

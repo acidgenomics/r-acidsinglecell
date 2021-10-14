@@ -38,7 +38,7 @@ NULL
 #' @export
 setMethod(
     f = "clusters",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `clusters,SCE`
 )
 

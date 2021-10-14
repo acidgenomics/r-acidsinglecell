@@ -48,6 +48,6 @@ NULL
 #' @export
 setMethod(
     f = "aggregateCellsToSamples",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(x = "SingleCellExperiment"),
     definition = `aggregateCellsToSamples,SCE`
 )

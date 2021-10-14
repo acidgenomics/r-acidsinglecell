@@ -99,6 +99,6 @@ NULL
 #' @export
 setMethod(
     f = "barcodeRanksPerSample",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `barcodeRanksPerSample,SCE`
 )

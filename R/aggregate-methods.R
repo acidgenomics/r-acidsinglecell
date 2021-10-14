@@ -141,6 +141,6 @@ NULL
 #' @export
 setMethod(
     f = "aggregate",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(x = "SingleCellExperiment"),
     definition = `aggregate,SCE`
 )

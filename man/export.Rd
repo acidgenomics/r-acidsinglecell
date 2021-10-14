@@ -2,27 +2,34 @@
 % Please edit documentation in R/AllGenerics.R, R/export-methods.R
 \name{export}
 \alias{export}
-\alias{export,SingleCellExperiment,ANY,ANY-method}
-\title{Objects exported from other packages}
+\alias{export,SingleCellExperiment,character,missingOrNULL-method}
+\alias{export,SingleCellExperiment,missingOrNULL,missingOrNULL-method}
+\title{Export}
 \usage{
-export(object, ...)
+export(object, con, format, ...)
 
-\S4method{export}{SingleCellExperiment,ANY,ANY}(object, con, format, name = NULL, dir, compress, overwrite, quiet)
+\S4method{export}{SingleCellExperiment,character,missingOrNULL}(
+  object,
+  con,
+  format,
+  compress = getOption(x = "acid.export.compress", default = FALSE),
+  overwrite = getOption(x = "acid.overwrite", default = TRUE),
+  quiet = getOption(x = "acid.quiet", default = FALSE)
+)
+
+\S4method{export}{SingleCellExperiment,missingOrNULL,missingOrNULL}(object, con, format, name = NULL, dir, ...)
 }
 \arguments{
 \item{object}{Object.
 An object supporting \code{dim()}, or a supported class capable of being coerced
 to \code{data.frame}, to be written to disk.}
 
-\item{con}{FIXME}
+\item{con}{\code{character(1)}, \code{missing}, or \code{NULL}.
+File path.
+Alternatively, can leave unset and use \code{ext} and \code{dir} arguments instead.}
 
-\item{format}{FIXME}
-
-\item{name}{\code{character(1)}.
-Name to use on disk. If \code{NULL}, will use the name of the object instead.}
-
-\item{dir}{\code{character(1)}.
-Directory path.}
+\item{format}{\code{character(1)}, \code{missing}, or \code{NULL}.
+Output file format extension.}
 
 \item{compress}{\code{logical(1)} or \code{character(1)}.
 These character strings are currently allowed for \code{\link[base:save]{save()}}:
@@ -34,6 +41,12 @@ Overwrite existing file on disk.}
 \item{quiet}{\code{logical(1)}.
 Perform command quietly, suppressing messages.}
 
+\item{name}{\code{character(1)}.
+Name to use on disk. If \code{NULL}, will use the name of the object instead.}
+
+\item{dir}{\code{character(1)}.
+Directory path.}
+
 \item{...}{Additional arguments.}
 }
 \value{
@@ -41,22 +54,35 @@ Invisible \code{character}.
 File path(s).
 }
 \description{
-These objects are imported from other packages. Follow the links
-below to see their documentation.
-
-\describe{
-  \item{IRanges}{\code{\link[IRanges:AtomicList-class]{CharacterList}}, \code{\link[IRanges:DataFrameList-class]{DataFrameList}}, \code{\link[IRanges:AtomicList-class]{FactorList}}, \code{\link[IRanges:IRanges-constructor]{IRanges}}, \code{\link[IRanges:AtomicList-class]{IntegerList}}, \code{\link[IRanges:AtomicList-class]{LogicalList}}, \code{\link[IRanges:AtomicList-class]{NumericList}}, \code{\link[IRanges:AtomicList-class]{RleList}}, \code{\link[IRanges:DataFrameList-class]{SplitDataFrameList}}}
-
-  \item{S4Vectors}{\code{\link[S4Vectors:DataFrame-class]{DataFrame}}, \code{\link[S4Vectors:Factor-class]{Factor}}, \code{\link[S4Vectors:LLint-class]{LLint}}, \code{\link[S4Vectors:List-class]{List}}, \code{\link[S4Vectors:Rle-class]{Rle}}, \code{\link[S4Vectors:SimpleList-class]{SimpleList}}}
-}
+Export
 }
 \details{
 This method extends \code{SummarizedExperiment} but also handles export of the
 \code{reducedDims} slot (i.e. containing UMAP, tSNE, and PCA).
 }
 \note{
-Updated 2021-09-24.
+Updated 2021-10-14.
 }
+\section{Output file format extension}{
+
+
+
+\code{matrix} supported arguments:
+\itemize{
+\item Comma separated values (CSV):
+\code{"csv"}, \code{"csv.bz2"}, \code{"csv.gz"}, \code{"csv.xz"}, \code{"csv.zip"}.
+\item Tab separated values (TSV):
+\code{"tsv"}, \code{"tsv.bz2"}, \code{"tsv.gz"}, \code{"tsv.xz"}, \code{"tsv.zip"}.
+}
+
+\code{Matrix} (\code{sparseMatrix}) supported arguments:
+\itemize{
+\item MatrixMarket exchange (MTX):
+\code{"mtx"}, \code{"mtx.bz2"}, \code{"mtx.gz"}, \code{"mtx.xz"}, \code{"mtx.zip"}.
+}
+
+}
+
 \section{Row names}{
 
 
@@ -84,8 +110,8 @@ data(SingleCellExperiment, package = "AcidTest")
 
 ## SingleCellExperiment ====
 object <- SingleCellExperiment
-dir <- "example"
-x <- export(object = object, dir = dir)
+con <- file.path(tempdir(), "example")
+x <- export(object = object, con = con)
 print(x)
 unlink(dir, recursive = TRUE)
 }
@@ -101,6 +127,7 @@ Packages:
 
 Export functions:
 \itemize{
+\item \code{BiocIO::export()}.
 \item \code{data.table::fwrite()}.
 \item \code{readr::write_csv()}.
 \item \code{rio::export()}.
