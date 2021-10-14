@@ -23,6 +23,10 @@ AcidExperiment::calculateMetrics
 AcidExperiment::colData
 
 #' @export
+#' @importFrom goalie isInstalled
+goalie::isInstalled
+
+#' @export
 #' @importFrom SingleCellExperiment logcounts
 SingleCellExperiment::logcounts
 
