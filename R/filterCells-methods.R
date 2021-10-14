@@ -360,17 +360,17 @@ NULL
         }
         ## Update object -------------------------------------------------------
         metadata <- SimpleList(
-            "cells" = cells,
-            "features" = features,
-            "topCellsPerSample" = topCellsPerSample,
             "args" = args,
+            "call" = standardizeCall(),
+            "cells" = cells,
+            "date" = Sys.Date(),
+            "features" = features,
             "filter" = filter,
-            "perSamplePass" = perSamplePass,
-            "totalPass" = totalPass,
             "packageName" = .pkgName,
             "packageVersion" = .pkgVersion,
-            "call" = standardizeCall(),
-            "date" = Sys.Date()
+            "perSamplePass" = perSamplePass,
+            "topCellsPerSample" = topCellsPerSample,
+            "totalPass" = totalPass
         )
         metadata <- Filter(f = Negate(is.null), x = metadata)
         metadata(object)[["filterCells"]] <- metadata
