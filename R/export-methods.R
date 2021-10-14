@@ -1,10 +1,6 @@
-## FIXME Need to rework using BiocIO approach.
-
-
-
 #' @name export
 #' @inherit pipette::export
-#' @note Updated 2021-09-24.
+#' @note Updated 2021-10-14.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
@@ -20,51 +16,59 @@
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment
-#' dir <- "example"
-#' x <- export(object = object, dir = dir)
+#' con <- file.path(tempdir(), "example")
+#' x <- export(object = object, con = con)
 #' print(x)
 #' unlink(dir, recursive = TRUE)
 NULL
 
 
 
-## Updated 2021-09-24.
+## Updated 2021-10-14.
 `export,SCE` <-  # nolint
     function(
         object,
-        con,  # FIXME
-        format,  # FIXME
-        name = NULL,
-        dir,
-        compress,
-        overwrite,
-        quiet
+        con,
+        format,  # NULL
+        compress = getOption(
+            x = "acid.export.compress",
+            default = FALSE
+        ),
+        overwrite = getOption(
+            x = "acid.overwrite",
+            default = TRUE
+        ),
+        quiet = getOption(
+            x = "acid.quiet",
+            default = FALSE
+        )
     ) {
         validObject(object)
+        if (missing(format)) {
+            format <- NULL
+        }
         assert(
-            isString(name, nullOK = TRUE),
-            isString(dir),
+            isString(con),
+            is.null(format),
             isFlag(compress),
             isFlag(overwrite),
             isFlag(quiet)
         )
-        call <- standardizeCall()
-        if (is.null(name)) {
-            sym <- call[["object"]]
-            assert(is.symbol(sym))
-            name <- as.character(sym)
-        }
+        dir <- initDir(con)
+
+
         ## Export SummarizedExperiment-compatible slots.
         files <- export(
             object = as(object, "RangedSummarizedExperiment"),
-            name = name,
-            dir = dir,
+            con = dir,
+            format = format,
             compress = compress,
             overwrite = overwrite,
             quiet = quiet
         )
+
+
         ## Export dimensionality reduction data.
-        dir <- initDir(file.path(dir, name))
         reducedDimNames <- reducedDimNames(object)
         if (hasLength(reducedDimNames)) {
             if (!isTRUE(quiet)) {
@@ -94,7 +98,7 @@ NULL
                     file <- paste0(file, ".", ext)
                     export(
                         object = reducedDim,
-                        file = file,
+                        con = file,
                         overwrite = overwrite,
                         quiet = quiet
                     )
@@ -107,10 +111,47 @@ NULL
         invisible(files)
     }
 
-## FIXME Rework this approach, using `methodFormals` instead.
-## > formals(`export,SCE`)[
-## >     c("compress", "dir", "overwrite", "quiet")] <-
-## >     formalsList[c("export.compress", "export.dir", "overwrite", "quiet")]
+
+
+## Updated 2021-10-14.
+`export,SCE,deprecated` <-  # nolint
+    function(
+        object,
+        con,  # NULL,
+        format,  # NULL,
+        name = NULL,
+        dir,
+        ...
+    ) {
+        validObject(object)
+        ## > .Deprecated(msg = sprintf(
+        ## >     "Use '%s' instead of '%s'.",
+        ## >     "con", "dir"
+        ## > ))
+        if (missing(con)) {
+            con <- NULL
+        }
+        if (missing(format)) {
+            format <- NULL
+        }
+        assert(
+            is.null(con),
+            is.null(format),
+            isString(dir)
+        )
+        if (is.null(name)) {
+            call <- standardizeCall()
+            sym <- call[["object"]]
+            assert(is.symbol(sym))
+            name <- as.character(sym)
+        }
+        export(
+            object = object,
+            con = file.path(dir, name),
+            format = format,
+            ...
+        )
+    }
 
 
 
@@ -120,8 +161,20 @@ setMethod(
     f = "export",
     signature = signature(
         object = "SingleCellExperiment",
-        con = "ANY",  # FIXME
-        format = "ANY"  # FIXME
+        con = "character",
+        format = "missingOrNULL"
     ),
     definition = `export,SCE`
+)
+
+#' @rdname export
+#' @export
+setMethod(
+    f = "export",
+    signature = signature(
+        object = "SingleCellExperiment",
+        con = "missingOrNULL",
+        format = "missingOrNULL"
+    ),
+    definition = `export,SCE,deprecated`
 )
