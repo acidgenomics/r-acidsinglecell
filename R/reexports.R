@@ -1,7 +1,3 @@
-## FIXME May need to reexport isInstalled here for working examples.
-
-
-
 #' @export
 #' @importFrom AcidGenerics SimpleList
 AcidGenerics::SimpleList

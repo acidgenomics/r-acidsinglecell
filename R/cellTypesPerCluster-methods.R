@@ -1,7 +1,3 @@
-## FIXME Need to include a KnownMarkers working example.
-
-
-
 #' @name cellTypesPerCluster
 #' @inherit AcidGenerics::cellTypesPerCluster
 #' @note Updated 2021-03-03.
