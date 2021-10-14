@@ -41,4 +41,3 @@ setMethod(
     signature = signature(object = "SingleCellExperiment"),
     definition = `clusters,SCE`
 )
-
