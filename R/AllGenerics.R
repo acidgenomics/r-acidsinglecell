@@ -134,7 +134,7 @@ NULL
 #' @importFrom AcidGenerics export
 #' @importMethodsFrom AcidExperiment export
 #' @importMethodsFrom pipette export
-#' @usage export(object, ...)
+#' @usage export(object, con, format, ...)
 #' @export
 NULL
 
