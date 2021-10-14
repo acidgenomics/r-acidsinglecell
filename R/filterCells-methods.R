@@ -367,9 +367,10 @@ NULL
             "filter" = filter,
             "perSamplePass" = perSamplePass,
             "totalPass" = totalPass,
+            "packageName" = .pkgName,
+            "packageVersion" = .pkgVersion,
             "call" = standardizeCall(),
-            "date" = Sys.Date(),
-            "version" = .version
+            "date" = Sys.Date()
         )
         metadata <- Filter(f = Negate(is.null), x = metadata)
         metadata(object)[["filterCells"]] <- metadata
