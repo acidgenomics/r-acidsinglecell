@@ -192,7 +192,7 @@ NULL
         minCells = 2L,  # 10L
         minCellsPerGene = 1L,  # 25L
         minCountsPerCell = 1L,  # 5L
-        BPPARAM = BiocParallel::bpparam()
+        BPPARAM = BiocParallel::bpparam()  # nolint
     ) {
         ## Coerce to standard SCE to ensure fast subsetting.
         object <- as(object, "SingleCellExperiment")
