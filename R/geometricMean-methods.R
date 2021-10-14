@@ -30,6 +30,6 @@ NULL
 #' @export
 setMethod(
     f = "geometricMean",
-    signature = signature("Matrix"),
+    signature = signature(x = "Matrix"),
     definition = `geometricMean,Matrix`
 )

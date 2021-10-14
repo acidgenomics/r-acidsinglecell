@@ -56,6 +56,6 @@ NULL
 #' @export
 setMethod(
     f = "cellCountsPerCluster",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `cellCountsPerCluster,SCE`
 )

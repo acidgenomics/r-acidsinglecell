@@ -91,7 +91,7 @@ NULL
 #' @export
 setMethod(
     f = "zerosVsDepth",
-    signature = signature("Matrix"),
+    signature = signature(object = "Matrix"),
     definition = `zerosVsDepth,Matrix`
 )
 
@@ -99,7 +99,7 @@ setMethod(
 #' @export
 setMethod(
     f = "zerosVsDepth",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `zerosVsDepth,SCE`
 )
 
@@ -107,7 +107,7 @@ setMethod(
 #' @export
 setMethod(
     f = "zerosVsDepth",
-    signature = signature("SummarizedExperiment"),
+    signature = signature(object = "SummarizedExperiment"),
     definition = `zerosVsDepth,SE`
 )
 
@@ -115,6 +115,6 @@ setMethod(
 #' @export
 setMethod(
     f = "zerosVsDepth",
-    signature = signature("matrix"),
+    signature = signature(object = "matrix"),
     definition = `zerosVsDepth,matrix`
 )

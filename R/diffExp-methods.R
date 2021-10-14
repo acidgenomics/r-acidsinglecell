@@ -345,6 +345,6 @@ NULL
 #' @export
 setMethod(
     f = "diffExp",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `diffExp,SCE`
 )

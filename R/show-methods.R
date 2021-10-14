@@ -53,25 +53,13 @@ NULL
 
 
 
-#' @rdname show
-#' @export
-setMethod(
-    f = "show",
-    signature = signature("CellCycleMarkers"),
-    definition = `show,CellCycleMarkers`
-)
-
-
-
 ## Updated 2020-02-20.
 `show,CellTypeMarkers` <-  # nolint
     function(object) {
         validObject(object)
-
         ## Include the organism information.
         organism <- metadata(object)[["organism"]]
         release <- metadata(object)[["ensemblRelease"]]
-
         ## Include the gene lengths per phase.
         lengths <- nrow(object)
         genes <- vapply(
@@ -85,13 +73,11 @@ setMethod(
             FUN.VALUE = character(1L),
             USE.NAMES = TRUE
         )
-
         return <- c(
             class(object),
             paste0(organism, " (Ensembl ", release, ")"),
             paste0(names(genes), "(", lengths, "): ", genes)
         )
-
         cat(return, sep = "\n")
     }
 
@@ -101,6 +87,14 @@ setMethod(
 #' @export
 setMethod(
     f = "show",
-    signature = signature("CellTypeMarkers"),
+    signature = signature(object = "CellCycleMarkers"),
+    definition = `show,CellCycleMarkers`
+)
+
+#' @rdname show
+#' @export
+setMethod(
+    f = "show",
+    signature = signature(object = "CellTypeMarkers"),
     definition = `show,CellTypeMarkers`
 )

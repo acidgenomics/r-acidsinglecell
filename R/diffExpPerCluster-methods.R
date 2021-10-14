@@ -112,6 +112,6 @@ NULL
 #' @export
 setMethod(
     f = "diffExpPerCluster",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `diffExpPerCluster,SCE`
 )

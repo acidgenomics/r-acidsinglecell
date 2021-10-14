@@ -112,6 +112,6 @@ NULL
 #' @export
 setMethod(
     f = "normalize",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `normalize,SCE`
 )

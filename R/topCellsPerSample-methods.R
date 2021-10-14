@@ -51,6 +51,6 @@ NULL
 #' @export
 setMethod(
     f = "topCellsPerSample",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `topCellsPerSample,SCE`
 )

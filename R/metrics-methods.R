@@ -51,16 +51,6 @@ NULL
 
 
 
-#' @describeIn metrics Cell-level metrics.
-#' @export
-setMethod(
-    f = "metrics",
-    signature = signature("SingleCellExperiment"),
-    definition = `metrics,SCE`
-)
-
-
-
 ## Updated 2020-01-20.
 `metricsPerSample,SCE` <-  # nolint
     function(
@@ -120,10 +110,18 @@ setMethod(
 
 
 
+#' @describeIn metrics Cell-level metrics.
+#' @export
+setMethod(
+    f = "metrics",
+    signature = signature(object = "SingleCellExperiment"),
+    definition = `metrics,SCE`
+)
+
 #' @describeIn metrics Sample-level metrics.
 #' @export
 setMethod(
     f = "metricsPerSample",
-    signature = signature("SingleCellExperiment"),
+    signature = signature(object = "SingleCellExperiment"),
     definition = `metricsPerSample,SCE`
 )

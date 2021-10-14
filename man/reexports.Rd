@@ -8,6 +8,7 @@
 \alias{assays}
 \alias{calculateMetrics}
 \alias{colData}
+\alias{isInstalled}
 \alias{logcounts}
 \alias{logcounts<-}
 \alias{metadata}
@@ -33,6 +34,8 @@ below to see their documentation.
   \item{AcidExperiment}{\code{\link[AcidExperiment:reexports]{assays}}, \code{\link[AcidExperiment]{calculateMetrics}}, \code{\link[AcidExperiment:reexports]{colData}}, \code{\link[AcidExperiment:reexports]{rowRanges}}, \code{\link[AcidExperiment]{sampleNames}}, \code{\link[AcidExperiment:sampleNames]{sampleNames<-}}}
 
   \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{SimpleList}}, \code{\link[AcidGenerics:reexports]{metadata}}}
+
+  \item{goalie}{\code{\link[goalie:check-vector-isInstalled]{isInstalled}}}
 
   \item{SingleCellExperiment}{\code{\link[SingleCellExperiment]{SingleCellExperiment}}, \code{\link[SingleCellExperiment:assays]{logcounts}}, \code{\link[SingleCellExperiment:assays]{logcounts<-}}, \code{\link[SingleCellExperiment:assays]{normcounts}}, \code{\link[SingleCellExperiment:assays]{normcounts<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
 }}
