@@ -1,62 +1,76 @@
-context("export")
+context("export : SCE")
 
-## Note that the SingleCellExperiment_Seurat object has reducedDims slotted,
+## NOTE The SingleCellExperiment_Seurat object has reducedDims slotted,
 ## whereas the SingleCellExperiment (splatter) example doesn't.
 
-test_that("'dir' argument, no 'name'", {
-    x <- export(sce_seurat, name = NULL, dir = "XXX", compress = TRUE)
-    prefix <- realpath(file.path("XXX", "sce_seurat"))
+testdir <- file.path(tempdir(), "example")
+
+test_that("New 'con' BiocIO approach, instead of deprecated 'dir'", {
+    unlink(testdir, recursive = TRUE)
+    object <- sce_seurat
+    out <- export(
+        object = object,
+        con = testdir,
+        compress = TRUE
+    )
+    prefix <- realpath(testdir)
     assays <- file.path(prefix, "assays")
     expect_identical(
-        x,
-        list(
-            assays = list(
-                counts = c(
-                    matrix = file.path(assays, "counts.mtx.gz"),
-                    barcodes = file.path(assays, "counts.mtx.gz.colnames"),
-                    genes = file.path(assays, "counts.mtx.gz.rownames")
+        object = out,
+        expected = list(
+            "assays" = list(
+                "counts" = c(
+                    "matrix" = file.path(assays, "counts.mtx.gz"),
+                    "barcodes" = file.path(assays, "counts.mtx.gz.colnames"),
+                    "genes" = file.path(assays, "counts.mtx.gz.rownames")
                 ),
-                logcounts = c(
-                    matrix = file.path(assays, "logcounts.mtx.gz"),
-                    barcodes = file.path(assays, "logcounts.mtx.gz.colnames"),
-                    genes = file.path(assays, "logcounts.mtx.gz.rownames")
+                "logcounts" = c(
+                    "matrix" = file.path(assays, "logcounts.mtx.gz"),
+                    "barcodes" = file.path(assays, "logcounts.mtx.gz.colnames"),
+                    "genes" = file.path(assays, "logcounts.mtx.gz.rownames")
                 )
             ),
-            colData = file.path(prefix, "colData.csv.gz"),
-            rowData = file.path(prefix, "rowData.csv.gz"),
-            reducedDims = list(
-                umap = file.path(prefix, "reducedDims", "umap.csv.gz")
+            "colData" = file.path(prefix, "colData.csv.gz"),
+            "rowData" = file.path(prefix, "rowData.csv.gz"),
+            "reducedDims" = list(
+                "umap" = file.path(prefix, "reducedDims", "umap.csv.gz")
             )
         )
     )
-    unlink("XXX", recursive = TRUE)
+    unlink(testdir, recursive = TRUE)
 })
 
-test_that("Both 'name' and 'dir' declared", {
-    x <- export(sce_seurat, name = "test", dir = "XXX")
-    prefix <- realpath(file.path("XXX", "test"))
+test_that("Deprecated : 'dir' argument, no 'name'", {
+    unlink(testdir, recursive = TRUE)
+    object <- sce_seurat
+    out <- export(
+        object = object,
+        dir = testdir,
+        compress = TRUE
+    )
+    prefix <- realpath(file.path(testdir, "object"))
     assays <- file.path(prefix, "assays")
     expect_identical(
-        x,
-        list(
-            assays = list(
-                counts = c(
-                    matrix = file.path(assays, "counts.mtx"),
-                    barcodes = file.path(assays, "counts.mtx.colnames"),
-                    genes = file.path(assays, "counts.mtx.rownames")
+        object = out,
+        expected = list(
+            "assays" = list(
+                "counts" = c(
+                    "matrix" = file.path(assays, "counts.mtx.gz"),
+                    "barcodes" = file.path(assays, "counts.mtx.gz.colnames"),
+                    "genes" = file.path(assays, "counts.mtx.gz.rownames")
                 ),
-                logcounts = c(
-                    matrix = file.path(assays, "logcounts.mtx"),
-                    barcodes = file.path(assays, "logcounts.mtx.colnames"),
-                    genes = file.path(assays, "logcounts.mtx.rownames")
+                "logcounts" = c(
+                    "matrix" = file.path(assays, "logcounts.mtx.gz"),
+                    "barcodes" = file.path(assays, "logcounts.mtx.gz.colnames"),
+                    "genes" = file.path(assays, "logcounts.mtx.gz.rownames")
                 )
             ),
-            colData = file.path(prefix, "colData.csv"),
-            rowData = file.path(prefix, "rowData.csv"),
-            reducedDims = list(
-                umap = file.path(prefix, "reducedDims", "umap.csv")
+            "colData" = file.path(prefix, "colData.csv.gz"),
+            "rowData" = file.path(prefix, "rowData.csv.gz"),
+            "reducedDims" = list(
+                "umap" = file.path(prefix, "reducedDims", "umap.csv.gz")
             )
         )
     )
-    unlink("XXX", recursive = TRUE)
+    unlink(testdir, recursive = TRUE)
 })
