@@ -1,6 +1,6 @@
 #' @name export
 #' @inherit pipette::export
-#' @note Updated 2021-10-14.
+#' @note Updated 2021-10-15.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
@@ -19,7 +19,7 @@
 #' con <- file.path(tempdir(), "example")
 #' x <- export(object = object, con = con)
 #' print(x)
-#' unlink(dir, recursive = TRUE)
+#' unlink(con, recursive = TRUE)
 NULL
 
 
