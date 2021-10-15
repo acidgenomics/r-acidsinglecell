@@ -11,6 +11,10 @@ SingleCellExperiment::SingleCellExperiment
 AcidExperiment::assays
 
 #' @export
+#' @importFrom AcidBase basenameSansExt
+AcidBase::basenameSansExt
+
+#' @export
 #' @importFrom AcidExperiment calculateMetrics
 AcidExperiment::calculateMetrics
 

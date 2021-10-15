@@ -6,6 +6,7 @@
 \alias{SimpleList}
 \alias{SingleCellExperiment}
 \alias{assays}
+\alias{basenameSansExt}
 \alias{calculateMetrics}
 \alias{colData}
 \alias{isInstalled}
@@ -32,6 +33,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
+  \item{AcidBase}{\code{\link[AcidBase]{basenameSansExt}}}
+
   \item{AcidExperiment}{\code{\link[AcidExperiment:reexports]{assays}}, \code{\link[AcidExperiment]{calculateMetrics}}, \code{\link[AcidExperiment:reexports]{colData}}, \code{\link[AcidExperiment:reexports]{rowRanges}}, \code{\link[AcidExperiment]{sampleNames}}, \code{\link[AcidExperiment:sampleNames]{sampleNames<-}}}
 
   \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{SimpleList}}, \code{\link[AcidGenerics:reexports]{metadata}}}
