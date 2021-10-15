@@ -1,14 +1,14 @@
 data(
+    km,
+    package = "AcidSingleCell",
+    envir = environment()
+)
+data(
     RangedSummarizedExperiment,
     SingleCellExperiment,
     SingleCellExperiment_Seurat,
     SingleCellExperiment_lanesplit,
     package = "AcidTest",
-    envir = environment()
-)
-data(
-    km,
-    package = "AcidSingleCell",
     envir = environment()
 )
 
