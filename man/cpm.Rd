@@ -19,7 +19,7 @@ cpm(object, ...)
 Counts per million
 }
 \note{
-Updated 2021-09-14.
+Updated 2021-10-15.
 }
 \examples{
 data(SingleCellExperiment, package = "AcidTest")
@@ -35,7 +35,7 @@ mean(cpm)
 \itemize{
 \item \code{SingleCellExperiment::cpm()}.
 \item \code{edgeR::cpm()}.
-\item \code{scater::calculateCPM()}.
+\item \code{scuttle::calculateCPM()}.
 }
 }
 \keyword{internal}

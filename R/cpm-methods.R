@@ -1,14 +1,14 @@
 #' @name cpm
 #' @inherit AcidGenerics::cpm
 #' @keywords internal
-#' @note Updated 2021-09-14.
+#' @note Updated 2021-10-15.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
 #' @seealso
 #' - `SingleCellExperiment::cpm()`.
 #' - `edgeR::cpm()`.
-#' - `scater::calculateCPM()`.
+#' - `scuttle::calculateCPM()`.
 #'
 #' @examples
 #' data(SingleCellExperiment, package = "AcidTest")
@@ -23,7 +23,7 @@ NULL
 
 
 
-## Updated 2021-09-14.
+## Updated 2021-10-15.
 `cpm,SCE` <-  # nolint
     function(object) {
         ## Early return if cpm assay is defined.
@@ -36,10 +36,15 @@ NULL
         )
         alert(sprintf(
             "Calculating CPM with {.pkg %s}::{.fun %s}.",
-            "scater", "calculateCPM"
+            "scuttle", "calculateCPM"
         ))
-        requireNamespaces("scater")
-        scater::calculateCPM(object)
+        requireNamespaces("scuttle")
+        object <- scuttle::calculateCPM(object)
+        assert(
+            is(object, "SingleCellExperiment"),
+            isSubset("cpm", assayNames(object))
+        )
+        object
     }
 
 
