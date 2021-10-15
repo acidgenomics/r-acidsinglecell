@@ -1,8 +1,12 @@
+## FIXME This is loading pointillism, need to resave objects.
+
+
+
 #' Show an object
 #' @name show
 #' @author Michael Steinbuagh
 #' @inherit methods::show title description params
-#' @note Updated 2021-03-03.
+#' @note Updated 2021-10-15.
 #'
 #' @return No return.
 #'

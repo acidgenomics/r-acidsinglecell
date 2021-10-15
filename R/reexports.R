@@ -94,6 +94,14 @@ AcidExperiment::`sampleNames<-`
 #' @importFrom syntactic sentenceCase
 syntactic::sentenceCase
 
+#' @export
+#' @importFrom AcidGenerics sizeFactors
+AcidGenerics::sizeFactors
+
+#' @export
+#' @importFrom AcidGenerics sizeFactors<-
+AcidGenerics::`sizeFactors<-`
+
 
 
 #' @exportClass SingleCellExperiment

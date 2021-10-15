@@ -39,12 +39,9 @@ NULL
             "scuttle", "calculateCPM"
         ))
         requireNamespaces("scuttle")
-        object <- scuttle::calculateCPM(object)
-        assert(
-            is(object, "SingleCellExperiment"),
-            isSubset("cpm", assayNames(object))
-        )
-        object
+        out <- scuttle::calculateCPM(object)
+        assert(is(out, "sparseMatrix"))
+        out
     }
 
 
