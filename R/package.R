@@ -12,16 +12,17 @@
 #' @importMethodsFrom pipette coerce
 #'
 #' @importFrom AcidBase barcodePattern initDir methodFormals methodFunction
-#'   packageName packageVersion printString realpath requireNamespaces
-#'   standardizeCall
+#'   model.matrix packageName packageVersion printString realpath relevel
+#'   requireNamespaces standardizeCall
 #' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl h1 h2
 #'   toInlineString txt ul verbatim
-#' @importFrom AcidExperiment assay assays calculateMetrics colData colData<-
-#'   counts counts<- decode encode estimateSizeFactors interestingGroups
-#'   makeSummarizedExperiment matchInterestingGroups matchSampleColumn rowRanges
-#'   sampleNames sizeFactors uniteInterestingGroups
-#' @importFrom AcidGenerics DataFrame DataFrameList SimpleList coerce colSums
-#'   do.call head metadata metadata<- na.omit rowSums split
+#' @importFrom AcidExperiment assay assayNames assays calculateMetrics colData
+#'   colData<- counts counts<- decode encode estimateSizeFactors
+#'   interestingGroups makeSummarizedExperiment matchInterestingGroups
+#'   matchSampleColumn rowRanges sampleNames sizeFactors uniteInterestingGroups
+#' @importFrom AcidGenerics DataFrame DataFrameList SimpleList
+#'   SplitDataFrameList coerce colSums do.call head metadata metadata<- na.omit
+#'   rowSums split tail
 #' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
@@ -40,14 +41,9 @@
 
 
 
-## FIXME Use requireNamespaces for this:
-## > DESeq DESeqDataSet DGEList
-## > calcNormFactors estimateDisp glmFit glmLRT
+## edgeR functions (requireNamespace):
+## > DGEList calcNormFactors estimateDisp glmFit glmLRT
 
-# Consider reworking these:
-# > #' @importFrom DESeq2 DESeqDataSet DESeq results
-
-## FIXME Need to import these:
-## SplitDataFrameList assayNames
-## model.matrix relevel tail
+## DESeq2 (requireNamespace):
+# > DESeqDataSet DESeq results
 
