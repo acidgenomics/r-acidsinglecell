@@ -33,7 +33,9 @@ test_that("New 'con' BiocIO approach, instead of deprecated 'dir'", {
             "colData" = file.path(prefix, "colData.csv.gz"),
             "rowData" = file.path(prefix, "rowData.csv.gz"),
             "reducedDims" = list(
-                "umap" = file.path(prefix, "reducedDims", "umap.csv.gz")
+                "PCA" = file.path(prefix, "reducedDims", "PCA.csv.gz"),
+                "TSNE" = file.path(prefix, "reducedDims", "TSNE.csv.gz"),
+                "UMAP" = file.path(prefix, "reducedDims", "UMAP.csv.gz")
             )
         )
     )
@@ -68,7 +70,9 @@ test_that("Deprecated : 'dir' argument, no 'name'", {
             "colData" = file.path(prefix, "colData.csv.gz"),
             "rowData" = file.path(prefix, "rowData.csv.gz"),
             "reducedDims" = list(
-                "umap" = file.path(prefix, "reducedDims", "umap.csv.gz")
+                "PCA" = file.path(prefix, "reducedDims", "PCA.csv.gz"),
+                "TSNE" = file.path(prefix, "reducedDims", "TSNE.csv.gz"),
+                "UMAP" = file.path(prefix, "reducedDims", "UMAP.csv.gz")
             )
         )
     )

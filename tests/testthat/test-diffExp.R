@@ -13,27 +13,25 @@ expect_true(length(intersect(denominator, colnames(object))) > 0L)
 context("diffExp")
 
 test_that("diffExp", {
-    for (object in objects) {
-        ## edgeR.
+    ## edgeR.
+    x <- diffExp(
+        object = object,
+        numerator = numerator,
+        denominator = denominator,
+        caller = "edgeR"
+    )
+    expect_s4_class(x, "DGELRT")
+    ## DESeq2. Slow for large datasets.
+    ## Expecting warning about degenerate design matrix.
+    suppressWarnings({
         x <- diffExp(
             object = object,
             numerator = numerator,
             denominator = denominator,
-            caller = "edgeR"
+            caller = "DESeq2"
         )
-        expect_s4_class(x, "DGELRT")
-        ## DESeq2. Slow for large datasets.
-        ## Expecting warning about degenerate design matrix.
-        suppressWarnings({
-            x <- diffExp(
-                object = object,
-                numerator = numerator,
-                denominator = denominator,
-                caller = "DESeq2"
-            )
-        })
-        expect_s4_class(x, "DESeqResults")
-    }
+    })
+    expect_s4_class(x, "DESeqResults")
 })
 
 
@@ -41,27 +39,25 @@ test_that("diffExp", {
 context("findMarkers")
 
 test_that("findMarkers", {
-    for (object in objects) {
-        ## edgeR.
-        x <- findMarkers(object, caller = "edgeR")
-        expect_is(x, "list")
-        invisible(lapply(
-            X = x,
-            FUN = function(x) {
-                expect_is(x, "DGELRT")
-            }
-        ))
-        ## DESeq2. Slow for large datasets.
-        ## Expecting warning about degenerate design matrix.
-        suppressWarnings({
-            x <- findMarkers(object, caller = "DESeq2")
-        })
-        expect_is(x, "list")
-        invisible(lapply(
-            X = x,
-            FUN = function(x) {
-                expect_is(x, "DESeqResults")
-            }
-        ))
-    }
+    ## edgeR.
+    x <- findMarkers(object, caller = "edgeR")
+    expect_is(x, "list")
+    invisible(lapply(
+        X = x,
+        FUN = function(x) {
+            expect_is(x, "DGELRT")
+        }
+    ))
+    ## DESeq2. Slow for large datasets.
+    ## Expecting warning about degenerate design matrix.
+    suppressWarnings({
+        x <- findMarkers(object, caller = "DESeq2")
+    })
+    expect_is(x, "list")
+    invisible(lapply(
+        X = x,
+        FUN = function(x) {
+            expect_is(x, "DESeqResults")
+        }
+    ))
 })
