@@ -8,7 +8,7 @@ data(
 )
 data(
     km,
-    package = .pkgName,
+    package = "AcidSingleCell",
     envir = environment()
 )
 

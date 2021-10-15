@@ -23,6 +23,10 @@ AcidExperiment::calculateMetrics
 AcidExperiment::colData
 
 #' @export
+#' @importFrom AcidExperiment colData<-
+AcidExperiment::`colData<-`
+
+#' @export
 #' @importFrom AcidExperiment estimateSizeFactors
 AcidExperiment::estimateSizeFactors
 
