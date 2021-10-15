@@ -23,6 +23,10 @@ AcidExperiment::calculateMetrics
 AcidExperiment::colData
 
 #' @export
+#' @importFrom AcidExperiment estimateSizeFactors
+AcidExperiment::estimateSizeFactors
+
+#' @export
 #' @importFrom goalie isInstalled
 goalie::isInstalled
 
