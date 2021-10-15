@@ -21,7 +21,7 @@ clusters(object, ...)
 Cluster identifiers
 }
 \note{
-Updated 2021-09-13.
+Updated 2021-10-14..
 }
 \examples{
 data(SingleCellExperiment_Seurat, package = "AcidTest")
