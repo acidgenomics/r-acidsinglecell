@@ -35,3 +35,21 @@
 #' @importFrom stringr str_match
 #' @importFrom syntactic camelCase
 "_PACKAGE"
+
+
+
+## FIXME Use requireNamespaces for this:
+## > DESeq DESeqDataSet DGEList
+## > calcNormFactors estimateDisp glmFit glmLRT
+
+# Consider reworking these:
+# > #' @importFrom DESeq2 DESeqDataSet DESeq results
+
+## > estimateSizeFactors?
+
+## FIXME Need to import these:
+## SplitDataFrameList allArePositive assayNames
+## h1 h2
+## import makeGene2SymbolFromEnsembl model.matrix new relevel
+## requireNamespaces results sizeFactors tail
+
