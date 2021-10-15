@@ -1,6 +1,10 @@
+## FIXME Our SingleCellExperiment_Seurat object doesn't contain clusters...
+## FIXME Are we missing something here?
+
+
 #' @name clusters
 #' @inherit AcidGenerics::clusters
-#' @note Updated 2021-09-13.
+#' @note Updated 2021-10-14..
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.

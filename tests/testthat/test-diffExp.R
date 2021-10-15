@@ -1,11 +1,12 @@
 ## Compare expression in cluster 3 relative to 2.
-object <- seurat
+## FIXME This example object doesn't contain cluster info.
+object <- sce_seurat
+## FIXME This step is failing for our object.
 ident <- clusters(object)
 numerator <- names(ident)[ident == "2"]
 denominator <- names(ident)[ident == "1"]
 expect_true(length(intersect(numerator, colnames(object))) > 0L)
 expect_true(length(intersect(denominator, colnames(object))) > 0L)
-rm(object)
 
 
 
