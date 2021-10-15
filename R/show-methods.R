@@ -1,7 +1,3 @@
-## FIXME This is loading pointillism, need to resave objects.
-
-
-
 #' Show an object
 #' @name show
 #' @author Michael Steinbuagh
