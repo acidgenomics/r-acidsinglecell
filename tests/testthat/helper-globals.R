@@ -6,6 +6,11 @@ data(
     package = "AcidTest",
     envir = environment()
 )
+data(
+    km,
+    package = .pkgName,
+    envir = environment()
+)
 
 ## nolint start
 rse <- RangedSummarizedExperiment

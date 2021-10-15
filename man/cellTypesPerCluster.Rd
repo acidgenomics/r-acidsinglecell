@@ -27,16 +27,13 @@ Maximum number of marker genes per cluster.}
 Cell types per cluster
 }
 \note{
-Updated 2021-03-03.
+Updated 2021-10-15.
 }
 \examples{
-data(cellTypeMarkersList, seuratAllMarkers)
+data(km)
 
 ## KnownMarkers ====
-markers <- KnownMarkers(
-    markers = seuratAllMarkers,
-    known = cellTypeMarkersList[["homoSapiens"]]
-)
-x <- cellTypesPerCluster(markers)
+object <- km
+x <- cellTypesPerCluster(object)
 print(x)
 }

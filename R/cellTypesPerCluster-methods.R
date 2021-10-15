@@ -1,6 +1,6 @@
 #' @name cellTypesPerCluster
 #' @inherit AcidGenerics::cellTypesPerCluster
-#' @note Updated 2021-03-03.
+#' @note Updated 2021-10-15.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param min `integer(1)`.
@@ -12,20 +12,17 @@
 #' @return `DataFrame`.
 #'
 #' @examples
-#' data(cellTypeMarkersList, seuratAllMarkers)
+#' data(km)
 #'
 #' ## KnownMarkers ====
-#' markers <- KnownMarkers(
-#'     markers = seuratAllMarkers,
-#'     known = cellTypeMarkersList[["homoSapiens"]]
-#' )
-#' x <- cellTypesPerCluster(markers)
+#' object <- km
+#' x <- cellTypesPerCluster(object)
 #' print(x)
 NULL
 
 
 
-## Updated 2021-03-03.
+## Updated 2021-10-15.
 `cellTypesPerCluster,KnownMarkers` <-  # nolint
     function(
         object,
@@ -93,6 +90,7 @@ NULL
         }
         assert(hasRows(x))
         x <- x[order(x[["cluster"]], -x[["n"]]), , drop = FALSE]
+        x <- droplevels(x)
         x
     }
 
