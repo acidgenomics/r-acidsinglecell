@@ -61,7 +61,7 @@ This method extends \code{SummarizedExperiment} but also handles export of the
 \code{reducedDims} slot (i.e. containing UMAP, tSNE, and PCA).
 }
 \note{
-Updated 2021-10-14.
+Updated 2021-10-15.
 }
 \section{Output file format extension}{
 
@@ -113,7 +113,7 @@ object <- SingleCellExperiment
 con <- file.path(tempdir(), "example")
 x <- export(object = object, con = con)
 print(x)
-unlink(dir, recursive = TRUE)
+unlink(con, recursive = TRUE)
 }
 \seealso{
 Packages:
