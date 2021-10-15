@@ -33,6 +33,7 @@ Imports:
     AcidCLI (>= 0.1.8),
     AcidExperiment (>= 0.2.3),
     AcidGenerics (>= 0.6.0),
+    AcidGenomes (>= 0.2.20),
     AcidPlyr (>= 0.1.23),
     SingleCellExperiment (>= 1.14.0),
     goalie (>= 0.6.0),

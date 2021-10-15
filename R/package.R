@@ -12,25 +12,27 @@
 #' @importMethodsFrom pipette coerce
 #'
 #' @importFrom AcidBase barcodePattern initDir methodFormals methodFunction
-#'   packageName packageVersion printString realpath standardizeCall
-#' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl
+#'   packageName packageVersion printString realpath requireNamespaces
+#'   standardizeCall
+#' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl h1 h2
 #'   toInlineString txt ul verbatim
 #' @importFrom AcidExperiment assay assays calculateMetrics colData colData<-
-#'   counts counts<- decode encode interestingGroups matchInterestingGroups
-#'   makeSummarizedExperiment matchSampleColumn rowRanges sampleNames
-#'   uniteInterestingGroups
+#'   counts counts<- decode encode estimateSizeFactors interestingGroups
+#'   makeSummarizedExperiment matchInterestingGroups matchSampleColumn rowRanges
+#'   sampleNames sizeFactors uniteInterestingGroups
 #' @importFrom AcidGenerics DataFrame DataFrameList SimpleList coerce colSums
 #'   do.call head metadata metadata<- na.omit rowSums split
+#' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
 #' @importFrom AcidPlyr leftJoin mutateAll
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
-#' @importFrom goalie allAreMatchingRegex areDisjointSets areSetEqual assert
-#'   bapply hasColnames hasLength hasMetrics hasNames hasNoDuplicates
-#'   hasNonzeroRowsAndCols hasRownames hasRows hasValidNames isAny isCharacter
-#'   isFlag isInLeftOpenRange isInRange isInt isIntegerish isNonNegative
-#'   isPositive isScalar isString isSubset validate
-#' @importFrom methods as is setClass setValidity validObject
-#' @importFrom pipette Matrix as_tibble assignAndSaveData tibble
+#' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
+#'   areSetEqual assert bapply hasColnames hasLength hasMetrics hasNames
+#'   hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows hasValidNames
+#'   isAny isCharacter isFlag isInLeftOpenRange isInRange isInt isIntegerish
+#'   isNonNegative isPositive isScalar isString isSubset validate
+#' @importFrom methods as is new setClass setValidity validObject
+#' @importFrom pipette Matrix as_tibble assignAndSaveData import tibble
 #' @importFrom scales percent
 #' @importFrom stringr str_match
 #' @importFrom syntactic camelCase
@@ -45,11 +47,7 @@
 # Consider reworking these:
 # > #' @importFrom DESeq2 DESeqDataSet DESeq results
 
-## > estimateSizeFactors?
-
 ## FIXME Need to import these:
-## SplitDataFrameList allArePositive assayNames
-## h1 h2
-## import makeGene2SymbolFromEnsembl model.matrix new relevel
-## requireNamespaces results sizeFactors tail
+## SplitDataFrameList assayNames
+## model.matrix relevel tail
 
