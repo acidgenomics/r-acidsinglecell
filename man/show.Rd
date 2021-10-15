@@ -27,7 +27,7 @@ Display the object, by printing, plotting or whatever suits its
   usually be invoked for automatic printing (see the details).
 }
 \note{
-Updated 2021-03-03.
+Updated 2021-10-15.
 }
 \examples{
 data(cellCycleMarkersList, cellTypeMarkersList)

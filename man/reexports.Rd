@@ -27,6 +27,8 @@
 \alias{sampleNames}
 \alias{sampleNames<-}
 \alias{sentenceCase}
+\alias{sizeFactors}
+\alias{sizeFactors<-}
 \alias{SingleCellExperiment-class}
 \title{Objects exported from other packages}
 \keyword{internal}
@@ -39,7 +41,7 @@ below to see their documentation.
 
   \item{AcidExperiment}{\code{\link[AcidExperiment:reexports]{assays}}, \code{\link[AcidExperiment]{calculateMetrics}}, \code{\link[AcidExperiment:reexports]{colData}}, \code{\link[AcidExperiment:reexports]{colData<-}}, \code{\link[AcidExperiment]{estimateSizeFactors}}, \code{\link[AcidExperiment:reexports]{rowRanges}}, \code{\link[AcidExperiment]{sampleNames}}, \code{\link[AcidExperiment:sampleNames]{sampleNames<-}}}
 
-  \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{SimpleList}}, \code{\link[AcidGenerics:reexports]{metadata}}}
+  \item{AcidGenerics}{\code{\link[AcidGenerics:reexports]{SimpleList}}, \code{\link[AcidGenerics:reexports]{metadata}}, \code{\link[AcidGenerics]{sizeFactors}}, \code{\link[AcidGenerics:sizeFactors]{sizeFactors<-}}}
 
   \item{goalie}{\code{\link[goalie:check-vector-isInstalled]{isInstalled}}}
 
