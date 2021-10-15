@@ -55,8 +55,6 @@ NULL
             isFlag(quiet)
         )
         dir <- initDir(con)
-
-
         ## Export SummarizedExperiment-compatible slots.
         files <- export(
             object = as(object, "RangedSummarizedExperiment"),
@@ -66,8 +64,6 @@ NULL
             overwrite = overwrite,
             quiet = quiet
         )
-
-
         ## Export dimensionality reduction data.
         reducedDimNames <- reducedDimNames(object)
         if (hasLength(reducedDimNames)) {
@@ -113,45 +109,17 @@ NULL
 
 
 
-## Updated 2021-10-14.
+## Updated 2021-10-15.
 `export,SCE,deprecated` <-  # nolint
-    function(
-        object,
-        con,  # NULL,
-        format,  # NULL,
-        name = NULL,
-        dir,
-        ...
-    ) {
-        validObject(object)
-        ## > .Deprecated(msg = sprintf(
-        ## >     "Use '%s' instead of '%s'.",
-        ## >     "con", "dir"
-        ## > ))
-        if (missing(con)) {
-            con <- NULL
-        }
-        if (missing(format)) {
-            format <- NULL
-        }
-        assert(
-            is.null(con),
-            is.null(format),
-            isString(dir)
-        )
-        if (is.null(name)) {
-            call <- standardizeCall()
-            sym <- call[["object"]]
-            assert(is.symbol(sym))
-            name <- as.character(sym)
-        }
-        export(
-            object = object,
-            con = file.path(dir, name),
-            format = format,
-            ...
-        )
-    }
+    methodFunction(
+        f = "export",
+        signature = signature(
+            object = "SummarizedExperiment",
+            con = "missingOrNULL",
+            format = "missingOrNULL"
+        ),
+        package = "AcidExperiment"
+    )
 
 
 
