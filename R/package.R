@@ -21,10 +21,10 @@
 #'   interestingGroups makeSummarizedExperiment matchInterestingGroups
 #'   matchSampleColumn rowRanges sampleNames sizeFactors uniteInterestingGroups
 #' @importFrom AcidGenerics DataFrame DataFrameList SimpleList
-#'   SplitDataFrameList coerce colSums do.call head metadata metadata<- na.omit
-#'   rowSums split tail
+#'   SplitDataFrameList coerce colSums complete.cases do.call head metadata
+#'   metadata<- na.omit rowSums split tail
 #' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
-#' @importFrom AcidPlyr leftJoin mutateAll
+#' @importFrom AcidPlyr leftJoin mutateAll mutateIf
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
 #'   reducedDim
 #' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
@@ -36,5 +36,5 @@
 #' @importFrom pipette Matrix as_tibble assignAndSaveData import tibble
 #' @importFrom scales percent
 #' @importFrom stringr str_match
-#' @importFrom syntactic camelCase
+#' @importFrom syntactic camelCase snakeCase
 "_PACKAGE"
