@@ -1,7 +1,5 @@
 ## Compare expression in cluster 3 relative to 2.
-## FIXME This example object doesn't contain cluster info.
 object <- sce_seurat
-## FIXME This step is failing for our object.
 ident <- clusters(object)
 numerator <- names(ident)[ident == "2"]
 denominator <- names(ident)[ident == "1"]
