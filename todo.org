@@ -1,5 +1,7 @@
 #+TITLE: AcidSingleCell
 #+STARTUP: content
 * Development
+** TODO Consider migrating the reference marker data to a separate package,
+   something like "AcidSingleCellMarkers".
 ** TODO Look into `colPairs` for assigning column pairings, such as
-        cell-to-sample mappings.
+   cell-to-sample mappings.
