@@ -1,38 +1,15 @@
 #' Normalize expression using pre-computed size factors
 #'
-#' This function calculates size factor normalized and log normalized counts
-#' from the raw count matrix defined in `counts()`. These matrices are stored in
-#' `normcounts()` and `logcounts()` slots in `assays()`, respectively.
+#' This function calculates log-normalized size-factor-adjusted counts that
+#' are defined in `logcounts()` from the raw, non-normalized count matrix
+#' defined in `counts()`.
 #'
 #' If no library size factors are defined in `sizeFactors()`, these values will
-#' be computed internally automatically using `estimateSizeFactors()` with the
-#' recommended default settings.
-#'
-#' @section Normalized counts:
-#'
-#' Normalized counts are computed by dividing the counts for each cell by the
-#' size factor for that cell. This aims to remove cell-specific scaling biases,
-#' due to differences in sequencing coverage or capture efficiency.
-#'
-#' @section Log normalized counts:
-#'
-#' Log-normalized values are calculated by adding a pseudocount offset of 1 to
-#' the normalized count and performing a `log2()` transformation.
-#'
-#' @section Centering at unity:
-#'
-#' When centering is applied to the size factors (recommended by default), all
-#' sets of size factors will be adjusted to have the same mean prior to
-#' calculation of normalized expression values. This ensures that abundances are
-#' roughly comparable between features normalized with different sets of size
-#' factors. By default, the center mean is unity, which means that the computed
-#' expression values can be interpreted as being on the same scale as the
-#' log2-counts. It also means that the added offset (i.e. `1`) added to the
-#' normalized counts during the log transformation step can be interpreted as a
-#' pseudo-count (i.e., on the same scale as the counts).
+#' be computed internally automatically using
+#' `scuttle::computeLibraryFactors()`.
 #'
 #' @name normalize
-#' @note Updated 2021-09-14.
+#' @note Updated 2021-10-15.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -40,69 +17,83 @@
 #' @return Modified object.
 #'
 #' @seealso
-#' - `estimateSizeFactors()`.
-#' - `SingleCellExperiment::normcounts()`.
-#' - `SingleCellExperiment::logcounts()`.
-#' - `scater::normalizeCounts()`.
-#' - `scater::logNormCounts()`.
+#' - `AcidExperiment::estimateSizeFactors()`.
+#' - `scuttle::computeLibraryFactors()`.
+#' - `scuttle::logNormCounts()`.
+#' - `scuttle::librarySizeFactors()`.
+#' - `scuttle::geometricSizeFactors()`.
+#' - `scuttle::medianSizeFactors()`.
 #' - `Seurat::NormalizeData()`.
 #' - `monocle3::preprocess_cds()`.
 #' - `monocle3::normalized_counts()`.
+#' - `SingleCellExperiment::normcounts()`.
+#' - `SingleCellExperiment::logcounts()`.
 #'
 #' @examples
-#' data(Seurat, SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment
 #' object <- normalize(object)
-#'
-#' ## Seurat ====
-#' object <- Seurat
-#' object <- normalize(object)
+#' head(sizeFactors(object))
+#' logcounts(object)[seq_len(2L), seq_len(2L)]
 NULL
 
 
 
-## Updated 2020-01-30.
+#' Normalize a SingleCellExperiment
+#'
+#' @note Updated 2021-10-15.
+#' @noRd
+#'
+#' @section Size factor calculation options (from scuttle documentation):
+#'
+#' The `librarySizeFactors()` function provides a simple definition of the size
+#' factor for each cell, computed as the library size of each cell after scaling
+#' them to have a mean of 1 across all cells. This is fast but inaccurate in the
+#' presence of differential expression between cells that introduce composition
+#' biases.
+#'
+#' The `geometricSizeFactors()` function instead computes the geometric
+#' mean within each cell. This is more robust to composition biases but is only
+#' accurate when the counts are large and there are few zeroes.
+#'
+#' The `medianSizeFactors()` function uses a DESeq2-esque approach based on the
+#' median ratio from an average pseudo-cell. Briefly, we assume that most genes
+#' are non-DE, such that any systematic fold difference in coverage (as defined
+#' by the median ratio) represents technical biases that must be removed. This
+#' is highly robust to composition biases but relies on sufficient sequencing
+#' coverage to obtain well-defined ratios.
 `normalize,SCE` <-  # nolint
     function(object) {
         validObject(object)
+        requireNamespaces("scuttle")
         if (is.null(sizeFactors(object))) {
-            object <- estimateSizeFactors(
-                object = object,
-                type = "mean-ratio",
-                center = 1L
-            )
+            alert(sprintf(
+                fmt = paste(
+                    "Generating {.val %s} using",
+                    "{.pkg %s}::{.fun %s}."
+                ),
+                "sizeFactors",
+                "scuttle", "computeLibraryFactors"
+            ))
+            object <- scuttle::computeLibraryFactors(object)
         }
-        assert(!is.null(sizeFactors(object)))
-        alert(sprintf(
-            fmt = paste(
-                "Computing {.val %s} and {.val %s} assays using",
-                "{.pkg %s}::{.fun %s}."
-            ),
-            "normcounts", "logcounts",
-            "scater", "normalizeCounts"
-        ))
-        requireNamespaces("scater")
-        ## Get normcounts matrix.
-        normcounts <- scater::normalizeCounts(
-            x = object,
-            log = FALSE,
-            ## Already centered (see `estimateSizeFactors()` step above).
-            center_size_factors = FALSE
+        if (!isSubset("logcounts", assayNames(object))) {
+            alert(sprintf(
+                fmt = paste(
+                    "Generating {.val %s} assay using",
+                    "{.pkg %s}::{.fun %s}."
+                ),
+                "logcounts",
+                "scuttle", "logNormCounts"
+            ))
+            object <- scuttle::logNormCounts(object)
+        }
+        assert(
+            !is.null(sizeFactors(object)),
+            isSubset("logcounts", assayNames(object))
         )
-        assert(is(normcounts, "Matrix"))
-        normcounts(object) <- normcounts
-        ## Get logcounts matrix.
-        logcounts <- scater::normalizeCounts(
-            x = object,
-            log = TRUE,
-            center_size_factors = FALSE
-        )
-        assert(is(logcounts, "Matrix"))
-        logcounts(object) <- logcounts
-        ## Stash scater package version in metadata.
-        metadata(object)[["scater"]] <- packageVersion("scater")
         object
     }
 
