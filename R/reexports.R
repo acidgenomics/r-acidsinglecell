@@ -78,6 +78,10 @@ AcidExperiment::sampleNames
 #' @importFrom AcidExperiment sampleNames<-
 AcidExperiment::`sampleNames<-`
 
+#' @export
+#' @importFrom syntactic sentenceCase
+syntactic::sentenceCase
+
 
 
 #' @exportClass SingleCellExperiment

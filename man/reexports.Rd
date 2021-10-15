@@ -23,6 +23,7 @@
 \alias{rowRanges}
 \alias{sampleNames}
 \alias{sampleNames<-}
+\alias{sentenceCase}
 \alias{SingleCellExperiment-class}
 \title{Objects exported from other packages}
 \keyword{internal}
@@ -38,5 +39,7 @@ below to see their documentation.
   \item{goalie}{\code{\link[goalie:check-vector-isInstalled]{isInstalled}}}
 
   \item{SingleCellExperiment}{\code{\link[SingleCellExperiment]{SingleCellExperiment}}, \code{\link[SingleCellExperiment:assays]{logcounts}}, \code{\link[SingleCellExperiment:assays]{logcounts<-}}, \code{\link[SingleCellExperiment:assays]{normcounts}}, \code{\link[SingleCellExperiment:assays]{normcounts<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDim<-}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDimNames<-}}, \code{\link[SingleCellExperiment]{reducedDims}}, \code{\link[SingleCellExperiment:reducedDims]{reducedDims<-}}}
+
+  \item{syntactic}{\code{\link[syntactic]{sentenceCase}}}
 }}
 

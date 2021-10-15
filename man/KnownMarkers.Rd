@@ -6,9 +6,27 @@
 \usage{
 KnownMarkers(markers, known, ...)
 }
+\arguments{
+\item{markers}{Object containing cell markers from differential expression analysis.}
+
+\item{known}{\code{CellTypeMarkers}.
+Grouped by \code{cellType} column.
+Known markers \code{data.frame} imported by \code{importCellTypeMarkers} or pulled
+from internal cell cycle markers data.}
+
+\item{...}{Additional arguments.}
+}
+\value{
+\code{KnownMarkers}.
+}
 \description{
-Known cell markers
+Both the \code{markers} and \code{known} objects must contain Ensembl gene identifiers
+in the \code{geneId} column. We must avoid any matching operations based on the
+gene names, since these change often and can mismatch easily.
 }
 \note{
-Updated 2021-09-13.
+Updated 2021-10-15.
+}
+\examples{
+showMethods("KnownMarkers")
 }
