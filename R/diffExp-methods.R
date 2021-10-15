@@ -4,7 +4,7 @@
 #' @note We are no longer recommending the use of software that attempts to
 #'   mitigate zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based
 #'   single cell RNA-seq data. Simply model the counts directly.
-#' @note Updated 2021-09-13.
+#' @note Updated 2021-10-14.
 #'
 #' @details
 #' Perform pairwise differential expression across groups of cells. Currently
@@ -108,10 +108,6 @@ NULL
 
 
 
-.designFormula <- ~group
-
-
-
 ## DESeq2 is slow for large datasets.
 ##
 ## - `reduced`: For `test = "LRT"`, a reduced formula to compare against.
@@ -121,15 +117,16 @@ NULL
 ## - `minmu`: Set a lower threshold than the default 0.5, as recommended
 ##   in Mike Love's zinbwave-DESeq2 vignette.
 ##
-## Updated 2020-01-30.
+## Updated 2021-10-14.
 .diffExp.DESeq2 <- function(object, BPPARAM) {  # nolint
+    alert(sprintf("Running {.pkg %s}.", "DESeq2"))
+    requireNamespaces("DESeq2")
     assert(.hasDesignFormula(object))
-    alert("Running {.pkg DESeq2}.")
-    dds <- DESeqDataSet(
+    dds <- DESeq2::DESeqDataSet(
         se = object,
-        design = .designFormula
+        design = ~ group
     )
-    dds <- DESeq(
+    dds <- DESeq2::DESeq(
         object = dds,
         test = "LRT",
         reduced = ~ 1L,
@@ -139,7 +136,7 @@ NULL
         BPPARAM = BPPARAM
     )
     ## We have already performed low count filtering.
-    res <- results(
+    res <- DESeq2::results(
         object = dds,
         independentFiltering = FALSE,
         BPPARAM = BPPARAM
@@ -156,21 +153,22 @@ NULL
 ## degrees of freedom, to account for the downweighting in the zero-inflation
 ## model (which no longer applies here).
 ##
-## Updated 2020-01-30.
+## Updated 2021-10-14.
 .diffExp.edgeR <- function(object) {  # nolint
+    alert(sprintf("Running {.pkg %s}.", "edgeR"))
+    requireNamespaces("edgeR")
     assert(.hasDesignFormula(object))
-    alert("Running {.pkg edgeR}.")
     ## Ensure sparseMatrix gets coerced to dense matrix.
     counts <- as.matrix(counts(object))
     design <- metadata(object)[["design"]]
     assert(is.matrix(design))
     group <- object[["group"]]
     assert(is.factor(group))
-    dge <- DGEList(counts, group = group)
-    dge <- calcNormFactors(dge)
-    dge <- estimateDisp(dge, design = design)
-    fit <- glmFit(dge, design = design)
-    lrt <- glmLRT(glmfit = fit, coef = 2L)
+    dge <- edgeR::DGEList(counts, group = group)
+    dge <- edgeR::calcNormFactors(dge)
+    dge <- edgeR::estimateDisp(dge, design = design)
+    fit <- edgeR::glmFit(dge, design = design)
+    lrt <- edgeR::glmLRT(glmfit = fit, coef = 2L)
     lrt
 }
 

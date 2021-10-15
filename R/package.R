@@ -38,12 +38,3 @@
 #' @importFrom stringr str_match
 #' @importFrom syntactic camelCase
 "_PACKAGE"
-
-
-
-## edgeR functions (requireNamespace):
-## > DGEList calcNormFactors estimateDisp glmFit glmLRT
-
-## DESeq2 (requireNamespace):
-# > DESeqDataSet DESeq results
-
