@@ -1,3 +1,5 @@
+## FIXME Migrate this to AcidGenerics.
+
 #' Known cell markers
 #'
 #' @export
@@ -35,8 +37,6 @@ setGeneric(
 #' @export
 NULL
 
-
-
 #' @rdname aggregate
 #' @name aggregate
 #' @importFrom AcidGenerics aggregate
@@ -45,16 +45,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname barcodeRanksPerSample
 #' @name barcodeRanksPerSample
 #' @importFrom AcidGenerics barcodeRanksPerSample
 #' @usage barcodeRanksPerSample(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname cell2sample
 #' @name cell2sample
@@ -63,16 +59,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname cellCountsPerCluster
 #' @name cellCountsPerCluster
 #' @importFrom AcidGenerics cellCountsPerCluster
 #' @usage cellCountsPerCluster(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname cellTypesPerCluster
 #' @name cellTypesPerCluster
@@ -81,16 +73,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname clusters
 #' @name clusters
 #' @importFrom AcidGenerics clusters
 #' @usage clusters(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname combine
 #' @name combine
@@ -100,16 +88,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname convertSampleIDsToNames
 #' @name convertSampleIDsToNames
 #' @importFrom AcidGenerics convertSampleIDsToNames
 #' @usage convertSampleIDsToNames(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname cpm
 #' @name cpm
@@ -118,16 +102,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname diffExp
 #' @name diffExp
 #' @importFrom AcidGenerics diffExp
 #' @usage diffExp(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname diffExpPerCluster
 #' @name diffExpPerCluster
@@ -136,16 +116,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname findMarkers
 #' @name findMarkers
 #' @importFrom AcidGenerics findMarkers
 #' @usage findMarkers(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname export
 #' @name export
@@ -156,16 +132,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname filterCells
 #' @name filterCells
 #' @importFrom AcidGenerics filterCells
 #' @usage filterCells(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname geometricMean
 #' @name geometricMean
@@ -174,8 +146,6 @@ NULL
 #' @usage geometricMean(x, ...)
 #' @export
 NULL
-
-
 
 #' @rdname melt
 #' @name melt
@@ -186,8 +156,6 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname metrics
 #' @name metrics
 #' @importFrom AcidGenerics metrics
@@ -196,8 +164,6 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname metrics
 #' @name metricsPerSample
 #' @importFrom AcidGenerics metricsPerSample
@@ -205,16 +171,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname normalize
 #' @name normalize
 #' @importFrom AcidGenerics normalize
 #' @usage normalize(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname sampleData
 #' @name sampleData
@@ -232,8 +194,6 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname selectSamples
 #' @name selectSamples
 #' @importFrom AcidGenerics selectSamples
@@ -242,16 +202,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname show
 #' @name show
 #' @importFrom AcidGenerics show
 #' @usage show(object)
 #' @export
 NULL
-
-
 
 #' @rdname subsetPerSample
 #' @name subsetPerSample
@@ -260,16 +216,12 @@ NULL
 #' @export
 NULL
 
-
-
 #' @rdname topCellsPerSample
 #' @name topCellsPerSample
 #' @importFrom AcidGenerics topCellsPerSample
 #' @usage topCellsPerSample(object, ...)
 #' @export
 NULL
-
-
 
 #' @rdname zerosVsDepth
 #' @name zerosVsDepth
