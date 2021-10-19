@@ -1,5 +1,30 @@
 ## AcidSingleCell 0.2.0 (UNRELEASED)
 
+Significantly reworked the package, migrating some single-cell RNA-seq analysis
+code that was previously defined in pointilllism package, but is generally
+applicable for any type of single-cell RNA-seq. We are reworking the pointillism
+package to function primarily as an extension toolkit for Seurat and monocle3.
+
+### New functions and classes
+
+- Migrated `barcodeRanksPerSample`, `cellCountsPerCluster`, `cpm`, `diffExp`,
+  `diffExpPerCluster`, `findMarkers`, and `normalize` methods that dispatch on
+  `SingleCellExperiment` here from pointillism.
+- Migrated `CellCycleMarkers`, `CellTypeMarkers`, and `KnownMarkers` classes
+  here from pointillism.
+
+### Major changes
+
+- `export`: Reworked `SingleCellExperiment` method to support new BiocIO
+  generic approach. This method functions similarly to `SummarizedExperiment`
+  method, but also exports `reducedDims` matrices to disk as well.
+
+### Minor changes
+
+- Multiple changes to NAMESPACE, reflecting migration of code from pointillism.
+- `filterCells`: Package metadata is now defined as `"packageName"` and
+  `"packageVersion"`, instead of previously using just `"version"`.
+
 ## AcidSingleCell 0.1.9 (2021-09-13)
 
 ### Minor changes
