@@ -24,6 +24,8 @@ package to function primarily as an extension toolkit for Seurat and monocle3.
 - Multiple changes to NAMESPACE, reflecting migration of code from pointillism.
 - `filterCells`: Package metadata is now defined as `"packageName"` and
   `"packageVersion"`, instead of previously using just `"version"`.
+- Migrated `KnownMarkers` generic from here to AcidGenerics. Previously this
+  was defined in pointillism package.
 
 ## AcidSingleCell 0.1.9 (2021-09-13)
 
