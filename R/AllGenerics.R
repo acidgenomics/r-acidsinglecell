@@ -1,36 +1,3 @@
-## FIXME Migrate this to AcidGenerics.
-
-#' Known cell markers
-#'
-#' @export
-#' @note Updated 2021-10-15.
-#'
-#' @description
-#' Both the `markers` and `known` objects must contain Ensembl gene identifiers
-#' in the `geneId` column. We must avoid any matching operations based on the
-#' gene names, since these change often and can mismatch easily.
-#'
-#' @param markers
-#'   Object containing cell markers from differential expression analysis.
-#' @param known `CellTypeMarkers`.
-#'   Grouped by `cellType` column.
-#'   Known markers `data.frame` imported by `importCellTypeMarkers` or pulled
-#'   from internal cell cycle markers data.
-#' @param ... Additional arguments.
-#'
-#' @return `KnownMarkers`.
-#'
-#' @examples
-#' showMethods("KnownMarkers")
-setGeneric(
-    name = "KnownMarkers",
-    def = function(markers, known, ...) {
-        standardGeneric("KnownMarkers")
-    }
-)
-
-
-
 #' @name aggregateCellsToSamples
 #' @importFrom AcidGenerics aggregateCellsToSamples
 #' @usage aggregateCellsToSamples(x, ...)
