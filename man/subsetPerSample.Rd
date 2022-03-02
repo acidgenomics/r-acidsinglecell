@@ -12,7 +12,7 @@ subsetPerSample(object, ...)
   minCells = 1L,
   assignAndSave = FALSE,
   envir = parent.frame(),
-  dir = "."
+  dir = getwd()
 )
 }
 \arguments{
