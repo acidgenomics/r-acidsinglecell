@@ -39,7 +39,7 @@ Updated 2021-09-13.
 data(SingleCellExperiment_Seurat, package = "AcidTest")
 
 ## SingleCellExperiment ====
-if (isInstalled("edgeR")) {
+if (goalie::isInstalled("edgeR")) {
     object <- SingleCellExperiment_Seurat
     x <- findMarkers(object, caller = "edgeR")
     class(x)

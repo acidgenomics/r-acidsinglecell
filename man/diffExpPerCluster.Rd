@@ -44,7 +44,7 @@ function to work.
 data(SingleCellExperiment_Seurat, package = "AcidTest")
 
 ## SingleCellExperiment ====
-if (isInstalled("edgeR")) {
+if (goalie::isInstalled("edgeR")) {
     object <- SingleCellExperiment_Seurat
     group <- factor(c("group1", "group2"))
     colData(object)$group <- group
