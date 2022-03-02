@@ -30,11 +30,12 @@
 #' releaseFile <- file.path(markersDir, "ensembl-release.txt")
 #' release <- as.integer(readLines(releaseFile))
 #'
-#' importCellCycleMarkers(
+#' x <- importCellCycleMarkers(
 #'     file = file,
 #'     organism = organism,
 #'     release = release
 #' )
+#' print(x)
 NULL
 
 
