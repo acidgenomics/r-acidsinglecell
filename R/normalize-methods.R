@@ -36,7 +36,7 @@
 #' object <- SingleCellExperiment
 #' object <- normalize(object)
 #' head(sizeFactors(object))
-#' logcounts(object)[seq_len(2L), seq_len(2L)]
+#' SingleCellExperiment::logcounts(object)[seq_len(2L), seq_len(2L)]
 NULL
 
 
