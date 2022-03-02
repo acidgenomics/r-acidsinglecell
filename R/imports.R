@@ -13,12 +13,14 @@ NULL
 
 #' @importFrom AcidGenerics aggregateCellsToSamples barcodeRanksPerSample
 #'   calculateMetrics camelCase cell2sample cellCountsPerCluster
-#'   cellTypesPerCluster cpm clusters convertSampleIDsToNames encode
-#'   interestingGroups leftJoin mutateAll mutateIf snakeCase
-#'   uniteInterestingGroups
+#'   cellTypesPerCluster cpm clusters convertSampleIDsToNames diffExp
+#'   diffExpPerCluster encode filterCells findMarkers geometricMean
+#'   interestingGroups leftJoin melt metrics metricsPerSample mutateAll mutateIf
+#'   sampleData sampleData<- selectSamples snakeCase subsetPerSample
+#'   topCellsPerSample uniteInterestingGroups zerosVsDepth
 #' @importFrom Biobase sampleNames
 #' @importFrom BiocGenerics colSums combine counts counts<- do.call
-#'   estimateSizeFactors rowSums normalize sizeFactors
+#'   estimateSizeFactors normalize rowSums normalize sizeFactors
 #' @importFrom BiocIO export import
 #' @importFrom S4Vectors DataFrame SimpleList aggregate complete.cases decode
 #'   head metadata metadata<- na.omit split tail
@@ -28,10 +30,12 @@ NULL
 #'   rowRanges
 #' @importFrom methods coerce show
 #'
+#' @importMethodsFrom AcidBase geometricMean
 #' @importMethodsFrom AcidExperiment aggregate calculateMetrics combine decode
-#'   encode estimateSizeFactors export interestingGroups matchSampleColumn
-#'   sampleNames uniteInterestingGroups
-#' @importMethodsFrom AcidPlyr leftJoin mutateAll mutateIf
+#'   encode estimateSizeFactors export interestingGroups matchSampleColumn melt
+#'   metrics sampleData sampleData<- sampleNames selectSamples
+#'   uniteInterestingGroups
+#' @importMethodsFrom AcidPlyr leftJoin melt mutateAll mutateIf
 #' @importMethodsFrom SingleCellExperiment coerce
 #' @importMethodsFrom pipette coerce export import
 #' @importMethodsFrom syntactic camelCase snakeCase
