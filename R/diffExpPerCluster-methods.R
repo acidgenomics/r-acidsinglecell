@@ -27,7 +27,7 @@
 #' if (goalie::isInstalled("edgeR")) {
 #'     object <- SingleCellExperiment_Seurat
 #'     group <- factor(c("group1", "group2"))
-#'     colData(object)$group <- group
+#'     SummarizedExperiment::colData(object)$group <- group
 #'     suppressMessages({
 #'         x <- diffExpPerCluster(
 #'             object = object,
