@@ -1,5 +1,7 @@
 context("filterCells")
 
+## NOTE These expected values can change when we update AcidTest.
+
 object <- sce
 object <- calculateMetrics(object)
 
@@ -49,7 +51,7 @@ test_that("Double filtering is allowed", {
     expect_s4_class(x, "SingleCellExperiment")
 })
 
-## Note that this matches per sample.
+## This matches per sample.
 test_that("Top cells only", {
     x <- filterCells(object, nCells = 2L)
     expect_identical(ncol(x), 4L)
@@ -57,7 +59,6 @@ test_that("Top cells only", {
 
 ## Refer to the quality control R Markdown for actual recommended cutoffs.
 ## These are skewed, and designed to work with our minimal dataset.
-## NOTE These values can change when we update AcidTest.
 test_that("Cell filtering", {
     mapply(
         args = list(
@@ -68,11 +69,11 @@ test_that("Cell filtering", {
             list("minNovelty" = 0.5)
         ),
         dim = list(
-            c(488L, 63L),
-            c(472L, 37L),
-            c(488L, 68L),
-            c(472L, 35L),
-            c(489L, 97L)
+            c(471L, 70L),
+            c(452L, 30L),
+            c(410L, 5L),
+            c(477L, 95L),
+            c(397L, 7L)
         ),
         FUN = function(args, dim) {
             x <- do.call(
@@ -91,7 +92,10 @@ test_that("Cell filtering", {
 
 test_that("Feature filtering", {
     x <- filterCells(object, minCellsPerFeature = 50L)
-    expect_identical(dim(x), c(280L, 100L))
+    expect_identical(
+        object = dim(x),
+        expected = c(213L, 100L)
+    )
 })
 
 
@@ -106,15 +110,18 @@ test_that("minCounts", {
             "sample2" = 25000L
         )
     )
+    expect_identical(
+        object = dim(x),
+        expected = c(475L, 88L)
+    )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
     expect_identical(
         object = c(
             m[["sample1"]][["minCounts"]],
             m[["sample2"]][["minCounts"]]
         ),
-        expected = c(29L, 53L)
+        expected = c(42L, 46L)
     )
-    expect_identical(dim(x), c(489L, 82L))
 })
 
 test_that("maxCounts", {
@@ -125,15 +132,18 @@ test_that("maxCounts", {
             "sample2" = 25000L
         )
     )
+    expect_identical(
+        object = dim(x),
+        expected = c(412L, 12L)
+    )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
     expect_identical(
         object = c(
             m[["sample1"]][["maxCounts"]],
             m[["sample2"]][["maxCounts"]]
         ),
-        expected = c(18L, 0L)
+        expected = c(12L, 0L)
     )
-    expect_identical(dim(x), c(460L, 18L))
 })
 
 test_that("minFeatures", {
@@ -144,15 +154,18 @@ test_that("minFeatures", {
             "sample2" = 250L
         )
     )
+    expect_identical(
+        object = dim(x),
+        expected = c(395L, 4L)
+    )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
     expect_identical(
         object = c(
             m[["sample1"]][["minFeatures"]],
             m[["sample2"]][["minFeatures"]]
         ),
-        expected = c(5L, 30L)
+        expected = c(0L, 4L)
     )
-    expect_identical(dim(x), c(482L, 35L))
 })
 
 test_that("maxFeatures", {
@@ -163,24 +176,31 @@ test_that("maxFeatures", {
             "sample2" = 250L
         )
     )
+    expect_identical(
+        object = dim(x),
+        expected = c(477L, 96L)
+    )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
     expect_identical(
         object = c(
             m[["sample1"]][["maxFeatures"]],
             m[["sample2"]][["maxFeatures"]]
         ),
-        expected = c(42L, 26L)
+        expected = c(54L, 42L)
     )
-    expect_identical(dim(x), c(481L, 68L))
 })
 
 test_that("minNovelty", {
     x <- filterCells(
         object = object,
         minNovelty = c(
-            "sample1" = 0.5,
-            "sample2" = 0.6
+            "sample1" = 0.3,
+            "sample2" = 0.2
         )
+    )
+    expect_identical(
+        object = dim(x),
+        expected = c(478L, 100L)
     )
     m <- metadata(x)[["filterCells"]][["perSamplePass"]]
     expect_identical(
@@ -188,9 +208,8 @@ test_that("minNovelty", {
             m[["sample1"]][["minNovelty"]],
             m[["sample2"]][["minNovelty"]]
         ),
-        expected = c(47L, 0L)
+        expected = c(54L, 46L)
     )
-    expect_identical(dim(x), c(481L, 47L))
 })
 
 test_that("nCells", {
@@ -201,7 +220,10 @@ test_that("nCells", {
             "sample2" = 4L
         )
     )
-    expect_identical(ncol(x), 6L)
+    expect_identical(
+        object = ncol(x),
+        expected = 6L
+    )
     m <- metadata(x)[["filterCells"]][["topCellsPerSample"]]
     expect_identical(
         lapply(m, length),
