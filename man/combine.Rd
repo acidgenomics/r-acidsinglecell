@@ -3,7 +3,7 @@
 \name{combine}
 \alias{combine}
 \alias{combine,SingleCellExperiment,SingleCellExperiment-method}
-\title{Combine multiple objects}
+\title{Combining or merging different Bioconductor data structures}
 \usage{
 combine(x, y, ...)
 
@@ -20,7 +20,7 @@ combine(x, y, ...)
 \code{SingleCellExperiment}.
 }
 \description{
-Combine multiple objects
+Combining or merging different Bioconductor data structures
 }
 \note{
 Updated 2021-02-05.

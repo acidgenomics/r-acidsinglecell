@@ -14,12 +14,12 @@ test_that("SingleCellExperiment", {
         object = head(colSums(counts(object))),
         expected = c(
             ## nolint start
-            "sample_1_AAAAAA_AAAAAA_AAAAAA" = 35236,
-            "sample_1_CCCCCC_CCCCCC_CCCCCC" = 32089,
-            "sample_1_GGGGGG_GGGGGG_GGGGGG" = 37218,
-            "sample_1_TTTTTT_TTTTTT_TTTTTT" = 33148,
-            "sample_2_AAAAAA_AAAAAA_AAAAAA" = 37655,
-            "sample_2_CCCCCC_CCCCCC_CCCCCC" = 39246
+            "sample_1_AAAAAA_AAAAAA_AAAAAA" = 60859,
+            "sample_1_CCCCCC_CCCCCC_CCCCCC" = 47116,
+            "sample_1_GGGGGG_GGGGGG_GGGGGG" = 50867,
+            "sample_1_TTTTTT_TTTTTT_TTTTTT" = 45794,
+            "sample_2_AAAAAA_AAAAAA_AAAAAA" = 51758,
+            "sample_2_CCCCCC_CCCCCC_CCCCCC" = 43405
             ## nolint end
         )
     )
@@ -70,8 +70,8 @@ test_that("SingleCellExperiment", {
         object = colSums(counts(object)),
         expected = c(
             ## nolint start
-            "sample1" = 2624611,
-            "sample2" = 2955035
+            "sample1" = 3262399,
+            "sample2" = 2568709
             ## nolint end
         )
     )
