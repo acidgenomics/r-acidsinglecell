@@ -51,7 +51,7 @@ data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
 object <- SingleCellExperiment_splatter
-object <- calculateMetrics(object)
+object <- AcidExperiment::calculateMetrics(object)
 x <- metrics(object)
 print(x)
 x <- metricsPerSample(object, fun = "mean")
