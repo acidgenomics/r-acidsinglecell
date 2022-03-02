@@ -20,7 +20,7 @@
 #' data(SingleCellExperiment_Seurat, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' if (isInstalled("edgeR")) {
+#' if (goalie::isInstalled("edgeR")) {
 #'     object <- SingleCellExperiment_Seurat
 #'     x <- findMarkers(object, caller = "edgeR")
 #'     class(x)
