@@ -51,17 +51,17 @@ to melting, if desired. Use \code{"identity"} to return unmodified (default).}
 Unpivot column data from wide format to long format.
 }
 \note{
-Updated 2021-02-02.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 dim(object)
-x <- melt(object)
-nrow(x)
-print(x)
+df <- melt(object)
+nrow(df)
+print(df)
 }
 \seealso{
 tidyr:\if{html}{\out{<div class="sourceCode r">}}\preformatted{methods("gather")

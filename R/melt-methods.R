@@ -1,19 +1,19 @@
 #' @name melt
 #' @inherit AcidPlyr::melt
-#' @note Updated 2021-02-02.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' dim(object)
-#' x <- melt(object)
-#' nrow(x)
-#' print(x)
+#' df <- melt(object)
+#' nrow(df)
+#' print(df)
 NULL
 
 

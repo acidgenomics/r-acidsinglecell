@@ -1,14 +1,14 @@
 #' @name selectSamples
 #' @inherit AcidGenerics::selectSamples
-#' @note Updated 2021-02-05.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' sample <- sampleNames(object)[[1L]]
 #' print(sample)
 #' subset <- selectSamples(object, sampleName = sample)

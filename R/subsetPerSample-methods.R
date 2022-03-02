@@ -1,6 +1,6 @@
 #' @name subsetPerSample
 #' @inherit AcidGenerics::subsetPerSample
-#' @note Updated 2019-08-11.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param minCells `integer(1)`.
@@ -20,11 +20,10 @@
 #' - `assignAndSave = TRUE`: Subset file paths.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
-#' sce <- SingleCellExperiment
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- sce
+#' object <- SingleCellExperiment_splatter
 #'
 #' ## List mode (default).
 #' list <- subsetPerSample(object, assignAndSave = FALSE)

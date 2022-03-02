@@ -27,14 +27,14 @@ Barcode ranks per sample
 \note{
 Requires DropletUtils package to be installed.
 
-Updated 2021-09-13.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_Seurat, package = "AcidTest")
 
 ## SingleCellExperiment ====
 if (requireNamespace("DropletUtils", quietly = TRUE)) {
-    object <- SingleCellExperiment
+    object <- SingleCellExperiment_Seurat
     x <- barcodeRanksPerSample(object)
     names(x)
 }

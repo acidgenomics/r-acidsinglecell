@@ -9,7 +9,7 @@
 #' `scuttle::computeLibraryFactors()`.
 #'
 #' @name normalize
-#' @note Updated 2021-10-15.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -30,10 +30,10 @@
 #' - `SingleCellExperiment::logcounts()`.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' object <- normalize(object)
 #' head(sizeFactors(object))
 #' SingleCellExperiment::logcounts(object)[seq_len(2L), seq_len(2L)]

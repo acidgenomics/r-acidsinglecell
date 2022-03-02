@@ -44,13 +44,13 @@ Quality control metrics
 }}
 
 \note{
-Updated 2021-02-26.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 object <- calculateMetrics(object)
 x <- metrics(object)
 print(x)

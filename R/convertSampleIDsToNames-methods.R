@@ -1,15 +1,15 @@
 #' @name convertSampleIDsToNames
 #' @inherit AcidGenerics::convertSampleIDsToNames
-#' @note Updated 2022-02-02.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' convertSampleIDsToNames(object)
 NULL
 

@@ -23,12 +23,12 @@ human-readable sample names.
 Convert sample identifiers to names
 }
 \note{
-Updated 2022-02-02.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 convertSampleIDsToNames(object)
 }

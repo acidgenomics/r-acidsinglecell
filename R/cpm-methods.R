@@ -1,7 +1,7 @@
 #' @name cpm
 #' @inherit AcidGenerics::cpm
 #' @keywords internal
-#' @note Updated 2021-10-15.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
@@ -11,10 +11,10 @@
 #' - `scuttle::calculateCPM()`.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' object <- estimateSizeFactors(object)
 #' cpm <- cpm(object)
 #' class(cpm)

@@ -80,13 +80,13 @@ Filtering information gets slotted into \code{metadata()} as \code{filterCells}
 metadata.
 }
 \note{
-Updated 2021-09-13.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 x <- filterCells(object)
 print(x)
 
@@ -94,7 +94,7 @@ print(x)
 sampleNames(object)
 x <- filterCells(
     object = object,
-    minCounts = c(sample1 = 100L)
+    minCounts = c("sample1" = 100L)
 )
 print(x)
 }

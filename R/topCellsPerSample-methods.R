@@ -1,6 +1,6 @@
 #' @name topCellsPerSample
 #' @inherit AcidGenerics::topCellsPerSample
-#' @note Updated 2021-02-13.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param n `integer(1)`.
@@ -8,10 +8,10 @@
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' x <- topCellsPerSample(object)
 #' lapply(x, head)
 NULL

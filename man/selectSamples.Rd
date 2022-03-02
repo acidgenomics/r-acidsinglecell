@@ -33,7 +33,7 @@ Internally, pattern matching against sample and file names is applied using
 logical grep matching.
 }
 \note{
-Updated 2021-02-05.
+Updated 2022-03-02.
 }
 \section{Intended usage}{
 
@@ -56,10 +56,10 @@ identifiers for columns and gene identifiers for rows.
 }
 
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 sample <- sampleNames(object)[[1L]]
 print(sample)
 subset <- selectSamples(object, sampleName = sample)
