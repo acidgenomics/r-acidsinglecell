@@ -21,10 +21,11 @@ sce_lanesplit <- SingleCellExperiment_lanesplit
 
 ## nolint start
 `rowData<-` <- SummarizedExperiment::`rowData<-`
+`sampleNames<-` <- Biobase::`sampleNames<-`
 SingleCellExperiment <- SingleCellExperiment::SingleCellExperiment
 aggregateCols <- AcidExperiment::aggregateCols
 aggregateRows <- AcidExperiment::aggregateRows
-lowcounts <- SingleCellExperiment::logcounts
+logcounts <- SingleCellExperiment::logcounts
 rowData <- SummarizedExperiment::rowData
 simpleClass <- AcidBase::simpleClass
 ## nolint end
