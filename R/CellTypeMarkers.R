@@ -30,11 +30,12 @@
 #' release_file <- file.path(markers_dir, "ensembl-release.txt")
 #' release <- as.integer(readLines(release_file))
 #'
-#' importCellTypeMarkers(
+#' x <- importCellTypeMarkers(
 #'     file = file,
 #'    organism = organism,
 #'     release = release
 #' )
+#' print(x)
 NULL
 
 
