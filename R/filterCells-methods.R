@@ -1,6 +1,6 @@
 #' @name filterCells
 #' @inherit AcidGenerics::filterCells
-#' @note Updated 2021-09-13.
+#' @note Updated 2022-03-02.
 #'
 #' @details
 #' Apply feature (i.e. gene/transcript) detection, novelty score, and
@@ -42,10 +42,10 @@
 #' @return `SingleCellExperiment`.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' x <- filterCells(object)
 #' print(x)
 #'
@@ -53,7 +53,7 @@
 #' sampleNames(object)
 #' x <- filterCells(
 #'     object = object,
-#'     minCounts = c(sample1 = 100L)
+#'     minCounts = c("sample1" = 100L)
 #' )
 #' print(x)
 NULL

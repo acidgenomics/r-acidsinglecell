@@ -1,6 +1,6 @@
 #' @name cell2sample
 #' @inherit AcidGenerics::cell2sample
-#' @note Updated 2021-02-02.
+#' @note Updated 2022-03-02.
 #'
 #' @details
 #' Sample identifiers must be defined in `sampleId` column in `colData()`.
@@ -16,12 +16,12 @@
 #' - `"tbl_df"`: Tibble containing `cellId` and `sampleId` columns.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
-#' sce <- SingleCellExperiment
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' x <- cell2sample(sce)
-#' table(x)
+#' object <- SingleCellExperiment_splatter
+#' c2s <- cell2sample(object)
+#' table(c2s)
 NULL
 
 

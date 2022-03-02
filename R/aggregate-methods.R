@@ -1,6 +1,6 @@
 #' @name aggregate
 #' @inherit AcidExperiment::aggregate
-#' @note Updated 2021-09-13.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -12,7 +12,7 @@
 #'
 #' ## SingleCellExperiment ====
 #' x <- SingleCellExperiment_lanesplit
-#' levels(colData(x)[["aggregate"]])
+#' levels(SummarizedExperiment::colData(x)[["aggregate"]])
 #' x <- aggregate(
 #'     x = x,
 #'     col = "aggregate",

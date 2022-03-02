@@ -60,7 +60,7 @@ columns map to a single sample (e.g. cells for a single-cell RNA-seq
 experiment).
 }
 \note{
-Updated 2021-02-26.
+Updated 2022-03-02.
 }
 \section{SingleCellExperiment}{
 
@@ -75,14 +75,14 @@ but it's required for working with multiple samples in a single object.
 }
 
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-x <- SingleCellExperiment
-sampleData(x)
+object <- SingleCellExperiment_splatter
+sampleData(object)
 
 ## Assignment support.
-sampleData(x)[["batch"]] <- 1L
+sampleData(object)[["batch"]] <- 1L
 ## `batch` column should be now defined.
-sampleData(x)
+sampleData(object)
 }

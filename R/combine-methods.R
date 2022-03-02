@@ -1,6 +1,6 @@
 #' @name combine
 #' @inherit AcidExperiment::combine
-#' @note Updated 2021-02-05.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -8,11 +8,11 @@
 #' @return `SingleCellExperiment`.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #' str_pad <- stringr::str_pad
 #'
 #' ## SingleCellExperiment ====
-#' x <- SingleCellExperiment
+#' x <- SingleCellExperiment_splatter
 #' colnames(x) <- paste0(
 #'     "cell",
 #'     str_pad(

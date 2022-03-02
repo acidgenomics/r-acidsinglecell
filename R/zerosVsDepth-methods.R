@@ -1,19 +1,19 @@
 #' @name zerosVsDepth
 #' @author Michael Steinbaugh, Rory Kirchner
 #' @inherit AcidGenerics::zerosVsDepth
-#' @note Updated 2020-01-30.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
-#' sce <- SingleCellExperiment
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' x <- zerosVsDepth(sce)
-#' summary(x)
-#' colnames(x)
+#' object <- SingleCellExperiment_splatter
+#' df <- zerosVsDepth(object)
+#' summary(df)
+#' colnames(df)
 NULL
 
 

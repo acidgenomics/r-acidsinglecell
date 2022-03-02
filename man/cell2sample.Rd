@@ -34,13 +34,13 @@ Cell-to-sample mappings
 Sample identifiers must be defined in \code{sampleId} column in \code{colData()}.
 }
 \note{
-Updated 2021-02-02.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
-sce <- SingleCellExperiment
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-x <- cell2sample(sce)
-table(x)
+object <- SingleCellExperiment_splatter
+c2s <- cell2sample(object)
+table(c2s)
 }

@@ -25,13 +25,13 @@ Top barcodes as \code{character}, split by sample identifier.
 Obtain the top cellular barcodes, based on counts.
 }
 \note{
-Updated 2021-02-13.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 x <- topCellsPerSample(object)
 lapply(x, head)
 }

@@ -44,14 +44,13 @@ Only applicable when \code{assignAndSave = TRUE}.}
 Subset per sample
 }
 \note{
-Updated 2019-08-11.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
-sce <- SingleCellExperiment
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- sce
+object <- SingleCellExperiment_splatter
 
 ## List mode (default).
 list <- subsetPerSample(object, assignAndSave = FALSE)

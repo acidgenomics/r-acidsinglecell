@@ -1,7 +1,7 @@
 #' Make a SingleCellExperiment object
 #'
 #' @export
-#' @note Updated 2021-02-05.
+#' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Passthrough arguments to `makeSummarizedExperiment()`.
@@ -14,23 +14,19 @@
 #' @return `SingleCellExperiment`.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SimpleList ====
-#' object <- SingleCellExperiment
-#' assays <- SummarizedExperiment::assays(object)
-#' rowRanges <- SummarizedExperiment::rowRanges(object)
-#' colData <- SummarizedExperiment::colData(object)
-#' metadata <- S4Vectors::metadata(object)
-#' reducedDims <- SingleCellExperiment::reducedDims(object)
-#' x <- makeSingleCellExperiment(
-#'     assays = assays,
-#'     rowRanges = rowRanges,
-#'     colData = colData,
-#'     metadata = metadata,
-#'     reducedDims = reducedDims
+#' object <- SingleCellExperiment_splatter
+#' args <- list(
+#'     "assays" = SummarizedExperiment::assays(object),
+#'     "rowRanges" = SummarizedExperiment::rowRanges(object),
+#'     "colData" = SummarizedExperiment::colData(object),
+#'     "metadata" = S4Vectors::metadata(object),
+#'     "reducedDims" = SingleCellExperiment::reducedDims(object)
 #' )
-#' print(x)
+#' sce <- do.call(what = makeSingleCellExperiment, args = args)
+#' print(sce)
 makeSingleCellExperiment <- function(
     ...,
     reducedDims = S4Vectors::SimpleList()

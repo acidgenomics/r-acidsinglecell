@@ -33,16 +33,16 @@ Assay name or index position.}
 Calculate and visualize the dropout rate.
 }
 \note{
-Updated 2020-01-30.
+Updated 2022-03-02.
 }
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
-sce <- SingleCellExperiment
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-x <- zerosVsDepth(sce)
-summary(x)
-colnames(x)
+object <- SingleCellExperiment_splatter
+df <- zerosVsDepth(object)
+summary(df)
+colnames(df)
 }
 \author{
 Michael Steinbaugh, Rory Kirchner

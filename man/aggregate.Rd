@@ -36,7 +36,7 @@ For a two-dimensional matrix:
 Aggregate
 }
 \note{
-Updated 2021-09-13.
+Updated 2022-03-02.
 }
 \section{Methods (by class)}{
 
@@ -68,7 +68,7 @@ data(SingleCellExperiment_lanesplit, package = "AcidTest")
 
 ## SingleCellExperiment ====
 x <- SingleCellExperiment_lanesplit
-levels(colData(x)[["aggregate"]])
+levels(SummarizedExperiment::colData(x)[["aggregate"]])
 x <- aggregate(
     x = x,
     col = "aggregate",

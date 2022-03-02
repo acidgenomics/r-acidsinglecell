@@ -1,6 +1,6 @@
 #' @name export
 #' @inherit pipette::export
-#' @note Updated 2021-10-15.
+#' @note Updated 2022-03-02.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
@@ -12,10 +12,10 @@
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(SingleCellExperiment, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
-#' object <- SingleCellExperiment
+#' object <- SingleCellExperiment_splatter
 #' con <- file.path(tempdir(), "example")
 #' x <- export(object = object, con = con)
 #' print(x)

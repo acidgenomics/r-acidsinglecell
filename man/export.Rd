@@ -61,7 +61,7 @@ This method extends \code{SummarizedExperiment} but also handles export of the
 \code{reducedDims} slot (i.e. containing UMAP, tSNE, and PCA).
 }
 \note{
-Updated 2021-10-15.
+Updated 2022-03-02.
 }
 \section{Output file format extension}{
 
@@ -106,10 +106,10 @@ for exporting \code{DataFrame}, \code{data.frame}, and \code{matrix} class objec
 }
 
 \examples{
-data(SingleCellExperiment, package = "AcidTest")
+data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
-object <- SingleCellExperiment
+object <- SingleCellExperiment_splatter
 con <- file.path(tempdir(), "example")
 x <- export(object = object, con = con)
 print(x)
