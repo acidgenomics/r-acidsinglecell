@@ -15,7 +15,7 @@
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment_splatter
-#' object <- estimateSizeFactors(object)
+#' object <- AcidExperiment::estimateSizeFactors(object)
 #' cpm <- cpm(object)
 #' class(cpm)
 #' mean(cpm)
