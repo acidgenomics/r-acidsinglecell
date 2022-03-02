@@ -20,14 +20,14 @@ NULL
 
 
 
-## Updated 2020-02-20.
+## Updated 2022-03-02.
 `show,CellCycleMarkers` <-  # nolint
     function(object) {
         validObject(object)
         ## Include the organism information.
         organism <- metadata(object)[["organism"]]
-        release <- metadata(object)[["ensemblRelease"]]
-        lengths <- nrow(object)
+        release <- metadata(object)[["release"]]
+        lengths <- dims(object)[, 1L]
         genes <- vapply(
             X = object,
             FUN = function(x) {
@@ -49,15 +49,14 @@ NULL
 
 
 
-## Updated 2020-02-20.
+## Updated 2022-03-02.
 `show,CellTypeMarkers` <-  # nolint
     function(object) {
         validObject(object)
         ## Include the organism information.
         organism <- metadata(object)[["organism"]]
-        release <- metadata(object)[["ensemblRelease"]]
-        ## Include the gene lengths per phase.
-        lengths <- nrow(object)
+        release <- metadata(object)[["release"]]
+        lengths <- dims(object)[, 1L]
         genes <- vapply(
             X = object,
             FUN = function(x) {

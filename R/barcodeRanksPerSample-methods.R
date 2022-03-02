@@ -10,11 +10,11 @@
 #' - `DropletUtils::barcodeRanks()`.
 #'
 #' @examples
-#' data(SingleCellExperiment_Seurat, package = "AcidTest")
+#' data(SingleCellExperiment_splatter, package = "AcidTest")
 #'
 #' ## SingleCellExperiment ====
 #' if (requireNamespace("DropletUtils", quietly = TRUE)) {
-#'     object <- SingleCellExperiment_Seurat
+#'     object <- SingleCellExperiment_splatter
 #'     x <- barcodeRanksPerSample(object)
 #'     names(x)
 #' }
