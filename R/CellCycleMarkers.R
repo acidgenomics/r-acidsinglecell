@@ -18,7 +18,13 @@
 #' files <- list.files(cellCycleDir, pattern = "*.csv", full.names = TRUE)
 #' file <- files[[1L]]
 #'
-#' organism <- syntactic::sentenceCase(gsub("-", " ", basenameSansExt(file)))
+#' organism <- syntactic::sentenceCase(
+#'     gsub(
+#'         pattern = "-",
+#'         replacement = " ",
+#'         x = AcidBase::basenameSansExt(file)
+#'     )
+#' )
 #'
 #' ## Ensembl release version.
 #' releaseFile <- file.path(markersDir, "ensembl-release.txt")

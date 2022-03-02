@@ -1,3 +1,7 @@
+skip_if_not_installed("BiocParallel")
+skip_if_not_installed("DESeq2")
+skip_if_not_installed("edgeR")
+
 ## Compare expression in cluster 3 relative to 2.
 object <- sce_seurat
 ident <- clusters(object)
