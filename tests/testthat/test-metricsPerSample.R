@@ -1,17 +1,19 @@
 context("metricsPerSample")
 
-## NOTE These values can change when we update AcidTest.
+## NOTE These expected values can change when we update AcidTest.
+
 test_that("SCE", {
+    x <- sce
+    x <- calculateMetrics(x)
     mapply(
         fun = eval(formals(`metricsPerSample,SCE`)[["fun"]]),
         expected = list(
-            "mean" = c(55843L, 55755L),
-            "median" = c(56991L, 53230L),
-            "sum" = c(2624611L, 2955035L)
+            "mean" = c(60415L, 55842L),
+            "median" = c(59518L, 53450L),
+            "sum" = c(3262399L, 2568709L)
         ),
-        FUN = function(fun, expected) {
-            x <- sce
-            x <- calculateMetrics(x)
+        MoreArgs = list("x" = x),
+        FUN = function(x, fun, expected) {
             x <- metricsPerSample(x, fun = fun)
             x <- as.integer(round(x[["nCount"]]))
             expect_identical(object = x, expected = expected)
