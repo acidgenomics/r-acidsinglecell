@@ -1,70 +1,58 @@
 #' @name aggregateCellsToSamples
-#' @importFrom AcidGenerics aggregateCellsToSamples
 #' @usage aggregateCellsToSamples(x, ...)
 #' @export
 NULL
 
 #' @rdname aggregate
 #' @name aggregate
-#' @importFrom AcidGenerics aggregate
-#' @importMethodsFrom AcidExperiment aggregate
 #' @usage aggregate(x, ...)
 #' @export
 NULL
 
 #' @rdname barcodeRanksPerSample
 #' @name barcodeRanksPerSample
-#' @importFrom AcidGenerics barcodeRanksPerSample
 #' @usage barcodeRanksPerSample(object, ...)
 #' @export
 NULL
 
 #' @rdname cell2sample
 #' @name cell2sample
-#' @importFrom AcidGenerics cell2sample
 #' @usage cell2sample(object, ...)
 #' @export
 NULL
 
 #' @rdname cellCountsPerCluster
 #' @name cellCountsPerCluster
-#' @importFrom AcidGenerics cellCountsPerCluster
 #' @usage cellCountsPerCluster(object, ...)
 #' @export
 NULL
 
 #' @rdname cellTypesPerCluster
 #' @name cellTypesPerCluster
-#' @importFrom AcidGenerics cellTypesPerCluster
 #' @usage cellTypesPerCluster(object, ...)
 #' @export
 NULL
 
 #' @rdname clusters
 #' @name clusters
-#' @importFrom AcidGenerics clusters
 #' @usage clusters(object, ...)
 #' @export
 NULL
 
 #' @rdname combine
 #' @name combine
-#' @importFrom AcidGenerics combine
-#' @importMethodsFrom AcidExperiment combine
 #' @usage combine(x, y, ...)
 #' @export
 NULL
 
 #' @rdname convertSampleIDsToNames
 #' @name convertSampleIDsToNames
-#' @importFrom AcidGenerics convertSampleIDsToNames
 #' @usage convertSampleIDsToNames(object, ...)
 #' @export
 NULL
 
 #' @rdname cpm
 #' @name cpm
-#' @importFrom AcidGenerics cpm
 #' @usage cpm(object, ...)
 #' @export
 NULL
@@ -83,18 +71,8 @@ NULL
 #' @export
 NULL
 
-#' @rdname findMarkers
-#' @name findMarkers
-#' @importFrom AcidGenerics findMarkers
-#' @usage findMarkers(object, ...)
-#' @export
-NULL
-
 #' @rdname export
 #' @name export
-#' @importFrom AcidGenerics export
-#' @importMethodsFrom AcidExperiment export
-#' @importMethodsFrom pipette export
 #' @usage export(object, con, format, ...)
 #' @export
 NULL
@@ -103,6 +81,13 @@ NULL
 #' @name filterCells
 #' @importFrom AcidGenerics filterCells
 #' @usage filterCells(object, ...)
+#' @export
+NULL
+
+#' @rdname findMarkers
+#' @name findMarkers
+#' @importFrom AcidGenerics findMarkers
+#' @usage findMarkers(object, ...)
 #' @export
 NULL
 
@@ -140,7 +125,7 @@ NULL
 
 #' @rdname normalize
 #' @name normalize
-#' @importFrom AcidGenerics normalize
+#' @importFrom BiocGenerics normalize
 #' @usage normalize(object, ...)
 #' @export
 NULL
@@ -171,7 +156,6 @@ NULL
 
 #' @rdname show
 #' @name show
-#' @importFrom AcidGenerics show
 #' @usage show(object)
 #' @export
 NULL
