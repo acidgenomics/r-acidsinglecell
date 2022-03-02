@@ -22,6 +22,7 @@ NULL
 #' @importFrom BiocGenerics colSums combine counts counts<- do.call
 #'   estimateSizeFactors normalize rowSums normalize sizeFactors
 #' @importFrom BiocIO export import
+#' @importFrom IRanges dims
 #' @importFrom S4Vectors DataFrame SimpleList aggregate complete.cases decode
 #'   head metadata metadata<- na.omit split tail
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
