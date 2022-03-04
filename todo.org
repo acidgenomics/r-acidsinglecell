@@ -5,3 +5,4 @@
    something like "AcidSingleCellMarkers".
 ** TODO Look into `colPairs` for assigning column pairings, such as
    cell-to-sample mappings.
+** TODO Consider using Rle on colData for SCE objects.

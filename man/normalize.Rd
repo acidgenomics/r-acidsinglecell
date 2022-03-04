@@ -36,7 +36,7 @@ data(SingleCellExperiment_splatter, package = "AcidTest")
 ## SingleCellExperiment ====
 object <- SingleCellExperiment_splatter
 object <- normalize(object)
-head(sizeFactors(object))
+head(BiocGenerics::sizeFactors(object))
 SingleCellExperiment::logcounts(object)[seq_len(2L), seq_len(2L)]
 }
 \seealso{

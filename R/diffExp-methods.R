@@ -108,6 +108,17 @@ NULL
 
 
 
+## Updated 2019-07-31.
+.hasDesignFormula <- function(object) {
+    return(all(
+        is(object, "SingleCellExperiment"),
+        is.factor(object[["group"]]),
+        is.matrix(metadata(object)[["design"]])
+    ))
+}
+
+
+
 ## DESeq2 is slow for large datasets.
 ##
 ## - `reduced`: For `test = "LRT"`, a reduced formula to compare against.
@@ -121,7 +132,10 @@ NULL
 .diffExp.DESeq2 <- function(object, BPPARAM) {  # nolint
     alert(sprintf("Running {.pkg %s}.", "DESeq2"))
     requireNamespaces("DESeq2")
-    assert(.hasDesignFormula(object))
+    assert(
+        .hasDesignFormula(object),
+        isBiocParallelParam(BPPARAM)
+    )
     dds <- DESeq2::DESeqDataSet(
         se = object,
         design = ~ group
@@ -141,7 +155,7 @@ NULL
         independentFiltering = FALSE,
         BPPARAM = BPPARAM
     )
-    res
+    return(res)
 }
 
 
@@ -169,7 +183,7 @@ NULL
     dge <- edgeR::estimateDisp(dge, design = design)
     fit <- edgeR::glmFit(dge, design = design)
     lrt <- edgeR::glmLRT(glmfit = fit, coef = 2L)
-    lrt
+    return(lrt)
 }
 
 
@@ -211,7 +225,7 @@ NULL
             isInt(minCountsPerCell),
             isInt(minCellsPerGene),
             allArePositive(c(minCountsPerCell, minCellsPerGene)),
-            .isBPPARAM(BPPARAM)
+            isBiocParallelParam(BPPARAM)
         )
         caller <- match.arg(caller)
         alert(sprintf(

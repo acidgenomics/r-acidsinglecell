@@ -63,10 +63,11 @@ NULL
 #' @importFrom IRanges DataFrameList SplitDataFrameList
 #' @importFrom Matrix Matrix
 #' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
-#'   areSetEqual assert bapply hasColnames hasLength hasMetrics hasNames
-#'   hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows hasValidNames
-#'   isAny isCharacter isFlag isInLeftOpenRange isInRange isInstalled isInt
-#'   isIntegerish isNonNegative isPositive isScalar isString isSubset validate
+#'   areSetEqual assert bapply hasClusters hasColnames hasLength hasMetrics
+#'   hasNames hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows
+#'   hasValidNames isAny isBiocParallelParam isCharacter isFlag
+#'   isInLeftOpenRange isInRange isInstalled isInt isIntegerish isNonNegative
+#'   isPositive isScalar isString isSubset validate
 #' @importFrom methods as is new setClass setValidity validObject
 #' @importFrom pipette assignAndSaveData tibble
 #' @importFrom scales percent

@@ -50,7 +50,6 @@
 #' print(x)
 #'
 #' ## Per sample cutoffs.
-#' sampleNames(object)
 #' x <- filterCells(
 #'     object = object,
 #'     minCounts = c("sample1" = 100L)
