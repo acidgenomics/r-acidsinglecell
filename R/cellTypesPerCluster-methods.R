@@ -1,3 +1,7 @@
+## FIXME Need to save KnownMarkers example object in AcidTest.
+
+
+
 #' @name cellTypesPerCluster
 #' @inherit AcidGenerics::cellTypesPerCluster
 #' @note Updated 2021-10-15.

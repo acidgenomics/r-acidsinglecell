@@ -22,7 +22,7 @@ NULL
 `cellCountsPerCluster,SCE` <-  # nolint
     function(object) {
         validObject(object)
-        assert(.hasClusters(object))
+        assert(hasClusters(object))
         interestingGroups <- interestingGroups(object)
         x <- metrics(object, return = "DataFrame")
         ## Contingency table.

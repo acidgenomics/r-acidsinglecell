@@ -9,7 +9,7 @@
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment_splatter
-#' sample <- sampleNames(object)[[1L]]
+#' sample <- Biobase::sampleNames(object)[[1L]]
 #' print(sample)
 #' subset <- selectSamples(object, sampleName = sample)
 #' print(subset)
