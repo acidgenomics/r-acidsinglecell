@@ -8,9 +8,9 @@ test_that("SCE", {
     mapply(
         fun = eval(formals(`metricsPerSample,SCE`)[["fun"]]),
         expected = list(
-            "mean" = c(60415L, 55842L),
-            "median" = c(59518L, 53450L),
-            "sum" = c(3262399L, 2568709L)
+            "mean" = c(59947L, 62775L, 61158L, 60788L),
+            "median" = c(58770L, 60390L, 59907L, 59275L),
+            "sum" = c(7253620L, 5524187L, 5810045L, 5835694L)
         ),
         MoreArgs = list("x" = x),
         FUN = function(x, fun, expected) {
