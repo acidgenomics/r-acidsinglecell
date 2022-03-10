@@ -23,13 +23,14 @@ test_that("SCE", {
     )
     c <- combine(x, y)
     expect_s4_class(c, "SingleCellExperiment")
-    expect_identical(dim(c), c(500L, 200L))
+    expect_identical(dim(c), c(100L, 800L))
+    samples <- c("sample3", "sample4", "sample1", "sample2")
     expect_identical(
         object = sampleData(c),
         expected = DataFrame(
-            "sampleName" = as.factor(c("sample1", "sample2")),
-            "interestingGroups" = as.factor(c("sample1", "sample2")),
-            row.names = c("sample1", "sample2")
+            "sampleName" = as.factor(samples),
+            "interestingGroups" = as.factor(samples),
+            row.names = c(samples)
         )
     )
 })

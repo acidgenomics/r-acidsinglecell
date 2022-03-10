@@ -3,7 +3,10 @@ context("cell2sample")
 test_that("SCE factor return", {
     x <- cell2sample(sce, return = "factor")
     expect_is(x, "factor")
-    expect_identical(levels(x), c("sample1", "sample2"))
+    expect_identical(
+        object = levels(x),
+        expected = c("sample1", "sample2", "sample3", "sample4")
+    )
     expect_true(hasNames(x))
 })
 

@@ -70,8 +70,10 @@ test_that("SingleCellExperiment", {
         object = colSums(counts(object)),
         expected = c(
             ## nolint start
-            "sample1" = 3262399,
-            "sample2" = 2568709
+            "sample1" = 5810045,
+            "sample2" = 5835694,
+            "sample3" = 7253620,
+            "sample4" = 5524187
             ## nolint end
         )
     )
