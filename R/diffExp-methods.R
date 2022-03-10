@@ -194,7 +194,7 @@ NULL
 
 
 
-## Updated 2021-03-13.
+## Updated 2022-03-10.
 `diffExp,SCE` <-  # nolint
     function(
         object,
@@ -342,13 +342,23 @@ NULL
         ## Ensure count matrix is dense before running DE.
         counts(object) <- as.matrix(counts(object))
         ## Perform differential expression.
-        fun <- get(
+        what <- get(
             x  = paste0(".diffExp.", caller),
             envir = asNamespace(.pkgName),
             inherits = FALSE
         )
-        assert(is.function(fun))
-        fun(object)
+        assert(is.function(what))
+        args <- list("object" = object)
+        switch(
+            EXPR = caller,
+            "DESeq2" = {
+                args <- append(
+                    x = args,
+                    values = list("BPPARAM" = BPPARAM)
+                )
+            }
+        )
+        do.call(what = what, args = args)
     }
 
 
