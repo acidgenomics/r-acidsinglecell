@@ -5,9 +5,7 @@ Toolkit for single-cell RNA-seq analysis that extends the functionality of
 
 ## Installation
 
-Requirements: [R][] >= 4.0, [Bioconductor][] >= 3.12.
-
-### [R][] method
+This is an [R][] package.
 
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
