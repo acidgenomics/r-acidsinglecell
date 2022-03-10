@@ -229,7 +229,6 @@ NULL
         ## Keep top expected number of cells per sample.
         if (any(nCells < Inf)) {
             metrics <- metrics[cells, , drop = FALSE]
-            ## FIXME This needs to use the same levels as the sampleIds..
             split <- split(x = metrics, f = metrics[["sampleId"]])
             assert(areSetEqual(names(split), names(nCells)))
             nCells <- nCells[names(split)]

@@ -1,9 +1,5 @@
 data(
-    km,
-    package = "AcidSingleCell",
-    envir = environment()
-)
-data(
+    KnownMarkers,
     RangedSummarizedExperiment,
     SingleCellExperiment_Seurat,
     SingleCellExperiment_lanesplit,
@@ -13,10 +9,11 @@ data(
 )
 
 ## nolint start
+km <- KnownMarkers
 rse <- RangedSummarizedExperiment
 sce <- SingleCellExperiment_splatter
-sce_seurat <- SingleCellExperiment_Seurat
 sce_lanesplit <- SingleCellExperiment_lanesplit
+sce_seurat <- SingleCellExperiment_Seurat
 ## nolint end
 
 ## nolint start
