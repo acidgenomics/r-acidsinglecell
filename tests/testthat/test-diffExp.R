@@ -23,16 +23,13 @@ test_that("diffExp", {
         caller = "edgeR"
     )
     expect_s4_class(x, "DGELRT")
-    ## DESeq2. Slow for large datasets.
-    ## Expecting warning about degenerate design matrix.
-    suppressWarnings({
-        x <- diffExp(
-            object = object,
-            numerator = numerator,
-            denominator = denominator,
-            caller = "DESeq2"
-        )
-    })
+    ## DESeq2.
+    x <- diffExp(
+        object = object,
+        numerator = numerator,
+        denominator = denominator,
+        caller = "DESeq2"
+    )
     expect_s4_class(x, "DESeqResults")
 })
 
