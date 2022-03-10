@@ -1,11 +1,11 @@
-## AcidSingleCell 0.2.0 (UNRELEASED)
+# AcidSingleCell 0.2.0 (UNRELEASED)
 
 Significantly reworked the package, migrating some single-cell RNA-seq analysis
 code that was previously defined in pointilllism package, but is generally
 applicable for any type of single-cell RNA-seq. We are reworking the pointillism
 package to function primarily as an extension toolkit for Seurat and monocle3.
 
-### New functions and classes
+## New functions and classes
 
 - Migrated `barcodeRanksPerSample`, `cellCountsPerCluster`, `cpm`, `diffExp`,
   `diffExpPerCluster`, `findMarkers`, and `normalize` methods that dispatch on
@@ -13,13 +13,13 @@ package to function primarily as an extension toolkit for Seurat and monocle3.
 - Migrated `CellCycleMarkers`, `CellTypeMarkers`, and `KnownMarkers` classes
   here from pointillism.
 
-### Major changes
+## Major changes
 
 - `export`: Reworked `SingleCellExperiment` method to support new BiocIO
   generic approach. This method functions similarly to `SummarizedExperiment`
   method, but also exports `reducedDims` matrices to disk as well.
 
-### Minor changes
+## Minor changes
 
 - Multiple changes to NAMESPACE, reflecting migration of code from pointillism.
 - `filterCells`: Package metadata is now defined as `"packageName"` and
@@ -27,9 +27,9 @@ package to function primarily as an extension toolkit for Seurat and monocle3.
 - Migrated `KnownMarkers` generic from here to AcidGenerics. Previously this
   was defined in pointillism package.
 
-## AcidSingleCell 0.1.9 (2021-09-13)
+# AcidSingleCell 0.1.9 (2021-09-13)
 
-### Minor changes
+## Minor changes
 
 - Added `aggregate` method designed for `SingleCellExperiment`. Legacy method
   support for `aggregateCols` is still provided, but now works as a passthrough
@@ -37,58 +37,58 @@ package to function primarily as an extension toolkit for Seurat and monocle3.
 - Added `assay` support for `filterCells` and `zerosVsDepth`
   SingleCellExperiment methods.
 
-## AcidSingleCell 0.1.8 (2021-09-03)
+# AcidSingleCell 0.1.8 (2021-09-03)
 
-### Minor changes
+## Minor changes
 
 - Updated minimum dependencies and improved documentation.
 - Improved code coverage, getting back to 100%.
 - Improved CLI messages, using updated functions from AcidCLI.
 
-## AcidSingleCell 0.1.7 (2021-03-02)
+# AcidSingleCell 0.1.7 (2021-03-02)
 
-### Minor changes
+## Minor changes
 
 - Added `logcounts` and `normcounts` as reexports.
 
-## AcidSingleCell 0.1.6 (2021-02-26)
+# AcidSingleCell 0.1.6 (2021-02-26)
 
-### Minor changes
+## Minor changes
 
 - Renamed all instances of "blacklist" to "denylist".
 
-## AcidSingleCell 0.1.5 (2021-02-22)
+# AcidSingleCell 0.1.5 (2021-02-22)
 
-### Minor changes
+## Minor changes
 
 - Enforcing lower camel case in `sampleData`.
 
-## AcidSingleCell 0.1.4 (2021-02-12)
+# AcidSingleCell 0.1.4 (2021-02-12)
 
-### Minor changes
+## Minor changes
 
 - Reworked NAMESPACE to reduce the number of imported packages.
 - Renamed package title in DESCRIPTION to better match AcidExperiment.
 
-## AcidSingleCell 0.1.3 (2021-02-09)
+# AcidSingleCell 0.1.3 (2021-02-09)
 
-### Minor changes
+## Minor changes
 
 - Added `SingleCellExperiment-class` to reexports.
 
-## AcidSingleCell 0.1.2 (2021-02-08)
+# AcidSingleCell 0.1.2 (2021-02-08)
 
-### Minor changes
+## Minor changes
 
 - Added `SingleCellExperiment` to reexports.
 
-## AcidSingleCell 0.1.1 (2021-02-08)
+# AcidSingleCell 0.1.1 (2021-02-08)
 
-### Minor changes
+## Minor changes
 
 - Improved code coverage, migrating unit tests from basejump.
 - Improved package documentation.
 
-## AcidSingleCell 0.1.0 (2021-02-05)
+# AcidSingleCell 0.1.0 (2021-02-05)
 
 Initial release, migrating code previously defined in basejump.
