@@ -30,10 +30,10 @@ Cell types per cluster
 Updated 2021-10-15.
 }
 \examples{
-data(km)
+data(KnownMarkers, package = "AcidTest")
 
 ## KnownMarkers ====
-object <- km
+object <- KnownMarkers
 x <- cellTypesPerCluster(object)
 print(x)
 }

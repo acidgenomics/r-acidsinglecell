@@ -1,7 +1,3 @@
-## FIXME Need to save KnownMarkers example object in AcidTest.
-
-
-
 #' @name cellTypesPerCluster
 #' @inherit AcidGenerics::cellTypesPerCluster
 #' @note Updated 2021-10-15.
@@ -16,10 +12,10 @@
 #' @return `DataFrame`.
 #'
 #' @examples
-#' data(km)
+#' data(KnownMarkers, package = "AcidTest")
 #'
 #' ## KnownMarkers ====
-#' object <- km
+#' object <- KnownMarkers
 #' x <- cellTypesPerCluster(object)
 #' print(x)
 NULL
