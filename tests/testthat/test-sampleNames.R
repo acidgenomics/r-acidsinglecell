@@ -1,22 +1,33 @@
 context("sampleNames")
 
 test_that("SingleCellExperiment", {
+    object <- sce
     expect_identical(
-        object = sort(sampleNames(sce)),
+        object = sampleNames(object),
         expected = c(
-            sample1 = "sample1",
-            sample2 = "sample2"
+            "sample3" = "sample3",
+            "sample4" = "sample4",
+            "sample1" = "sample1",
+            "sample2" = "sample2"
         )
     )
 })
 
 test_that("SCE assignment", {
-    oldSamples <- sampleNames(sce)
-    newSamples <- letters[seq_along(oldSamples)]
-    names(newSamples) <- names(oldSamples)
-    sampleNames(sce) <- newSamples
+    object <- sce
+    sampleNames(object) <- c(
+        "sample1" = "a",
+        "sample2" = "b",
+        "sample3" = "c",
+        "sample4" = "d"
+    )
     expect_identical(
-        object = sampleNames(sce),
-        expected = c(sample1 = "a", sample2 = "b")
+        object = sampleNames(object),
+        expected = c(
+            "sample3" = "c",
+            "sample4" = "d",
+            "sample1" = "a",
+            "sample2" = "b"
+        )
     )
 })

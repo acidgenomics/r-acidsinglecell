@@ -3,8 +3,9 @@ context("sampleData")
 ## Note that this doesn't sort the row names automatically. Here we're doing
 ## this internally in the check, to make the example "sce" object more resistant
 ## to code-breaking updates.
+
 test_that("Return", {
-    samples <- paste0("sample", seq_len(2L))
+    samples <- paste0("sample", seq_len(4L))
     sd <- sampleData(sce)
     expect_identical(sort(rownames(sd)), samples)
     expect_identical(
@@ -35,6 +36,7 @@ test_that("No sample info", {
 })
 
 test_that("Assignment", {
+    samples <- paste0("sample", seq(4L))
     sd <- sampleData(sce)
     sd <- sd[sort(rownames(sd)), , drop = FALSE]
     batch <- as.factor(seq_len(nrow(sd)))
@@ -42,7 +44,6 @@ test_that("Assignment", {
     sampleData(sce) <- sd
     sd <- sampleData(sce)
     sd <- sd[sort(rownames(sd)), , drop = FALSE]
-    samples <- paste0("sample", seq(2L))
     expect_identical(
         object = sd,
         expected = DataFrame(
