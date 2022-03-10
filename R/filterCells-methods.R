@@ -1,6 +1,6 @@
 #' @name filterCells
 #' @inherit AcidGenerics::filterCells
-#' @note Updated 2022-03-02.
+#' @note Updated 2022-03-10.
 #'
 #' @details
 #' Apply feature (i.e. gene/transcript) detection, novelty score, and
@@ -145,7 +145,8 @@ NULL
                     arg <- rep(arg, times = length(sampleIds))
                     names(arg) <- sampleIds
                 }
-                assert(identical(names(arg), sampleIds))
+                assert(areSetEqual(names(arg), sampleIds))
+                arg <- arg[sampleIds]
                 arg
             }
         )
@@ -228,7 +229,10 @@ NULL
         ## Keep top expected number of cells per sample.
         if (any(nCells < Inf)) {
             metrics <- metrics[cells, , drop = FALSE]
+            ## FIXME This needs to use the same levels as the sampleIds..
             split <- split(x = metrics, f = metrics[["sampleId"]])
+            assert(areSetEqual(names(split), names(nCells)))
+            nCells <- nCells[names(split)]
             topCellsPerSample <- mapply(
                 metrics = split,
                 n = nCells,
@@ -354,6 +358,7 @@ NULL
         if (length(perSamplePass) > 1L) {
             txt("Per sample, per argument:")
             for (i in seq_along(perSamplePass)) {
+                txt(names(perSamplePass)[[i]])
                 verbatim(printString(perSamplePass[[i]]))
             }
         }
