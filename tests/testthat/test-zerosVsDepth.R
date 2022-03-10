@@ -22,10 +22,10 @@ test_that("SingleCellExperiment", {
     expect_s4_class(x, "DataFrame")
     expect_identical(
         object = round(mean(x[["dropout"]]), digits = 2L),
-        expected = 0.56
+        expected = 0.02
     )
     expect_identical(
         object = round(mean(x[["depth"]]), digits = 2L),
-        expected = 58311.08
+        expected = 61058.86
     )
 })
