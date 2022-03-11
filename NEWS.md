@@ -1,4 +1,4 @@
-# AcidSingleCell 0.2.0 (UNRELEASED)
+# AcidSingleCell 0.2.0 (2022-03-11)
 
 Significantly reworked the package, migrating some single-cell RNA-seq analysis
 code that was previously defined in pointilllism package, but is generally
