@@ -64,7 +64,7 @@ NULL
 #' by the median ratio) represents technical biases that must be removed. This
 #' is highly robust to composition biases but relies on sufficient sequencing
 #' coverage to obtain well-defined ratios.
-`normalize,SCE` <-  # nolint
+`normalize,SCE` <- # nolint
     function(object) {
         validObject(object)
         requireNamespaces("scuttle")

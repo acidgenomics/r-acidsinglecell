@@ -3,9 +3,10 @@
 #' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param n `integer(1)`.
-#'   Number of barcodes to return per sample.
 #' @param ... Additional arguments.
+#'
+#' @param n `integer(1)`.
+#' Number of barcodes to return per sample.
 #'
 #' @examples
 #' data(SingleCellExperiment_splatter, package = "AcidTest")
@@ -19,7 +20,7 @@ NULL
 
 
 ## Updated 2021-02-13.
-`topCellsPerSample,SCE` <-  # nolint
+`topCellsPerSample,SCE` <- # nolint
     function(object, n = 100L) {
         validObject(object)
         assert(isInt(n))

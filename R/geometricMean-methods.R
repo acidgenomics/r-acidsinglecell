@@ -17,7 +17,7 @@ NULL
 
 
 ## Updated 2021-02-02.
-`geometricMean,Matrix` <-  # nolint
+`geometricMean,Matrix` <- # nolint
     methodFunction(
         f = "geometricMean",
         signature = "matrix",

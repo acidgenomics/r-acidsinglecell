@@ -28,7 +28,7 @@ NULL
 #'
 #' @note Updated 2021-09-13.
 #' @noRd
-.aggregateCols <-  # nolint
+.aggregateCols <- # nolint
     function(x, col, fun) {
         validObject(x)
         assert(
@@ -92,7 +92,7 @@ NULL
         assert(isSubset(rownames(colData), names(cell2sample)))
         colData[[sampleCol]] <- cell2sample[rownames(colData)]
         if (isSubset("sampleName", colnames(colData))) {
-            colData[["sampleName"]] <- colData[[sampleCol]]  # nocov
+            colData[["sampleName"]] <- colData[[sampleCol]] # nocov
         }
         colData(rse) <- colData
         ## Update the metadata.
@@ -103,12 +103,11 @@ NULL
 
 
 ## Updated 2021-09-13.
-`aggregate,SCE` <-  # nolint
-    function(
-        x,
-        col = "aggregate",
-        fun = "sum",
-        MARGIN = 1L  # nolint
+`aggregate,SCE` <- # nolint
+    function(x,
+             col = "aggregate",
+             fun = "sum",
+             MARGIN = 1L # nolint
     ) {
         assert(
             isInt(MARGIN),

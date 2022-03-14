@@ -41,7 +41,7 @@ NULL
 
 
 ## Updated 2019-08-27.
-`combine,SCE` <-  # nolint
+`combine,SCE` <- # nolint
     function(x, y) {
         validObject(x)
         validObject(y)

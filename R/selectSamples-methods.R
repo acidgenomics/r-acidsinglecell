@@ -18,7 +18,7 @@ NULL
 
 
 ## Updated 2019-08-19.
-`selectSamples,SCE` <-  # nolint
+`selectSamples,SCE` <- # nolint
     function(object, ...) {
         validObject(object)
         assert(isSubset("sampleId", colnames(colData(object))))

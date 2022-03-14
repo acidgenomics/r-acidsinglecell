@@ -21,7 +21,7 @@ NULL
 
 
 ## Updated 2022-03-02.
-`show,CellCycleMarkers` <-  # nolint
+`show,CellCycleMarkers` <- # nolint
     function(object) {
         validObject(object)
         ## Include the organism information.
@@ -50,7 +50,7 @@ NULL
 
 
 ## Updated 2022-03-02.
-`show,CellTypeMarkers` <-  # nolint
+`show,CellTypeMarkers` <- # nolint
     function(object) {
         validObject(object)
         ## Include the organism information.

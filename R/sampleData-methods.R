@@ -7,27 +7,30 @@
 #' Recommended `colData`:
 #'
 #' - `sampleId`: `factor` defining cell-to-sample mappings. These mappings
-#'   should use syntactically valid names. Note that this is not currently
-#'   required as we're supporting `SingleCellExperiment` objects from 1 sample,
-#'   but it's required for working with multiple samples in a single object.
+#' should use syntactically valid names. Note that this is not currently
+#' required as we're supporting `SingleCellExperiment` objects from 1 sample,
+#' but it's required for working with multiple samples in a single object.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param clean `logical(1)`.
-#'   Only return `factor` columns. Useful when working with objects that contain
-#'   quality control metrics in `colData()`.
-#'   For example, `bcbioRNASeq` and `DESeqDataSet` objects often contain
-#'   additional columns that aren't informative sample metadata.
-#' @param ignoreCols `character` or `NULL`.
-#'   Only applies when `clean = TRUE`. Additional factor columns defined in
-#'   `colData` to be ignored as sample-level metadata. Particularly useful for
-#'   `SingleCellExperiment` objects, where cell-to-sample mappings are defined
-#'   using the `sampleId` column.
-#' @param denylistCols `character` or `NULL`.
-#'   Column names that should not be treated as sample-level metadata.
-#'   Currently applicable only to `SingleCellExperiment` objects, which have
-#'   cell-level columns that can be difficult to distinguish, especially when
-#'   processed using Seurat, scater, etc.
 #' @param ... Additional arguments.
+#'
+#' @param clean `logical(1)`.
+#' Only return `factor` columns. Useful when working with objects that contain
+#' quality control metrics in `colData()`.
+#' For example, `bcbioRNASeq` and `DESeqDataSet` objects often contain
+#' additional columns that aren't informative sample metadata.
+#'
+#' @param ignoreCols `character` or `NULL`.
+#' Only applies when `clean = TRUE`. Additional factor columns defined in
+#' `colData` to be ignored as sample-level metadata. Particularly useful for
+#' `SingleCellExperiment` objects, where cell-to-sample mappings are defined
+#' using the `sampleId` column.
+#'
+#' @param denylistCols `character` or `NULL`.
+#' Column names that should not be treated as sample-level metadata.
+#' Currently applicable only to `SingleCellExperiment` objects, which have
+#' cell-level columns that can be difficult to distinguish, especially when
+#' processed using Seurat, scater, etc.
 #'
 #' @examples
 #' data(SingleCellExperiment_splatter, package = "AcidTest")
@@ -46,26 +49,24 @@ NULL
 
 ## Don't run validity checks here.
 ## Updated 2021-02-22.
-`sampleData,SCE` <-  # nolint
-    function(
-        object,
-        clean = TRUE,
-        ignoreCols = c(
-            "^description$",
-            "^genomeBuild$",
-            "^qualityFormat$",
-            "^samRef$"
-        ),
-        denylistCols = c(
-            "^ident$",
-            "^g2mScore$",
-            "^sScore$",
-            "^phase$",
-            "^oldIdent$",
-            "^origIdent$",
-            "^res[0-9]+"
-        )
-    ) {
+`sampleData,SCE` <- # nolint
+    function(object,
+             clean = TRUE,
+             ignoreCols = c(
+                 "^description$",
+                 "^genomeBuild$",
+                 "^qualityFormat$",
+                 "^samRef$"
+             ),
+             denylistCols = c(
+                 "^ident$",
+                 "^g2mScore$",
+                 "^sScore$",
+                 "^phase$",
+                 "^oldIdent$",
+                 "^origIdent$",
+                 "^res[0-9]+"
+             )) {
         data <- colData(object)
         if (!hasRows(data)) {
             return(data)
@@ -181,7 +182,7 @@ NULL
         data <- unique(data)
         if (
             nrow(data) > nSamples ||
-            any(duplicated(data[["sampleId"]]))
+                any(duplicated(data[["sampleId"]]))
         ) {
             ## nocov start
             abort(sprintf(
@@ -220,7 +221,7 @@ NULL
 
 
 ## Updated 2021-01-14.
-`sampleData<-,SCE,DataFrame` <-  # nolint
+`sampleData<-,SCE,DataFrame` <- # nolint
     function(object, value) {
         assert(hasRownames(value))
         denylist <- c("interestingGroups", "rowname", "sampleId")

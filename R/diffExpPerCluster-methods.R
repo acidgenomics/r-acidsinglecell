@@ -8,13 +8,15 @@
 #'
 #' @inheritParams AcidRoxygen::params
 #' @inheritParams diffExp
+#'
 #' @param group `character(1)`.
-#'   Group of interest for differential expression per cluster.
-#'   Must be a `factor` column in `colData()`.
+#' Group of interest for differential expression per cluster.
+#' Must be a `factor` column in `colData()`.
+#'
 #' @param ... Passthrough arguments to `diffExp()`.
 #'
 #' @note Cluster identity (`ident`) must be defined in `colData()` for this
-#'   function to work.
+#' function to work.
 #'
 #' @return `list` containing:
 #' - `caller = "edgeR"`: `DGELRT`.
@@ -45,14 +47,12 @@ NULL
 
 
 ## Updated 2020-01-30.
-`diffExpPerCluster,SCE` <-  # nolint
-    function(
-        object,
-        group,
-        numerator,
-        denominator,
-        ...
-    ) {
+`diffExpPerCluster,SCE` <- # nolint
+    function(object,
+             group,
+             numerator,
+             denominator,
+             ...) {
         h1("{.fun diffExpPerCluster}")
         object <- as(object, "SingleCellExperiment")
         ## group
