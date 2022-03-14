@@ -19,7 +19,7 @@ NULL
 
 
 ## Updated 2019-07-22.
-`zerosVsDepth,matrix` <-  # nolint
+`zerosVsDepth,matrix` <- # nolint
     function(object) {
         present <- object > 0L
         DataFrame(
@@ -34,7 +34,7 @@ NULL
 ## Using a logical matrix is faster and more memory efficient.
 ## Ensure dgTMatrix gets coereced to dgCMatrix prior to logical.
 ## Updated 2021-02-13.
-`zerosVsDepth,Matrix` <-  # nolint
+`zerosVsDepth,Matrix` <- # nolint
     function(object) {
         assert(!is(object, "lgCMatrix"))
         present <- as(object, "dgCMatrix")
@@ -49,7 +49,7 @@ NULL
 
 
 ## Updated 2019-08-06.
-`zerosVsDepth,SE` <-  # nolint
+`zerosVsDepth,SE` <- # nolint
     function(object, assay = 1L) {
         assert(isScalar(assay))
         counts <- assay(object, i = assay)
@@ -65,7 +65,7 @@ NULL
 
 
 ## Updated 2019-08-11.
-`zerosVsDepth,SCE` <-  # nolint
+`zerosVsDepth,SCE` <- # nolint
     function(object, assay = 1L) {
         assert(isScalar(assay))
         counts <- assay(object, i = assay)

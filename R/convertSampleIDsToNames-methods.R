@@ -16,7 +16,7 @@ NULL
 
 
 ## Updated 2021-02-02.
-`convertSampleIDsToNames,SCE` <-  # nolint
+`convertSampleIDsToNames,SCE` <- # nolint
     function(object) {
         alertWarning(sprintf(
             paste(

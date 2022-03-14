@@ -22,7 +22,7 @@ NULL
 
 
 ## Updated 2019-08-06.
-`clusters,SCE` <-  # nolint
+`clusters,SCE` <- # nolint
     function(object) {
         validObject(object)
         assert(isSubset("ident", colnames(colData(object))))

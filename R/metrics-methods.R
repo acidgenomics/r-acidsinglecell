@@ -21,7 +21,7 @@ NULL
 
 
 ## Updated 2021-02-26.
-`metrics,SCE` <-  # nolint
+`metrics,SCE` <- # nolint
     function(object, return = c("tbl_df", "DataFrame")) {
         validObject(object)
         return <- match.arg(return)
@@ -32,7 +32,7 @@ NULL
         data <- decode(data)
         ## Automatically assign `sampleId` column, if necessary.
         if (!isSubset("sampleId", colnames(data))) {
-            data[["sampleId"]] <- factor("unknown")  # nocov
+            data[["sampleId"]] <- factor("unknown") # nocov
         }
         ## Automatically assign `sampleName` column, if necessary.
         if (!isSubset("sampleName", colnames(data))) {
@@ -52,18 +52,16 @@ NULL
 
 
 ## Updated 2020-01-20.
-`metricsPerSample,SCE` <-  # nolint
-    function(
-        object,
-        fun = c("mean", "median", "sum"),
-        return = c("tbl_df", "DataFrame")
-    ) {
+`metricsPerSample,SCE` <- # nolint
+    function(object,
+             fun = c("mean", "median", "sum"),
+             return = c("tbl_df", "DataFrame")) {
         fun <- match.arg(fun)
         return <- match.arg(return)
         alert(sprintf("Calculating %s per sample.", fun))
         ## Consider using `getFromNamespace` here instead.
         ## Note that we're using uppercase here, because `fun` is matched arg.
-        FUN <- get(fun, inherits = TRUE)  # nolint
+        FUN <- get(fun, inherits = TRUE) # nolint
         assert(is.function(FUN))
         data <- colData(object)
         ## Decode columns that contain Rle, if necessary.

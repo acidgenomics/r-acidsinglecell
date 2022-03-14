@@ -10,9 +10,9 @@
 #'
 #' @return
 #' - `"factor"`: Named `factor` containing the samples as the levels and cell
-#'   identifiers as the names.
+#' identifiers as the names.
 #' - `DataFrame`: Data frame containing `sampleId` column and cell identifiers
-#'   as the row names.
+#' as the row names.
 #' - `"tbl_df"`: Tibble containing `cellId` and `sampleId` columns.
 #'
 #' @examples
@@ -27,11 +27,9 @@ NULL
 
 
 ## Updated 2021-02-02.
-`cell2sample,SCE` <-  # nolint
-    function(
-        object,
-        return = c("factor", "DataFrame", "tbl_df")
-    ) {
+`cell2sample,SCE` <- # nolint
+    function(object,
+             return = c("factor", "DataFrame", "tbl_df")) {
         validObject(object)
         return <- match.arg(return)
         colData <- colData(object)
@@ -40,7 +38,7 @@ NULL
         cells <- colnames(object)
         samples <- colData[[sampleCol]]
         if (!is.factor(samples)) {
-            samples <- as.factor(samples)  # nocov
+            samples <- as.factor(samples) # nocov
         }
         switch(
             EXPR = return,

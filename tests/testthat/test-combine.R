@@ -1,6 +1,6 @@
 context("combine")
 
-str_pad <- stringr::str_pad  # nolint
+str_pad <- stringr::str_pad # nolint
 
 test_that("SCE", {
     x <- sce

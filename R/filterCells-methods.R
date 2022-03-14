@@ -14,30 +14,37 @@
 #' metadata.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param nCells `integer(1)`.
-#'   Expected number of cells per sample.
-#'   Don't set this by default, unless you're confident of your capture.
-#' @param minCounts,maxCounts `integer(1)`.
-#'   Minimum/maximum number of counts per cell.
-#'   Applies to UMI disambiguated counts for droplet scRNA-seq.
-#'   Matches `nUMI` then `nCount` column in `colData()` internally.
-#'   Previously named `minUMIs`/`maxUMIs` in bcbioSingleCell.
-#' @param minFeatures,maxFeatures `integer(1)`.
-#'   Minimum/maximum number of features (i.e. genes) detected.
-#'   Matches `nFeature`in `colData()` internally.
-#'   Previously named `minGenes`/`maxGenes` in bcbioSingleCell.
-#' @param minNovelty `integer(1)` (`0`-`1`).
-#'   Minimum novelty score (log10 features per UMI).
-#'   Matches `log10FeaturesPerCount` then `log10FeaturesPerUMI` (legacy)
-#'   `colData()` internally.
-#' @param maxMitoRatio `integer(1)` (`0`-`1`).
-#'   Maximum relative mitochondrial abundance.
-#' @param minCellsPerFeature `integer(1)`.
-#'   Include genes with non-zero expression in at least this many cells.
-#'   Previously named `minCellsPerGene` in bcbioSingleCell.
-#' @param countsCol,featuresCol,noveltyCol,mitoRatioCol `character(1)`.
-#'   Column mapping name.
 #' @param ... Additional arguments.
+#'
+#' @param nCells `integer(1)`.
+#' Expected number of cells per sample.
+#' Don't set this by default, unless you're confident of your capture.
+#'
+#' @param minCounts,maxCounts `integer(1)`.
+#' Minimum/maximum number of counts per cell.
+#' Applies to UMI disambiguated counts for droplet scRNA-seq.
+#' Matches `nUMI` then `nCount` column in `colData()` internally.
+#' Previously named `minUMIs`/`maxUMIs` in bcbioSingleCell.
+#'
+#' @param minFeatures,maxFeatures `integer(1)`.
+#' Minimum/maximum number of features (i.e. genes) detected.
+#' Matches `nFeature`in `colData()` internally.
+#' Previously named `minGenes`/`maxGenes` in bcbioSingleCell.
+#'
+#' @param minNovelty `integer(1)` (`0`-`1`).
+#' Minimum novelty score (log10 features per UMI).
+#' Matches `log10FeaturesPerCount` then `log10FeaturesPerUMI` (legacy)
+#' `colData()` internally.
+#'
+#' @param maxMitoRatio `integer(1)` (`0`-`1`).
+#' Maximum relative mitochondrial abundance.
+#'
+#' @param minCellsPerFeature `integer(1)`.
+#' Include genes with non-zero expression in at least this many cells.
+#' Previously named `minCellsPerGene` in bcbioSingleCell.
+#'
+#' @param countsCol,featuresCol,noveltyCol,mitoRatioCol `character(1)`.
+#' Column mapping name.
 #'
 #' @return `SingleCellExperiment`.
 #'
@@ -60,27 +67,25 @@ NULL
 
 
 ## Updated 2021-09-13.
-`filterCells,SCE` <-  # nolint
-    function(
-        object,
-        assay = 1L,
-        ## Cell-level metrics.
-        minCounts = 1L,
-        maxCounts = Inf,
-        minFeatures = 1L,
-        maxFeatures = Inf,
-        minNovelty = 0L,
-        maxMitoRatio = 1L,
-        ## Feature-level metrics.
-        minCellsPerFeature = 1L,
-        ## Manually subset top cells by sequencing depth.
-        nCells = Inf,
-        ## Column mappings.
-        countsCol = "nCount",
-        featuresCol = "nFeature",
-        noveltyCol = "log10FeaturesPerCount",
-        mitoRatioCol = "mitoRatio"
-    ) {
+`filterCells,SCE` <- # nolint
+    function(object,
+             assay = 1L,
+             ## Cell-level metrics.
+             minCounts = 1L,
+             maxCounts = Inf,
+             minFeatures = 1L,
+             maxFeatures = Inf,
+             minNovelty = 0L,
+             maxMitoRatio = 1L,
+             ## Feature-level metrics.
+             minCellsPerFeature = 1L,
+             ## Manually subset top cells by sequencing depth.
+             nCells = Inf,
+             ## Column mappings.
+             countsCol = "nCount",
+             featuresCol = "nFeature",
+             noveltyCol = "log10FeaturesPerCount",
+             mitoRatioCol = "mitoRatio") {
         validObject(object)
         assert(
             isScalar(assay),
@@ -164,7 +169,7 @@ NULL
                 } else if (grepl("^max", x)) {
                     `<=`
                 } else {
-                    NULL  # nocov
+                    NULL # nocov
                 }
             }
         )
@@ -224,7 +229,9 @@ NULL
         )
         lgl <- lgl[, keep, drop = FALSE]
         assert(!isTRUE(anyNA(lgl)))
-        cells <- apply(X = lgl, MARGIN = 1L, FUN = function(x) { all(x) })
+        cells <- apply(X = lgl, MARGIN = 1L, FUN = function(x) {
+            all(x)
+        })
         assert(identical(names(cells), colnames(object)))
         ## Keep top expected number of cells per sample.
         if (any(nCells < Inf)) {

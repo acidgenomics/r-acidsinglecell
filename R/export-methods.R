@@ -25,24 +25,22 @@ NULL
 
 
 ## Updated 2021-10-14.
-`export,SCE` <-  # nolint
-    function(
-        object,
-        con,
-        format,  # NULL
-        compress = getOption(
-            x = "acid.export.compress",
-            default = FALSE
-        ),
-        overwrite = getOption(
-            x = "acid.overwrite",
-            default = TRUE
-        ),
-        quiet = getOption(
-            x = "acid.quiet",
-            default = FALSE
-        )
-    ) {
+`export,SCE` <- # nolint
+    function(object,
+             con,
+             format, # NULL
+             compress = getOption(
+                 x = "acid.export.compress",
+                 default = FALSE
+             ),
+             overwrite = getOption(
+                 x = "acid.overwrite",
+                 default = TRUE
+             ),
+             quiet = getOption(
+                 x = "acid.quiet",
+                 default = FALSE
+             )) {
         validObject(object)
         if (missing(format)) {
             format <- NULL
@@ -85,8 +83,8 @@ NULL
                     )
                     if (is(reducedDim, "matrix")) {
                         ext <- "csv"
-                    } else if (is(reducedDim, "sparseMatrix")) {  # nocov
-                        ext <- "mtx"  # nocov
+                    } else if (is(reducedDim, "sparseMatrix")) { # nocov
+                        ext <- "mtx" # nocov
                     }
                     if (isTRUE(compress)) {
                         ext <- paste0(ext, ".gz")
@@ -110,7 +108,7 @@ NULL
 
 
 ## Updated 2021-10-15.
-`export,SCE,deprecated` <-  # nolint
+`export,SCE,deprecated` <- # nolint
     methodFunction(
         f = "export",
         signature = signature(

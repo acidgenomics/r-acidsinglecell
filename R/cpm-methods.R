@@ -24,7 +24,7 @@ NULL
 
 
 ## Updated 2021-10-15.
-`cpm,SCE` <-  # nolint
+`cpm,SCE` <- # nolint
     function(object) {
         ## Early return if cpm assay is defined.
         if (isSubset("cpm", assayNames(object))) {

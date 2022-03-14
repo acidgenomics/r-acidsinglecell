@@ -21,7 +21,7 @@ NULL
 
 
 ## Updated 2021-09-13.
-`aggregateCellsToSamples,SCE` <-  # nolint
+`aggregateCellsToSamples,SCE` <- # nolint
     function(x) {
         validObject(x)
         rse <- as(x, "RangedSummarizedExperiment")

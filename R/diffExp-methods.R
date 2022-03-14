@@ -2,8 +2,8 @@
 #' @inherit AcidGenerics::diffExp
 #'
 #' @note We are no longer recommending the use of software that attempts to
-#'   mitigate zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based
-#'   single cell RNA-seq data. Simply model the counts directly.
+#' mitigate zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based
+#' single cell RNA-seq data. Simply model the counts directly.
 #' @note Updated 2021-10-14.
 #'
 #' @details
@@ -42,33 +42,35 @@
 #' and `cells.2` for the denominator. See `Seurat::FindMarkers()` for details.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param numerator `character`.
-#'   Cells to use in the numerator of the contrast (e.g. treatment).
-#' @param denominator `character`.
-#'   Cells to use in the denominator of the contrast (e.g. control).
-#' @param caller `character(1)`.
-#'   Package to use for differential expression calling. Defaults to `"edgeR"`
-#'   (faster for large datasets) but `"DESeq2"` is also supported.
-#' @param minCells `integer(1)`.
-#'   Minimum number of cells required to perform the differential expression
-#'   analysis.
-#' @param minCellsPerGene `integer(1)`.
-#'   The minimum number of cells where a gene is expressed, to pass low
-#'   expression filtering.
-#' @param minCountsPerCell `integer(1)`.
-#'   Minimum number of counts per cell for a gene to pass low expression
-#'   filtering. The number of cells is defined by `minCellsPerGene`.
-#' @param BPPARAM `bpparamClass`.
-#'   Back-end method to be used for computations.
-#'   See `BiocParallel::bpparam()` for details.
-#'   Currently only used by DESeq2 but not edgeR for calculations here.
 #' @param ... Additional arguments.
+#'
+#' @param numerator `character`.
+#' Cells to use in the numerator of the contrast (e.g. treatment).
+#'
+#' @param denominator `character`.
+#' Cells to use in the denominator of the contrast (e.g. control).
+#'
+#' @param caller `character(1)`.
+#' Package to use for differential expression calling. Defaults to `"edgeR"`
+#' (faster for large datasets) but `"DESeq2"` is also supported.
+#'
+#' @param minCells `integer(1)`.
+#' Minimum number of cells required to perform the differential expression
+#' analysis.
+#'
+#' @param minCellsPerGene `integer(1)`.
+#' The minimum number of cells where a gene is expressed, to pass low
+#' expression filtering.
+#'
+#' @param minCountsPerCell `integer(1)`.
+#' Minimum number of counts per cell for a gene to pass low expression
+#' filtering. The number of cells is defined by `minCellsPerGene`.
 #'
 #' @return Varies depending on the `caller` argument:
 #'
 #' - `caller = "edgeR"`: `DEGLRT`.
 #' - `caller = "DESeq2"`: Unshrunken `DESeqResults`.
-#'   Apply `DESeq2::lfcShrink()` if shrunken results are desired.
+#' Apply `DESeq2::lfcShrink()` if shrunken results are desired.
 #'
 #' @seealso
 #' - `Seurat::WhichCells()`.
@@ -110,11 +112,11 @@ NULL
 
 ## Updated 2019-07-31.
 .hasDesignFormula <- function(object) {
-    return(all(
+    all(
         is(object, "SingleCellExperiment"),
         is.factor(object[["group"]]),
         is.matrix(metadata(object)[["design"]])
-    ))
+    )
 }
 
 
@@ -123,13 +125,13 @@ NULL
 ##
 ## - `reduced`: For `test = "LRT"`, a reduced formula to compare against.
 ## - `sfType`: Use "poscounts" instead of "ratio" here because we're
-##   expecting genes with zero counts.
-##   See `DESeq2::estimateSizeFactors()` for details.
+## expecting genes with zero counts.
+## See `DESeq2::estimateSizeFactors()` for details.
 ## - `minmu`: Set a lower threshold than the default 0.5, as recommended
-##   in Mike Love's zinbwave-DESeq2 vignette.
+## in Mike Love's zinbwave-DESeq2 vignette.
 ##
 ## Updated 2021-10-14.
-.diffExp.DESeq2 <- function(object, BPPARAM) {  # nolint
+.diffExp.DESeq2 <- function(object, BPPARAM) { # nolint
     alert(sprintf("Running {.pkg %s}.", "DESeq2"))
     requireNamespaces("DESeq2")
     assert(
@@ -138,12 +140,12 @@ NULL
     )
     dds <- DESeq2::DESeqDataSet(
         se = object,
-        design = ~ group
+        design = ~group
     )
     dds <- DESeq2::DESeq(
         object = dds,
         test = "LRT",
-        reduced = ~ 1L,
+        reduced = ~1L,
         sfType = "poscounts",
         minmu = 1e-6,
         minReplicatesForReplace = Inf,
@@ -155,7 +157,7 @@ NULL
         independentFiltering = FALSE,
         BPPARAM = BPPARAM
     )
-    return(res)
+    res
 }
 
 
@@ -168,7 +170,7 @@ NULL
 ## model (which no longer applies here).
 ##
 ## Updated 2021-10-14.
-.diffExp.edgeR <- function(object) {  # nolint
+.diffExp.edgeR <- function(object) { # nolint
     alert(sprintf("Running {.pkg %s}.", "edgeR"))
     requireNamespaces("edgeR")
     assert(.hasDesignFormula(object))
@@ -183,7 +185,7 @@ NULL
     dge <- edgeR::estimateDisp(dge, design = design)
     fit <- edgeR::glmFit(dge, design = design)
     lrt <- edgeR::glmLRT(glmfit = fit, coef = 2L)
-    return(lrt)
+    lrt
 }
 
 
@@ -195,16 +197,15 @@ NULL
 
 
 ## Updated 2022-03-10.
-`diffExp,SCE` <-  # nolint
-    function(
-        object,
-        numerator,
-        denominator,
-        caller = c("edgeR", "DESeq2"),
-        minCells = 2L,  # 10L
-        minCellsPerGene = 1L,  # 25L
-        minCountsPerCell = 1L,  # 5L
-        BPPARAM = BiocParallel::bpparam()  # nolint
+`diffExp,SCE` <- # nolint
+    function(object,
+             numerator,
+             denominator,
+             caller = c("edgeR", "DESeq2"),
+             minCells = 2L, # 10L
+             minCellsPerGene = 1L, # 25L
+             minCountsPerCell = 1L, # 5L
+             BPPARAM = BiocParallel::bpparam() # nolint
     ) {
         ## Coerce to standard SCE to ensure fast subsetting.
         object <- as(object, "SingleCellExperiment")
@@ -215,7 +216,7 @@ NULL
         ## Early return `NULL` on an imbalanced contrast.
         if (
             length(numerator) < minCells ||
-            length(denominator) < minCells
+                length(denominator) < minCells
         ) {
             .underpoweredContrast()
             return(NULL)
@@ -310,7 +311,7 @@ NULL
         denominator <- intersect(denominator, colnames(object))
         if (
             length(numerator) < minCells ||
-            length(denominator) < minCells
+                length(denominator) < minCells
         ) {
             .underpoweredContrast()
             return(NULL)
@@ -343,7 +344,7 @@ NULL
         counts(object) <- as.matrix(counts(object))
         ## Perform differential expression.
         what <- get(
-            x  = paste0(".diffExp.", caller),
+            x = paste0(".diffExp.", caller),
             envir = asNamespace(.pkgName),
             inherits = FALSE
         )

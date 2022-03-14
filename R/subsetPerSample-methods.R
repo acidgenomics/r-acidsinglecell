@@ -3,17 +3,21 @@
 #' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param minCells `integer(1)`.
-#'   Minimum number of cells required per sample.
-#' @param assignAndSave `logical(1)`.
-#'   Assign and save the individual datasets.
-#' @param envir `environment`.
-#'   Where to assign the subsets.
-#'   Only applicable when `assignAndSave = TRUE`.
-#' @param dir `character(1)`.
-#'   Output directory.
-#'   Only applicable when `assignAndSave = TRUE`.
 #' @param ... Additional arguments.
+#'
+#' @param minCells `integer(1)`.
+#' Minimum number of cells required per sample.
+#'
+#' @param assignAndSave `logical(1)`.
+#' Assign and save the individual datasets.
+#'
+#' @param envir `environment`.
+#' Where to assign the subsets.
+#' Only applicable when `assignAndSave = TRUE`.
+#'
+#' @param dir `character(1)`.
+#' Output directory.
+#' Only applicable when `assignAndSave = TRUE`.
 #'
 #' @return
 #' - `assignAndSave = FALSE`: Per sample objects in a `list`.
@@ -45,14 +49,12 @@ NULL
 
 
 ## Updated 2019-08-11.
-`subsetPerSample,SCE` <-  # nolint
-    function(
-        object,
-        minCells = 1L,
-        assignAndSave = FALSE,
-        envir = parent.frame(),
-        dir = getwd()
-    ) {
+`subsetPerSample,SCE` <- # nolint
+    function(object,
+             minCells = 1L,
+             assignAndSave = FALSE,
+             envir = parent.frame(),
+             dir = getwd()) {
         assert(
             isInt(minCells),
             isPositive(minCells),

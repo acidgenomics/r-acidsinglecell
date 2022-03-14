@@ -11,8 +11,8 @@
 #'
 #' @examples
 #' AcidSingleCellTestsURL
-AcidSingleCellTestsURL <-  # nolint
+AcidSingleCellTestsURL <- # nolint
     paste0(
         "https://r.acidgenomics.com/testdata/acidsinglecell/",
-        "v", .pkgVersion$major, ".", .pkgVersion$minor  # nolint
+        "v", .pkgVersion$major, ".", .pkgVersion$minor # nolint
     )

@@ -4,12 +4,12 @@
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param clusters `character` or `NULL`.
-#'   Cluster identifiers.
-#'   Must correspond to values in [clusters()].
-#'   Note that Seurat uses zero-indexed IDs by default (e.g. 0, 1, 2, ...).
-#'   If left `NULL` (default), all clusters will be analyzed.
-#'   Looping across clusters manually here can avoid memory issues on laptops
-#'   and other machines with limited amounts of RAM.
+#' Cluster identifiers.
+#' Must correspond to values in [clusters()].
+#' Note that Seurat uses zero-indexed IDs by default (e.g. 0, 1, 2, ...).
+#' If left `NULL` (default), all clusters will be analyzed.
+#' Looping across clusters manually here can avoid memory issues on laptops
+#' and other machines with limited amounts of RAM.
 #' @param ... Passthrough arguments to [diffExp()].
 #'
 #' @return `list` containing:
@@ -31,12 +31,10 @@ NULL
 
 
 ## Updated 2020-09-03.
-`findMarkers,SCE` <-  # nolint
-    function(
-        object,
-        clusters = NULL,
-        ...
-    ) {
+`findMarkers,SCE` <- # nolint
+    function(object,
+             clusters = NULL,
+             ...) {
         assert(isCharacter(clusters, nullOK = TRUE))
         h1(sprintf("{.fun %s}", "findMarkers"))
         object <- as(object, "SingleCellExperiment")

@@ -3,11 +3,10 @@
 #' @note Updated 2021-10-15.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @param min `integer(1)`.
-#'   Minimum number of marker genes per cluster.
-#' @param max `integer(1)`.
-#'   Maximum number of marker genes per cluster.
 #' @param ... Additional arguments.
+#'
+#' @param min,max `integer(1)`.
+#' Minimum or maximum number of marker genes per cluster.
 #'
 #' @return `DataFrame`.
 #'
@@ -23,12 +22,10 @@ NULL
 
 
 ## Updated 2021-10-15.
-`cellTypesPerCluster,KnownMarkers` <-  # nolint
-    function(
-        object,
-        min = 1L,
-        max = Inf
-    ) {
+`cellTypesPerCluster,KnownMarkers` <- # nolint
+    function(object,
+             min = 1L,
+             max = Inf) {
         validObject(object)
         assert(
             isSubset(
@@ -76,14 +73,14 @@ NULL
         ## Apply minimum and maximum gene cutoffs.
         if (
             isTRUE(is.numeric(min)) &&
-            isTRUE(min > 1L)
+                isTRUE(min > 1L)
         ) {
             keep <- x[["n"]] >= min
             x <- x[keep, , drop = FALSE]
         }
         if (
             isTRUE(is.numeric(max)) &&
-            isTRUE(max > 1L)
+                isTRUE(max > 1L)
         ) {
             keep <- x[["n"]] <= max
             x <- x[keep, , drop = FALSE]

@@ -32,7 +32,7 @@
 #'
 #' x <- importCellTypeMarkers(
 #'     file = file,
-#'    organism = organism,
+#'     organism = organism,
 #'     release = release
 #' )
 #' print(x)
@@ -42,7 +42,7 @@ NULL
 
 #' @rdname CellTypeMarkers
 #' @export
-CellTypeMarkers <-  # nolint
+CellTypeMarkers <- # nolint
     function(object, gene2symbol) {
         assert(is(object, "DataFrame"))
         class <- "CellTypeMarkers"
@@ -58,21 +58,20 @@ CellTypeMarkers <-  # nolint
 
 #' @rdname CellTypeMarkers
 #' @export
-importCellTypeMarkers <- function(
-    file,
-    organism,
-    release,
-    ignoreVersion = TRUE
-) {
-    object <- import(file)
-    object <- as(object, "DataFrame")
-    gene2symbol <- makeGene2SymbolFromEnsembl(
-        organism = organism,
-        release = release,
-        ignoreVersion = ignoreVersion
-    )
-    CellTypeMarkers(
-        object = object,
-        gene2symbol = gene2symbol
-    )
-}
+importCellTypeMarkers <-
+    function(file,
+             organism,
+             release,
+             ignoreVersion = TRUE) {
+        object <- import(file)
+        object <- as(object, "DataFrame")
+        gene2symbol <- makeGene2SymbolFromEnsembl(
+            organism = organism,
+            release = release,
+            ignoreVersion = ignoreVersion
+        )
+        CellTypeMarkers(
+            object = object,
+            gene2symbol = gene2symbol
+        )
+    }

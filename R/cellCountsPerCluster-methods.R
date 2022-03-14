@@ -19,7 +19,7 @@ NULL
 
 
 ## Updated 2019-10-30.
-`cellCountsPerCluster,SCE` <-  # nolint
+`cellCountsPerCluster,SCE` <- # nolint
     function(object) {
         validObject(object)
         assert(hasClusters(object))

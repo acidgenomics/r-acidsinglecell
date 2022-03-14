@@ -19,7 +19,7 @@ NULL
 
 
 ## Updated 2019-08-26.
-`melt,SCE` <-  # nolint
+`melt,SCE` <- # nolint
     function(object) {
         validObject(object)
         assert(isScalar(assay))

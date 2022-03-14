@@ -42,7 +42,7 @@ NULL
 
 #' @rdname CellCycleMarkers
 #' @export
-CellCycleMarkers <-  # nolint
+CellCycleMarkers <- # nolint
     function(object, gene2symbol) {
         assert(is(object, "DataFrame"))
         class <- "CellCycleMarkers"
@@ -58,21 +58,20 @@ CellCycleMarkers <-  # nolint
 
 #' @rdname CellCycleMarkers
 #' @export
-importCellCycleMarkers <- function(
-    file,
-    organism,
-    release,
-    ignoreVersion = TRUE
-) {
-    object <- import(file)
-    object <- as(object, "DataFrame")
-    gene2symbol <- makeGene2SymbolFromEnsembl(
-        organism = organism,
-        release = release,
-        ignoreVersion = ignoreVersion
-    )
-    CellCycleMarkers(
-        object = object,
-        gene2symbol = gene2symbol
-    )
-}
+importCellCycleMarkers <-
+    function(file,
+             organism,
+             release,
+             ignoreVersion = TRUE) {
+        object <- import(file)
+        object <- as(object, "DataFrame")
+        gene2symbol <- makeGene2SymbolFromEnsembl(
+            organism = organism,
+            release = release,
+            ignoreVersion = ignoreVersion
+        )
+        CellCycleMarkers(
+            object = object,
+            gene2symbol = gene2symbol
+        )
+    }

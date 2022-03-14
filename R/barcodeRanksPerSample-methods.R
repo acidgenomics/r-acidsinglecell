@@ -33,12 +33,10 @@ NULL
 
 
 ## Updated 2021-09-13.
-`barcodeRanksPerSample,SCE` <-  # nolint
-    function(
-        object,
-        assay = 1L,
-        ...
-    ) {
+`barcodeRanksPerSample,SCE` <- # nolint
+    function(object,
+             assay = 1L,
+             ...) {
         assert(isScalar(assay))
         requireNamespaces("DropletUtils")
         counts <- assay(object, i = assay)
