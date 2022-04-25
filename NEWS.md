@@ -1,3 +1,10 @@
+# AcidSingleCell 0.2.1 (UNRELEASED)
+
+## Major changes
+
+- S4 classes that contain `DataFrame` were updated to inherit `DFrame` instead,
+  due to a breaking change in Bioconductor 3.15.
+
 # AcidSingleCell 0.2.0 (2022-03-11)
 
 Significantly reworked the package, migrating some single-cell RNA-seq analysis

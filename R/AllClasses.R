@@ -4,12 +4,12 @@
 #' defined in `metadata()`.
 #'
 #' @export
-#' @note Updated 2021-09-13.
+#' @note Updated 2022-04-25.
 #'
 #' @return `CellTypeMarkers`
 setClass(
     Class = "CellCycleMarkers",
-    contains = "CompressedSplitDataFrameList"
+    contains = "CompressedSplitDFrameList"
 )
 setValidity(
     Class = "CellCycleMarkers",
@@ -35,12 +35,12 @@ setValidity(
 #' defined in `metadata()`.
 #'
 #' @export
-#' @note Updated 2021-09-13.
+#' @note Updated 2022-04-25.
 #'
 #' @return `CellTypeMarkers`
 setClass(
     Class = "CellTypeMarkers",
-    contains = "CompressedSplitDataFrameList"
+    contains = "CompressedSplitDFrameList"
 )
 setValidity(
     Class = "CellTypeMarkers",
@@ -68,12 +68,12 @@ setValidity(
 #' (`padj`).
 #'
 #' @export
-#' @note Updated 2021-09-13.
+#' @note Updated 2022-04-25.
 #'
 #' @return `KnownMarkers`.
 setClass(
     Class = "KnownMarkers",
-    contains = "DataFrame"
+    contains = "DFrame"
 )
 setValidity(
     Class = "KnownMarkers",
