@@ -44,9 +44,13 @@ Minimum number of counts per cell for a gene to pass low expression
 filtering. The number of cells is defined by \code{minCellsPerGene}.}
 
 \item{BPPARAM}{\code{bpparamClass}.
-Back-end method to be used for computations.
-See \code{BiocParallel::bpparam()} for details.
-Currently only used by DESeq2 but not edgeR for calculations here.}
+BiocParallel parameter to specify the desired processor configuration.\cr
+We recommend using one of the following:
+\itemize{
+\item \link[BiocParallel:register]{bpparam}.
+\item \link[BiocParallel:SerialParam-class]{SerialParam}.
+\item \link[BiocParallel:MulticoreParam-class]{MulticoreParam}.
+}}
 
 \item{...}{Additional arguments.}
 }

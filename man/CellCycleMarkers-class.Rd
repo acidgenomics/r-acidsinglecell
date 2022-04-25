@@ -12,5 +12,5 @@ Data provenence information, including the organism and Ensembl release are
 defined in \code{metadata()}.
 }
 \note{
-Updated 2021-09-13.
+Updated 2022-04-25.
 }

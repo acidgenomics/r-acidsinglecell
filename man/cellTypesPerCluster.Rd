@@ -12,11 +12,8 @@ cellTypesPerCluster(object, ...)
 \arguments{
 \item{object}{Object.}
 
-\item{min}{\code{integer(1)}.
-Minimum number of marker genes per cluster.}
-
-\item{max}{\code{integer(1)}.
-Maximum number of marker genes per cluster.}
+\item{min, max}{\code{integer(1)}.
+Minimum or maximum number of marker genes per cluster.}
 
 \item{...}{Additional arguments.}
 }
