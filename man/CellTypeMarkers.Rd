@@ -68,7 +68,7 @@ release <- as.integer(readLines(release_file))
 
 x <- importCellTypeMarkers(
     file = file,
-   organism = organism,
+    organism = organism,
     release = release
 )
 print(x)

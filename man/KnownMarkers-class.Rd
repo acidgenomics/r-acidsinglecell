@@ -15,5 +15,5 @@ Results are grouped by \code{cellType} column and arranged by adjusted \emph{P} 
 (\code{padj}).
 }
 \note{
-Updated 2021-09-13.
+Updated 2022-04-25.
 }

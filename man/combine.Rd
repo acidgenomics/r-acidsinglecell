@@ -3,7 +3,7 @@
 \name{combine}
 \alias{combine}
 \alias{combine,SingleCellExperiment,SingleCellExperiment-method}
-\title{Combining or merging different Bioconductor data structures}
+\title{Combine multiple objects}
 \usage{
 combine(x, y, ...)
 
@@ -20,7 +20,18 @@ combine(x, y, ...)
 \code{SingleCellExperiment}.
 }
 \description{
-Combining or merging different Bioconductor data structures
+Combine multiple objects
+}
+\details{
+We're attempting to make this as strict as possible, requiring:
+\itemize{
+\item Rows (genes) across objects must be identical.
+\item \link[SummarizedExperiment:RangedSummarizedExperiment-class]{rowRanges} and/or
+\link[SummarizedExperiment:SummarizedExperiment-class]{rowData}
+\link[S4Vectors:Annotated-class]{metadata} must be identical.
+\item \link[SummarizedExperiment:SummarizedExperiment-class]{colData} must contain the same columns.
+\item Specific metadata must be identical (see \code{metadata} argument).
+}
 }
 \note{
 Updated 2022-03-02.
