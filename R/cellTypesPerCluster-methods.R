@@ -87,7 +87,7 @@ NULL
         }
         assert(hasRows(x))
         x <- x[order(x[["cluster"]], -x[["n"]]), , drop = FALSE]
-        x <- droplevels(x)
+        x <- droplevels2(x)
         x
     }
 

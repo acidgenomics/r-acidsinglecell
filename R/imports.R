@@ -16,7 +16,7 @@ NULL
 #' @importFrom AcidGenerics aggregateCellsToSamples barcodeRanksPerSample
 #' calculateMetrics camelCase cell2sample cellCountsPerCluster
 #' cellTypesPerCluster cpm clusters convertSampleIDsToNames diffExp
-#' diffExpPerCluster encode filterCells findMarkers geometricMean
+#' diffExpPerCluster droplevels2 encode filterCells findMarkers geometricMean
 #' interestingGroups leftJoin melt metrics metricsPerSample mutateAll mutateIf
 #' sampleData sampleData<- selectSamples snakeCase subsetPerSample
 #' topCellsPerSample uniteInterestingGroups zerosVsDepth
@@ -35,12 +35,12 @@ NULL
 #'
 #' @importMethodsFrom AcidBase geometricMean
 #' @importMethodsFrom AcidExperiment aggregate calculateMetrics combine decode
-#' encode estimateSizeFactors export interestingGroups matchSampleColumn melt
-#' metrics sampleData sampleData<- sampleNames selectSamples
-#' uniteInterestingGroups
+#' droplevels2 encode estimateSizeFactors export interestingGroups
+#' matchSampleColumn melt metrics sampleData sampleData<- sampleNames
+#' selectSamples uniteInterestingGroups
 #' @importMethodsFrom AcidPlyr leftJoin melt mutateAll mutateIf
 #' @importMethodsFrom SingleCellExperiment coerce
-#' @importMethodsFrom pipette coerce export import
+#' @importMethodsFrom pipette coerce droplevels2 export import
 #' @importMethodsFrom syntactic camelCase snakeCase
 NULL
 
