@@ -3,7 +3,7 @@ Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
 Version: 0.2.1.9000
-Date: 2022-03-11
+Date: 2022-04-25
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -31,9 +31,9 @@ Depends: R (>= 4.1)
 Imports:
     AcidBase (>= 0.5.0),
     AcidCLI (>= 0.2.0),
-    AcidExperiment (>= 0.3.0),
-    AcidGenerics (>= 0.6.0),
-    AcidGenomes (>= 0.3.0),
+    AcidExperiment (>= 0.3.1),
+    AcidGenerics (>= 0.6.1),
+    AcidGenomes (>= 0.3.1),
     AcidPlyr (>= 0.2.0),
     Biobase,
     BiocGenerics,
@@ -45,7 +45,7 @@ Imports:
     SummarizedExperiment,
     goalie (>= 0.6.0),
     methods,
-    pipette (>= 0.8.0),
+    pipette (>= 0.8.1),
     scales,
     stats,
     stringr,
