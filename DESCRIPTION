@@ -3,7 +3,7 @@ Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
 Version: 0.2.1.9000
-Date: 2022-04-25
+Date: 2022-04-28
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -27,14 +27,14 @@ URL:
 BugReports: https://github.com/acidgenomics/r-acidsinglecell/issues/
 License: AGPL-3
 Encoding: UTF-8
-Depends: R (>= 4.1)
+Depends: R (>= 4.2)
 Imports:
-    AcidBase (>= 0.5.0),
-    AcidCLI (>= 0.2.0),
-    AcidExperiment (>= 0.3.1),
-    AcidGenerics (>= 0.6.1),
-    AcidGenomes (>= 0.3.1),
-    AcidPlyr (>= 0.2.0),
+    AcidBase,
+    AcidCLI,
+    AcidExperiment,
+    AcidGenerics,
+    AcidGenomes,
+    AcidPlyr,
     Biobase,
     BiocGenerics,
     BiocIO,
@@ -43,16 +43,16 @@ Imports:
     S4Vectors,
     SingleCellExperiment,
     SummarizedExperiment,
-    goalie (>= 0.6.0),
+    goalie,
     methods,
-    pipette (>= 0.8.1),
+    pipette,
     scales,
     stats,
     stringr,
-    syntactic (>= 0.5.1),
+    syntactic,
     utils
 Suggests:
-    AcidTest (>= 0.5.0),
+    AcidTest,
     BiocParallel,
     DESeq2,
     DropletUtils,
