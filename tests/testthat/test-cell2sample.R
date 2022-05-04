@@ -10,12 +10,6 @@ test_that("SCE factor return", {
     expect_true(hasNames(x))
 })
 
-test_that("SCE tibble return", {
-    x <- cell2sample(sce, return = "tbl_df")
-    expect_s3_class(x, "tbl_df")
-    expect_identical(colnames(x), c("cellId", "sampleId"))
-})
-
 test_that("SCE DataFrame return", {
     x <- cell2sample(sce, return = "DataFrame")
     expect_s4_class(x, "DataFrame")
