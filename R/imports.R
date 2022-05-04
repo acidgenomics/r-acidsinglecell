@@ -31,7 +31,7 @@ NULL
 #' reducedDim
 #' @importFrom SummarizedExperiment assay assayNames assays colData colData<-
 #' rowRanges
-#' @importFrom methods coerce show
+#' @importFrom methods show
 #'
 #' @importMethodsFrom AcidBase geometricMean
 #' @importMethodsFrom AcidExperiment aggregate calculateMetrics combine decode
@@ -39,8 +39,7 @@ NULL
 #' matchSampleColumn melt metrics sampleData sampleData<- sampleNames
 #' selectSamples uniteInterestingGroups
 #' @importMethodsFrom AcidPlyr leftJoin melt mutateAll mutateIf
-#' @importMethodsFrom SingleCellExperiment coerce
-#' @importMethodsFrom pipette coerce droplevels2 export import
+#' @importMethodsFrom pipette droplevels2 export import
 #' @importMethodsFrom syntactic camelCase snakeCase
 NULL
 
@@ -48,7 +47,6 @@ NULL
 
 ## S3 generics and methods =====================================================
 
-#' @importFrom pipette as_tibble
 #' @importFrom stats model.matrix relevel
 NULL
 
@@ -71,8 +69,11 @@ NULL
 #' isInLeftOpenRange isInRange isInstalled isInt isIntegerish isNonNegative
 #' isPositive isScalar isString isSubset validate
 #' @importFrom methods as is new setClass setValidity validObject
-#' @importFrom pipette assignAndSaveData tibble
-#' @importFrom scales percent
-#' @importFrom stringr str_match
+#' @importFrom pipette assignAndSaveData
 #' @importFrom utils packageName packageVersion
+NULL
+
+## FIXME Need to rework these:
+## #' @importFrom scales percent
+## #' @importFrom stringr str_match
 NULL

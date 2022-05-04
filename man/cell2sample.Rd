@@ -7,7 +7,7 @@
 \usage{
 cell2sample(object, ...)
 
-\S4method{cell2sample}{SingleCellExperiment}(object, return = c("factor", "DataFrame", "tbl_df"))
+\S4method{cell2sample}{SingleCellExperiment}(object, return = c("factor", "DataFrame"))
 }
 \arguments{
 \item{object}{Object.}
@@ -24,7 +24,6 @@ to the first argument in the \code{character} vector.}
 identifiers as the names.
 \item \code{DataFrame}: Data frame containing \code{sampleId} column and cell identifiers
 as the row names.
-\item \code{"tbl_df"}: Tibble containing \code{cellId} and \code{sampleId} columns.
 }
 }
 \description{
@@ -34,7 +33,7 @@ Cell-to-sample mappings
 Sample identifiers must be defined in \code{sampleId} column in \code{colData()}.
 }
 \note{
-Updated 2022-03-02.
+Updated 2022-05-04.
 }
 \examples{
 data(SingleCellExperiment_splatter, package = "AcidTest")

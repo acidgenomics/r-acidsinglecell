@@ -1,6 +1,6 @@
 #' @name cell2sample
 #' @inherit AcidGenerics::cell2sample
-#' @note Updated 2022-03-02.
+#' @note Updated 2022-05-04.
 #'
 #' @details
 #' Sample identifiers must be defined in `sampleId` column in `colData()`.
@@ -13,7 +13,6 @@
 #' identifiers as the names.
 #' - `DataFrame`: Data frame containing `sampleId` column and cell identifiers
 #' as the row names.
-#' - `"tbl_df"`: Tibble containing `cellId` and `sampleId` columns.
 #'
 #' @examples
 #' data(SingleCellExperiment_splatter, package = "AcidTest")
@@ -26,10 +25,10 @@ NULL
 
 
 
-## Updated 2021-02-02.
+## Updated 2022-05-04.
 `cell2sample,SCE` <- # nolint
     function(object,
-             return = c("factor", "DataFrame", "tbl_df")) {
+             return = c("factor", "DataFrame")) {
         validObject(object)
         return <- match.arg(return)
         colData <- colData(object)
@@ -52,12 +51,6 @@ NULL
             "factor" = {
                 out <- samples
                 names(out) <- cells
-            },
-            "tbl_df" = {
-                out <- tibble(
-                    "cellId" = cells,
-                    "sampleId" = samples
-                )
             }
         )
         out

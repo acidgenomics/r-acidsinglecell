@@ -119,7 +119,6 @@ NULL
             object <- calculateMetrics(object = object, assay = assay)
             ## nocov end
         }
-        ## Using DataFrame with Rle instead of tibble for improved speed.
         metrics <- colData(object)
         colnames(metrics) <- camelCase(colnames(metrics), strict = TRUE)
         sampleIds <- names(sampleNames(object))
