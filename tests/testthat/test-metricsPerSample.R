@@ -15,13 +15,10 @@ test_that("SCE", {
         MoreArgs = list("x" = x),
         FUN = function(x, fun, expected) {
             x <- metricsPerSample(x, fun = fun)
+            expect_s4_class(x, "DataFrame")
             x <- as.integer(round(x[["nCount"]]))
             expect_identical(object = x, expected = expected)
         },
         SIMPLIFY = FALSE
-    )
-    expect_s4_class(
-        object = metricsPerSample(sce, return = "DataFrame"),
-        class = "DataFrame"
     )
 })

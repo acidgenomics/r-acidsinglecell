@@ -80,7 +80,7 @@ Filtering information gets slotted into \code{metadata()} as \code{filterCells}
 metadata.
 }
 \note{
-Updated 2022-03-10.
+Updated 2022-05-04.
 }
 \examples{
 data(SingleCellExperiment_splatter, package = "AcidTest")

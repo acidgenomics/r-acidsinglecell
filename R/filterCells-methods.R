@@ -1,6 +1,6 @@
 #' @name filterCells
 #' @inherit AcidGenerics::filterCells
-#' @note Updated 2022-03-10.
+#' @note Updated 2022-05-04.
 #'
 #' @details
 #' Apply feature (i.e. gene/transcript) detection, novelty score, and
@@ -66,7 +66,7 @@ NULL
 
 
 
-## Updated 2021-09-13.
+## Updated 2022-05-04.
 `filterCells,SCE` <- # nolint
     function(object,
              assay = 1L,
@@ -338,24 +338,22 @@ NULL
         txt("Post-filter:")
         ul(c(
             sprintf(
-                fmt = "%d %s (%s)",
+                fmt = "%d %s",
                 nCells,
                 ngettext(
                     n = nCells,
                     msg1 = "cell",
                     msg2 = "cells"
-                ),
-                percent(nCells / originalDim[[2L]])
+                )
             ),
             sprintf(
-                fmt = "%d %s (%s)",
+                fmt = "%d %s",
                 nFeatures,
                 ngettext(
                     n = nFeatures,
                     msg1 = "feature",
                     msg2 = "features"
-                ),
-                percent(nFeatures / originalDim[[1L]])
+                )
             )
         ))
         txt("Per argument:")
