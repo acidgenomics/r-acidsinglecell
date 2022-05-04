@@ -20,42 +20,36 @@ NULL
 
 
 
-## Updated 2021-02-26.
+## Updated 2022-05-04.
 `metrics,SCE` <- # nolint
-    function(object, return = c("tbl_df", "DataFrame")) {
+    function(object) {
         validObject(object)
-        return <- match.arg(return)
         denylist <- c("cell", "sample")
-        data <- colData(object)
-        data <- data[, setdiff(colnames(data), denylist), drop = FALSE]
+        df <- colData(object)
+        df <- df[, setdiff(colnames(df), denylist), drop = FALSE]
         ## Decode columns that contain Rle, if necessary.
-        data <- decode(data)
+        df <- decode(df)
         ## Automatically assign `sampleId` column, if necessary.
-        if (!isSubset("sampleId", colnames(data))) {
-            data[["sampleId"]] <- factor("unknown") # nocov
+        if (!isSubset("sampleId", colnames(df))) {
+            df[["sampleId"]] <- factor("unknown") # nocov
         }
         ## Automatically assign `sampleName` column, if necessary.
-        if (!isSubset("sampleName", colnames(data))) {
-            data[["sampleName"]] <- data[["sampleId"]]
+        if (!isSubset("sampleName", colnames(df))) {
+            df[["sampleName"]] <- df[["sampleId"]]
         }
-        data <- uniteInterestingGroups(
-            object = data,
+        df <- uniteInterestingGroups(
+            object = df,
             interestingGroups = matchInterestingGroups(object)
         )
-        switch(
-            EXPR = return,
-            "DataFrame" = data,
-            "tbl_df" = as_tibble(data, rownames = "cellId")
-        )
+        df
     }
 
 
 
-## Updated 2020-01-20.
+## Updated 2022-05-04.
 `metricsPerSample,SCE` <- # nolint
     function(object,
-             fun = c("mean", "median", "sum"),
-             return = c("tbl_df", "DataFrame")) {
+             fun = c("mean", "median", "sum")) {
         fun <- match.arg(fun)
         return <- match.arg(return)
         alert(sprintf("Calculating %s per sample.", fun))
@@ -99,11 +93,7 @@ NULL
         sampleData <- sampleData(object)
         data <- data[rownames(sampleData), , drop = FALSE]
         data <- cbind(sampleData, data)
-        switch(
-            EXPR = return,
-            "DataFrame" = data,
-            "tbl_df" = as_tibble(data, rownames = "sampleId")
-        )
+        data
     }
 
 
