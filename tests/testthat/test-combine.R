@@ -1,13 +1,13 @@
 context("combine")
 
-str_pad <- stringr::str_pad # nolint
+stri_pad_left <- stringi::stri_pad_left # nolint
 
 test_that("SCE", {
     x <- sce
     colnames(x) <- paste0(
         "cell",
-        str_pad(
-            string = seq_len(ncol(x)),
+        stri_pad_left(
+            str = seq_len(ncol(x)),
             width = 4L,
             pad = "0"
         )
@@ -15,8 +15,8 @@ test_that("SCE", {
     y <- x
     colnames(y) <- paste0(
         "cell",
-        str_pad(
-            string = seq_len(ncol(y)) + ncol(y),
+        stri_pad_left(
+            str = seq_len(ncol(y)) + ncol(y),
             width = 4L,
             pad = "0"
         )

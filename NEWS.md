@@ -1,7 +1,8 @@
-# AcidSingleCell 0.2.1 (UNRELEASED)
+# AcidSingleCell 0.3.0 (2022-05-05)
 
 ## Major changes
 
+- Now requiring R 4.2 / Bioconductor 3.15.
 - S4 classes that contain `DataFrame` were updated to inherit `DFrame` instead,
   due to a breaking change in Bioconductor 3.15.
 
