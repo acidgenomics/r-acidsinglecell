@@ -9,29 +9,27 @@
 #'
 #' @examples
 #' data(SingleCellExperiment_splatter, package = "AcidTest")
-#' str_pad <- stringr::str_pad
+#' stri_pad_left <- stringi::stri_pad_left
 #'
 #' ## SingleCellExperiment ====
 #' x <- SingleCellExperiment_splatter
 #' colnames(x) <- paste0(
 #'     "cell",
-#'     str_pad(
-#'         string = seq_len(ncol(x)),
+#'     stri_pad_left(
+#'         str = seq_len(ncol(x)),
 #'         width = 4L,
 #'         pad = "0"
 #'     )
 #' )
-#'
 #' y <- x
 #' colnames(y) <- paste0(
 #'     "cell",
-#'     str_pad(
-#'         string = seq_len(ncol(y)) + ncol(y),
+#'     stri_pad_left(
+#'         str = seq_len(ncol(y)) + ncol(y),
 #'         width = 4L,
 #'         pad = "0"
 #'     )
 #' )
-#'
 #' ## Combine the two objects.
 #' c <- combine(x, y)
 #' sampleData(c)
