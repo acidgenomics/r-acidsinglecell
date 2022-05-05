@@ -6,6 +6,15 @@
 - S4 classes that contain `DataFrame` were updated to inherit `DFrame` instead,
   due to a breaking change in Bioconductor 3.15.
 
+## Minor changes
+
+- Reformatted package code using styler conventions.
+- `metrics`: Removed `tbl_df` return option, to remove dependency on tibble
+  package, in favor of simply using Bioconductor S4Vectors.
+- Removed strong dependency on stringr in favor of stringi package.
+- Removed dependency on scales package, by removing `percent` usage in
+  `filterCells` reporting statistics.
+
 # AcidSingleCell 0.2.0 (2022-03-11)
 
 Significantly reworked the package, migrating some single-cell RNA-seq analysis
