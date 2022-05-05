@@ -18,7 +18,7 @@ NULL
 
 
 
-## Updated 2019-08-26.
+## Updated 2022-05-04.
 `melt,SCE` <- # nolint
     function(object) {
         validObject(object)
@@ -33,7 +33,7 @@ NULL
             trans = trans
         )
         colnamesCol <- colnames(data)[[2L]]
-        colData <- metrics(object, return = "DataFrame")
+        colData <- metrics(object)
         keep <- which(bapply(colData, is.factor))
         colData <- colData[, keep, drop = FALSE]
         colData[[colnamesCol]] <- rownames(colData)

@@ -47,6 +47,7 @@ Imports:
     methods,
     pipette,
     stats,
+    stringi,
     syntactic,
     utils
 Suggests:

@@ -3,9 +3,8 @@
 #' This function extracts `sampleId` from the `cellId` column using grep
 #' matching.
 #'
-#' @name mapCellsToSamples
-#' @note Updated 2021-02-02.
 #' @export
+#' @note Updated 2022-05-04.
 #'
 #' @inheritParams AcidRoxygen::params
 #'
@@ -36,7 +35,7 @@ mapCellsToSamples <- function(cells, samples) {
     assert(allAreMatchingRegex(x = cells, pattern = "[_-]"))
     list <- lapply(X = samples, FUN = function(sample) {
         pattern <- paste0("^(", sample, barcodePattern)
-        match <- str_match(string = cells, pattern = pattern)
+        match <- stri_match_first_regex(str = cells, pattern = pattern)
         assert(
             !all(is.na(match[, 1L])),
             msg = sprintf(

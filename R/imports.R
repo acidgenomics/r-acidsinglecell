@@ -70,10 +70,6 @@ NULL
 #' isPositive isScalar isString isSubset validate
 #' @importFrom methods as is new setClass setValidity validObject
 #' @importFrom pipette assignAndSaveData
+#' @importFrom stringi stri_match_first_regex
 #' @importFrom utils packageName packageVersion
-NULL
-
-## FIXME Need to rework these:
-## #' @importFrom scales percent
-## #' @importFrom stringr str_match
 NULL
