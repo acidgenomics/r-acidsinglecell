@@ -46,15 +46,12 @@ NULL
 
 
 
-## Updated 2022-05-04.
+## Updated 2022-05-05.
 `metricsPerSample,SCE` <- # nolint
     function(object,
              fun = c("mean", "median", "sum")) {
         fun <- match.arg(fun)
-        return <- match.arg(return)
         alert(sprintf("Calculating %s per sample.", fun))
-        ## Consider using `getFromNamespace` here instead.
-        ## Note that we're using uppercase here, because `fun` is matched arg.
         FUN <- get(fun, inherits = TRUE) # nolint
         assert(is.function(FUN))
         data <- colData(object)
