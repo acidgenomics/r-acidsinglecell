@@ -7,8 +7,8 @@ object <- sce_seurat
 ident <- clusters(object)
 numerator <- names(ident)[ident == "2"]
 denominator <- names(ident)[ident == "1"]
-expect_true(length(intersect(numerator, colnames(object))) > 0L)
-expect_true(length(intersect(denominator, colnames(object))) > 0L)
+expect_gt(length(intersect(numerator, colnames(object))), 0L)
+expect_gt(length(intersect(denominator, colnames(object))), 0L)
 
 test_that("diffExp", {
     ## edgeR.
