@@ -1,5 +1,3 @@
-context("zerosVsDepth")
-
 ## NOTE These values can change when we update AcidTest.
 
 test_that("SummarizedExperiment", {

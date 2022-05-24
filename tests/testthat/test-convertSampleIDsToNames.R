@@ -1,5 +1,3 @@
-context("convertSampleIDsToNames")
-
 test_that("SCE", {
     expect_message(
         object = convertSampleIDsToNames(sce),

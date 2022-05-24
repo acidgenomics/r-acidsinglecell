@@ -1,5 +1,3 @@
-context("sampleNames")
-
 test_that("SingleCellExperiment", {
     object <- sce
     expect_identical(

@@ -4,8 +4,8 @@ if (!isTRUE(goalie::hasInternet())) {
 }
 dir.create("cache", showWarnings = FALSE)
 files <- "sce_lanesplit.rds"
-mapply(
-    FUN = function(remoteDir, file, envir) {
+Map(
+    f = function(remoteDir, file, envir) {
         destfile <- file.path("cache", file)
         if (!file.exists(destfile)) {
             utils::download.file(
@@ -16,8 +16,8 @@ mapply(
     },
     file = files,
     MoreArgs = list(
-        remoteDir = AcidSingleCellTestsURL,
-        envir = environment()
+        "envir" = environment(),
+        "remoteDir" = AcidSingleCellTestsURL
     )
 )
 rm(files)

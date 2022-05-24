@@ -1,5 +1,3 @@
-context("subsetPerSample")
-
 test_that("List mode", {
     object <- sce
     n <- c(

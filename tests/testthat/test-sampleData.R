@@ -1,5 +1,3 @@
-context("sampleData")
-
 ## Note that this doesn't sort the row names automatically. Here we're doing
 ## this internally in the check, to make the example "sce" object more resistant
 ## to code-breaking updates.

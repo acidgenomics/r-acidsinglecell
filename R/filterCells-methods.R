@@ -141,7 +141,7 @@ NULL
             "nCells" = nCells
         )
         ## Loop across the arguments and expand to match the number of samples,
-        ## so we can run parameterized checks via `mapply()`.
+        ## so we can run parameterized checks.
         args <- lapply(
             X = args,
             FUN = function(arg) {
@@ -182,36 +182,31 @@ NULL
             "minNovelty" = noveltyCol,
             "maxMitoRatio" = mitoRatioCol
         )
-        ## Split the metrics per sample so we can perform parameterized
-        ## filtering checks using `mapply()`.
+        ## Split the metrics per sample so we can perform parameterized checks.
         split <- split(x = metrics, f = metrics[["sampleId"]])
         assert(is(split, "SplitDataFrameList"))
         ## Loop across the samples.
-        filter <- DataFrameList(mapply(
+        filter <- DataFrameList(Map(
             sampleName = names(split),
             metrics = split,
-            FUN = function(sampleName, metrics) {
+            f = function(sampleName, metrics) {
                 ## Loop across the filtering parameters (per sample).
-                perSample <- mapply(
+                perSample <- Map(
                     argName = names(args),
                     arg = args,
                     operator = operators,
                     metricCol = arg2col,
-                    FUN = function(argName, arg, operator, metricCol) {
+                    f = function(argName, arg, operator, metricCol) {
                         assert(isSubset(sampleName, names(arg)))
                         e1 <- metrics[[metricCol]]
                         e2 <- arg[[sampleName]]
                         do.call(what = operator, args = list(e1 = e1, e2 = e2))
-                    },
-                    SIMPLIFY = FALSE,
-                    USE.NAMES = TRUE
+                    }
                 )
                 perSample <- DataFrame(perSample)
                 rownames(perSample) <- rownames(metrics)
                 perSample
-            },
-            SIMPLIFY = FALSE,
-            USE.NAMES = TRUE
+            }
         ))
         ## Coerce the filter list to a single sparse logical matrix.
         lgl <- do.call(what = rbind, args = filter)
@@ -238,16 +233,14 @@ NULL
             split <- split(x = metrics, f = metrics[["sampleId"]])
             assert(areSetEqual(names(split), names(nCells)))
             nCells <- nCells[names(split)]
-            topCellsPerSample <- mapply(
+            topCellsPerSample <- Map(
                 metrics = split,
                 n = nCells,
-                FUN = function(metrics, n) {
+                f = function(metrics, n) {
                     metric <- decode(metrics[[countsCol]])
                     names(metric) <- rownames(metrics)
                     head(sort(metric, decreasing = TRUE), n = n)
-                },
-                SIMPLIFY = FALSE,
-                USE.NAMES = TRUE
+                }
             )
             topCells <- unlist(unname(topCellsPerSample))
             metrics <- metrics[names(topCells), , drop = FALSE]

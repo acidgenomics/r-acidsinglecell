@@ -40,10 +40,10 @@ NULL
         ## Allowing the user to select by "sampleId".
         sampleData[["sampleId"]] <- rownames(sampleData)
         assert(hasRownames(sampleData))
-        matches <- mapply(
+        matches <- Map(
             col = names(args),
             arg = args,
-            function(col, arg) {
+            f = function(col, arg) {
                 ## Check that column is present.
                 if (!col %in% colnames(sampleData)) {
                     ## nocov start
@@ -67,9 +67,7 @@ NULL
                 keep <- sampleData[[col]] %in% arg
                 data <- sampleData[keep, , drop = FALSE]
                 rownames(data)
-            },
-            SIMPLIFY = FALSE,
-            USE.NAMES = TRUE
+            }
         )
         samples <- Reduce(f = intersect, x = matches)
         assert(hasLength(samples))

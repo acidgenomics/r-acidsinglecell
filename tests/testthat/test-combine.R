@@ -1,7 +1,3 @@
-context("combine")
-
-stri_pad_left <- stringi::stri_pad_left # nolint
-
 test_that("SCE", {
     x <- sce
     colnames(x) <- paste0(

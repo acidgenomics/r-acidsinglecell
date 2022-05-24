@@ -1,5 +1,3 @@
-context("cellTypesPerCluster")
-
 test_that("KnownMarkers", {
     object <- km
     expect_identical(
