@@ -11,7 +11,7 @@ test_that("List mode", {
         expected = n
     )
     x <- subsetPerSample(sce, assignAndSave = FALSE)
-    expect_is(x, "list")
+    expect_type(x, "list")
     expect_named(
         object = x,
         expected = paste0("sample", seq_len(4L))
@@ -26,13 +26,12 @@ test_that("List mode", {
 test_that("Assign and save mode", {
     object <- sce
     envir <- new.env()
-    files <-
-        subsetPerSample(
-            object = object,
-            assignAndSave = TRUE,
-            envir = envir,
-            dir = "subsetPerSample"
-        )
+    files <- subsetPerSample(
+        object = object,
+        assignAndSave = TRUE,
+        envir = envir,
+        dir = "subsetPerSample"
+    )
     expect_identical(
         object = files,
         expected = c(

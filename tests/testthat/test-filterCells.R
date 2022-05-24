@@ -95,10 +95,6 @@ test_that("Feature filtering", {
     )
 })
 
-
-
-context("filterCells : Per sample filtering")
-
 test_that("minCounts", {
     x <- filterCells(
         object = object,
