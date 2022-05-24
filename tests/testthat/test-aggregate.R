@@ -1,9 +1,5 @@
 sce_lanesplit2 <- readRDS(file.path("cache", "sce_lanesplit.rds")) # nolint
 
-
-
-context("aggregate")
-
 test_that("SingleCellExperiment", {
     object <- sce_lanesplit
     n1 <- sum(assay(object))
@@ -60,10 +56,6 @@ test_that("sce_lanesplit2", {
         )
     )
 })
-
-
-
-context("aggregateCellsToSamples")
 
 test_that("SingleCellExperiment", {
     object <- sce

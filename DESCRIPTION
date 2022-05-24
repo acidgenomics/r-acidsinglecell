@@ -2,8 +2,8 @@ Package: AcidSingleCell
 Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
-Version: 0.3.0
-Date: 2022-05-05
+Version: 0.3.1
+Date: 2022-05-23
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -57,7 +57,8 @@ Suggests:
     DropletUtils,
     edgeR,
     scuttle,
-    testthat
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+    testthat (>= 3.0.0)
 Additional_repositories: https://r.acidgenomics.com
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0

@@ -1,5 +1,3 @@
-context("mapCellsToSamples")
-
 test_that("2 samples", {
     samples <- paste0("sample", seq_len(2L))
     cells <- paste(samples, c("AAAAAAAA", "CCCCCCCC"), sep = "_")

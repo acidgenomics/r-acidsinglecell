@@ -1,5 +1,3 @@
-context("export : SCE")
-
 ## NOTE The SingleCellExperiment_Seurat object has reducedDims slotted,
 ## whereas the SingleCellExperiment (splatter) example doesn't.
 

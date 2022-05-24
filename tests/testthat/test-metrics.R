@@ -1,5 +1,3 @@
-context("metrics")
-
 test_that("SCE", {
     object <- metrics(sce)
     expect_s4_class(object, "DataFrame")

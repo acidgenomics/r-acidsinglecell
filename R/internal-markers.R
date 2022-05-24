@@ -47,35 +47,3 @@
         metadata(x) <- metadata(gene2symbol)
         x
     }
-
-
-
-## Using approach in `uniteInterestingGroups()` to generate the
-## factor grouping column to apply split.
-## Updated 2020-01-30.
-.filterPromiscuousMarkers <- function(x, n) {
-    assert(
-        is(x, "DataFrame"),
-        isInt(n),
-        isTRUE(n > 1L)
-    )
-    cols <- c("cellType", "geneId")
-    df <- x[, cols, drop = FALSE]
-    ## Generate the grouping factor necessary to perform split.
-    f <- .group(df)
-    split <- split(df, f = f)
-    n <- vapply(X = split, FUN = nrow, FUN.VALUE = integer(1L))
-    which <- which(n >= n)
-    genes <- split[, "geneId"][which]
-    genes <- unlist(genes, use.names = FALSE)
-    genes <- sort(unique(genes))
-    if (hasLength(genes)) {
-        alertWarning(sprintf(
-            "Filtering promiscuous marker genes: %s.",
-            toString(genes, width = 100L)
-        ))
-        keep <- !(x[["geneId"]] %in% genes)
-        x <- x[keep, , drop = FALSE]
-    }
-    x
-}

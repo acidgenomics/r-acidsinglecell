@@ -1,5 +1,3 @@
-context("selectSamples")
-
 test_that("SingleCellExperiment", {
     object <- selectSamples(sce, sampleId = "sample1")
     expect_identical(

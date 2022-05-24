@@ -10,10 +10,6 @@ denominator <- names(ident)[ident == "1"]
 expect_true(length(intersect(numerator, colnames(object))) > 0L)
 expect_true(length(intersect(denominator, colnames(object))) > 0L)
 
-
-
-context("diffExp")
-
 test_that("diffExp", {
     ## edgeR.
     x <- diffExp(
@@ -32,10 +28,6 @@ test_that("diffExp", {
     )
     expect_s4_class(x, "DESeqResults")
 })
-
-
-
-context("findMarkers")
 
 test_that("findMarkers", {
     ## edgeR.

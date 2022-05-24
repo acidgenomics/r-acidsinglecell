@@ -1,5 +1,3 @@
-context("melt")
-
 test_that("SCE", {
     x <- melt(sce)
     expect_s4_class(x, "DataFrame")

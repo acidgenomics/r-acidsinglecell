@@ -1,5 +1,3 @@
-context("cell2sample")
-
 test_that("SCE factor return", {
     x <- cell2sample(sce, return = "factor")
     expect_is(x, "factor")

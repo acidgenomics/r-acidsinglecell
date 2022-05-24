@@ -1,5 +1,3 @@
-context("filterCells")
-
 ## NOTE These expected values can change when we update AcidTest.
 
 object <- sce
@@ -60,7 +58,7 @@ test_that("Top cells only", {
 ## Refer to the quality control R Markdown for actual recommended cutoffs.
 ## These are skewed, and designed to work with our minimal dataset.
 test_that("Cell filtering", {
-    mapply(
+    Map(
         args = list(
             list("minCounts" = 50000L),
             list("maxCounts" = 50000L),
@@ -75,7 +73,7 @@ test_that("Cell filtering", {
             c(100L, 215L),
             c(100L, 139L)
         ),
-        FUN = function(args, dim) {
+        f = function(args, dim) {
             x <- do.call(
                 what = filterCells,
                 args = append(
@@ -85,8 +83,7 @@ test_that("Cell filtering", {
             )
             expect_s4_class(x, "SingleCellExperiment")
             expect_identical(dim(x), dim)
-        },
-        SIMPLIFY = FALSE
+        }
     )
 })
 

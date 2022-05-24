@@ -1,5 +1,3 @@
-context("topCellsPerSample")
-
 test_that("SingleCellExperiment", {
     object <- sce
     x <- topCellsPerSample(object = object, n = 5L)
