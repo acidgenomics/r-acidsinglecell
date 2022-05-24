@@ -7,8 +7,6 @@ object <- sce_seurat
 ident <- clusters(object)
 numerator <- names(ident)[ident == "2"]
 denominator <- names(ident)[ident == "1"]
-expect_gt(length(intersect(numerator, colnames(object))), 0L)
-expect_gt(length(intersect(denominator, colnames(object))), 0L)
 
 test_that("diffExp", {
     ## edgeR.
@@ -32,11 +30,11 @@ test_that("diffExp", {
 test_that("findMarkers", {
     ## edgeR.
     x <- findMarkers(object, caller = "edgeR")
-    expect_is(x, "list")
+    expect_type(x, "list")
     invisible(lapply(
         X = x,
         FUN = function(x) {
-            expect_is(x, "DGELRT")
+            expect_s4_class(x, "DGELRT")
         }
     ))
     ## DESeq2. Slow for large datasets.
@@ -44,11 +42,11 @@ test_that("findMarkers", {
     suppressWarnings({
         x <- findMarkers(object, caller = "DESeq2")
     })
-    expect_is(x, "list")
+    expect_type(x, "list")
     invisible(lapply(
         X = x,
         FUN = function(x) {
-            expect_is(x, "DESeqResults")
+            expect_s4_class(x, "DESeqResults")
         }
     ))
 })

@@ -2,7 +2,7 @@ test_that("2 samples", {
     samples <- paste0("sample", seq_len(2L))
     cells <- paste(samples, c("AAAAAAAA", "CCCCCCCC"), sep = "_")
     x <- mapCellsToSamples(cells = cells, samples = samples)
-    expect_is(x, "factor")
+    expect_s3_class(x, "factor")
     expect_identical(
         object = x,
         expected = as.factor(c(
@@ -48,6 +48,6 @@ test_that("Match failure", {
     cells <- paste("xxx", c("AAAAAAAA", "CCCCCCCC"), sep = "_")
     expect_error(
         object = mapCellsToSamples(cells = cells, samples = samples),
-        expected = "\"sample1\" sample failed to match any cells."
+        regexp = "\"sample1\" sample failed to match any cells."
     )
 })
