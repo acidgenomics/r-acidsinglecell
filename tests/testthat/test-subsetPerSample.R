@@ -12,8 +12,8 @@ test_that("List mode", {
     )
     x <- subsetPerSample(sce, assignAndSave = FALSE)
     expect_is(x, "list")
-    expect_identical(
-        object = names(x),
+    expect_named(
+        object = x,
         expected = paste0("sample", seq_len(4L))
     )
     expect_identical(

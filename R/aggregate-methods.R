@@ -1,6 +1,6 @@
 #' @name aggregate
 #' @inherit AcidExperiment::aggregate
-#' @note Updated 2022-03-02.
+#' @note Updated 2022-05-24.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -26,12 +26,12 @@ NULL
 
 #' Aggregate cellular barcodes across columns
 #'
-#' @note Updated 2021-09-13.
+#' @note Updated 2022-05-24.
 #' @noRd
 .aggregateCols <- # nolint
     function(x, col, fun) {
-        validObject(x)
         assert(
+            validObject(x),
             hasColnames(x),
             isString(col),
             isString(fun)
@@ -56,23 +56,20 @@ NULL
             )
         ))
         assert(
-            all(mapply(
-                FUN = grepl,
+            all(as.logical(Map(
+                f = grepl,
                 x = map[[cellCol]],
-                pattern = paste0("^", map[[sampleCol]]),
-                SIMPLIFY = TRUE
-            )),
+                pattern = paste0("^", map[[sampleCol]])
+            ))),
             msg = "Cell identifiers are not prefixed with sample identifiers."
         )
-        by <- mapply(
-            FUN = gsub,
+        by <- Map(
+            f = gsub,
             x = map[[cellCol]],
             pattern = paste0("^", map[[sampleCol]]),
-            replacement = map[[aggregateCol]],
-            SIMPLIFY = TRUE,
-            USE.NAMES = TRUE
+            replacement = map[[aggregateCol]]
         )
-        by <- as.factor(by)
+        by <- as.factor(unlist(x = by, recursive = FALSE, use.names = TRUE))
         cell2sample <- as.factor(map[[aggregateCol]])
         names(cell2sample) <- as.character(by)
         ## Reslot the `aggregate` column using these groupings.

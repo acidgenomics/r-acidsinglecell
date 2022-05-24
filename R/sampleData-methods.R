@@ -180,10 +180,7 @@ NULL
         ## Collapse and set the row names to `sampleId`.
         rownames(data) <- NULL
         data <- unique(data)
-        if (
-            nrow(data) > nSamples ||
-                any(duplicated(data[["sampleId"]]))
-        ) {
+        if (nrow(data) > nSamples || anyDuplicated(data[["sampleId"]]) > 0L) {
             ## nocov start
             abort(sprintf(
                 fmt = paste(

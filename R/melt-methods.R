@@ -42,7 +42,7 @@ NULL
         data
     }
 
-formals(`melt,SCE`) <-
+formals(`melt,SCE`) <- # nolint
     methodFormals(
         f = "melt",
         signature = "SummarizedExperiment",
