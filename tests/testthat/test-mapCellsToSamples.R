@@ -48,6 +48,6 @@ test_that("Match failure", {
     cells <- paste("xxx", c("AAAAAAAA", "CCCCCCCC"), sep = "_")
     expect_error(
         object = mapCellsToSamples(cells = cells, samples = samples),
-        regexp = "\"sample1\" sample failed to match any cells."
+        regexp = "'sample1' sample failed to match any cells."
     )
 })
