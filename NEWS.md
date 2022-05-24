@@ -1,3 +1,9 @@
+# AcidSingleCell 0.3.1 (2022-05-24)
+
+## Minor changes
+
+- Updated lintr checks and testthat unit tests.
+
 # AcidSingleCell 0.3.0 (2022-05-05)
 
 ## Major changes
