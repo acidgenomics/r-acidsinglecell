@@ -25,5 +25,7 @@ logcounts <- SingleCellExperiment::logcounts
 rowData <- SummarizedExperiment::rowData
 simpleClass <- AcidBase::simpleClass
 stri_pad_left <- stringi::stri_pad_left
+tempdir2 <- AcidBase::tempdir2
+unlink2 <- AcidBase::unlink2
 
 ## nolint end
