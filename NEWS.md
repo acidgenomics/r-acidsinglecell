@@ -1,3 +1,10 @@
+# AcidSingleCell 0.3.2 (2022-06-02)
+
+## Minor changes
+
+- Hardened temporary file handling in working examples and unit tests, to
+  improve Windows compatibility.
+
 # AcidSingleCell 0.3.1 (2022-05-24)
 
 ## Minor changes
