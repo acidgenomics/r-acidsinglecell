@@ -1,10 +1,8 @@
 ## NOTE The SingleCellExperiment_Seurat object has reducedDims slotted,
 ## whereas the SingleCellExperiment (splatter) example doesn't.
 
-testdir <- file.path(tempdir(), "example")
-
 test_that("New 'con' BiocIO approach, instead of deprecated 'dir'", {
-    unlink(testdir, recursive = TRUE)
+    testdir <- tempdir2()
     object <- sce_seurat
     out <- export(
         object = object,
@@ -37,11 +35,11 @@ test_that("New 'con' BiocIO approach, instead of deprecated 'dir'", {
             )
         )
     )
-    unlink(testdir, recursive = TRUE)
+    unlink2(testdir)
 })
 
 test_that("Deprecated : 'dir' argument, no 'name'", {
-    unlink(testdir, recursive = TRUE)
+    testdir <- tempdir2()
     object <- sce_seurat
     out <- export(
         object = object,
@@ -74,5 +72,5 @@ test_that("Deprecated : 'dir' argument, no 'name'", {
             )
         )
     )
-    unlink(testdir, recursive = TRUE)
+    unlink2(testdir)
 })

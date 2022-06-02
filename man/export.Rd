@@ -110,10 +110,10 @@ data(SingleCellExperiment_splatter, package = "AcidTest")
 
 ## SingleCellExperiment ====
 object <- SingleCellExperiment_splatter
-con <- file.path(tempdir(), "example")
+con <- AcidBase::tempdir2()
 x <- export(object = object, con = con)
 print(x)
-unlink(con, recursive = TRUE)
+AcidBase::unlink2(con)
 }
 \seealso{
 Packages:

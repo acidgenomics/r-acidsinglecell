@@ -36,7 +36,7 @@ For a two-dimensional matrix:
 Aggregate
 }
 \note{
-Updated 2022-03-02.
+Updated 2022-05-24.
 }
 \section{Methods (by class)}{
 
