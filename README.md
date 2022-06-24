@@ -24,8 +24,8 @@ install.packages(
 ### [Docker][] method
 
 ```sh
-image="acidgenomics/r-acidsinglecell"
-workdir="/mnt/work"
+image='acidgenomics/r-packages:acidsinglecell'
+workdir='/mnt/work'
 docker pull "$image"
 docker run -it \
     --volume="${PWD}:${workdir}" \
