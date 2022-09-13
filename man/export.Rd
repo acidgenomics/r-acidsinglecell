@@ -2,13 +2,12 @@
 % Please edit documentation in R/AllGenerics.R, R/export-methods.R
 \name{export}
 \alias{export}
-\alias{export,SingleCellExperiment,character,missingOrNULL-method}
-\alias{export,SingleCellExperiment,missingOrNULL,missingOrNULL-method}
+\alias{export,SingleCellExperiment,character,missing-method}
 \title{Export}
 \usage{
 export(object, con, format, ...)
 
-\S4method{export}{SingleCellExperiment,character,missingOrNULL}(
+\S4method{export}{SingleCellExperiment,character,missing}(
   object,
   con,
   format,
@@ -16,8 +15,6 @@ export(object, con, format, ...)
   overwrite = getOption(x = "acid.overwrite", default = TRUE),
   quiet = getOption(x = "acid.quiet", default = FALSE)
 )
-
-\S4method{export}{SingleCellExperiment,missingOrNULL,missingOrNULL}(object, con, format, name = NULL, dir, ...)
 }
 \arguments{
 \item{object}{Object.
@@ -29,7 +26,7 @@ File path.
 Alternatively, can leave unset and use \code{ext} and \code{dir} arguments instead.}
 
 \item{format}{\code{character(1)}, \code{missing}, or \code{NULL}.
-Output file format extension.}
+\emph{Currently not supported.}}
 
 \item{compress}{\code{logical(1)} or \code{character(1)}.
 These character strings are currently allowed for \code{\link[base:save]{save()}}:
@@ -40,12 +37,6 @@ Overwrite existing file on disk.}
 
 \item{quiet}{\code{logical(1)}.
 Perform command quietly, suppressing messages.}
-
-\item{name}{\code{character(1)}.
-Name to use on disk. If \code{NULL}, will use the name of the object instead.}
-
-\item{dir}{\code{character(1)}.
-Directory path.}
 
 \item{...}{Additional arguments.}
 }
@@ -61,7 +52,7 @@ This method extends \code{SummarizedExperiment} but also handles export of the
 \code{reducedDims} slot (i.e. containing UMAP, tSNE, and PCA).
 }
 \note{
-Updated 2022-03-02.
+Updated 2022-09-13.
 }
 \section{Output file format extension}{
 
@@ -118,10 +109,10 @@ AcidBase::unlink2(con)
 \seealso{
 Packages:
 \itemize{
-\item \href{http://readr.tidyverse.org}{readr}.
-\item \href{http://r-datatable.com/}{data.table}.
+\item \href{https://readr.tidyverse.org}{readr}.
+\item \href{https://r-datatable.com/}{data.table}.
 \item \href{https://cran.r-project.org/package=rio}{rio}.
-\item \href{http://bioconductor.org/packages/rtracklayer/}{rtracklayer}.
+\item \href{https://bioconductor.org/packages/rtracklayer/}{rtracklayer}.
 \item \href{https://vroom.r-lib.org}{vroom}.
 }
 
