@@ -30,11 +30,11 @@ Quality control metrics
 }
 \section{Functions}{
 \itemize{
-\item \code{metrics,SingleCellExperiment-method}: Cell-level metrics.
+\item \code{metrics(SingleCellExperiment)}: Cell-level metrics.
 
-\item \code{metricsPerSample,SingleCellExperiment-method}: Sample-level metrics.
+\item \code{metricsPerSample(SingleCellExperiment)}: Sample-level metrics.
+
 }}
-
 \note{
 Updated 2022-03-02.
 }

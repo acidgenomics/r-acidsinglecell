@@ -1,6 +1,6 @@
 #' @name export
 #' @inherit pipette::export
-#' @note Updated 2022-03-02.
+#' @note Updated 2022-09-13.
 #'
 #' @details
 #' This method extends `SummarizedExperiment` but also handles export of the
@@ -24,11 +24,11 @@ NULL
 
 
 
-## Updated 2021-10-14.
+## Updated 2022-09-13.
 `export,SCE` <- # nolint
     function(object,
              con,
-             format, # NULL
+             format, # missing
              compress = getOption(
                  x = "acid.export.compress",
                  default = FALSE
@@ -57,7 +57,6 @@ NULL
         files <- export(
             object = as(object, "RangedSummarizedExperiment"),
             con = dir,
-            format = format,
             compress = compress,
             overwrite = overwrite,
             quiet = quiet
@@ -107,20 +106,6 @@ NULL
 
 
 
-## Updated 2021-10-15.
-`export,SCE,deprecated` <- # nolint
-    methodFunction(
-        f = "export",
-        signature = signature(
-            object = "SummarizedExperiment",
-            con = "missingOrNULL",
-            format = "missingOrNULL"
-        ),
-        package = "AcidExperiment"
-    )
-
-
-
 #' @rdname export
 #' @export
 setMethod(
@@ -128,19 +113,7 @@ setMethod(
     signature = signature(
         object = "SingleCellExperiment",
         con = "character",
-        format = "missingOrNULL"
+        format = "missing"
     ),
     definition = `export,SCE`
-)
-
-#' @rdname export
-#' @export
-setMethod(
-    f = "export",
-    signature = signature(
-        object = "SingleCellExperiment",
-        con = "missingOrNULL",
-        format = "missingOrNULL"
-    ),
-    definition = `export,SCE,deprecated`
 )

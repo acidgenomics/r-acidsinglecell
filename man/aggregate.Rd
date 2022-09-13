@@ -41,8 +41,9 @@ Updated 2022-05-24.
 \section{Methods (by class)}{
 
 \itemize{
-\item \code{SummarizedExperiment}: Arguments pass through to \code{matrix} or \code{Matrix} method, depending on the class
+\item \code{aggregate(SummarizedExperiment)}: Arguments pass through to \code{matrix} or \code{Matrix} method, depending on the class
 of matrix defined in requested \code{assay}.
+
 }
 }
 
