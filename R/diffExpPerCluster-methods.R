@@ -53,7 +53,7 @@ NULL
              numerator,
              denominator,
              ...) {
-        h1("{.fun diffExpPerCluster}")
+        alert("Running differential expression per cluster.")
         object <- as(object, "SingleCellExperiment")
         ## group
         assert(
@@ -85,7 +85,7 @@ NULL
         list <- lapply(
             X = clusters,
             FUN = function(cluster) {
-                h2(sprintf("Cluster %s", as.character(cluster)))
+                alert(sprintf("Cluster %s", as.character(cluster)))
                 ## Subset the cells by cluster.
                 cells <- colnames(object)[which(ident == cluster)]
                 assert(hasLength(cells))

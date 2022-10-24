@@ -180,6 +180,7 @@ NULL
         ## Collapse and set the row names to `sampleId`.
         rownames(data) <- NULL
         data <- unique(data)
+        ## FIXME Use goalie::hasDuplicates here instead.
         if (nrow(data) > nSamples || anyDuplicated(data[["sampleId"]]) > 0L) {
             ## nocov start
             abort(sprintf(

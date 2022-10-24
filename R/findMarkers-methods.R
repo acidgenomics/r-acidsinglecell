@@ -30,13 +30,13 @@ NULL
 
 
 
-## Updated 2020-09-03.
+## Updated 2022-10-24.
 `findMarkers,SCE` <- # nolint
     function(object,
              clusters = NULL,
              ...) {
         assert(isCharacter(clusters, nullOK = TRUE))
-        h1(sprintf("{.fun %s}", "findMarkers"))
+        alert("Finding markers.")
         object <- as(object, "SingleCellExperiment")
         ## Get the cluster mappings. Following the Seurat nomenclature here of
         ## using "ident" to denote the cluster identifier mapping factor.
@@ -63,7 +63,7 @@ NULL
         list <- lapply(
             X = clusters,
             FUN = function(cluster) {
-                h2(sprintf("Cluster %s", as.character(cluster)))
+                alert(sprintf("Cluster %s", as.character(cluster)))
                 ## Numerator: cells in the current cluster.
                 numerator <- ident[which(ident == cluster)]
                 assert(all(numerator == cluster))

@@ -32,7 +32,8 @@ NULL
 #' @importFrom SummarizedExperiment assay assayNames assays colData colData<-
 #' rowRanges
 #' @importFrom methods show
-#'
+NULL
+
 #' @importMethodsFrom AcidBase geometricMean
 #' @importMethodsFrom AcidExperiment aggregate calculateMetrics combine decode
 #' droplevels2 encode estimateSizeFactors export interestingGroups
@@ -56,7 +57,7 @@ NULL
 
 #' @importFrom AcidBase barcodePattern basenameSansExt initDir methodFormals
 #' methodFunction printString realpath requireNamespaces standardizeCall
-#' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl h1 h2
+#' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl
 #' toInlineString txt ul verbatim
 #' @importFrom AcidExperiment makeSummarizedExperiment matchInterestingGroups
 #' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
