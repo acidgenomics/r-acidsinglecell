@@ -2,12 +2,12 @@
 % Please edit documentation in R/AllGenerics.R, R/geometricMean-methods.R
 \name{geometricMean}
 \alias{geometricMean}
-\alias{geometricMean,Matrix-method}
+\alias{geometricMean,sparseMatrix-method}
 \title{Geometric mean}
 \usage{
 geometricMean(x, ...)
 
-\S4method{geometricMean}{Matrix}(x, MARGIN = 2L)
+\S4method{geometricMean}{sparseMatrix}(x, MARGIN = 2L)
 }
 \arguments{
 \item{x}{Object.}
@@ -31,7 +31,7 @@ The geometric mean is the nth root of n products or e to the mean log of \code{x
 Useful for describing non-normal (i.e. geometric) distributions.
 }
 \note{
-Updated 2021-02-02.
+Updated 2022-10-24.
 }
 \examples{
 data(sparseMatrix, package = "AcidTest")

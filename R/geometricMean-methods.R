@@ -1,6 +1,6 @@
 #' @name geometricMean
 #' @inherit AcidGenerics::geometricMean
-#' @note Updated 2021-02-02.
+#' @note Updated 2022-10-24.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @inheritParams base::apply
@@ -16,8 +16,8 @@ NULL
 
 
 
-## Updated 2021-02-02.
-`geometricMean,Matrix` <- # nolint
+## Updated 2022-10-24.
+`geometricMean,sparseMatrix` <- # nolint
     methodFunction(
         f = "geometricMean",
         signature = "matrix",
@@ -30,6 +30,6 @@ NULL
 #' @export
 setMethod(
     f = "geometricMean",
-    signature = signature(x = "Matrix"),
-    definition = `geometricMean,Matrix`
+    signature = signature(x = "sparseMatrix"),
+    definition = `geometricMean,sparseMatrix`
 )

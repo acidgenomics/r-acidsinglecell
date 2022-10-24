@@ -2,7 +2,7 @@
 
 #' @importClassesFrom IRanges CompressedSplitDFrameList DataFrameList
 #' SplitDataFrameList
-#' @importClassesFrom Matrix Matrix
+#' @importClassesFrom Matrix sparseMatrix
 #' @importClassesFrom S4Vectors DFrame
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment
 #' @importClassesFrom SummarizedExperiment RangedSummarizedExperiment
@@ -62,7 +62,6 @@ NULL
 #' @importFrom AcidExperiment makeSummarizedExperiment matchInterestingGroups
 #' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
 #' @importFrom IRanges DataFrameList SplitDataFrameList
-#' @importFrom Matrix Matrix
 #' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
 #' areSetEqual assert bapply hasClusters hasColnames hasLength hasMetrics
 #' hasNames hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows
