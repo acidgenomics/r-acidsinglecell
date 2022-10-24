@@ -1,7 +1,7 @@
 #' @name zerosVsDepth
 #' @author Michael Steinbaugh, Rory Kirchner
 #' @inherit AcidGenerics::zerosVsDepth
-#' @note Updated 2022-03-02.
+#' @note Updated 2022-10-24.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -32,13 +32,10 @@ NULL
 
 
 ## Using a logical matrix is faster and more memory efficient.
-## Ensure dgTMatrix gets coereced to dgCMatrix prior to logical.
-## Updated 2021-02-13.
-`zerosVsDepth,Matrix` <- # nolint
+## Updated 2022-10-24.
+`zerosVsDepth,sparseMatrix` <- # nolint
     function(object) {
-        assert(!is(object, "lgCMatrix"))
-        present <- as(object, "dgCMatrix")
-        present <- as(present, "lgCMatrix")
+        present <- as(object, "lMatrix")
         DataFrame(
             dropout = (nrow(present) - colSums(present)) / nrow(present),
             depth = as.integer(colSums(object)),
@@ -91,14 +88,6 @@ NULL
 #' @export
 setMethod(
     f = "zerosVsDepth",
-    signature = signature(object = "Matrix"),
-    definition = `zerosVsDepth,Matrix`
-)
-
-#' @rdname zerosVsDepth
-#' @export
-setMethod(
-    f = "zerosVsDepth",
     signature = signature(object = "SingleCellExperiment"),
     definition = `zerosVsDepth,SCE`
 )
@@ -117,4 +106,12 @@ setMethod(
     f = "zerosVsDepth",
     signature = signature(object = "matrix"),
     definition = `zerosVsDepth,matrix`
+)
+
+#' @rdname zerosVsDepth
+#' @export
+setMethod(
+    f = "zerosVsDepth",
+    signature = signature(object = "sparseMatrix"),
+    definition = `zerosVsDepth,sparseMatrix`
 )

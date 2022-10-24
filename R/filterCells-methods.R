@@ -1,6 +1,6 @@
 #' @name filterCells
 #' @inherit AcidGenerics::filterCells
-#' @note Updated 2022-05-04.
+#' @note Updated 2022-10-24.
 #'
 #' @details
 #' Apply feature (i.e. gene/transcript) detection, novelty score, and
@@ -212,7 +212,7 @@ NULL
         lgl <- do.call(what = rbind, args = filter)
         lgl <- lgl[colnames(object), , drop = FALSE]
         lgl <- decode(lgl)
-        lgl <- as(lgl, "Matrix")
+        lgl <- as(lgl, "lMatrix")
         ## Drop columns that contain all NA.
         keep <- apply(
             X = lgl,
