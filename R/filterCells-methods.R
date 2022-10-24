@@ -212,7 +212,7 @@ NULL
         lgl <- do.call(what = rbind, args = filter)
         lgl <- lgl[colnames(object), , drop = FALSE]
         lgl <- decode(lgl)
-        lgl <- as(lgl, "lMatrix")
+        lgl <- as(lgl, "Matrix")
         ## Drop columns that contain all NA.
         keep <- apply(
             X = lgl,
