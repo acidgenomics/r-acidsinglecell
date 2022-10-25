@@ -63,8 +63,8 @@ NULL
 #' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
 #' @importFrom IRanges DataFrameList SplitDataFrameList
 #' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
-#' areSetEqual assert bapply hasClusters hasColnames hasLength hasMetrics
-#' hasNames hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows
+#' areSetEqual assert bapply hasClusters hasColnames hasDuplicates hasLength
+#' hasMetrics hasNames hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows
 #' hasValidNames isAny isBiocParallelParam isCharacter isFlag
 #' isInLeftOpenRange isInRange isInstalled isInt isIntegerish isNonNegative
 #' isPositive isScalar isString isSubset validate
