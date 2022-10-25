@@ -1,10 +1,6 @@
-## NOTE Consider adding pseudobulk support here in a future update.
-
-
-
 #' @name diffExpPerCluster
 #' @inherit AcidGenerics::diffExpPerCluster
-#' @note Updated 2021-09-14.
+#' @note Updated 2022-10-25.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @inheritParams diffExp
