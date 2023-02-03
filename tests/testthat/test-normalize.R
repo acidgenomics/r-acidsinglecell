@@ -1,3 +1,5 @@
+skip_if_not_installed("scuttle")
+
 test_that("SCE", {
     object <- sce_seurat
     object <- normalize(object)
