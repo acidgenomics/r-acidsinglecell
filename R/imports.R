@@ -56,7 +56,7 @@ NULL
 ## Standard functions ==========================================================
 
 #' @importFrom AcidBase barcodePattern basenameSansExt initDir methodFormals
-#' methodFunction printString realpath requireNamespaces standardizeCall
+#' methodFunction printString realpath standardizeCall
 #' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl
 #' toInlineString txt ul verbatim
 #' @importFrom AcidExperiment makeSummarizedExperiment matchInterestingGroups
@@ -67,7 +67,7 @@ NULL
 #' hasMetrics hasNames hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows
 #' hasValidNames isAny isBiocParallelParam isCharacter isFlag
 #' isInLeftOpenRange isInRange isInstalled isInt isIntegerish isNonNegative
-#' isPositive isScalar isString isSubset validate
+#' isPositive isScalar isString isSubset requireNamespaces validate
 #' @importFrom methods as is new setClass setValidity validObject
 #' @importFrom pipette assignAndSaveData
 #' @importFrom stringi stri_match_first_regex
