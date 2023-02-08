@@ -35,7 +35,7 @@ Cells to use in the denominator of the contrast (e.g. control).}
 Differential expression per cluster
 }
 \note{
-Updated 2021-09-14.
+Updated 2022-10-25.
 
 Cluster identity (\code{ident}) must be defined in \code{colData()} for this
 function to work.
