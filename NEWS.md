@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidSingleCell 0.3.4 (2023-02-09)
+
+Minor changes:
+
+- Updated dependencies to Bioconductor 3.16.
+- Migrated `requireNamespaces` import from AcidBase to goalie.
+
 ## AcidSingleCell 0.3.3 (2022-10-25)
 
 Major changes:
