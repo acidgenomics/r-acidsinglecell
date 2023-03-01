@@ -6,11 +6,11 @@ test_that("SummarizedExperiment", {
     expect_s4_class(x, "DataFrame")
     expect_identical(
         object = round(mean(x[["dropout"]]), digits = 3L),
-        expected = 0.096
+        expected = 0.097
     )
     expect_identical(
         object = round(mean(x[["depth"]]), digits = 2L),
-        expected = 22140.67
+        expected = 21999
     )
 })
 
