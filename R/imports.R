@@ -21,10 +21,11 @@ NULL
 #' sampleData sampleData<- selectSamples snakeCase subsetPerSample
 #' topCellsPerSample uniteInterestingGroups zerosVsDepth
 #' @importFrom Biobase sampleNames
-#' @importFrom BiocGenerics colSums combine counts counts<- do.call
-#' estimateSizeFactors normalize rowSums normalize sizeFactors
+#' @importFrom BiocGenerics combine counts counts<- do.call estimateSizeFactors
+#' normalize normalize sizeFactors
 #' @importFrom BiocIO export import
 #' @importFrom IRanges dims
+#' @importFrom Matrix colSums rowSums
 #' @importFrom S4Vectors DataFrame SimpleList aggregate complete.cases decode
 #' head metadata metadata<- na.omit split tail
 #' @importFrom SingleCellExperiment SingleCellExperiment reducedDimNames
