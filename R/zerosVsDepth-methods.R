@@ -71,12 +71,12 @@ NULL
         sampleData <- sampleData(object)
         sampleData[["sampleId"]] <- as.factor(rownames(sampleData))
         assert(
-            is(data, "DataFrame"),
-            is(sampleData, "DataFrame")
+            is(data, "DFrame"),
+            is(sampleData, "DFrame")
         )
         out <- leftJoin(x = data, y = sampleData, by = "sampleId")
         assert(
-            is(out, "DataFrame"),
+            is(out, "DFrame"),
             hasRownames(out)
         )
         out

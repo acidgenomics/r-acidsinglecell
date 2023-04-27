@@ -184,7 +184,7 @@ NULL
         )
         ## Split the metrics per sample so we can perform parameterized checks.
         split <- split(x = metrics, f = metrics[["sampleId"]])
-        assert(is(split, "SplitDataFrameList"))
+        assert(is(split, "SplitDFrameList"))
         ## Loop across the samples.
         filter <- DataFrameList(Map(
             sampleName = names(split),

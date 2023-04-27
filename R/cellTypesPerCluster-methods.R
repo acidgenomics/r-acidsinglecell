@@ -1,6 +1,6 @@
 #' @name cellTypesPerCluster
 #' @inherit AcidGenerics::cellTypesPerCluster
-#' @note Updated 2021-10-15.
+#' @note Updated 2023-04-27.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -8,7 +8,7 @@
 #' @param min,max `integer(1)`.
 #' Minimum or maximum number of marker genes per cluster.
 #'
-#' @return `DataFrame`.
+#' @return `DFrame`.
 #'
 #' @examples
 #' data(KnownMarkers, package = "AcidTest")
@@ -44,7 +44,7 @@ NULL
             isInt(min),
             isInt(max)
         )
-        x <- as(object, "DataFrame")
+        x <- as(object, "DFrame")
         ## Only positive markers are informative here.
         keep <- x[["avgLog2Fc"]] > 0L
         x <- x[keep, , drop = FALSE]

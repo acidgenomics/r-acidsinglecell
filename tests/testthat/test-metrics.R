@@ -1,6 +1,6 @@
 test_that("SCE", {
     object <- metrics(sce)
-    expect_s4_class(object, "DataFrame")
+    expect_s4_class(object, "DFrame")
     expect_identical(
         object = colnames(object),
         expected = c(

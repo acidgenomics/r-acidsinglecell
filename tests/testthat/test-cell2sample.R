@@ -8,8 +8,8 @@ test_that("SCE factor return", {
     expect_named(x)
 })
 
-test_that("SCE DataFrame return", {
-    x <- cell2sample(sce, return = "DataFrame")
-    expect_s4_class(x, "DataFrame")
+test_that("SCE DFrame return", {
+    x <- cell2sample(sce, return = "DFrame")
+    expect_s4_class(x, "DFrame")
     expect_identical(colnames(x), c("cellId", "sampleId"))
 })

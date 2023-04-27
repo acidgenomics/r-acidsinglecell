@@ -13,7 +13,7 @@ test_that("SCE", {
         MoreArgs = list("x" = x),
         f = function(x, fun, expected) {
             x <- metricsPerSample(x, fun = fun)
-            expect_s4_class(x, "DataFrame")
+            expect_s4_class(x, "DFrame")
             x <- as.integer(round(x[["nCount"]]))
             expect_identical(object = x, expected = expected)
         }

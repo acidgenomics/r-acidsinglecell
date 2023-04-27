@@ -34,7 +34,7 @@ NULL
             "n" = colSums
         )
         split <- split(data, f = data[["sampleId"]])
-        assert(is(split, "SplitDataFrameList"))
+        assert(is(split, "SplitDFrameList"))
         lapply(
             X = split,
             FUN = function(x) {

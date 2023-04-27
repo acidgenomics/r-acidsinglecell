@@ -44,7 +44,7 @@ NULL
 #' @export
 CellCycleMarkers <- # nolint
     function(object, gene2symbol) {
-        assert(is(object, "DataFrame"))
+        assert(is(object, "DFrame"))
         class <- "CellCycleMarkers"
         data <- .CellMarkers(
             object = object,
@@ -64,7 +64,7 @@ importCellCycleMarkers <-
              release,
              ignoreVersion = TRUE) {
         object <- import(file)
-        object <- as(object, "DataFrame")
+        object <- as(object, "DFrame")
         gene2symbol <- makeGene2SymbolFromEnsembl(
             organism = organism,
             release = release,

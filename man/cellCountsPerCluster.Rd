@@ -15,13 +15,13 @@ cellCountsPerCluster(object, ...)
 \item{...}{Additional arguments.}
 }
 \value{
-\code{DataFrame}.
+\code{DFrame}.
 }
 \description{
 Cell counts per cluster
 }
 \note{
-Updated 2022-05-05.
+Updated 2023-04-27.
 }
 \examples{
 data(SingleCellExperiment_Seurat, package = "AcidTest")
