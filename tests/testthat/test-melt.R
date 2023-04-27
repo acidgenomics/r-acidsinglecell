@@ -1,6 +1,6 @@
 test_that("SCE", {
     x <- melt(sce)
-    expect_s4_class(x, "DataFrame")
+    expect_s4_class(x, "DFrame")
     expect_identical(
         object = colnames(x),
         expected = c(

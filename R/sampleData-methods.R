@@ -217,8 +217,8 @@ NULL
 
 
 
-## Updated 2021-01-14.
-`sampleData<-,SCE,DataFrame` <- # nolint
+## Updated 2023-04-27.
+`sampleData<-,SCE,DFrame` <- # nolint
     function(object, value) {
         assert(hasRownames(value))
         denylist <- c("interestingGroups", "rowname", "sampleId")
@@ -234,7 +234,7 @@ NULL
             drop = FALSE
         ]
         value <- leftJoin(colData, value, by = "sampleId")
-        assert(is(value, "DataFrame"), hasRownames(value))
+        assert(is(value, "DFrame"), hasRownames(value))
         colData(object) <- value
         object
     }
@@ -257,7 +257,7 @@ setReplaceMethod(
     f = "sampleData",
     signature = signature(
         object = "SingleCellExperiment",
-        value = "DataFrame"
+        value = "DFrame"
     ),
-    definition = `sampleData<-,SCE,DataFrame`
+    definition = `sampleData<-,SCE,DFrame`
 )

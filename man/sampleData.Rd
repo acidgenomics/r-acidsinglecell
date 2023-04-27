@@ -4,7 +4,7 @@
 \alias{sampleData}
 \alias{sampleData<-}
 \alias{sampleData,SingleCellExperiment-method}
-\alias{sampleData<-,SingleCellExperiment,DataFrame-method}
+\alias{sampleData<-,SingleCellExperiment,DFrame-method}
 \title{Sample data}
 \usage{
 sampleData(object, ...)
@@ -19,7 +19,7 @@ sampleData(object, ...) <- value
     "^origIdent$", "^res[0-9]+")
 )
 
-\S4method{sampleData}{SingleCellExperiment,DataFrame}(object) <- value
+\S4method{sampleData}{SingleCellExperiment,DFrame}(object) <- value
 }
 \arguments{
 \item{object}{Object.}

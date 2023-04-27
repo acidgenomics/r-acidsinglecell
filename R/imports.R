@@ -1,7 +1,7 @@
 ## Classes ====================================================================
 
-#' @importClassesFrom IRanges CompressedSplitDFrameList DataFrameList
-#' SplitDataFrameList
+#' @importClassesFrom IRanges CompressedSplitDFrameList DFrameList
+#' SplitDFrameList
 #' @importClassesFrom Matrix sparseMatrix
 #' @importClassesFrom S4Vectors DFrame
 #' @importClassesFrom SingleCellExperiment SingleCellExperiment

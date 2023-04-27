@@ -18,13 +18,13 @@ Minimum or maximum number of marker genes per cluster.}
 \item{...}{Additional arguments.}
 }
 \value{
-\code{DataFrame}.
+\code{DFrame}.
 }
 \description{
 Cell types per cluster
 }
 \note{
-Updated 2021-10-15.
+Updated 2023-04-27.
 }
 \examples{
 data(KnownMarkers, package = "AcidTest")

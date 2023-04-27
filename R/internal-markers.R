@@ -4,7 +4,7 @@
              gene2symbol,
              class = c("CellCycleMarkers", "CellTypeMarkers")) {
         assert(
-            is(object, "DataFrame"),
+            is(object, "DFrame"),
             is(gene2symbol, "Gene2Symbol")
         )
         class <- match.arg(class)
@@ -34,7 +34,7 @@
         x <- x[keep, , drop = FALSE]
         x <- leftJoin(
             x = x,
-            y = as(gene2symbol, "DataFrame"),
+            y = as(gene2symbol, "DFrame"),
             by = "geneId"
         )
         x <- x[, sort(colnames(x)), drop = FALSE]

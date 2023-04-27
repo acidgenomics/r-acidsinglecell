@@ -11,7 +11,7 @@
 #' @return
 #' - `"factor"`: Named `factor` containing the samples as the levels and cell
 #' identifiers as the names.
-#' - `DataFrame`: Data frame containing `sampleId` column and cell identifiers
+#' - `"DFrame"`: S4 data frame containing `sampleId` column and cell identifiers
 #' as the row names.
 #'
 #' @examples
@@ -28,7 +28,7 @@ NULL
 ## Updated 2022-05-04.
 `cell2sample,SCE` <- # nolint
     function(object,
-             return = c("factor", "DataFrame")) {
+             return = c("factor", "DFrame")) {
         validObject(object)
         return <- match.arg(return)
         colData <- colData(object)
@@ -41,7 +41,7 @@ NULL
         }
         switch(
             EXPR = return,
-            "DataFrame" = {
+            "DFrame" = {
                 out <- DataFrame(
                     "cellId" = cells,
                     "sampleId" = samples,

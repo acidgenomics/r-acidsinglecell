@@ -7,7 +7,7 @@
 \usage{
 cell2sample(object, ...)
 
-\S4method{cell2sample}{SingleCellExperiment}(object, return = c("factor", "DataFrame"))
+\S4method{cell2sample}{SingleCellExperiment}(object, return = c("factor", "DFrame"))
 }
 \arguments{
 \item{object}{Object.}
@@ -22,7 +22,7 @@ to the first argument in the \code{character} vector.}
 \itemize{
 \item \code{"factor"}: Named \code{factor} containing the samples as the levels and cell
 identifiers as the names.
-\item \code{DataFrame}: Data frame containing \code{sampleId} column and cell identifiers
+\item \code{"DFrame"}: S4 data frame containing \code{sampleId} column and cell identifiers
 as the row names.
 }
 }

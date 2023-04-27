@@ -74,7 +74,7 @@ NULL
                 )
                 ## Check DropletUtils return.
                 assert(
-                    is(x, "DataFrame"),
+                    is(x, "DFrame"),
                     identical(
                         x = colnames(x),
                         y = c("rank", "total", "fitted")

@@ -1,11 +1,11 @@
 #' @name cellCountsPerCluster
 #' @inherit AcidGenerics::cellCountsPerCluster
-#' @note Updated 2022-05-05.
+#' @note Updated 2023-04-27.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
-#' @return `DataFrame`.
+#' @return `DFrame`.
 #'
 #' @examples
 #' data(SingleCellExperiment_Seurat, package = "AcidTest")
@@ -30,8 +30,8 @@ NULL
         ## Get the number of cells per ident.
         nPerIdent <- rowSums(tbl)
         nPerIdent <- DataFrame(
-            ident = names(nPerIdent),
-            nPerIdent = as.integer(nPerIdent)
+            "ident" = names(nPerIdent),
+            "nPerIdent" = as.integer(nPerIdent)
         )
         ## Summarize to cluster/sample-level metadata.
         cols <- unique(c(
