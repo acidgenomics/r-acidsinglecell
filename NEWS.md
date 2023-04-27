@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidSingleCell 0.3.5 (2023-04-27)
+
+Minor changes:
+
+- Updated NAMESPACE for compatibility with Bioconductor 3.17.
+- Now classing on `DFrame` directly instead of `DataFrame` virtual class.
+
 ## AcidSingleCell 0.3.4 (2023-02-09)
 
 Minor changes:
