@@ -18,11 +18,13 @@ NULL
 
 
 
-## Updated 2022-05-04.
+## Updated 2023-04-27.
 `melt,SCE` <- # nolint
     function(object) {
-        validObject(object)
-        assert(isScalar(assay))
+        assert(
+            validObject(object),
+            isScalar(assay)
+        )
         minMethod <- match.arg(minMethod)
         trans <- match.arg(trans)
         counts <- assay(object, i = assay)
