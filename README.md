@@ -1,5 +1,6 @@
 # AcidSingleCell
 
+![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)
 [![Install with Bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/r-acidsinglecell/README.html)
 
 Toolkit for single-cell RNA-seq analysis that extends the functionality of
