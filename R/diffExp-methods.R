@@ -137,9 +137,9 @@ NULL
 #'
 #' - `reduced`: For `test = "LRT"`, a reduced formula to compare against.
 #' - `sfType`: Use "poscounts" instead of "ratio" here because we're expecting
-#'   genes with zero counts. See `DESeq2::estimateSizeFactors()` for details.
+#' genes with zero counts. See `DESeq2::estimateSizeFactors()` for details.
 #' - `minmu`: Set a lower threshold than the default 0.5, as recommended in Mike
-#'   Love's zinbwave-DESeq2 vignette.
+#' Love's zinbwave-DESeq2 vignette.
 .diffExp.DESeq2 <- function(object) { # nolint
     alert(sprintf("Running {.pkg %s}.", "DESeq2"))
     assert(
@@ -215,8 +215,7 @@ NULL
              caller = c("edgeR", "DESeq2"),
              minCells = 2L,
              minCellsPerGene = 1L,
-             minCountsPerCell = 1L
-    ) {
+             minCountsPerCell = 1L) {
         ## Coerce to standard SCE to ensure fast subsetting.
         object <- as(object, "SingleCellExperiment")
         assert(
