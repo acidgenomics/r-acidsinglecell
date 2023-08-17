@@ -1,10 +1,6 @@
 #' @name diffExp
+#' @note Updated 2023-08-17.
 #' @inherit AcidGenerics::diffExp
-#'
-#' @note We are no longer recommending the use of software that attempts to
-#' mitigate zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based
-#' single cell RNA-seq data. Simply model the counts directly.
-#' @note Updated 2021-10-14.
 #'
 #' @details
 #' Perform pairwise differential expression across groups of cells. Currently
@@ -41,6 +37,12 @@
 #' Note that Seurat currently uses the convention `cells.1` for the numerator
 #' and `cells.2` for the denominator. See `Seurat::FindMarkers()` for details.
 #'
+#' @section Zero count inflation:
+#'
+#' We are no longer recommending the use of software that attempts to mitigate
+#' zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based single
+#' cell RNA-seq data. Simply model the counts directly.
+#'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
@@ -70,6 +72,7 @@
 #'
 #' - `caller = "edgeR"`: `DEGLRT`.
 #' - `caller = "DESeq2"`: Unshrunken `DESeqResults`.
+#'
 #' Apply `DESeq2::lfcShrink()` if shrunken results are desired.
 #'
 #' @seealso
@@ -110,7 +113,10 @@ NULL
 
 
 
-## Updated 2019-07-31.
+#' Does the object contain a design formula?
+#'
+#' @note Updated 2019-07-31.
+#' @noRd
 .hasDesignFormula <- function(object) {
     all(
         is(object, "SingleCellExperiment"),
@@ -121,55 +127,53 @@ NULL
 
 
 
-## DESeq2 is slow for large datasets.
-##
-## - `reduced`: For `test = "LRT"`, a reduced formula to compare against.
-## - `sfType`: Use "poscounts" instead of "ratio" here because we're
-## expecting genes with zero counts.
-## See `DESeq2::estimateSizeFactors()` for details.
-## - `minmu`: Set a lower threshold than the default 0.5, as recommended
-## in Mike Love's zinbwave-DESeq2 vignette.
-##
-## Updated 2021-10-14.
-.diffExp.DESeq2 <- function(object, BPPARAM) { # nolint
+#' Differential expression with DESeq2
+#'
+#' @note Updated 2023-08-17.
+#' @noRd
+#'
+#' @details
+#' DESeq2 is slow for large datasets.
+#'
+#' - `reduced`: For `test = "LRT"`, a reduced formula to compare against.
+#' - `sfType`: Use "poscounts" instead of "ratio" here because we're expecting
+#'   genes with zero counts. See `DESeq2::estimateSizeFactors()` for details.
+#' - `minmu`: Set a lower threshold than the default 0.5, as recommended in Mike
+#'   Love's zinbwave-DESeq2 vignette.
+.diffExp.DESeq2 <- function(object) { # nolint
     alert(sprintf("Running {.pkg %s}.", "DESeq2"))
-    requireNamespaces("DESeq2")
     assert(
-        .hasDesignFormula(object),
-        isBiocParallelParam(BPPARAM)
+        requireNamespaces("DESeq2"),
+        .hasDesignFormula(object)
     )
-    dds <- DESeq2::DESeqDataSet(
-        se = object,
-        design = ~group
-    )
+    dds <- DESeq2::DESeqDataSet(se = object, design = ~group)
     dds <- DESeq2::DESeq(
         object = dds,
         test = "LRT",
         reduced = ~1L,
         sfType = "poscounts",
         minmu = 1e-6,
-        minReplicatesForReplace = Inf,
-        BPPARAM = BPPARAM
+        minReplicatesForReplace = Inf
     )
     ## We have already performed low count filtering.
-    res <- DESeq2::results(
-        object = dds,
-        independentFiltering = FALSE,
-        BPPARAM = BPPARAM
-    )
+    res <- DESeq2::results(object = dds, independentFiltering = FALSE)
     res
 }
 
 
 
-## edgeR is much faster than DESeq2 for large datasets.
-##
-## Note that zinbwave recommends `glmWeightedF()`, which recycles an old version
-## of the `glmLRT()` method, that allows an F-test with adjusted denominator
-## degrees of freedom, to account for the downweighting in the zero-inflation
-## model (which no longer applies here).
-##
-## Updated 2021-10-14.
+#' Differential expression with edgeR
+#'
+#' @note Updated 2023-08-17.
+#' @noRd
+#'
+#' @details
+#' edgeR is much faster than DESeq2 for large datasets.
+#'
+#' Note that zinbwave recommends `glmWeightedF()`, which recycles an old version
+#' of the `glmLRT()` method, that allows an F-test with adjusted denominator
+#' degrees of freedom, to account for the downweighting in the zero-inflation
+#' model (which no longer applies here).
 .diffExp.edgeR <- function(object) { # nolint
     alert(sprintf("Running {.pkg %s}.", "edgeR"))
     requireNamespaces("edgeR")
@@ -190,22 +194,28 @@ NULL
 
 
 
+#' Underpowered contrast warning
+#'
+#' @note Updated 2023-08-17.
+#' @noRd
 .underpoweredContrast <- function() {
     warning("Skipping DE. Underpowered contrast (not enough cells).")
 }
 
 
 
-## Updated 2022-03-10.
+#' Differential expression of SingleCellExperiment class
+#'
+#' @note Updated 2023-08-17.
+#' @noRd
 `diffExp,SCE` <- # nolint
     function(object,
              numerator,
              denominator,
              caller = c("edgeR", "DESeq2"),
-             minCells = 2L, # 10L
-             minCellsPerGene = 1L, # 25L
-             minCountsPerCell = 1L, # 5L
-             BPPARAM = BiocParallel::bpparam() # nolint
+             minCells = 2L,
+             minCellsPerGene = 1L,
+             minCountsPerCell = 1L
     ) {
         ## Coerce to standard SCE to ensure fast subsetting.
         object <- as(object, "SingleCellExperiment")
@@ -225,8 +235,7 @@ NULL
             areDisjointSets(numerator, denominator),
             isInt(minCountsPerCell),
             isInt(minCellsPerGene),
-            allArePositive(c(minCountsPerCell, minCellsPerGene)),
-            isBiocParallelParam(BPPARAM)
+            allArePositive(c(minCountsPerCell, minCellsPerGene))
         )
         caller <- match.arg(caller)
         alert(sprintf(
@@ -350,15 +359,6 @@ NULL
         )
         assert(is.function(what))
         args <- list("object" = object)
-        switch(
-            EXPR = caller,
-            "DESeq2" = {
-                args <- append(
-                    x = args,
-                    values = list("BPPARAM" = BPPARAM)
-                )
-            }
-        )
         do.call(what = what, args = args)
     }
 

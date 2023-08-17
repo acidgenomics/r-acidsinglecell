@@ -14,8 +14,7 @@ diffExp(object, ...)
   caller = c("edgeR", "DESeq2"),
   minCells = 2L,
   minCellsPerGene = 1L,
-  minCountsPerCell = 1L,
-  BPPARAM = BiocParallel::bpparam()
+  minCountsPerCell = 1L
 )
 }
 \arguments{
@@ -43,15 +42,6 @@ expression filtering.}
 Minimum number of counts per cell for a gene to pass low expression
 filtering. The number of cells is defined by \code{minCellsPerGene}.}
 
-\item{BPPARAM}{\code{bpparamClass}.
-BiocParallel parameter to specify the desired processor configuration.\cr
-We recommend using one of the following:
-\itemize{
-\item \link[BiocParallel:register]{bpparam}.
-\item \link[BiocParallel:SerialParam-class]{SerialParam}.
-\item \link[BiocParallel:MulticoreParam-class]{MulticoreParam}.
-}}
-
 \item{...}{Additional arguments.}
 }
 \value{
@@ -59,8 +49,9 @@ Varies depending on the \code{caller} argument:
 \itemize{
 \item \code{caller = "edgeR"}: \code{DEGLRT}.
 \item \code{caller = "DESeq2"}: Unshrunken \code{DESeqResults}.
-Apply \code{DESeq2::lfcShrink()} if shrunken results are desired.
 }
+
+Apply \code{DESeq2::lfcShrink()} if shrunken results are desired.
 }
 \description{
 Differential expression
@@ -70,11 +61,7 @@ Perform pairwise differential expression across groups of cells. Currently
 supports edgeR and DESeq2 as DE callers.
 }
 \note{
-We are no longer recommending the use of software that attempts to
-mitigate zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based
-single cell RNA-seq data. Simply model the counts directly.
-
-Updated 2021-10-14.
+Updated 2023-08-17.
 }
 \section{DESeq2}{
 
@@ -111,6 +98,14 @@ edgeR is currently significantly faster than DESeq2 for large datasets.
 
 Note that Seurat currently uses the convention \code{cells.1} for the numerator
 and \code{cells.2} for the denominator. See \code{Seurat::FindMarkers()} for details.
+}
+
+\section{Zero count inflation}{
+
+
+We are no longer recommending the use of software that attempts to mitigate
+zero count inflation (e.g. zinbwave, zingeR) for UMI droplet-based single
+cell RNA-seq data. Simply model the counts directly.
 }
 
 \examples{
