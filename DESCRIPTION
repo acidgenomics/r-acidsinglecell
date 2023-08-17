@@ -2,8 +2,8 @@ Package: AcidSingleCell
 Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
-Version: 0.3.5
-Date: 2023-04-27
+Version: 0.3.6.9000
+Date: 2023-08-17
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -27,37 +27,37 @@ URL:
 BugReports: https://github.com/acidgenomics/r-acidsinglecell/issues/
 License: AGPL-3
 Encoding: UTF-8
-Depends: R (>= 4.2)
+Depends: R (>= 4.3)
 Imports:
-    AcidBase (>= 0.6.11),
-    AcidCLI (>= 0.2.7),
-    AcidExperiment (>= 0.4.4),
-    AcidGenerics (>= 0.6.5),
-    AcidGenomes (>= 0.4.5),
-    AcidPlyr (>= 0.3.4),
-    Biobase (>= 2.58.0),
+    AcidBase (>= 0.6.18),
+    AcidCLI (>= 0.2.8),
+    AcidExperiment (>= 0.4.7),
+    AcidGenerics (>= 0.6.7),
+    AcidGenomes (>= 0.5.2),
+    AcidPlyr (>= 0.3.11),
+    Biobase (>= 2.60.0),
     BiocGenerics (>= 0.44.0),
     BiocIO (>= 1.8.0),
-    IRanges (>= 2.32.0),
-    Matrix (>= 1.5.1),
-    S4Vectors (>= 0.36.0),
-    SingleCellExperiment (>= 1.20.0),
-    SummarizedExperiment (>= 1.28.0),
-    goalie (>= 0.6.8),
-    pipette (>= 0.10.2),
+    IRanges (>= 2.34.0),
+    Matrix (>= 1.6.1),
+    S4Vectors (>= 0.38.0),
+    SingleCellExperiment (>= 1.22.0),
+    SummarizedExperiment (>= 1.30.0),
+    goalie (>= 0.6.14),
+    pipette (>= 0.11.2),
     stringi (>= 1.7.12),
-    syntactic (>= 0.6.4),
+    syntactic (>= 0.6.6),
     methods,
+    parallel,
     stats,
     utils
 Suggests:
-    AcidTest (>= 0.7.1),
-    BiocParallel (>= 1.32.0),
-    DESeq2 (>= 1.38.0),
-    DropletUtils (>= 1.18.0),
+    AcidTest (>= 0.7.2),
+    DESeq2 (>= 1.40.0),
+    DropletUtils (>= 1.20.0),
     edgeR (>= 3.40.0),
-    scuttle (>= 1.8.0),
-    testthat (>= 3.1.6)
+    scuttle (>= 1.10.0),
+    testthat (>= 3.1.10)
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
