@@ -99,13 +99,12 @@ NULL
 
 
 
-## Updated 2021-09-13.
+## Updated 2023-08-17.
 `aggregate,SCE` <- # nolint
     function(x,
              col = "aggregate",
              fun = "sum",
-             MARGIN = 1L # nolint
-    ) {
+             MARGIN = 1L) { # nolint
         assert(
             isInt(MARGIN),
             isInRange(MARGIN, lower = 1L, upper = 2L)
