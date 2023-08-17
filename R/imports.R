@@ -66,9 +66,9 @@ NULL
 #' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
 #' areSetEqual assert bapply hasClusters hasColnames hasDuplicates hasLength
 #' hasMetrics hasNames hasNoDuplicates hasNonzeroRowsAndCols hasRownames hasRows
-#' hasValidNames isAny isBiocParallelParam isCharacter isFlag
-#' isInLeftOpenRange isInRange isInstalled isInt isIntegerish isNonNegative
-#' isPositive isScalar isString isSubset requireNamespaces validate
+#' hasValidNames isAny isCharacter isFlag isInLeftOpenRange isInRange
+#' isInstalled isInt isIntegerish isNonNegative isPositive isScalar isString
+#' isSubset requireNamespaces validate
 #' @importFrom methods as is new setClass setValidity validObject
 #' @importFrom pipette assignAndSaveData
 #' @importFrom stringi stri_match_first_regex
