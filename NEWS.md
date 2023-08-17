@@ -1,5 +1,13 @@
 # Release notes
 
+## AcidSingleCell 0.3.6 (2023-08-17)
+
+Minor changes:
+
+- `diffExp`: Remove references to BiocParallel, which are now picked up
+  automatically in DESeq2.
+- Updated lintr checks.
+
 ## AcidSingleCell 0.3.5 (2023-04-27)
 
 Minor changes:
