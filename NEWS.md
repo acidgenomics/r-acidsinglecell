@@ -6,6 +6,7 @@ Minor changes:
 
 - `diffExp`: Remove references to BiocParallel, which are now picked up
   automatically in DESeq2.
+- Now requiring R 4.3 / Bioconductor 3.17.
 - Updated lintr checks.
 
 ## AcidSingleCell 0.3.5 (2023-04-27)
