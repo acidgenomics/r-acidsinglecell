@@ -48,7 +48,6 @@ Imports:
     stringi (>= 1.7.12),
     syntactic (>= 0.6.6),
     methods,
-    parallel,
     stats,
     utils
 Suggests:
