@@ -71,7 +71,7 @@ NULL
 
 #' @rdname export
 #' @name export
-#' @usage export(object, con, format, ...)
+#' @usage export(object, con, ...)
 #' @export
 NULL
 

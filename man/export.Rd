@@ -2,31 +2,18 @@
 % Please edit documentation in R/AllGenerics.R, R/export-methods.R
 \name{export}
 \alias{export}
-\alias{export,SingleCellExperiment,character,missing-method}
-\title{Export}
+\alias{export,SingleCellExperiment,character-method}
+\title{Export data from R}
 \usage{
-export(object, con, format, ...)
+export(object, con, ...)
 
-\S4method{export}{SingleCellExperiment,character,missing}(
-  object,
-  con,
-  format,
-  compress = getOption(x = "acid.export.compress", default = FALSE),
-  overwrite = getOption(x = "acid.overwrite", default = TRUE),
-  quiet = getOption(x = "acid.quiet", default = FALSE)
-)
+\S4method{export}{SingleCellExperiment,character}(object, con, compress = FALSE, overwrite = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{object}{Object.
-An object supporting \code{dim()}, or a supported class capable of being coerced
-to \code{data.frame}, to be written to disk.}
+\item{object}{Object.}
 
-\item{con}{\code{character(1)}, \code{missing}, or \code{NULL}.
-File path.
-Alternatively, can leave unset and use \code{ext} and \code{dir} arguments instead.}
-
-\item{format}{\code{character(1)}, \code{missing}, or \code{NULL}.
-\emph{Currently not supported.}}
+\item{con}{\code{character(1)} or \code{connection}.
+Data connection. Use \code{character(1)} to represent a file path.}
 
 \item{compress}{\code{logical(1)} or \code{character(1)}.
 These character strings are currently allowed for \code{\link[base:save]{save()}}:
@@ -41,11 +28,10 @@ Perform command quietly, suppressing messages.}
 \item{...}{Additional arguments.}
 }
 \value{
-Invisible \code{character}.
-File path(s).
+Invisible \code{character} or \code{list} of file paths.
 }
 \description{
-Export
+Export data from R
 }
 \details{
 This method extends \code{SummarizedExperiment} but also handles export of the

@@ -2,8 +2,8 @@ Package: AcidSingleCell
 Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
-Version: 0.3.6
-Date: 2023-08-17
+Version: 0.3.7.9000
+Date: 2023-09-20
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -29,22 +29,21 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.3)
 Imports:
-    AcidBase (>= 0.6.18),
+    AcidBase (>= 0.6.23),
     AcidCLI (>= 0.2.8),
-    AcidExperiment (>= 0.4.7),
-    AcidGenerics (>= 0.6.7),
-    AcidGenomes (>= 0.5.1),
-    AcidPlyr (>= 0.3.11),
+    AcidExperiment (>= 0.4.8),
+    AcidGenerics (>= 0.6.12),
+    AcidGenomes (>= 0.5.2),
+    AcidPlyr (>= 0.4.2),
     Biobase (>= 2.60.0),
-    BiocGenerics (>= 0.44.0),
-    BiocIO (>= 1.8.0),
+    BiocGenerics (>= 0.46.0),
     IRanges (>= 2.34.0),
     Matrix (>= 1.6.1),
     S4Vectors (>= 0.38.0),
     SingleCellExperiment (>= 1.22.0),
     SummarizedExperiment (>= 1.30.0),
-    goalie (>= 0.6.14),
-    pipette (>= 0.11.2),
+    goalie (>= 0.6.18),
+    pipette (>= 0.14.0),
     stringi (>= 1.7.12),
     syntactic (>= 0.6.6),
     methods,
@@ -54,7 +53,7 @@ Suggests:
     AcidTest (>= 0.7.2),
     DESeq2 (>= 1.40.0),
     DropletUtils (>= 1.20.0),
-    edgeR (>= 3.40.0),
+    edgeR (>= 3.42.0),
     scuttle (>= 1.10.0),
     testthat (>= 3.1.10)
 Additional_repositories: https://r.acidgenomics.com

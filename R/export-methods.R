@@ -24,30 +24,16 @@ NULL
 
 
 
-## Updated 2022-09-13.
+## Updated 2023-09-20.
 `export,SCE` <- # nolint
     function(object,
              con,
-             format, # missing
-             compress = getOption(
-                 x = "acid.export.compress",
-                 default = FALSE
-             ),
-             overwrite = getOption(
-                 x = "acid.overwrite",
-                 default = TRUE
-             ),
-             quiet = getOption(
-                 x = "acid.quiet",
-                 default = FALSE
-             )) {
-        validObject(object)
-        if (missing(format)) {
-            format <- NULL
-        }
+             compress = FALSE,
+             overwrite = TRUE,
+             quiet = FALSE) {
         assert(
+            validObject(object),
             isString(con),
-            is.null(format),
             isFlag(compress),
             isFlag(overwrite),
             isFlag(quiet)
@@ -112,8 +98,7 @@ setMethod(
     f = "export",
     signature = signature(
         object = "SingleCellExperiment",
-        con = "character",
-        format = "missing"
+        con = "character"
     ),
     definition = `export,SCE`
 )
