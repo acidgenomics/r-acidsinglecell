@@ -16,14 +16,13 @@ NULL
 #' @importFrom AcidGenerics aggregateCellsToSamples barcodeRanksPerSample
 #' calculateMetrics camelCase cell2sample cellCountsPerCluster
 #' cellTypesPerCluster cpm clusters convertSampleIDsToNames diffExp
-#' diffExpPerCluster droplevels2 encode filterCells findMarkers geometricMean
-#' interestingGroups leftJoin melt metrics metricsPerSample mutateAll mutateIf
-#' sampleData sampleData<- selectSamples snakeCase subsetPerSample
-#' topCellsPerSample uniteInterestingGroups zerosVsDepth
+#' diffExpPerCluster droplevels2 encode export filterCells findMarkers
+#' geometricMean import interestingGroups leftJoin melt metrics metricsPerSample
+#' mutateAll mutateIf sampleData sampleData<- selectSamples snakeCase
+#' subsetPerSample topCellsPerSample uniteInterestingGroups zerosVsDepth
 #' @importFrom Biobase sampleNames
 #' @importFrom BiocGenerics combine counts counts<- do.call estimateSizeFactors
 #' normalize normalize sizeFactors
-#' @importFrom BiocIO export import
 #' @importFrom IRanges dims
 #' @importFrom Matrix colSums rowSums
 #' @importFrom S4Vectors DataFrame SimpleList aggregate complete.cases decode
