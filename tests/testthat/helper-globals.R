@@ -24,7 +24,7 @@ aggregateRows <- AcidExperiment::aggregateRows
 logcounts <- SingleCellExperiment::logcounts
 rowData <- SummarizedExperiment::rowData
 simpleClass <- AcidBase::simpleClass
-stri_pad_left <- stringi::stri_pad_left
+strPad <- AcidBase::strPad
 tempdir2 <- AcidBase::tempdir2
 unlink2 <- AcidBase::unlink2
 

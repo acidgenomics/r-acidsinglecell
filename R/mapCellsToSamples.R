@@ -35,7 +35,7 @@ mapCellsToSamples <- function(cells, samples) {
     assert(allAreMatchingRegex(x = cells, pattern = "[_-]"))
     list <- lapply(X = samples, FUN = function(sample) {
         pattern <- paste0("^(", sample, barcodePattern)
-        match <- stri_match_first_regex(str = cells, pattern = pattern)
+        match <- strMatch(x = cells, pattern = pattern)
         assert(
             !all(is.na(match[, 1L])),
             msg = sprintf(

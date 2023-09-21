@@ -34,28 +34,29 @@ We're attempting to make this as strict as possible, requiring:
 }
 }
 \note{
-Updated 2022-03-02.
+Updated 2022-03-21.
 }
 \examples{
 data(SingleCellExperiment_splatter, package = "AcidTest")
-stri_pad_left <- stringi::stri_pad_left
 
 ## SingleCellExperiment ====
 x <- SingleCellExperiment_splatter
 colnames(x) <- paste0(
     "cell",
-    stri_pad_left(
-        str = seq_len(ncol(x)),
+    AcidBase::strPad(
+        x = seq_len(ncol(x)),
         width = 4L,
+        side = "left",
         pad = "0"
     )
 )
 y <- x
 colnames(y) <- paste0(
     "cell",
-    stri_pad_left(
-        str = seq_len(ncol(y)) + ncol(y),
+    AcidBase::strPad(
+        x = seq_len(ncol(y)) + ncol(y),
         width = 4L,
+        side = "left",
         pad = "0"
     )
 )
