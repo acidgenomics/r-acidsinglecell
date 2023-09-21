@@ -3,7 +3,7 @@ test_that("SCE", {
     colnames(x) <- paste0(
         "cell",
         strPad(
-            x = seq_len(ncol(x)),
+            x = as.character(seq_len(ncol(x))),
             width = 4L,
             side = "left",
             pad = "0"
@@ -13,7 +13,7 @@ test_that("SCE", {
     colnames(y) <- paste0(
         "cell",
         strPad(
-            x = seq_len(ncol(y)) + ncol(y),
+            x = as.character(seq_len(ncol(y)) + ncol(y)),
             width = 4L,
             side = "left",
             pad = "0"

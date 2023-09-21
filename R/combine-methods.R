@@ -15,7 +15,7 @@
 #' colnames(x) <- paste0(
 #'     "cell",
 #'     AcidBase::strPad(
-#'         x = seq_len(ncol(x)),
+#'         x = as.character(seq_len(ncol(x))),
 #'         width = 4L,
 #'         side = "left",
 #'         pad = "0"
@@ -25,7 +25,7 @@
 #' colnames(y) <- paste0(
 #'     "cell",
 #'     AcidBase::strPad(
-#'         x = seq_len(ncol(y)) + ncol(y),
+#'         x = as.character(seq_len(ncol(y)) + ncol(y)),
 #'         width = 4L,
 #'         side = "left",
 #'         pad = "0"
