@@ -1,6 +1,6 @@
-#' @name cell2sample
-#' @inherit AcidGenerics::cell2sample
-#' @note Updated 2022-05-04.
+#' @name cellToSample
+#' @inherit AcidGenerics::cellToSample
+#' @note Updated 2023-09-26.
 #'
 #' @details
 #' Sample identifiers must be defined in `sampleId` column in `colData()`.
@@ -19,14 +19,14 @@
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment_splatter
-#' c2s <- cell2sample(object)
+#' c2s <- cellToSample(object)
 #' table(c2s)
 NULL
 
 
 
-## Updated 2022-05-04.
-`cell2sample,SCE` <- # nolint
+## Updated 2023-09-26.
+`cellToSample,SCE` <- # nolint
     function(object,
              return = c("factor", "DFrame")) {
         validObject(object)
@@ -58,10 +58,10 @@ NULL
 
 
 
-#' @rdname cell2sample
+#' @rdname cellToSample
 #' @export
 setMethod(
-    f = "cell2sample",
+    f = "cellToSample",
     signature = signature(object = "SingleCellExperiment"),
-    definition = `cell2sample,SCE`
+    definition = `cellToSample,SCE`
 )

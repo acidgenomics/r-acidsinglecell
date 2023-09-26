@@ -15,9 +15,9 @@ NULL
 #' @export
 NULL
 
-#' @rdname cell2sample
-#' @name cell2sample
-#' @usage cell2sample(object, ...)
+#' @rdname cellToSample
+#' @name cellToSample
+#' @usage cellToSample(object, ...)
 #' @export
 NULL
 

@@ -24,13 +24,13 @@ NULL
     function(object, n = 100L) {
         validObject(object)
         assert(isInt(n))
-        cell2sample <- cell2sample(object)
+        c2s <- cellToSample(object)
         counts <- counts(object)
         colSums <- colSums(counts)
-        assert(identical(names(cell2sample), names(colSums)))
+        assert(identical(names(c2s), names(colSums)))
         data <- DataFrame(
-            "cellId" = names(cell2sample),
-            "sampleId" = cell2sample,
+            "cellId" = names(c2s),
+            "sampleId" = c2s,
             "n" = colSums
         )
         split <- split(data, f = data[["sampleId"]])

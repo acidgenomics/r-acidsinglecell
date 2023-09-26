@@ -20,15 +20,15 @@ NULL
 
 
 
-## Updated 2021-09-13.
+## Updated 2023-09-26.
 `aggregateCellsToSamples,SCE` <- # nolint
     function(x) {
         validObject(x)
         rse <- as(x, "RangedSummarizedExperiment")
         colData <- colData(rse)
-        aggregateCol <- ".cell2sample"
+        aggregateCol <- ".c2s"
         assert(areDisjointSets(aggregateCol, colnames(colData)))
-        colData[[aggregateCol]] <- cell2sample(x)
+        colData[[aggregateCol]] <- cellToSample(x)
         sampleCol <- matchSampleColumn(colData)
         if (isSubset(sampleCol, colnames(colData))) {
             colData[[sampleCol]] <- NULL

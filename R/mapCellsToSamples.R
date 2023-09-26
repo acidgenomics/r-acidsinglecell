@@ -27,9 +27,9 @@ mapCellsToSamples <- function(cells, samples) {
     if (isString(samples)) {
         ## Check that cells input contains expected barcodes with DNA bases.
         assert(allAreMatchingRegex(x = cells, pattern = "[ACGT]+$"))
-        cell2sample <- factor(replicate(n = length(cells), expr = samples))
-        names(cell2sample) <- cells
-        return(cell2sample)
+        c2s <- factor(replicate(n = length(cells), expr = samples))
+        names(c2s) <- cells
+        return(c2s)
     }
     ## Check that all cells contain a separator.
     assert(allAreMatchingRegex(x = cells, pattern = "[_-]"))
@@ -57,7 +57,7 @@ mapCellsToSamples <- function(cells, samples) {
         names(out) <- match[, "cellId", drop = TRUE]
         out
     })
-    cell2sample <- unlist(list, recursive = FALSE, use.names = TRUE)
-    assert(identical(length(cells), length(cell2sample)))
-    as.factor(cell2sample)
+    c2s <- unlist(list, recursive = FALSE, use.names = TRUE)
+    assert(identical(length(cells), length(c2s)))
+    as.factor(c2s)
 }
