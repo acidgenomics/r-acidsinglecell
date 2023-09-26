@@ -5,7 +5,7 @@
              class = c("CellCycleMarkers", "CellTypeMarkers")) {
         assert(
             is(object, "DFrame"),
-            is(gene2symbol, "Gene2Symbol")
+            is(gene2symbol, "GeneToSymbol")
         )
         class <- match.arg(class)
         group <- switch(

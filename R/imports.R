@@ -60,7 +60,7 @@ NULL
 #' @importFrom AcidCLI abort alert alertInfo alertSuccess alertWarning dl
 #' toInlineString txt ul verbatim
 #' @importFrom AcidExperiment makeSummarizedExperiment matchInterestingGroups
-#' @importFrom AcidGenomes makeGene2SymbolFromEnsembl
+#' @importFrom AcidGenomes makeGeneToSymbolFromEnsembl
 #' @importFrom IRanges DataFrameList SplitDataFrameList
 #' @importFrom goalie allAreMatchingRegex allArePositive areDisjointSets
 #' areSetEqual assert bapply hasClusters hasColnames hasDuplicates hasLength
