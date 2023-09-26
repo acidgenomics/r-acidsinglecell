@@ -14,7 +14,7 @@ NULL
 ## S4 generics and methods =====================================================
 
 #' @importFrom AcidGenerics aggregateCellsToSamples barcodeRanksPerSample
-#' calculateMetrics camelCase cell2sample cellCountsPerCluster
+#' calculateMetrics camelCase cellToSample cellCountsPerCluster
 #' cellTypesPerCluster cpm clusters convertSampleIDsToNames diffExp
 #' diffExpPerCluster droplevels2 encode export filterCells findMarkers
 #' geometricMean import interestingGroups leftJoin melt metrics metricsPerSample

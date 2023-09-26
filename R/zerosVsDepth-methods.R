@@ -67,7 +67,7 @@ NULL
         assert(isScalar(assay))
         counts <- assay(object, i = assay)
         data <- zerosVsDepth(counts)
-        data[["sampleId"]] <- cell2sample(object)
+        data[["sampleId"]] <- cellToSample(object)
         sampleData <- sampleData(object)
         sampleData[["sampleId"]] <- as.factor(rownames(sampleData))
         assert(

@@ -40,13 +40,13 @@ NULL
         assert(isScalar(assay))
         requireNamespaces("DropletUtils")
         counts <- assay(object, i = assay)
-        cell2sample <- cell2sample(object)
-        samples <- levels(cell2sample)
+        c2s <- cellToSample(object)
+        samples <- levels(c2s)
         ## Subset the counts per sample into a list.
         countsPerSample <- lapply(
             X = samples,
             FUN = function(sample, counts) {
-                cells <- names(cell2sample)[which(cell2sample == sample)]
+                cells <- names(c2s)[which(c2s == sample)]
                 counts[, cells, drop = FALSE]
             },
             counts = counts

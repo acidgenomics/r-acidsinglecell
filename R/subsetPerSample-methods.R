@@ -63,7 +63,7 @@ NULL
         )
         dir <- initDir(dir)
         ## Return objects or file paths.
-        samples <- levels(cell2sample(object))
+        samples <- levels(cellToSample(object))
         return <- lapply(
             X = samples,
             FUN = function(sampleId) {

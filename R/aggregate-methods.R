@@ -70,8 +70,8 @@ NULL
             replacement = map[[aggregateCol]]
         )
         by <- as.factor(unlist(x = by, recursive = FALSE, use.names = TRUE))
-        cell2sample <- as.factor(map[[aggregateCol]])
-        names(cell2sample) <- as.character(by)
+        c2s <- as.factor(map[[aggregateCol]])
+        names(c2s) <- as.character(by)
         ## Reslot the `aggregate` column using these groupings.
         assert(identical(names(by), colnames(x)))
         colData(x)[[aggregateCol]] <- by
@@ -86,8 +86,8 @@ NULL
         )
         ## Update the sample data.
         colData <- colData(rse)
-        assert(isSubset(rownames(colData), names(cell2sample)))
-        colData[[sampleCol]] <- cell2sample[rownames(colData)]
+        assert(isSubset(rownames(colData), names(c2s)))
+        colData[[sampleCol]] <- c2s[rownames(colData)]
         if (isSubset("sampleName", colnames(colData))) {
             colData[["sampleName"]] <- colData[[sampleCol]] # nocov
         }
