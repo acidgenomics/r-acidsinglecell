@@ -4,7 +4,7 @@
 #' @note Updated 2021-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @inheritParams AcidGenomes::makeGene2SymbolFromEnsembl
+#' @inheritParams AcidGenomes::makeGeneToSymbolFromEnsembl
 #'
 #' @return `CellCycleMarkers`.
 #'
@@ -65,7 +65,7 @@ importCellCycleMarkers <-
              ignoreVersion = TRUE) {
         object <- import(file)
         object <- as(object, "DFrame")
-        gene2symbol <- makeGene2SymbolFromEnsembl(
+        gene2symbol <- makeGeneToSymbolFromEnsembl(
             organism = organism,
             release = release,
             ignoreVersion = ignoreVersion
