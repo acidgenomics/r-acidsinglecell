@@ -1,5 +1,5 @@
 test_that("SCE factor return", {
-    x <- cell2sample(sce, return = "factor")
+    x <- cellToSample(sce, return = "factor")
     expect_s3_class(x, "factor")
     expect_identical(
         object = levels(x),
@@ -9,7 +9,7 @@ test_that("SCE factor return", {
 })
 
 test_that("SCE DFrame return", {
-    x <- cell2sample(sce, return = "DFrame")
+    x <- cellToSample(sce, return = "DFrame")
     expect_s4_class(x, "DFrame")
     expect_identical(colnames(x), c("cellId", "sampleId"))
 })
