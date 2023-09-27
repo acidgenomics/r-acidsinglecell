@@ -77,8 +77,8 @@ NULL
         assert(
             hasRownames(data),
             isFlag(clean),
-            isCharacter(ignoreCols, nullOK = TRUE),
-            isCharacter(denylistCols, nullOK = TRUE),
+            isCharacter(ignoreCols, nullOk = TRUE),
+            isCharacter(denylistCols, nullOk = TRUE),
             areDisjointSets("interestingGroups", colnames(data))
         )
         interestingGroups <- matchInterestingGroups(object)
