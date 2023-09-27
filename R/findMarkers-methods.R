@@ -35,7 +35,7 @@ NULL
     function(object,
              clusters = NULL,
              ...) {
-        assert(isCharacter(clusters, nullOK = TRUE))
+        assert(isCharacter(clusters, nullOk = TRUE))
         alert("Finding markers.")
         object <- as(object, "SingleCellExperiment")
         ## Get the cluster mappings. Following the Seurat nomenclature here of

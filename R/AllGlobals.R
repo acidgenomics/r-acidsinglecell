@@ -10,8 +10,8 @@
 #' @note Updated 2021-09-13.
 #'
 #' @examples
-#' AcidSingleCellTestsURL
-AcidSingleCellTestsURL <- # nolint
+#' AcidSingleCellTestsUrl
+AcidSingleCellTestsUrl <- # nolint
     paste0(
         "https://r.acidgenomics.com/testdata/acidsinglecell/",
         "v", .pkgVersion$major, ".", .pkgVersion$minor # nolint

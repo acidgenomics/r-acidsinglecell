@@ -12,9 +12,9 @@ importCellCycleMarkers(file, organism, release, ignoreVersion = TRUE)
 \arguments{
 \item{object}{Object.}
 
-\item{gene2symbol}{\code{Gene2Symbol}.
+\item{gene2symbol}{\code{GeneToSymbol}.
 Gene-to-symbol mappings. Must contain \code{geneId} and \code{geneName} columns. See
-\code{Gene2Symbol} for more information.}
+\code{GeneToSymbol} for more information.}
 
 \item{file}{\code{character(1)}.
 File path.}

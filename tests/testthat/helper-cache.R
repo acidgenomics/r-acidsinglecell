@@ -17,7 +17,7 @@ Map(
     file = files,
     MoreArgs = list(
         "envir" = environment(),
-        "remoteDir" = AcidSingleCellTestsURL
+        "remoteDir" = AcidSingleCellTestsUrl
     )
 )
 rm(files)
