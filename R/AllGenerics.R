@@ -45,9 +45,9 @@ NULL
 #' @export
 NULL
 
-#' @rdname convertSampleIDsToNames
-#' @name convertSampleIDsToNames
-#' @usage convertSampleIDsToNames(object, ...)
+#' @rdname convertSampleIdsToNames
+#' @name convertSampleIdsToNames
+#' @usage convertSampleIdsToNames(object, ...)
 #' @export
 NULL
 

@@ -1,5 +1,5 @@
-#' @name convertSampleIDsToNames
-#' @inherit AcidGenerics::convertSampleIDsToNames
+#' @name convertSampleIdsToNames
+#' @inherit AcidGenerics::convertSampleIdsToNames
 #' @note Updated 2022-03-02.
 #'
 #' @inheritParams AcidRoxygen::params
@@ -10,13 +10,13 @@
 #'
 #' ## SingleCellExperiment ====
 #' object <- SingleCellExperiment_splatter
-#' convertSampleIDsToNames(object)
+#' convertSampleIdsToNames(object)
 NULL
 
 
 
 ## Updated 2021-02-02.
-`convertSampleIDsToNames,SCE` <- # nolint
+`convertSampleIdsToNames,SCE` <- # nolint
     function(object) {
         alertWarning(sprintf(
             paste(
@@ -30,10 +30,10 @@ NULL
 
 
 
-#' @rdname convertSampleIDsToNames
+#' @rdname convertSampleIdsToNames
 #' @export
 setMethod(
-    f = "convertSampleIDsToNames",
+    f = "convertSampleIdsToNames",
     signature = signature(object = "SingleCellExperiment"),
-    definition = `convertSampleIDsToNames,SCE`
+    definition = `convertSampleIdsToNames,SCE`
 )
