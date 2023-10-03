@@ -49,6 +49,7 @@ Imports:
     stats,
     utils
 Suggests:
+    AcidDevTools (>= 0.7.0),
     AcidTest (>= 0.7.2),
     DESeq2 (>= 1.40.0),
     DropletUtils (>= 1.20.0),

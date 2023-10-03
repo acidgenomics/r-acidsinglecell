@@ -1,10 +1,10 @@
 test_that("SCE", {
     expect_message(
-        object = convertSampleIDsToNames(sce),
+        object = convertSampleIdsToNames(sce),
         regexp = "unmodified"
     )
     expect_identical(
-        object = convertSampleIDsToNames(sce),
+        object = convertSampleIdsToNames(sce),
         expected = sce
     )
 })

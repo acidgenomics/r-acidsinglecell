@@ -26,7 +26,7 @@ NULL
 
 #' @importFrom AcidGenerics aggregateCellsToSamples barcodeRanksPerSample
 #' calculateMetrics camelCase cellToSample cellCountsPerCluster
-#' cellTypesPerCluster cpm clusters convertSampleIDsToNames diffExp
+#' cellTypesPerCluster cpm clusters convertSampleIdsToNames diffExp
 #' diffExpPerCluster droplevels2 encode export filterCells findMarkers
 #' geometricMean import interestingGroups leftJoin melt metrics metricsPerSample
 #' mutateAll mutateIf sampleData sampleData<- selectSamples snakeCase
