@@ -3,7 +3,7 @@ Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
 Version: 0.4.0
-Date: 2023-10-03
+Date: 2023-10-04
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",

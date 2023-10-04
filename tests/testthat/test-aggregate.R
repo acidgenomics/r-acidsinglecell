@@ -1,4 +1,5 @@
-sce_lanesplit2 <- readRDS(file.path("cache", "sce_lanesplit.rds")) # nolint
+sce_lanesplit2 <- # nolint
+    readRDS(file.path(cacheDir, "sce_lanesplit.rds"))
 
 test_that("SingleCellExperiment", {
     object <- sce_lanesplit
