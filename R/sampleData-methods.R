@@ -1,6 +1,6 @@
 #' @name sampleData
 #' @inherit AcidGenerics::sampleData
-#' @note Updated 2022-03-02.
+#' @note Updated 2022-10-04.
 #'
 #' @section SingleCellExperiment:
 #'
@@ -217,7 +217,7 @@ NULL
 
 
 
-## Updated 2023-04-27.
+## Updated 2023-10-04.
 `sampleData<-,SCE,DFrame` <- # nolint
     function(object, value) {
         assert(hasRownames(value))
@@ -233,9 +233,13 @@ NULL
             c("sampleId", setdiff(colnames(colData), colnames(value))),
             drop = FALSE
         ]
-        value <- leftJoin(colData, value, by = "sampleId")
-        assert(is(value, "DFrame"), hasRownames(value))
-        colData(object) <- value
+        out <- leftJoin(colData, value, by = "sampleId")
+        print(out)
+        assert(
+            is(out, "DFrame"),
+            hasRownames(out)
+        )
+        colData(object) <- out
         object
     }
 
