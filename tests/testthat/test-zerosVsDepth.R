@@ -1,16 +1,15 @@
 ## NOTE These values can change when we update AcidTest.
-
 test_that("SummarizedExperiment", {
     object <- rse
     x <- zerosVsDepth(object)
     expect_s4_class(x, "DFrame")
     expect_identical(
         object = round(mean(x[["dropout"]]), digits = 3L),
-        expected = 0.097
+        expected = 0.096
     )
     expect_identical(
         object = round(mean(x[["depth"]]), digits = 2L),
-        expected = 21999 # nolint
+        expected = 22140.67 # nolint
     )
 })
 
