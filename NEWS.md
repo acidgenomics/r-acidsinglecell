@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidSingleCell 0.4.0 (2023-10-04)
+
+Major changes:
+
+- Now enforcing strict camel case in all function names.
+
 ## AcidSingleCell 0.3.6 (2023-08-17)
 
 Minor changes:
