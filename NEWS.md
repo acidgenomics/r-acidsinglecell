@@ -5,6 +5,11 @@
 Major changes:
 
 - Now enforcing strict camel case in all function names.
+- Renamed `convertSampleIDsToNames` to `convertSampleIdsToNames`.
+
+Minor changes:
+
+- Updated unit tests to reflect changes in AcidTest package update.
 
 ## AcidSingleCell 0.3.6 (2023-08-17)
 
