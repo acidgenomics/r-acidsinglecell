@@ -42,7 +42,7 @@ Imports:
     S4Vectors (>= 0.38.0),
     SingleCellExperiment (>= 1.22.0),
     SummarizedExperiment (>= 1.30.0),
-    goalie (>= 0.7.0),
+    goalie (>= 0.7.1),
     pipette (>= 0.14.0),
     syntactic (>= 0.7.0),
     methods,
@@ -50,7 +50,7 @@ Imports:
     utils
 Suggests:
     AcidDevTools (>= 0.7.0),
-    AcidTest (>= 0.7.2),
+    AcidTest (>= 0.8.0),
     DESeq2 (>= 1.40.0),
     DropletUtils (>= 1.20.0),
     edgeR (>= 3.42.0),
