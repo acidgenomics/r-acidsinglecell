@@ -7,12 +7,9 @@
 #'
 #' @export
 #' @keywords internal
-#' @note Updated 2021-09-13.
+#' @note Updated 2023-10-05.
 #'
 #' @examples
 #' AcidSingleCellTestsUrl
 AcidSingleCellTestsUrl <- # nolint
-    paste0(
-        "https://r.acidgenomics.com/testdata/acidsinglecell/",
-        "v", .pkgVersion$major, ".", .pkgVersion$minor # nolint
-    )
+    "https://r.acidgenomics.com/testdata/acidsinglecell"
