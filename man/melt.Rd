@@ -51,7 +51,7 @@ to melting, if desired. Use \code{"identity"} to return unmodified (default).}
 Unpivot column data from wide format to long format.
 }
 \note{
-Updated 2022-03-02.
+Updated 2023-10-27.
 }
 \examples{
 data(SingleCellExperiment_splatter, package = "AcidTest")
