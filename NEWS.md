@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidSingleCell 0.4.1 (2023-10-27)
+
+Minor changes:
+
+- Migrated `indropsSampleIndexCounts` from koopa R package here.
+
 ## AcidSingleCell 0.4.0 (2023-10-04)
 
 Major changes:
