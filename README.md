@@ -38,4 +38,4 @@ R
 [bioconda]: https://bioconda.github.io/
 [conda]: https://conda.io/
 [r]: https://www.r-project.org/
-[singlecellexperiment]: http://bioconductor.org/packages/SingleCellExperiment/
+[singlecellexperiment]: https://bioconductor.org/packages/SingleCellExperiment/
