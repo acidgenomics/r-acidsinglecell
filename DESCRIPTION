@@ -51,6 +51,7 @@ Imports:
 Suggests:
     AcidDevTools (>= 0.7.3),
     AcidTest (>= 0.8.0),
+    AnnotationHub (>= 3.8.0),
     DESeq2 (>= 1.40.0),
     DropletUtils (>= 1.20.0),
     edgeR (>= 3.42.0),
