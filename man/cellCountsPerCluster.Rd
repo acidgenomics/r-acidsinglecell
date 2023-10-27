@@ -21,7 +21,7 @@ cellCountsPerCluster(object, ...)
 Cell counts per cluster
 }
 \note{
-Updated 2023-04-27.
+Updated 2023-10-27.
 }
 \examples{
 data(SingleCellExperiment_Seurat, package = "AcidTest")
