@@ -5,6 +5,7 @@
 Minor changes:
 
 - Migrated `indropsSampleIndexCounts` from koopa R package here.
+- Updated some internal `leftJoin` steps to ensure we don't type switch.
 
 ## AcidSingleCell 0.4.0 (2023-10-04)
 
