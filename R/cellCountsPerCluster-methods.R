@@ -1,6 +1,6 @@
 #' @name cellCountsPerCluster
 #' @inherit AcidGenerics::cellCountsPerCluster
-#' @note Updated 2023-04-27.
+#' @note Updated 2023-10-27.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -18,11 +18,13 @@ NULL
 
 
 
-## Updated 2022-05-05.
+## Updated 2023-10-27.
 `cellCountsPerCluster,SCE` <- # nolint
     function(object) {
-        validObject(object)
-        assert(hasClusters(object))
+        assert(
+            validObject(object),
+            hasClusters(object)
+        )
         interestingGroups <- interestingGroups(object)
         x <- metrics(object)
         ## Contingency table.
@@ -30,7 +32,7 @@ NULL
         ## Get the number of cells per ident.
         nPerIdent <- rowSums(tbl)
         nPerIdent <- DataFrame(
-            "ident" = names(nPerIdent),
+            "ident" = as.factor(names(nPerIdent)),
             "nPerIdent" = as.integer(nPerIdent)
         )
         ## Summarize to cluster/sample-level metadata.
