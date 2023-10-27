@@ -1,5 +1,5 @@
 lst <- AcidDevTools::cacheTestFiles(
-    pkg = .pkgName,
+    pkg = "AcidSingleCell",
     files = "sce_lanesplit.rds"
 )
 cacheDir <- lst[["cacheDir"]]
