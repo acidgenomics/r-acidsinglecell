@@ -115,9 +115,7 @@ NULL
         alert(sprintf("Filtering cells with {.fun %s}.", "filterCells"))
         ## Calculate metrics, if necessary.
         if (!hasMetrics(object, colData = c("nCount", "nFeature"))) {
-            ## nocov start
             object <- calculateMetrics(object = object, assay = assay)
-            ## nocov end
         }
         metrics <- colData(object)
         colnames(metrics) <- camelCase(colnames(metrics), strict = TRUE)
@@ -168,7 +166,7 @@ NULL
                 } else if (grepl("^max", x)) {
                     `<=`
                 } else {
-                    NULL # nocov
+                    NULL
                 }
             }
         )

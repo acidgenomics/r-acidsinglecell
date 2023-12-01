@@ -70,13 +70,11 @@ NULL
                 subset <- selectSamples(object, sampleId = sampleId)
                 ## Skip if subset doesn't have enough cells.
                 if (ncol(subset) < minCells) {
-                    ## nocov start
                     alertWarning(sprintf(
                         "{.val %s} didn't pass minimum cell cutoff.",
                         sampleId
                     ))
                     return(NULL)
-                    ## nocov end
                 }
                 if (isTRUE(assignAndSave)) {
                     assignAndSaveData(

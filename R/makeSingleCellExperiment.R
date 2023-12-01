@@ -32,11 +32,11 @@ makeSingleCellExperiment <-
              reducedDims = S4Vectors::SimpleList()) {
         assert(isAny(reducedDims, c("SimpleList", "list", "NULL")))
         if (!is(reducedDims, "SimpleList")) {
-            reducedDims <- SimpleList(reducedDims) # nocov
+            reducedDims <- SimpleList(reducedDims)
         }
         ## Don't enforce lower camel case here.
         if (hasLength(reducedDims)) {
-            assert(hasValidNames(reducedDims)) # nocov
+            assert(hasValidNames(reducedDims))
         }
         se <- makeSummarizedExperiment(...)
         assert(is(se, "SummarizedExperiment"))
