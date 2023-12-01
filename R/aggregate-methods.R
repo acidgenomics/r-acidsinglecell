@@ -89,7 +89,7 @@ NULL
         assert(isSubset(rownames(colData), names(c2s)))
         colData[[sampleCol]] <- c2s[rownames(colData)]
         if (isSubset("sampleName", colnames(colData))) {
-            colData[["sampleName"]] <- colData[[sampleCol]] # nocov
+            colData[["sampleName"]] <- colData[[sampleCol]]
         }
         colData(rse) <- colData
         ## Update the metadata.

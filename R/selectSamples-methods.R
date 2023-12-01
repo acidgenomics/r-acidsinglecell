@@ -46,22 +46,18 @@ NULL
             f = function(col, arg) {
                 ## Check that column is present.
                 if (!col %in% colnames(sampleData)) {
-                    ## nocov start
                     abort(sprintf(
                         "{.var %s} isn't present in {.fun %s}.",
                         col, "sampleData"
                     ))
-                    ## nocov end
                 }
                 ## Check that all items in argument are present.
                 if (!all(arg %in% sampleData[[col]])) {
-                    ## nocov start
                     missing <- arg[which(!arg %in% sampleData[[col]])]
                     abort(sprintf(
                         "{.var %s} metadata column doesn't contain: %s.",
                         col, toInlineString(missing, n = 5L)
                     ))
-                    ## nocov end
                 }
                 ## Get the sample ID matches.
                 keep <- sampleData[[col]] %in% arg
