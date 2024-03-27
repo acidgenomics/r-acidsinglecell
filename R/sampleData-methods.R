@@ -1,6 +1,6 @@
 #' @name sampleData
 #' @inherit AcidGenerics::sampleData
-#' @note Updated 2022-10-04.
+#' @note Updated 2023-03-27.
 #'
 #' @section SingleCellExperiment:
 #'
@@ -48,7 +48,7 @@ NULL
 
 
 ## Don't run validity checks here.
-## Updated 2021-02-22.
+## Updated 2024-03-27.
 `sampleData,SCE` <- # nolint
     function(object,
              clean = TRUE,
@@ -162,7 +162,7 @@ NULL
         factorToInteger <- function(x) {
             as.integer(factor(x, levels = unique(x)))
         }
-        ftable <- mutateAll(ftable, factorToInteger)
+        ftable <- mutateAll(object = ftable, fun = factorToInteger)
         trash <- !bapply(
             X = ftable,
             FUN = function(x) {
