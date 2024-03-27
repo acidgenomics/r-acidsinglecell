@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' markersDir <- system.file(
-#'     file.path("extdata", "markers"),
+#'     "extdata", "markers",
 #'     package = "AcidSingleCell"
 #' )
 #' cellCycleDir <- file.path(markersDir, "cell-cycle")
