@@ -49,11 +49,13 @@ markersDir <- system.file(
     file.path("extdata", "markers"),
     package = "AcidSingleCell"
 )
-
 cellCycleDir <- file.path(markersDir, "cell-cycle")
-files <- list.files(cellCycleDir, pattern = "*.csv", full.names = TRUE)
+files <- sort(list.files(
+    path = cellCycleDir,
+    pattern = "*.csv",
+    full.names = TRUE
+))
 file <- files[[1L]]
-
 organism <- syntactic::sentenceCase(
     gsub(
         pattern = "-",
@@ -61,15 +63,12 @@ organism <- syntactic::sentenceCase(
         x = AcidBase::basenameSansExt(file)
     )
 )
-
-## Ensembl release version.
 releaseFile <- file.path(markersDir, "ensembl-release.txt")
 release <- as.integer(readLines(releaseFile))
-
-x <- importCellCycleMarkers(
+object <- importCellCycleMarkers(
     file = file,
     organism = organism,
     release = release
 )
-print(x)
+print(object)
 }

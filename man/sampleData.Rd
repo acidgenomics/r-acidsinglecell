@@ -60,7 +60,7 @@ columns map to a single sample (e.g. cells for a single-cell RNA-seq
 experiment).
 }
 \note{
-Updated 2022-10-04.
+Updated 2023-03-27.
 }
 \section{SingleCellExperiment}{
 
