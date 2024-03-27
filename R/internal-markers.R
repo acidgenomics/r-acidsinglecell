@@ -41,7 +41,7 @@
         )
         x <- x[, sort(colnames(x)), drop = FALSE]
         x <- x[order(x[[group]], x[["geneName"]]), , drop = FALSE]
-        x <- mutateIf(x, is.character, as.factor)
+        x[[group]] <- as.factor(x[[group]])
         x <- split(x, f = x[[group]])
         names(x) <- snakeCase(names(x))
         ## Specific fix for G2/M input (cell-cycle markers).
