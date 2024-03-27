@@ -1,5 +1,17 @@
 # Release notes
 
+## AcidSingleCell 0.4.2 (2024-03-27)
+
+Minor changes:
+
+- `importCellCycleMarkers`, `importCellTypeMarkers`: reworked internal code to
+  no longer use `makeGeneToSymbolFromEnsembl`, which is slated to be removed in
+  the next AcidGenomes package update. Instead it is recommended to use
+  `makeGRangesFromEnsembl` to generate a `GRanges` object first, and then
+  generate `GeneToSymbol` in a secondary call.
+- Added code coverage for `CellCycleMarkers` and `CellTypeMarkers` generators.
+- Improved factor handling in `CellCycleMarkers` and `CellTypeMarkers` output.
+
 ## AcidSingleCell 0.4.1 (2023-10-27)
 
 Minor changes:

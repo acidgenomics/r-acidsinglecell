@@ -2,7 +2,7 @@ Package: AcidSingleCell
 Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
-Version: 0.4.2.9000
+Version: 0.4.2
 Date: 2024-03-27
 Authors@R: c(
     person(
