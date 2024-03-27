@@ -66,7 +66,8 @@ importCellTypeMarkers <-
         gr <- makeGRangesFromEnsembl(
             organism = organism,
             release = release,
-            ignoreVersion = ignoreVersion
+            ignoreVersion = ignoreVersion,
+            extraMcols = FALSE
         )
         geneToSymbol <- GeneToSymbol(gr)
         out <- CellTypeMarkers(
