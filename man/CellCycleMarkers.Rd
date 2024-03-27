@@ -46,7 +46,7 @@ Updated 2024-03-27.
 }
 \examples{
 markersDir <- system.file(
-    file.path("extdata", "markers"),
+    "extdata", "markers",
     package = "AcidSingleCell"
 )
 cellCycleDir <- file.path(markersDir, "cell-cycle")

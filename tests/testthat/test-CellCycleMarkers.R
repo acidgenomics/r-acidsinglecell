@@ -1,6 +1,6 @@
 test_that("importCellCycleMarkers", {
     markersDir <- system.file(
-        file.path("extdata", "markers"),
+        "extdata", "markers",
         package = .pkgName
     )
     cellCycleDir <- file.path(markersDir, "cell-cycle")
