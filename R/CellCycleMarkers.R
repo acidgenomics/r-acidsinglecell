@@ -1,10 +1,10 @@
 #' Cell-cycle markers
 #'
 #' @name CellCycleMarkers
-#' @note Updated 2021-03-02.
+#' @note Updated 2024-03-27.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @inheritParams AcidGenomes::makeGeneToSymbolFromEnsembl
+#' @inheritParams AcidGenomes::makeGRangesFromEnsembl
 #'
 #' @return `CellCycleMarkers`.
 #'
@@ -43,15 +43,14 @@ NULL
 #' @rdname CellCycleMarkers
 #' @export
 CellCycleMarkers <- # nolint
-    function(object, gene2symbol) {
+    function(object, geneToSymbol) {
         assert(is(object, "DFrame"))
-        class <- "CellCycleMarkers"
         data <- .CellMarkers(
             object = object,
-            gene2symbol = gene2symbol,
-            class = class
+            geneToSymbol = geneToSymbol,
+            class = "CellCycleMarkers"
         )
-        new(Class = class, data)
+        new(Class = "CellCycleMarkers", data)
     }
 
 
@@ -65,13 +64,15 @@ importCellCycleMarkers <-
              ignoreVersion = TRUE) {
         object <- import(file)
         object <- as(object, "DFrame")
-        gene2symbol <- makeGeneToSymbolFromEnsembl(
+        gr <- makeGRangesFromEnsembl(
             organism = organism,
             release = release,
             ignoreVersion = ignoreVersion
         )
-        CellCycleMarkers(
+        geneToSymbol <- GeneToSymbol(gr)
+        out <- CellCycleMarkers(
             object = object,
-            gene2symbol = gene2symbol
+            geneToSymbol = geneToSymbol
         )
+        out
     }
