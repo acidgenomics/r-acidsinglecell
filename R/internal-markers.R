@@ -1,11 +1,11 @@
-## Updated 2021-03-02.
+## Updated 2024-03-27.
 .CellMarkers <- # nolint
     function(object,
-             gene2symbol,
+             geneToSymbol,
              class = c("CellCycleMarkers", "CellTypeMarkers")) {
         assert(
             is(object, "DFrame"),
-            is(gene2symbol, "GeneToSymbol")
+            is(geneToSymbol, "GeneToSymbol")
         )
         class <- match.arg(class)
         group <- switch(
@@ -19,22 +19,24 @@
         x <- x[, cols]
         x <- x[complete.cases(x), , drop = FALSE]
         x <- unique(x)
-        ## Warn user about markers that aren't present in the gene2symbol. This
-        ## is useful for informing about putative markers that aren't expressed.
-        setdiff <- setdiff(x[["geneId"]], gene2symbol[["geneId"]])
+        ## Warn user about markers that aren't present in the gene-to-symbol
+        ## mappings. This is useful for informing about putative markers that
+        ## aren't expressed.
+        setdiff <- setdiff(x[["geneId"]], geneToSymbol[["geneId"]])
         if (hasLength(setdiff)) {
             alertWarning(sprintf(
-                "Markers missing from gene2symbol: %s.",
+                "Markers missing from {.cls %s}: %s.",
+                "GeneToSymbol",
                 toString(setdiff, width = 200L)
             ))
         }
-        intersect <- intersect(x[["geneId"]], gene2symbol[["geneId"]])
+        intersect <- intersect(x[["geneId"]], geneToSymbol[["geneId"]])
         assert(hasLength(intersect))
         keep <- x[["geneId"]] %in% intersect
         x <- x[keep, , drop = FALSE]
         x <- leftJoin(
             x = x,
-            y = as(gene2symbol, "DFrame"),
+            y = as(geneToSymbol, "DFrame"),
             by = "geneId"
         )
         x <- x[, sort(colnames(x)), drop = FALSE]
@@ -44,6 +46,6 @@
         names(x) <- snakeCase(names(x))
         ## Specific fix for G2/M input (cell-cycle markers).
         names(x) <- sub("g2_slash_m", "g2m", names(x))
-        metadata(x) <- metadata(gene2symbol)
+        metadata(x) <- metadata(geneToSymbol)
         x
     }

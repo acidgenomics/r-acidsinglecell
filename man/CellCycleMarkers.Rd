@@ -5,14 +5,14 @@
 \alias{importCellCycleMarkers}
 \title{Cell-cycle markers}
 \usage{
-CellCycleMarkers(object, gene2symbol)
+CellCycleMarkers(object, geneToSymbol)
 
 importCellCycleMarkers(file, organism, release, ignoreVersion = TRUE)
 }
 \arguments{
 \item{object}{Object.}
 
-\item{gene2symbol}{\code{GeneToSymbol}.
+\item{geneToSymbol}{\code{GeneToSymbol}.
 Gene-to-symbol mappings. Must contain \code{geneId} and \code{geneName} columns. See
 \code{GeneToSymbol} for more information.}
 
@@ -42,7 +42,7 @@ will be stored in \code{txId}, \code{txIdNoVersion}, \code{geneId}, and \code{ge
 Cell-cycle markers
 }
 \note{
-Updated 2021-03-02.
+Updated 2024-03-27.
 }
 \examples{
 markersDir <- system.file(

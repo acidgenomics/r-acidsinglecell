@@ -1,21 +1,21 @@
 #' Cell-type markers
 #'
 #' @name CellTypeMarkers
-#' @note Updated 2021-09-13.
+#' @note Updated 2024-03-27.
 #'
 #' @inheritParams AcidRoxygen::params
-#' @inheritParams AcidGenomes::makeGeneToSymbolFromEnsembl
+#' @inheritParams AcidGenomes::makeGRangesFromEnsembl
 #'
 #' @return `CellTypeMarkers`.
 #'
 #' @examples
-#' markers_dir <- system.file(
+#' markersDir <- system.file(
 #'     file.path("extdata", "markers"),
 #'     package = "AcidSingleCell"
 #' )
 #'
-#' cell_type_dir <- file.path(markers_dir, "cell-type")
-#' files <- list.files(cell_type_dir, pattern = "*.csv", full.names = TRUE)
+#' cellTypeDir <- file.path(markersDir, "cell-type")
+#' files <- list.files(cellTypeDir, pattern = "*.csv", full.names = TRUE)
 #' file <- files[[1L]]
 #'
 #' organism <- syntactic::sentenceCase(
@@ -27,8 +27,8 @@
 #' )
 #'
 #' ## Ensembl release version.
-#' release_file <- file.path(markers_dir, "ensembl-release.txt")
-#' release <- as.integer(readLines(release_file))
+#' releaseFile <- file.path(markersDir, "ensembl-release.txt")
+#' release <- as.integer(readLines(releaseFile))
 #'
 #' x <- importCellTypeMarkers(
 #'     file = file,
@@ -43,15 +43,14 @@ NULL
 #' @rdname CellTypeMarkers
 #' @export
 CellTypeMarkers <- # nolint
-    function(object, gene2symbol) {
+    function(object, geneToSymbol) {
         assert(is(object, "DFrame"))
-        class <- "CellTypeMarkers"
         data <- .CellMarkers(
             object = object,
-            gene2symbol = gene2symbol,
-            class = class
+            geneToSymbol = geneToSymbol,
+            class = "CellTypeMarkers"
         )
-        new(Class = class, data)
+        new(Class = "CellTypeMarkers", data)
     }
 
 
@@ -65,13 +64,15 @@ importCellTypeMarkers <-
              ignoreVersion = TRUE) {
         object <- import(file)
         object <- as(object, "DFrame")
-        gene2symbol <- makeGeneToSymbolFromEnsembl(
+        gr <- makeGRangesFromEnsembl(
             organism = organism,
             release = release,
             ignoreVersion = ignoreVersion
         )
-        CellTypeMarkers(
+        geneToSymbol <- GeneToSymbol(gr)
+        out <- CellTypeMarkers(
             object = object,
-            gene2symbol = gene2symbol
+            geneToSymbol = geneToSymbol
         )
+        out
     }

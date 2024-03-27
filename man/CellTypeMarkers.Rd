@@ -5,14 +5,14 @@
 \alias{importCellTypeMarkers}
 \title{Cell-type markers}
 \usage{
-CellTypeMarkers(object, gene2symbol)
+CellTypeMarkers(object, geneToSymbol)
 
 importCellTypeMarkers(file, organism, release, ignoreVersion = TRUE)
 }
 \arguments{
 \item{object}{Object.}
 
-\item{gene2symbol}{\code{GeneToSymbol}.
+\item{geneToSymbol}{\code{GeneToSymbol}.
 Gene-to-symbol mappings. Must contain \code{geneId} and \code{geneName} columns. See
 \code{GeneToSymbol} for more information.}
 
@@ -42,16 +42,16 @@ will be stored in \code{txId}, \code{txIdNoVersion}, \code{geneId}, and \code{ge
 Cell-type markers
 }
 \note{
-Updated 2021-09-13.
+Updated 2024-03-27.
 }
 \examples{
-markers_dir <- system.file(
+markersDir <- system.file(
     file.path("extdata", "markers"),
     package = "AcidSingleCell"
 )
 
-cell_type_dir <- file.path(markers_dir, "cell-type")
-files <- list.files(cell_type_dir, pattern = "*.csv", full.names = TRUE)
+cellTypeDir <- file.path(markersDir, "cell-type")
+files <- list.files(cellTypeDir, pattern = "*.csv", full.names = TRUE)
 file <- files[[1L]]
 
 organism <- syntactic::sentenceCase(
@@ -63,8 +63,8 @@ organism <- syntactic::sentenceCase(
 )
 
 ## Ensembl release version.
-release_file <- file.path(markers_dir, "ensembl-release.txt")
-release <- as.integer(readLines(release_file))
+releaseFile <- file.path(markersDir, "ensembl-release.txt")
+release <- as.integer(readLines(releaseFile))
 
 x <- importCellTypeMarkers(
     file = file,
