@@ -21,8 +21,10 @@ sce_seurat <- SingleCellExperiment_Seurat
 SingleCellExperiment <- SingleCellExperiment::SingleCellExperiment
 aggregateCols <- AcidExperiment::aggregateCols
 aggregateRows <- AcidExperiment::aggregateRows
+basenameSansExt <- AcidBase::basenameSansExt
 logcounts <- SingleCellExperiment::logcounts
 rowData <- SummarizedExperiment::rowData
+sentenceCase <- syntactic::sentenceCase
 simpleClass <- AcidBase::simpleClass
 strPad <- AcidBase::strPad
 tempdir2 <- AcidBase::tempdir2
