@@ -29,7 +29,7 @@ NULL
 #' cellTypesPerCluster cpm clusters convertSampleIdsToNames diffExp
 #' diffExpPerCluster droplevels2 encode export filterCells findMarkers
 #' geometricMean import interestingGroups leftJoin melt metrics metricsPerSample
-#' mutateAll mutateIf sampleData sampleData<- selectSamples snakeCase
+#' mutateAll sampleData sampleData<- selectSamples snakeCase
 #' subsetPerSample topCellsPerSample uniteInterestingGroups zerosVsDepth
 #' @importFrom Biobase sampleNames
 #' @importFrom BiocGenerics combine counts counts<- do.call estimateSizeFactors
@@ -50,7 +50,7 @@ NULL
 #' droplevels2 encode estimateSizeFactors export interestingGroups
 #' matchSampleColumn melt metrics sampleData sampleData<- sampleNames
 #' selectSamples uniteInterestingGroups
-#' @importMethodsFrom AcidPlyr leftJoin melt mutateAll mutateIf
+#' @importMethodsFrom AcidPlyr leftJoin melt mutateAll
 #' @importMethodsFrom pipette droplevels2 export import
 #' @importMethodsFrom syntactic camelCase snakeCase
 NULL
