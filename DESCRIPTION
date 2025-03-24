@@ -2,8 +2,8 @@ Package: AcidSingleCell
 Title: Acid Genomics Single Cell Experiment
 Description: Toolkit for single-cell RNA-seq analysis that extends the
     functionality of SingleCellExperiment.
-Version: 0.4.2
-Date: 2024-03-27
+Version: 0.4.3
+Date: 2025-03-24
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -27,40 +27,40 @@ URL:
 BugReports: https://github.com/acidgenomics/r-acidsinglecell/issues/
 License: AGPL-3
 Encoding: UTF-8
-Depends: R (>= 4.3)
+Depends: R (>= 4.0)
 Imports:
-    AcidBase (>= 0.7.3),
-    AcidCLI (>= 0.3.0),
-    AcidExperiment (>= 0.5.4),
-    AcidGenerics (>= 0.7.7),
-    AcidGenomes (>= 0.7.2),
-    AcidPlyr (>= 0.5.4),
-    Biobase (>= 2.62.0),
-    BiocGenerics (>= 0.48.0),
-    IRanges (>= 2.36.0),
-    Matrix (>= 1.6.5),
-    S4Vectors (>= 0.40.0),
-    SingleCellExperiment (>= 1.24.0),
-    SummarizedExperiment (>= 1.32.0),
-    goalie (>= 0.7.7),
-    pipette (>= 0.15.2),
-    syntactic (>= 0.7.1),
+    AcidBase,
+    AcidCLI,
+    AcidExperiment,
+    AcidGenerics,
+    AcidGenomes,
+    AcidPlyr,
+    Biobase,
+    BiocGenerics,
+    IRanges,
+    Matrix,
+    S4Vectors,
+    SingleCellExperiment,
+    SummarizedExperiment,
+    goalie,
     methods,
+    pipette,
     stats,
+    syntactic,
     utils
 Suggests:
-    AcidDevTools (>= 0.7.4),
-    AcidTest (>= 0.9.0),
-    AnnotationHub (>= 3.10.0),
-    DESeq2 (>= 1.42.0),
-    DropletUtils (>= 1.22.0),
-    edgeR (>= 4.0.0),
-    ensembldb (>= 2.26.0),
-    scuttle (>= 1.12.0),
-    testthat (>= 3.2.1),
-    withr (>= 3.0.0)
+    AcidDevTools,
+    AcidTest,
+    AnnotationHub,
+    DESeq2,
+    DropletUtils,
+    edgeR,
+    ensembldb,
+    scuttle,
+    testthat,
+    withr
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 biocViews: Infrastructure, SingleCell

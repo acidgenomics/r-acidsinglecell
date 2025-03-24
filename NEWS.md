@@ -1,5 +1,11 @@
 # Release notes
 
+## AcidSingleCell 0.4.3 (2025-03-24)
+
+Minor changes:
+
+- Decreased R dependency from 4.3 to 4.0.
+
 ## AcidSingleCell 0.4.2 (2024-03-27)
 
 Minor changes:
