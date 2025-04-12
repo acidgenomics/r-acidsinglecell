@@ -1,7 +1,7 @@
 #' @name barcodeRanksPerSample
 #' @inherit AcidGenerics::barcodeRanksPerSample
 #' @note Requires DropletUtils package to be installed.
-#' @note Updated 2022-03-02.
+#' @note Updated 2025-04-12.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Passthrough arguments to `DropletUtils::barcodeRanks()`.
@@ -32,7 +32,7 @@ NULL
 
 
 
-## Updated 2021-09-13.
+## Updated 2025-04-12.
 `barcodeRanksPerSample,SCE` <- # nolint
     function(object,
              assay = 1L,
@@ -75,9 +75,11 @@ NULL
                 ## Check DropletUtils return.
                 assert(
                     is(x, "DFrame"),
-                    identical(
-                        x = colnames(x),
-                        y = c("rank", "total", "fitted")
+                    ## Note that "fitted" column removed in DropletUtils 1.27
+                    ## release, so adjusted the assert check here.
+                    isSubset(
+                        x = c("rank", "total"),
+                        y = colnames(x)
                     ),
                     isSubset(
                         x = names(metadata(x)),
