@@ -1,5 +1,12 @@
 # Release notes
 
+## AcidSingleCell 0.4.4 (2025-04-12)
+
+Minor changes
+
+- `barcodeRanksPerSample`: Updated assert check to no longer require `"fitted"`
+  column, which was removed in DropletUtils 1.27 update.
+
 ## AcidSingleCell 0.4.3 (2025-03-24)
 
 Minor changes:
