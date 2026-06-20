@@ -47,14 +47,15 @@
 NULL
 
 
-
 ## Updated 2019-08-11.
 `subsetPerSample,SCE` <- # nolint
-    function(object,
-             minCells = 1L,
-             assignAndSave = FALSE,
-             envir = parent.frame(),
-             dir = getwd()) {
+    function(
+        object,
+        minCells = 1L,
+        assignAndSave = FALSE,
+        envir = parent.frame(),
+        dir = getwd()
+    ) {
         assert(
             isInt(minCells),
             isPositive(minCells),
@@ -102,7 +103,6 @@ NULL
             return
         }
     }
-
 
 
 #' @rdname subsetPerSample

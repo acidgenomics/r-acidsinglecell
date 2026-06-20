@@ -5,5 +5,5 @@ test_that("SCE", {
     object <- normalize(object)
     expect_s4_class(object, "SingleCellExperiment")
     expect_s4_class(logcounts(object), "Matrix")
-    expect_true(is.numeric(sizeFactors(object)))
+    expect_type(sizeFactors(object), "double")
 })

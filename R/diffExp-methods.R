@@ -112,7 +112,6 @@
 NULL
 
 
-
 #' Does the object contain a design formula?
 #'
 #' @note Updated 2019-07-31.
@@ -124,7 +123,6 @@ NULL
         is.matrix(metadata(object)[["design"]])
     )
 }
-
 
 
 #' Differential expression with DESeq2
@@ -161,7 +159,6 @@ NULL
 }
 
 
-
 #' Differential expression with edgeR
 #'
 #' @note Updated 2023-08-17.
@@ -184,14 +181,13 @@ NULL
     assert(is.matrix(design))
     group <- object[["group"]]
     assert(is.factor(group))
-    dge <- edgeR::DGEList(counts, group = group)
-    dge <- edgeR::calcNormFactors(dge)
-    dge <- edgeR::estimateDisp(dge, design = design)
-    fit <- edgeR::glmFit(dge, design = design)
-    lrt <- edgeR::glmLRT(glmfit = fit, coef = 2L)
+    dge <- edgeR::DGEList(counts, group = group) # nolint
+    dge <- edgeR::calcNormFactors(dge) # nolint
+    dge <- edgeR::estimateDisp(dge, design = design) # nolint
+    fit <- edgeR::glmFit(dge, design = design) # nolint
+    lrt <- edgeR::glmLRT(glmfit = fit, coef = 2L) # nolint
     lrt
 }
-
 
 
 #' Underpowered contrast warning
@@ -199,9 +195,11 @@ NULL
 #' @note Updated 2023-08-17.
 #' @noRd
 .underpoweredContrast <- function() {
-    warning("Skipping DE. Underpowered contrast (not enough cells).")
+    warning(
+        "Skipping DE. Underpowered contrast (not enough cells).",
+        call. = FALSE
+    )
 }
-
 
 
 #' Differential expression of SingleCellExperiment class
@@ -209,13 +207,15 @@ NULL
 #' @note Updated 2023-08-17.
 #' @noRd
 `diffExp,SCE` <- # nolint
-    function(object,
-             numerator,
-             denominator,
-             caller = c("edgeR", "DESeq2"),
-             minCells = 2L,
-             minCellsPerGene = 1L,
-             minCountsPerCell = 1L) {
+    function(
+        object,
+        numerator,
+        denominator,
+        caller = c("edgeR", "DESeq2"),
+        minCells = 2L,
+        minCellsPerGene = 1L,
+        minCountsPerCell = 1L
+    ) {
         ## Coerce to standard SCE to ensure fast subsetting.
         object <- as(object, "SingleCellExperiment")
         assert(
@@ -360,7 +360,6 @@ NULL
         args <- list("object" = object)
         do.call(what = what, args = args)
     }
-
 
 
 #' @rdname diffExp

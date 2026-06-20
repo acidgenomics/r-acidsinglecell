@@ -41,14 +41,9 @@
 NULL
 
 
-
 ## Updated 2020-01-30.
 `diffExpPerCluster,SCE` <- # nolint
-    function(object,
-             group,
-             numerator,
-             denominator,
-             ...) {
+    function(object, group, numerator, denominator, ...) {
         alert("Running differential expression per cluster.")
         object <- as(object, "SingleCellExperiment")
         ## group
@@ -101,7 +96,6 @@ NULL
         names(list) <- clusters
         list
     }
-
 
 
 #' @rdname diffExpPerCluster

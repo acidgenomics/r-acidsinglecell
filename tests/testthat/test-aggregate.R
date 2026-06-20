@@ -28,13 +28,14 @@ test_that("SingleCellExperiment", {
 test_that("Aggregation methods defined in AcidExperiment", {
     object <- sce_lanesplit
     rowData(object)[["aggregate"]] <- as.factor("AAA")
-    for (object in list(
+    objects <- list(
         aggregate(object, MARGIN = 1L),
         aggregate(object, MARGIN = 2L),
         aggregateRows(object),
         aggregateCols(object)
-    )) {
-        expect_s4_class(object, "SingleCellExperiment")
+    )
+    for (obj in objects) {
+        expect_s4_class(obj, "SingleCellExperiment")
     }
 })
 

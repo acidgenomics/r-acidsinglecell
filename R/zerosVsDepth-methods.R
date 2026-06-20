@@ -17,7 +17,6 @@
 NULL
 
 
-
 ## Updated 2019-07-22.
 `zerosVsDepth,matrix` <- # nolint
     function(object) {
@@ -28,7 +27,6 @@ NULL
             row.names = colnames(object)
         )
     }
-
 
 
 ## Using a logical matrix is faster and more memory efficient.
@@ -44,7 +42,6 @@ NULL
     }
 
 
-
 ## Updated 2019-08-06.
 `zerosVsDepth,SE` <- # nolint
     function(object, assay = 1L) {
@@ -58,7 +55,6 @@ NULL
         )
         cbind(data, sampleData)
     }
-
 
 
 ## Updated 2019-08-11.
@@ -81,7 +77,6 @@ NULL
         )
         out
     }
-
 
 
 #' @rdname zerosVsDepth

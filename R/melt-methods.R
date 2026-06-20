@@ -17,7 +17,6 @@
 NULL
 
 
-
 ## Updated 2023-10-27.
 `melt,SCE` <- # nolint
     function(object) {
@@ -50,7 +49,6 @@ formals(`melt,SCE`) <- # nolint
         signature = "SummarizedExperiment",
         package = "AcidExperiment"
     )
-
 
 
 #' @rdname melt

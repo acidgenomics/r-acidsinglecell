@@ -20,12 +20,9 @@
 NULL
 
 
-
 ## Updated 2021-10-15.
 `cellTypesPerCluster,KnownMarkers` <- # nolint
-    function(object,
-             min = 1L,
-             max = Inf) {
+    function(object, min = 1L, max = Inf) {
         validObject(object)
         assert(
             isSubset(
@@ -90,7 +87,6 @@ NULL
         x <- droplevels2(x)
         x
     }
-
 
 
 #' @rdname cellTypesPerCluster

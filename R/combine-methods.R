@@ -38,7 +38,6 @@
 NULL
 
 
-
 ## Updated 2019-08-27.
 `combine,SCE` <- # nolint
     function(x, y) {
@@ -52,7 +51,6 @@ NULL
         validObject(sce)
         sce
     }
-
 
 
 #' @rdname combine

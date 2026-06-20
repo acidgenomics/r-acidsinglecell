@@ -29,12 +29,9 @@
 NULL
 
 
-
 ## Updated 2022-10-24.
 `findMarkers,SCE` <- # nolint
-    function(object,
-             clusters = NULL,
-             ...) {
+    function(object, clusters = NULL, ...) {
         assert(isCharacter(clusters, nullOk = TRUE))
         alert("Finding markers.")
         object <- as(object, "SingleCellExperiment")
@@ -43,7 +40,7 @@ NULL
         ident <- clusters(object)
         assert(is.factor(ident), hasNames(ident))
         assert(
-            length(levels(ident)) >= 2L,
+            nlevels(ident) >= 2L,
             msg = "Object does not contain 2 or more clusters."
         )
         if (is.null(clusters)) {
@@ -83,7 +80,6 @@ NULL
         names(list) <- clusters
         list
     }
-
 
 
 #' @rdname findMarkers
