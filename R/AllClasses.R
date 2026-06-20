@@ -28,7 +28,6 @@ setValidity(
 )
 
 
-
 #' Cell-type markers
 #'
 #' Data provenence information, including the organism and Ensembl release are
@@ -57,7 +56,6 @@ setValidity(
         )
     }
 )
-
 
 
 #' Known markers

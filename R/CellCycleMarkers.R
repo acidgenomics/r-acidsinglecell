@@ -38,7 +38,6 @@
 NULL
 
 
-
 #' @rdname CellCycleMarkers
 #' @export
 CellCycleMarkers <- # nolint
@@ -53,14 +52,10 @@ CellCycleMarkers <- # nolint
     }
 
 
-
 #' @rdname CellCycleMarkers
 #' @export
 importCellCycleMarkers <-
-    function(file,
-             organism,
-             release,
-             ignoreVersion = TRUE) {
+    function(file, organism, release, ignoreVersion = TRUE) {
         object <- import(file)
         object <- as(object, "DFrame")
         gr <- makeGRangesFromEnsembl(

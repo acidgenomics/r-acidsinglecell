@@ -2,7 +2,6 @@
 .pkgVersion <- packageVersion(.pkgName)
 
 
-
 #' AcidSingleCell test data URL
 #'
 #' @export

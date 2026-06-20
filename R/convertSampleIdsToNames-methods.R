@@ -14,7 +14,6 @@
 NULL
 
 
-
 ## Updated 2021-02-02.
 `convertSampleIdsToNames,SCE` <- # nolint
     function(object) {
@@ -27,7 +26,6 @@ NULL
         ))
         object
     }
-
 
 
 #' @rdname convertSampleIdsToNames

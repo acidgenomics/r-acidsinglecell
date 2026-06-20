@@ -1,5 +1,16 @@
 # Release notes
 
+## AcidSingleCell 0.4.5 (2026-06-19)
+
+License changes:
+
+- Relicensed from AGPL-3 to Apache 2.0.
+
+Minor changes:
+
+- Modernized tooling: removed per-package `.lintr` in favour of global
+  `~/.lintr`; added `air.toml`; migrated to roxygen2 8.0.
+
 ## AcidSingleCell 0.4.4 (2025-04-12)
 
 Minor changes

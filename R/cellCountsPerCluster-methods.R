@@ -17,7 +17,6 @@
 NULL
 
 
-
 ## Updated 2023-10-27.
 `cellCountsPerCluster,SCE` <- # nolint
     function(object) {
@@ -37,8 +36,11 @@ NULL
         )
         ## Summarize to cluster/sample-level metadata.
         cols <- unique(c(
-            "ident", "sampleId", "sampleName",
-            interestingGroups, "interestingGroups"
+            "ident",
+            "sampleId",
+            "sampleName",
+            interestingGroups,
+            "interestingGroups"
         ))
         x <- unique(x[, cols, drop = FALSE])
         rownames(x) <- NULL
@@ -51,7 +53,6 @@ NULL
         x[["ratio"]] <- x[["n"]] / x[["nPerIdent"]]
         x
     }
-
 
 
 #' @rdname cellCountsPerCluster

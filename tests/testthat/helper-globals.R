@@ -1,6 +1,6 @@
 ## nolint start
 
-data(
+utils::data(
     KnownMarkers,
     RangedSummarizedExperiment,
     SingleCellExperiment_Seurat,

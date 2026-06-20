@@ -19,8 +19,10 @@
 #' mapCellsToSamples(cells, samples)
 mapCellsToSamples <- function(cells, samples) {
     assert(
-        isCharacter(cells), hasNoDuplicates(cells),
-        isCharacter(samples), hasNoDuplicates(samples)
+        isCharacter(cells),
+        hasNoDuplicates(cells),
+        isCharacter(samples),
+        hasNoDuplicates(samples)
     )
     ## Early return as simple factor for single sample.
     ## This code is useful for working with some example objects (e.g. PBMC).
@@ -39,7 +41,8 @@ mapCellsToSamples <- function(cells, samples) {
         assert(
             !all(is.na(match[, 1L])),
             msg = sprintf(
-                "'%s' sample failed to match any cells.", sample
+                "'%s' sample failed to match any cells.",
+                sample
             )
         )
         ## Trailing number is for matching Cell Ranger output.

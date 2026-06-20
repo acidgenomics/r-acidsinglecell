@@ -19,7 +19,6 @@
 NULL
 
 
-
 ## Updated 2022-05-04.
 `metrics,SCE` <- # nolint
     function(object) {
@@ -45,11 +44,9 @@ NULL
     }
 
 
-
 ## Updated 2022-05-05.
 `metricsPerSample,SCE` <- # nolint
-    function(object,
-             fun = c("mean", "median", "sum")) {
+    function(object, fun = c("mean", "median", "sum")) {
         fun <- match.arg(fun)
         alert(sprintf("Calculating %s per sample.", fun))
         FUN <- get(fun, inherits = TRUE) # nolint
@@ -67,8 +64,10 @@ NULL
                         "'%s' method only applies to '%s' columns ",
                         "prefixed with '%s' (e.g. '%s')."
                     ),
-                    "sum()", "colData()",
-                    "n", "nCount"
+                    "sum()",
+                    "colData()",
+                    "n",
+                    "nCount"
                 )
             )
             ## Sum only the `n*` columns containing counts.
@@ -92,7 +91,6 @@ NULL
         data <- cbind(sampleData, data)
         data
     }
-
 
 
 #' @describeIn metrics Cell-level metrics.
