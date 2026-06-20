@@ -30,22 +30,12 @@ test_that("findMarkers", {
     ## edgeR.
     x <- findMarkers(object, caller = "edgeR")
     expect_type(x, "list")
-    invisible(lapply(
-        X = x,
-        FUN = function(x) {
-            expect_s4_class(x, "DGELRT")
-        }
-    ))
+    invisible(lapply(X = x, FUN = expect_s4_class, "DGELRT"))
     ## DESeq2. Slow for large datasets.
     ## Expecting warning about degenerate design matrix.
     suppressWarnings({
         x <- findMarkers(object, caller = "DESeq2")
     })
     expect_type(x, "list")
-    invisible(lapply(
-        X = x,
-        FUN = function(x) {
-            expect_s4_class(x, "DESeqResults")
-        }
-    ))
+    invisible(lapply(X = x, FUN = expect_s4_class, "DESeqResults"))
 })

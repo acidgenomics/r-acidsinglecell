@@ -20,9 +20,7 @@
 #' @examples
 #' ## > indropsSampleIndexCounts(dir = file.path("indrops", "fastq"))
 indropsSampleIndexCounts <-
-    function(dir,
-             r3Pattern = "_R3\\.fastq\\.gz$",
-             n = 24L) {
+    function(dir, r3Pattern = "_R3\\.fastq\\.gz$", n = 24L) {
         assert(
             isADir(dir),
             isString(r3Pattern),
@@ -39,7 +37,8 @@ indropsSampleIndexCounts <-
             hasLength(files),
             msg = sprintf(
                 "Failed to match any R3 FASTQ files with '%s' pattern in '%s'.",
-                r3Pattern, dir
+                r3Pattern,
+                dir
             )
         )
         alert(sprintf(

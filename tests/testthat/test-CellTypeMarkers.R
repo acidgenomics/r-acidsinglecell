@@ -1,6 +1,7 @@
 test_that("importCellTypeMarkers", {
     markersDir <- system.file(
-        "extdata", "markers",
+        "extdata",
+        "markers",
         package = .pkgName
     )
     cellTypeDir <- file.path(markersDir, "cell-type")
@@ -14,21 +15,19 @@ test_that("importCellTypeMarkers", {
         gsub(
             pattern = "-",
             replacement = " ",
-            x = basenameSansExt(file)
+            x = basenameSansExt(file),
+            fixed = TRUE
         )
     )
     releaseFile <- file.path(markersDir, "ensembl-release.txt")
     release <- as.integer(readLines(releaseFile))
-    object <- with_collate(
-        new = "C",
-        code = {
-            importCellTypeMarkers(
-                file = file,
-                organism = organism,
-                release = release
-            )
-        }
-    )
+    object <- with_collate(new = "C", code = {
+        importCellTypeMarkers(
+            file = file,
+            organism = organism,
+            release = release
+        )
+    })
     expect_s4_class(object, "CellTypeMarkers")
     expect_named(
         object = object,

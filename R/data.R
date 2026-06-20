@@ -9,7 +9,6 @@
 "cellCycleMarkersList"
 
 
-
 #' Cell-type markers list
 #'
 #' @note Updated 2021-03-03.

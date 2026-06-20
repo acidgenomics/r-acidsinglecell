@@ -19,7 +19,6 @@
 NULL
 
 
-
 ## Updated 2023-09-26.
 `aggregateCellsToSamples,SCE` <- # nolint
     function(x) {
@@ -41,7 +40,6 @@ NULL
             MARGIN = 2L
         )
     }
-
 
 
 #' @rdname aggregateCellsToSamples

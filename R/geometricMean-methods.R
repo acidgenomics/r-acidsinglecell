@@ -15,7 +15,6 @@
 NULL
 
 
-
 ## Updated 2022-10-24.
 `geometricMean,sparseMatrix` <- # nolint
     methodFunction(
@@ -23,7 +22,6 @@ NULL
         signature = "matrix",
         package = "AcidBase"
     )
-
 
 
 #' @rdname geometricMean

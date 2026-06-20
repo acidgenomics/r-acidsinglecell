@@ -16,7 +16,6 @@
 NULL
 
 
-
 ## Updated 2019-08-19.
 `selectSamples,SCE` <- # nolint
     function(object, ...) {
@@ -48,7 +47,8 @@ NULL
                 if (!col %in% colnames(sampleData)) {
                     abort(sprintf(
                         "{.var %s} isn't present in {.fun %s}.",
-                        col, "sampleData"
+                        col,
+                        "sampleData"
                     ))
                 }
                 ## Check that all items in argument are present.
@@ -56,7 +56,8 @@ NULL
                     missing <- arg[which(!arg %in% sampleData[[col]])]
                     abort(sprintf(
                         "{.var %s} metadata column doesn't contain: %s.",
-                        col, toInlineString(missing, n = 5L)
+                        col,
+                        toInlineString(missing, n = 5L)
                     ))
                 }
                 ## Get the sample ID matches.
@@ -99,7 +100,6 @@ NULL
         metadata(object)[["selectSamples"]] <- TRUE
         object
     }
-
 
 
 #' @rdname selectSamples

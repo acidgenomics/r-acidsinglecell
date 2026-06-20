@@ -18,7 +18,6 @@
 NULL
 
 
-
 ## Updated 2021-02-13.
 `topCellsPerSample,SCE` <- # nolint
     function(object, n = 100L) {
@@ -45,7 +44,6 @@ NULL
             }
         )
     }
-
 
 
 #' @rdname topCellsPerSample

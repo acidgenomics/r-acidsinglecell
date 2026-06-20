@@ -23,7 +23,6 @@
 NULL
 
 
-
 #' Aggregate cellular barcodes across columns
 #'
 #' @note Updated 2022-05-24.
@@ -98,13 +97,10 @@ NULL
     }
 
 
-
 ## Updated 2023-08-17.
 `aggregate,SCE` <- # nolint
-    function(x,
-             col = "aggregate",
-             fun = "sum",
-             MARGIN = 1L) { # nolint
+    function(x, col = "aggregate", fun = "sum", MARGIN = 1L) {
+        # nolint
         assert(
             isInt(MARGIN),
             isInRange(MARGIN, lower = 1L, upper = 2L)
@@ -129,7 +125,6 @@ NULL
         assert(is(se, "SummarizedExperiment"))
         as(se, "SingleCellExperiment")
     }
-
 
 
 #' @rdname aggregate

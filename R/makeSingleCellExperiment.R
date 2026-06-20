@@ -28,8 +28,7 @@
 #' sce <- do.call(what = makeSingleCellExperiment, args = args)
 #' print(sce)
 makeSingleCellExperiment <-
-    function(...,
-             reducedDims = S4Vectors::SimpleList()) {
+    function(..., reducedDims = S4Vectors::SimpleList()) {
         assert(isAny(reducedDims, c("SimpleList", "list", "NULL")))
         if (!is(reducedDims, "SimpleList")) {
             reducedDims <- SimpleList(reducedDims)

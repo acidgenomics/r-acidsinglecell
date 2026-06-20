@@ -38,7 +38,6 @@
 NULL
 
 
-
 #' @rdname CellTypeMarkers
 #' @export
 CellTypeMarkers <- # nolint
@@ -53,14 +52,10 @@ CellTypeMarkers <- # nolint
     }
 
 
-
 #' @rdname CellTypeMarkers
 #' @export
 importCellTypeMarkers <-
-    function(file,
-             organism,
-             release,
-             ignoreVersion = TRUE) {
+    function(file, organism, release, ignoreVersion = TRUE) {
         object <- import(file)
         object <- as(object, "DFrame")
         gr <- makeGRangesFromEnsembl(

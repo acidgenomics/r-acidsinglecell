@@ -46,27 +46,28 @@
 NULL
 
 
-
 ## Don't run validity checks here.
 ## Updated 2024-03-27.
 `sampleData,SCE` <- # nolint
-    function(object,
-             clean = TRUE,
-             ignoreCols = c(
-                 "^description$",
-                 "^genomeBuild$",
-                 "^qualityFormat$",
-                 "^samRef$"
-             ),
-             denylistCols = c(
-                 "^ident$",
-                 "^g2mScore$",
-                 "^sScore$",
-                 "^phase$",
-                 "^oldIdent$",
-                 "^origIdent$",
-                 "^res[0-9]+"
-             )) {
+    function(
+        object,
+        clean = TRUE,
+        ignoreCols = c(
+            "^description$",
+            "^genomeBuild$",
+            "^qualityFormat$",
+            "^samRef$"
+        ),
+        denylistCols = c(
+            "^ident$",
+            "^g2mScore$",
+            "^sScore$",
+            "^phase$",
+            "^oldIdent$",
+            "^origIdent$",
+            "^res[0-9]+"
+        )
+    ) {
         data <- colData(object)
         if (!hasRows(data)) {
             return(data)
@@ -212,7 +213,6 @@ NULL
     }
 
 
-
 ## Updated 2023-10-04.
 `sampleData<-,SCE,DFrame` <- # nolint
     function(object, value) {
@@ -224,8 +224,7 @@ NULL
         value[["sampleId"]] <- as.factor(rownames(value))
         colData <- colData(object)
         assert(isSubset("sampleId", colnames(colData)))
-        colData <- colData[
-            ,
+        colData <- colData[,
             c("sampleId", setdiff(colnames(colData), colnames(value))),
             drop = FALSE
         ]
@@ -240,7 +239,6 @@ NULL
     }
 
 
-
 #' @rdname sampleData
 #' @export
 setMethod(
@@ -248,7 +246,6 @@ setMethod(
     signature = signature(object = "SingleCellExperiment"),
     definition = `sampleData,SCE`
 )
-
 
 
 #' @rdname sampleData

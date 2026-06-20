@@ -21,7 +21,6 @@
 NULL
 
 
-
 ## nolint start
 ## Ensure we muffle this warning:
 ## > Warning in smooth.spline(x[new.keep], y[new.keep], df = df, ...) :
@@ -30,13 +29,9 @@ NULL
 ## > -> smooth.spline
 ## nolint end
 
-
-
 ## Updated 2025-04-12.
 `barcodeRanksPerSample,SCE` <- # nolint
-    function(object,
-             assay = 1L,
-             ...) {
+    function(object, assay = 1L, ...) {
         assert(isScalar(assay))
         requireNamespaces("DropletUtils")
         counts <- assay(object, i = assay)
@@ -59,13 +54,16 @@ NULL
             FUN = function(counts) {
                 x <- withCallingHandlers(
                     expr = {
-                        DropletUtils::barcodeRanks(m = counts, ...)
+                        DropletUtils::barcodeRanks(m = counts, ...) # nolint
                     },
                     warning = function(w) {
-                        if (isTRUE(grepl(
-                            pattern = "invalid df",
-                            x = as.character(w)
-                        ))) {
+                        if (
+                            isTRUE(grepl(
+                                pattern = "invalid df",
+                                x = as.character(w),
+                                fixed = TRUE
+                            ))
+                        ) {
                             invokeRestart("muffleWarning")
                         } else {
                             w
@@ -92,7 +90,6 @@ NULL
         out <- DataFrameList(out)
         out
     }
-
 
 
 #' @rdname barcodeRanksPerSample
