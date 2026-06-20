@@ -19,7 +19,6 @@
 NULL
 
 
-
 ## Updated 2022-03-02.
 `show,CellCycleMarkers` <- # nolint
     function(object) {
@@ -48,7 +47,6 @@ NULL
     }
 
 
-
 ## Updated 2022-03-02.
 `show,CellTypeMarkers` <- # nolint
     function(object) {
@@ -75,7 +73,6 @@ NULL
         )
         cat(return, sep = "\n")
     }
-
 
 
 #' @rdname show

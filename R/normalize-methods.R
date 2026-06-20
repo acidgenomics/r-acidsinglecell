@@ -40,7 +40,6 @@
 NULL
 
 
-
 #' Normalize a SingleCellExperiment
 #'
 #' @note Updated 2021-10-15.
@@ -75,9 +74,10 @@ NULL
                     "{.pkg %s}::{.fun %s}."
                 ),
                 "sizeFactors",
-                "scuttle", "computeLibraryFactors"
+                "scuttle",
+                "computeLibraryFactors"
             ))
-            object <- scuttle::computeLibraryFactors(object)
+            object <- scuttle::computeLibraryFactors(object) # nolint
         }
         if (!isSubset("logcounts", assayNames(object))) {
             alert(sprintf(
@@ -86,9 +86,10 @@ NULL
                     "{.pkg %s}::{.fun %s}."
                 ),
                 "logcounts",
-                "scuttle", "logNormCounts"
+                "scuttle",
+                "logNormCounts"
             ))
-            object <- scuttle::logNormCounts(object)
+            object <- scuttle::logNormCounts(object) # nolint
         }
         assert(
             !is.null(sizeFactors(object)),
@@ -96,7 +97,6 @@ NULL
         )
         object
     }
-
 
 
 #' @rdname normalize

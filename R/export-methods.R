@@ -23,14 +23,9 @@
 NULL
 
 
-
 ## Updated 2023-09-20.
 `export,SCE` <- # nolint
-    function(object,
-             con,
-             compress = FALSE,
-             overwrite = TRUE,
-             quiet = FALSE) {
+    function(object, con, compress = FALSE, overwrite = TRUE, quiet = FALSE) {
         assert(
             validObject(object),
             isString(con),
@@ -89,7 +84,6 @@ NULL
         assert(hasNames(files))
         invisible(files)
     }
-
 
 
 #' @rdname export

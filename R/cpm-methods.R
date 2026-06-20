@@ -22,7 +22,6 @@
 NULL
 
 
-
 ## Updated 2021-10-15.
 `cpm,SCE` <- # nolint
     function(object) {
@@ -36,14 +35,14 @@ NULL
         )
         alert(sprintf(
             "Calculating CPM with {.pkg %s}::{.fun %s}.",
-            "scuttle", "calculateCPM"
+            "scuttle",
+            "calculateCPM"
         ))
         requireNamespaces("scuttle")
-        out <- scuttle::calculateCPM(object)
+        out <- scuttle::calculateCPM(object) # nolint
         assert(is(out, "sparseMatrix"))
         out
     }
-
 
 
 #' @rdname cpm

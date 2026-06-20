@@ -1,8 +1,10 @@
 ## Updated 2024-03-27.
 .CellMarkers <- # nolint
-    function(object,
-             geneToSymbol,
-             class = c("CellCycleMarkers", "CellTypeMarkers")) {
+    function(
+        object,
+        geneToSymbol,
+        class = c("CellCycleMarkers", "CellTypeMarkers")
+    ) {
         assert(
             is(object, "DFrame"),
             is(geneToSymbol, "GeneToSymbol")
@@ -45,7 +47,7 @@
         x <- split(x, f = x[[group]])
         names(x) <- snakeCase(names(x))
         ## Specific fix for G2/M input (cell-cycle markers).
-        names(x) <- sub("g2_slash_m", "g2m", names(x))
+        names(x) <- sub("g2_slash_m", "g2m", names(x), fixed = TRUE)
         metadata(x) <- metadata(geneToSymbol)
         x
     }

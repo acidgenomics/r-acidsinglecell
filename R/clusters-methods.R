@@ -20,7 +20,6 @@
 NULL
 
 
-
 ## Updated 2019-08-06.
 `clusters,SCE` <- # nolint
     function(object) {
@@ -31,7 +30,6 @@ NULL
         names(ident) <- colnames(object)
         ident
     }
-
 
 
 #' @rdname clusters

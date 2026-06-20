@@ -65,27 +65,28 @@
 NULL
 
 
-
 ## Updated 2022-05-04.
 `filterCells,SCE` <- # nolint
-    function(object,
-             assay = 1L,
-             ## Cell-level metrics.
-             minCounts = 1L,
-             maxCounts = Inf,
-             minFeatures = 1L,
-             maxFeatures = Inf,
-             minNovelty = 0L,
-             maxMitoRatio = 1L,
-             ## Feature-level metrics.
-             minCellsPerFeature = 1L,
-             ## Manually subset top cells by sequencing depth.
-             nCells = Inf,
-             ## Column mappings.
-             countsCol = "nCount",
-             featuresCol = "nFeature",
-             noveltyCol = "log10FeaturesPerCount",
-             mitoRatioCol = "mitoRatio") {
+    function(
+        object,
+        assay = 1L,
+        ## Cell-level metrics.
+        minCounts = 1L,
+        maxCounts = Inf,
+        minFeatures = 1L,
+        maxFeatures = Inf,
+        minNovelty = 0L,
+        maxMitoRatio = 1L,
+        ## Feature-level metrics.
+        minCellsPerFeature = 1L,
+        ## Manually subset top cells by sequencing depth.
+        nCells = Inf,
+        ## Column mappings.
+        countsCol = "nCount",
+        featuresCol = "nFeature",
+        noveltyCol = "log10FeaturesPerCount",
+        mitoRatioCol = "mitoRatio"
+    ) {
         validObject(object)
         assert(
             isScalar(assay),
@@ -161,9 +162,9 @@ NULL
         operators <- lapply(
             X = names(args),
             FUN = function(x) {
-                if (grepl("^min", x)) {
+                if (startsWith(x, "min")) {
                     `>=`
-                } else if (grepl("^max", x)) {
+                } else if (startsWith(x, "max")) {
                     `<=`
                 } else {
                     NULL
@@ -221,9 +222,7 @@ NULL
         )
         lgl <- lgl[, keep, drop = FALSE]
         assert(!isTRUE(anyNA(lgl)))
-        cells <- apply(X = lgl, MARGIN = 1L, FUN = function(x) {
-            all(x)
-        })
+        cells <- apply(X = lgl, MARGIN = 1L, FUN = all)
         assert(identical(names(cells), colnames(object)))
         ## Keep top expected number of cells per sample.
         if (any(nCells < Inf)) {
@@ -289,9 +288,7 @@ NULL
             FUN = function(x) {
                 x <- vapply(
                     X = x,
-                    FUN = function(x) {
-                        sum(x, na.rm = FALSE)
-                    },
+                    FUN = sum,
                     FUN.VALUE = numeric(1L)
                 )
                 x <- na.omit(x)
@@ -376,7 +373,6 @@ NULL
         alertSuccess("Cell filtering was successful.")
         object
     }
-
 
 
 #' @rdname filterCells

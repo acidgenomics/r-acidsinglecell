@@ -24,11 +24,9 @@
 NULL
 
 
-
 ## Updated 2023-09-26.
 `cellToSample,SCE` <- # nolint
-    function(object,
-             return = c("factor", "DFrame")) {
+    function(object, return = c("factor", "DFrame")) {
         validObject(object)
         return <- match.arg(return)
         colData <- colData(object)
@@ -55,7 +53,6 @@ NULL
         )
         out
     }
-
 
 
 #' @rdname cellToSample
